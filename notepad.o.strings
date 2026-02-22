@@ -1,0 +1,44 @@
+UWVS
+Pj$VW
+\$ S
+|$,9
+$9D$
+|$$W
+\$(S
+XZSW
+XZSW
+|[^_]
+j<hD21
+[mod]
+ Ln 
+, Col 
+  Lines: 
+GCC: (GNU) 15.2.1 20260209
+notepad.c
+pad_count
+pads
+notepad_create
+memset
+notepad_draw
+fb_fill_rect
+itoa
+strlen
+fb_draw_string_nobg
+strcat
+pit_get_ticks
+fb_blend_pixel
+notepad_on_key
+memcpy
+memmove
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rodata.str1.1
+.rel.rodata
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

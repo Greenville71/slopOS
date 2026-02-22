@@ -1,0 +1,51 @@
+\j\j
+UWVS
+L$(h
+RPQS
+gfff
+t$<9T$
+T$09T$
+t$$S
+t$lV
+\$PS
+Y_SV
+|$8h
+D$pLive
+D$ts: 
+\$\S
+[^_]
+hD21
+D$(P
+Rt9[
+Score: 
+GAME OVER
+SPACE to launch
+[LEFT/RIGHT] Move  [SPACE] Launch  [R] Reset
+GCC: (GNU) 15.2.1 20260209
+game.c
+game_reset
+gstate_count
+gstates
+brick_colors
+game_create
+memset
+game_draw
+fb_fill_rounded_rect
+fb_fill_circle
+strcat
+itoa
+fb_draw_string_nobg
+game_on_key
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rodata.str1.1
+.rodata.str1.4
+.rodata
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

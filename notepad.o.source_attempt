@@ -1,0 +1,735 @@
+
+notepad.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <notepad_create>:
+   0:	53                   	push   %ebx
+   1:	31 db                	xor    %ebx,%ebx
+   3:	83 ec 08             	sub    $0x8,%esp
+   6:	a1 00 00 00 00       	mov    0x0,%eax
+   b:	83 f8 03             	cmp    $0x3,%eax
+   e:	7f 32                	jg     42 <notepad_create+0x42>
+  10:	8d 50 01             	lea    0x1(%eax),%edx
+  13:	83 ec 04             	sub    $0x4,%esp
+  16:	69 c0 14 80 00 00    	imul   $0x8014,%eax,%eax
+  1c:	68 14 80 00 00       	push   $0x8014
+  21:	6a 00                	push   $0x0
+  23:	89 15 00 00 00 00    	mov    %edx,0x0
+  29:	8d 98 20 00 00 00    	lea    0x20(%eax),%ebx
+  2f:	53                   	push   %ebx
+  30:	e8 fc ff ff ff       	call   31 <notepad_create+0x31>
+  35:	83 c4 10             	add    $0x10,%esp
+  38:	c7 83 00 80 00 00 01 	movl   $0x1,0x8000(%ebx)
+  3f:	00 00 00 
+  42:	83 c4 08             	add    $0x8,%esp
+  45:	89 d8                	mov    %ebx,%eax
+  47:	5b                   	pop    %ebx
+  48:	c3                   	ret
+  49:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+
+00000050 <notepad_draw>:
+  50:	55                   	push   %ebp
+  51:	57                   	push   %edi
+  52:	56                   	push   %esi
+  53:	53                   	push   %ebx
+  54:	83 ec 7c             	sub    $0x7c,%esp
+  57:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+  5e:	8b 40 68             	mov    0x68(%eax),%eax
+  61:	89 44 24 04          	mov    %eax,0x4(%esp)
+  65:	85 c0                	test   %eax,%eax
+  67:	0f 84 eb 02 00 00    	je     358 <notepad_draw+0x308>
+  6d:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+  74:	8b 94 24 90 00 00 00 	mov    0x90(%esp),%edx
+  7b:	c7 44 24 1c ff 00 00 	movl   $0xff,0x1c(%esp)
+  82:	00 
+  83:	8b 00                	mov    (%eax),%eax
+  85:	8b 5a 0c             	mov    0xc(%edx),%ebx
+  88:	89 44 24 10          	mov    %eax,0x10(%esp)
+  8c:	8d 78 04             	lea    0x4(%eax),%edi
+  8f:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+  96:	89 d9                	mov    %ebx,%ecx
+  98:	83 e9 24             	sub    $0x24,%ecx
+  9b:	8d 53 eb             	lea    -0x15(%ebx),%edx
+  9e:	8b 40 04             	mov    0x4(%eax),%eax
+  a1:	0f 49 d1             	cmovns %ecx,%edx
+  a4:	89 04 24             	mov    %eax,(%esp)
+  a7:	8d 70 20             	lea    0x20(%eax),%esi
+  aa:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+  b1:	c1 fa 04             	sar    $0x4,%edx
+  b4:	89 54 24 14          	mov    %edx,0x14(%esp)
+  b8:	8b 40 08             	mov    0x8(%eax),%eax
+  bb:	3d 2f 08 00 00       	cmp    $0x82f,%eax
+  c0:	0f 8e 23 03 00 00    	jle    3e9 <notepad_draw+0x399>
+  c6:	8b 4c 24 04          	mov    0x4(%esp),%ecx
+  ca:	8b 81 04 80 00 00    	mov    0x8004(%ecx),%eax
+  d0:	8b 91 0c 80 00 00    	mov    0x800c(%ecx),%edx
+  d6:	39 d0                	cmp    %edx,%eax
+  d8:	7d 08                	jge    e2 <notepad_draw+0x92>
+  da:	89 81 0c 80 00 00    	mov    %eax,0x800c(%ecx)
+  e0:	89 c2                	mov    %eax,%edx
+  e2:	8b 4c 24 14          	mov    0x14(%esp),%ecx
+  e6:	01 ca                	add    %ecx,%edx
+  e8:	39 d0                	cmp    %edx,%eax
+  ea:	0f 8d e5 02 00 00    	jge    3d5 <notepad_draw+0x385>
+  f0:	83 ec 0c             	sub    $0xc,%esp
+  f3:	68 25 18 18 00       	push   $0x181825
+  f8:	8b 44 24 24          	mov    0x24(%esp),%eax
+  fc:	c1 e0 04             	shl    $0x4,%eax
+  ff:	50                   	push   %eax
+ 100:	6a 24                	push   $0x24
+ 102:	56                   	push   %esi
+ 103:	57                   	push   %edi
+ 104:	e8 fc ff ff ff       	call   105 <notepad_draw+0xb5>
+ 109:	83 c4 20             	add    $0x20,%esp
+ 10c:	83 fb 33             	cmp    $0x33,%ebx
+ 10f:	0f 8e 56 03 00 00    	jle    46b <notepad_draw+0x41b>
+ 115:	8d 44 24 30          	lea    0x30(%esp),%eax
+ 119:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+ 120:	89 44 24 18          	mov    %eax,0x18(%esp)
+ 124:	8d 44 24 28          	lea    0x28(%esp),%eax
+ 128:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 12c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 130:	8b 4c 24 04          	mov    0x4(%esp),%ecx
+ 134:	8b 04 24             	mov    (%esp),%eax
+ 137:	03 81 0c 80 00 00    	add    0x800c(%ecx),%eax
+ 13d:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 141:	3b 81 00 80 00 00    	cmp    0x8000(%ecx),%eax
+ 147:	0f 8d fb 00 00 00    	jge    248 <notepad_draw+0x1f8>
+ 14d:	83 ec 04             	sub    $0x4,%esp
+ 150:	6a 0a                	push   $0xa
+ 152:	8b 5c 24 20          	mov    0x20(%esp),%ebx
+ 156:	53                   	push   %ebx
+ 157:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 15b:	8d 47 01             	lea    0x1(%edi),%eax
+ 15e:	50                   	push   %eax
+ 15f:	e8 fc ff ff ff       	call   160 <notepad_draw+0x110>
+ 164:	89 1c 24             	mov    %ebx,(%esp)
+ 167:	e8 fc ff ff ff       	call   168 <notepad_draw+0x118>
+ 16c:	8b 6c 24 14          	mov    0x14(%esp),%ebp
+ 170:	83 c4 10             	add    $0x10,%esp
+ 173:	b9 86 70 6c 00       	mov    $0x6c7086,%ecx
+ 178:	8d 14 c5 00 00 00 00 	lea    0x0(,%eax,8),%edx
+ 17f:	b8 f4 d6 cd 00       	mov    $0xcdd6f4,%eax
+ 184:	39 bd 04 80 00 00    	cmp    %edi,0x8004(%ebp)
+ 18a:	0f 45 c1             	cmovne %ecx,%eax
+ 18d:	50                   	push   %eax
+ 18e:	53                   	push   %ebx
+ 18f:	56                   	push   %esi
+ 190:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 194:	83 c0 24             	add    $0x24,%eax
+ 197:	29 d0                	sub    %edx,%eax
+ 199:	50                   	push   %eax
+ 19a:	e8 fc ff ff ff       	call   19b <notepad_draw+0x14b>
+ 19f:	89 f8                	mov    %edi,%eax
+ 1a1:	c1 e0 08             	shl    $0x8,%eax
+ 1a4:	01 c5                	add    %eax,%ebp
+ 1a6:	89 2c 24             	mov    %ebp,(%esp)
+ 1a9:	e8 fc ff ff ff       	call   1aa <notepad_draw+0x15a>
+ 1ae:	8b 7c 24 2c          	mov    0x2c(%esp),%edi
+ 1b2:	39 f8                	cmp    %edi,%eax
+ 1b4:	0f 4f c7             	cmovg  %edi,%eax
+ 1b7:	83 c4 10             	add    $0x10,%esp
+ 1ba:	89 c2                	mov    %eax,%edx
+ 1bc:	85 c0                	test   %eax,%eax
+ 1be:	7e 60                	jle    220 <notepad_draw+0x1d0>
+ 1c0:	8b 44 24 10          	mov    0x10(%esp),%eax
+ 1c4:	8d 58 2c             	lea    0x2c(%eax),%ebx
+ 1c7:	8d 3c d3             	lea    (%ebx,%edx,8),%edi
+ 1ca:	eb 0e                	jmp    1da <notepad_draw+0x18a>
+ 1cc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 1d0:	83 c3 08             	add    $0x8,%ebx
+ 1d3:	83 c5 01             	add    $0x1,%ebp
+ 1d6:	39 df                	cmp    %ebx,%edi
+ 1d8:	74 46                	je     220 <notepad_draw+0x1d0>
+ 1da:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 1df:	68 00 00 00 00       	push   $0x0
+ 1e4:	56                   	push   %esi
+ 1e5:	53                   	push   %ebx
+ 1e6:	e8 fc ff ff ff       	call   1e7 <notepad_draw+0x197>
+ 1eb:	0f b6 55 00          	movzbl 0x0(%ebp),%edx
+ 1ef:	83 c4 10             	add    $0x10,%esp
+ 1f2:	8d 4a e0             	lea    -0x20(%edx),%ecx
+ 1f5:	80 f9 5e             	cmp    $0x5e,%cl
+ 1f8:	77 d6                	ja     1d0 <notepad_draw+0x180>
+ 1fa:	88 54 24 28          	mov    %dl,0x28(%esp)
+ 1fe:	83 c5 01             	add    $0x1,%ebp
+ 201:	c6 44 24 29 00       	movb   $0x0,0x29(%esp)
+ 206:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 20b:	ff 74 24 10          	push   0x10(%esp)
+ 20f:	56                   	push   %esi
+ 210:	53                   	push   %ebx
+ 211:	83 c3 08             	add    $0x8,%ebx
+ 214:	e8 fc ff ff ff       	call   215 <notepad_draw+0x1c5>
+ 219:	83 c4 10             	add    $0x10,%esp
+ 21c:	39 df                	cmp    %ebx,%edi
+ 21e:	75 ba                	jne    1da <notepad_draw+0x18a>
+ 220:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 224:	8b 4c 24 08          	mov    0x8(%esp),%ecx
+ 228:	39 88 04 80 00 00    	cmp    %ecx,0x8004(%eax)
+ 22e:	0f 84 2c 01 00 00    	je     360 <notepad_draw+0x310>
+ 234:	83 04 24 01          	addl   $0x1,(%esp)
+ 238:	83 c6 10             	add    $0x10,%esi
+ 23b:	8b 04 24             	mov    (%esp),%eax
+ 23e:	39 44 24 14          	cmp    %eax,0x14(%esp)
+ 242:	0f 8f e8 fe ff ff    	jg     130 <notepad_draw+0xe0>
+ 248:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 24c:	80 b8 10 80 00 00 00 	cmpb   $0x0,0x8010(%eax)
+ 253:	0f 85 d2 01 00 00    	jne    42b <notepad_draw+0x3db>
+ 259:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+ 260:	83 ec 0c             	sub    $0xc,%esp
+ 263:	8b 70 0c             	mov    0xc(%eax),%esi
+ 266:	03 70 04             	add    0x4(%eax),%esi
+ 269:	68 25 18 18 00       	push   $0x181825
+ 26e:	6a 11                	push   $0x11
+ 270:	8b 84 24 a4 00 00 00 	mov    0xa4(%esp),%eax
+ 277:	8b 40 08             	mov    0x8(%eax),%eax
+ 27a:	89 44 24 14          	mov    %eax,0x14(%esp)
+ 27e:	83 e8 02             	sub    $0x2,%eax
+ 281:	50                   	push   %eax
+ 282:	8d 46 ee             	lea    -0x12(%esi),%eax
+ 285:	83 ee 11             	sub    $0x11,%esi
+ 288:	50                   	push   %eax
+ 289:	8b 84 24 ac 00 00 00 	mov    0xac(%esp),%eax
+ 290:	8b 00                	mov    (%eax),%eax
+ 292:	89 44 24 1c          	mov    %eax,0x1c(%esp)
+ 296:	83 c0 01             	add    $0x1,%eax
+ 299:	50                   	push   %eax
+ 29a:	e8 fc ff ff ff       	call   29b <notepad_draw+0x24b>
+ 29f:	c6 44 24 50 00       	movb   $0x0,0x50(%esp)
+ 2a4:	83 c4 18             	add    $0x18,%esp
+ 2a7:	68 08 00 00 00       	push   $0x8
+ 2ac:	8b 7c 24 24          	mov    0x24(%esp),%edi
+ 2b0:	57                   	push   %edi
+ 2b1:	e8 fc ff ff ff       	call   2b2 <notepad_draw+0x262>
+ 2b6:	83 c4 0c             	add    $0xc,%esp
+ 2b9:	6a 0a                	push   $0xa
+ 2bb:	8d 5c 24 28          	lea    0x28(%esp),%ebx
+ 2bf:	53                   	push   %ebx
+ 2c0:	8b 6c 24 10          	mov    0x10(%esp),%ebp
+ 2c4:	8b 85 04 80 00 00    	mov    0x8004(%ebp),%eax
+ 2ca:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 2ce:	83 c0 01             	add    $0x1,%eax
+ 2d1:	50                   	push   %eax
+ 2d2:	e8 fc ff ff ff       	call   2d3 <notepad_draw+0x283>
+ 2d7:	58                   	pop    %eax
+ 2d8:	5a                   	pop    %edx
+ 2d9:	53                   	push   %ebx
+ 2da:	57                   	push   %edi
+ 2db:	e8 fc ff ff ff       	call   2dc <notepad_draw+0x28c>
+ 2e0:	59                   	pop    %ecx
+ 2e1:	58                   	pop    %eax
+ 2e2:	68 0d 00 00 00       	push   $0xd
+ 2e7:	57                   	push   %edi
+ 2e8:	e8 fc ff ff ff       	call   2e9 <notepad_draw+0x299>
+ 2ed:	83 c4 0c             	add    $0xc,%esp
+ 2f0:	6a 0a                	push   $0xa
+ 2f2:	8b 85 08 80 00 00    	mov    0x8008(%ebp),%eax
+ 2f8:	ff 74 24 14          	push   0x14(%esp)
+ 2fc:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 300:	83 c0 01             	add    $0x1,%eax
+ 303:	50                   	push   %eax
+ 304:	e8 fc ff ff ff       	call   305 <notepad_draw+0x2b5>
+ 309:	58                   	pop    %eax
+ 30a:	5a                   	pop    %edx
+ 30b:	ff 74 24 14          	push   0x14(%esp)
+ 30f:	57                   	push   %edi
+ 310:	e8 fc ff ff ff       	call   311 <notepad_draw+0x2c1>
+ 315:	59                   	pop    %ecx
+ 316:	58                   	pop    %eax
+ 317:	68 14 00 00 00       	push   $0x14
+ 31c:	57                   	push   %edi
+ 31d:	e8 fc ff ff ff       	call   31e <notepad_draw+0x2ce>
+ 322:	83 c4 0c             	add    $0xc,%esp
+ 325:	6a 0a                	push   $0xa
+ 327:	53                   	push   %ebx
+ 328:	ff b5 00 80 00 00    	push   0x8000(%ebp)
+ 32e:	e8 fc ff ff ff       	call   32f <notepad_draw+0x2df>
+ 333:	58                   	pop    %eax
+ 334:	5a                   	pop    %edx
+ 335:	53                   	push   %ebx
+ 336:	57                   	push   %edi
+ 337:	e8 fc ff ff ff       	call   338 <notepad_draw+0x2e8>
+ 33c:	68 c8 ad a6 00       	push   $0xa6adc8
+ 341:	57                   	push   %edi
+ 342:	56                   	push   %esi
+ 343:	8b 84 24 ac 00 00 00 	mov    0xac(%esp),%eax
+ 34a:	8b 00                	mov    (%eax),%eax
+ 34c:	83 c0 08             	add    $0x8,%eax
+ 34f:	50                   	push   %eax
+ 350:	e8 fc ff ff ff       	call   351 <notepad_draw+0x301>
+ 355:	83 c4 20             	add    $0x20,%esp
+ 358:	83 c4 7c             	add    $0x7c,%esp
+ 35b:	5b                   	pop    %ebx
+ 35c:	5e                   	pop    %esi
+ 35d:	5f                   	pop    %edi
+ 35e:	5d                   	pop    %ebp
+ 35f:	c3                   	ret
+ 360:	e8 fc ff ff ff       	call   361 <notepad_draw+0x311>
+ 365:	ba cd cc cc cc       	mov    $0xcccccccd,%edx
+ 36a:	f7 e2                	mul    %edx
+ 36c:	83 e2 20             	and    $0x20,%edx
+ 36f:	0f 85 89 00 00 00    	jne    3fe <notepad_draw+0x3ae>
+ 375:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 379:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 37d:	39 90 04 80 00 00    	cmp    %edx,0x8004(%eax)
+ 383:	0f 85 ab fe ff ff    	jne    234 <notepad_draw+0x1e4>
+ 389:	8b 44 24 10          	mov    0x10(%esp),%eax
+ 38d:	8b 94 24 90 00 00 00 	mov    0x90(%esp),%edx
+ 394:	8d 58 2c             	lea    0x2c(%eax),%ebx
+ 397:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+ 39e:	8b 40 08             	mov    0x8(%eax),%eax
+ 3a1:	03 02                	add    (%edx),%eax
+ 3a3:	83 e8 04             	sub    $0x4,%eax
+ 3a6:	39 c3                	cmp    %eax,%ebx
+ 3a8:	0f 8d 86 fe ff ff    	jge    234 <notepad_draw+0x1e4>
+ 3ae:	89 d7                	mov    %edx,%edi
+ 3b0:	6a 3c                	push   $0x3c
+ 3b2:	68 44 32 31 00       	push   $0x313244
+ 3b7:	56                   	push   %esi
+ 3b8:	53                   	push   %ebx
+ 3b9:	83 c3 01             	add    $0x1,%ebx
+ 3bc:	e8 fc ff ff ff       	call   3bd <notepad_draw+0x36d>
+ 3c1:	8b 47 08             	mov    0x8(%edi),%eax
+ 3c4:	03 07                	add    (%edi),%eax
+ 3c6:	83 c4 10             	add    $0x10,%esp
+ 3c9:	83 e8 04             	sub    $0x4,%eax
+ 3cc:	39 d8                	cmp    %ebx,%eax
+ 3ce:	7f e0                	jg     3b0 <notepad_draw+0x360>
+ 3d0:	e9 5f fe ff ff       	jmp    234 <notepad_draw+0x1e4>
+ 3d5:	8b 54 24 04          	mov    0x4(%esp),%edx
+ 3d9:	29 c8                	sub    %ecx,%eax
+ 3db:	83 c0 01             	add    $0x1,%eax
+ 3de:	89 82 0c 80 00 00    	mov    %eax,0x800c(%edx)
+ 3e4:	e9 07 fd ff ff       	jmp    f0 <notepad_draw+0xa0>
+ 3e9:	8d 50 d7             	lea    -0x29(%eax),%edx
+ 3ec:	83 e8 30             	sub    $0x30,%eax
+ 3ef:	0f 49 d0             	cmovns %eax,%edx
+ 3f2:	c1 fa 03             	sar    $0x3,%edx
+ 3f5:	89 54 24 1c          	mov    %edx,0x1c(%esp)
+ 3f9:	e9 c8 fc ff ff       	jmp    c6 <notepad_draw+0x76>
+ 3fe:	83 ec 0c             	sub    $0xc,%esp
+ 401:	68 fa b4 89 00       	push   $0x89b4fa
+ 406:	6a 10                	push   $0x10
+ 408:	6a 02                	push   $0x2
+ 40a:	56                   	push   %esi
+ 40b:	8b 44 24 20          	mov    0x20(%esp),%eax
+ 40f:	8b 54 24 2c          	mov    0x2c(%esp),%edx
+ 413:	8b 80 08 80 00 00    	mov    0x8008(%eax),%eax
+ 419:	8d 44 c2 2c          	lea    0x2c(%edx,%eax,8),%eax
+ 41d:	50                   	push   %eax
+ 41e:	e8 fc ff ff ff       	call   41f <notepad_draw+0x3cf>
+ 423:	83 c4 20             	add    $0x20,%esp
+ 426:	e9 4a ff ff ff       	jmp    375 <notepad_draw+0x325>
+ 42b:	68 87 b3 fa 00       	push   $0xfab387
+ 430:	68 02 00 00 00       	push   $0x2
+ 435:	8b 84 24 98 00 00 00 	mov    0x98(%esp),%eax
+ 43c:	8b 40 04             	mov    0x4(%eax),%eax
+ 43f:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 443:	83 c0 06             	add    $0x6,%eax
+ 446:	50                   	push   %eax
+ 447:	8b 84 24 9c 00 00 00 	mov    0x9c(%esp),%eax
+ 44e:	8b b4 24 9c 00 00 00 	mov    0x9c(%esp),%esi
+ 455:	8b 40 08             	mov    0x8(%eax),%eax
+ 458:	03 06                	add    (%esi),%eax
+ 45a:	83 e8 50             	sub    $0x50,%eax
+ 45d:	50                   	push   %eax
+ 45e:	e8 fc ff ff ff       	call   45f <notepad_draw+0x40f>
+ 463:	83 c4 10             	add    $0x10,%esp
+ 466:	e9 ee fd ff ff       	jmp    259 <notepad_draw+0x209>
+ 46b:	8d 44 24 30          	lea    0x30(%esp),%eax
+ 46f:	89 44 24 18          	mov    %eax,0x18(%esp)
+ 473:	8d 44 24 28          	lea    0x28(%esp),%eax
+ 477:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 47b:	e9 c8 fd ff ff       	jmp    248 <notepad_draw+0x1f8>
+
+00000480 <notepad_on_key>:
+ 480:	57                   	push   %edi
+ 481:	56                   	push   %esi
+ 482:	53                   	push   %ebx
+ 483:	83 ec 10             	sub    $0x10,%esp
+ 486:	8b 44 24 20          	mov    0x20(%esp),%eax
+ 48a:	8b 54 24 24          	mov    0x24(%esp),%edx
+ 48e:	8b 58 68             	mov    0x68(%eax),%ebx
+ 491:	85 db                	test   %ebx,%ebx
+ 493:	74 40                	je     4d5 <notepad_on_key+0x55>
+ 495:	80 fa 0a             	cmp    $0xa,%dl
+ 498:	0f 8f 22 04 00 00    	jg     8c0 <notepad_on_key+0x440>
+ 49e:	80 fa f8             	cmp    $0xf8,%dl
+ 4a1:	7c 32                	jl     4d5 <notepad_on_key+0x55>
+ 4a3:	83 c2 08             	add    $0x8,%edx
+ 4a6:	80 fa 12             	cmp    $0x12,%dl
+ 4a9:	77 2a                	ja     4d5 <notepad_on_key+0x55>
+ 4ab:	0f b6 d2             	movzbl %dl,%edx
+ 4ae:	ff 24 95 00 00 00 00 	jmp    *0x0(,%edx,4)
+ 4b5:	8d 76 00             	lea    0x0(%esi),%esi
+ 4b8:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 4be:	83 ec 0c             	sub    $0xc,%esp
+ 4c1:	c1 e0 08             	shl    $0x8,%eax
+ 4c4:	01 d8                	add    %ebx,%eax
+ 4c6:	50                   	push   %eax
+ 4c7:	e8 fc ff ff ff       	call   4c8 <notepad_on_key+0x48>
+ 4cc:	83 c4 10             	add    $0x10,%esp
+ 4cf:	89 83 08 80 00 00    	mov    %eax,0x8008(%ebx)
+ 4d5:	83 c4 10             	add    $0x10,%esp
+ 4d8:	5b                   	pop    %ebx
+ 4d9:	5e                   	pop    %esi
+ 4da:	5f                   	pop    %edi
+ 4db:	c3                   	ret
+ 4dc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 4e0:	8b b3 00 80 00 00    	mov    0x8000(%ebx),%esi
+ 4e6:	83 fe 7f             	cmp    $0x7f,%esi
+ 4e9:	7f ea                	jg     4d5 <notepad_on_key+0x55>
+ 4eb:	8b 8b 04 80 00 00    	mov    0x8004(%ebx),%ecx
+ 4f1:	8d 41 01             	lea    0x1(%ecx),%eax
+ 4f4:	39 c6                	cmp    %eax,%esi
+ 4f6:	7e 40                	jle    538 <notepad_on_key+0xb8>
+ 4f8:	89 f2                	mov    %esi,%edx
+ 4fa:	c1 e2 08             	shl    $0x8,%edx
+ 4fd:	01 da                	add    %ebx,%edx
+ 4ff:	90                   	nop
+ 500:	83 ec 04             	sub    $0x4,%esp
+ 503:	89 d0                	mov    %edx,%eax
+ 505:	81 ea 00 01 00 00    	sub    $0x100,%edx
+ 50b:	83 ee 01             	sub    $0x1,%esi
+ 50e:	68 00 01 00 00       	push   $0x100
+ 513:	52                   	push   %edx
+ 514:	89 54 24 14          	mov    %edx,0x14(%esp)
+ 518:	50                   	push   %eax
+ 519:	e8 fc ff ff ff       	call   51a <notepad_on_key+0x9a>
+ 51e:	8b 8b 04 80 00 00    	mov    0x8004(%ebx),%ecx
+ 524:	83 c4 10             	add    $0x10,%esp
+ 527:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 52b:	8d 41 01             	lea    0x1(%ecx),%eax
+ 52e:	39 c6                	cmp    %eax,%esi
+ 530:	7f ce                	jg     500 <notepad_on_key+0x80>
+ 532:	8b b3 00 80 00 00    	mov    0x8000(%ebx),%esi
+ 538:	c1 e1 08             	shl    $0x8,%ecx
+ 53b:	8d 56 01             	lea    0x1(%esi),%edx
+ 53e:	83 ec 0c             	sub    $0xc,%esp
+ 541:	c1 e0 08             	shl    $0x8,%eax
+ 544:	8d 34 0b             	lea    (%ebx,%ecx,1),%esi
+ 547:	89 93 00 80 00 00    	mov    %edx,0x8000(%ebx)
+ 54d:	8d 3c 03             	lea    (%ebx,%eax,1),%edi
+ 550:	56                   	push   %esi
+ 551:	e8 fc ff ff ff       	call   552 <notepad_on_key+0xd2>
+ 556:	8b 8b 08 80 00 00    	mov    0x8008(%ebx),%ecx
+ 55c:	83 c4 10             	add    $0x10,%esp
+ 55f:	29 c8                	sub    %ecx,%eax
+ 561:	85 c0                	test   %eax,%eax
+ 563:	0f 8f 7f 04 00 00    	jg     9e8 <notepad_on_key+0x568>
+ 569:	c6 07 00             	movb   $0x0,(%edi)
+ 56c:	83 83 04 80 00 00 01 	addl   $0x1,0x8004(%ebx)
+ 573:	c7 83 08 80 00 00 00 	movl   $0x0,0x8008(%ebx)
+ 57a:	00 00 00 
+ 57d:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 584:	e9 4c ff ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 589:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 590:	8b 93 04 80 00 00    	mov    0x8004(%ebx),%edx
+ 596:	83 ec 0c             	sub    $0xc,%esp
+ 599:	c1 e2 08             	shl    $0x8,%edx
+ 59c:	01 da                	add    %ebx,%edx
+ 59e:	52                   	push   %edx
+ 59f:	89 54 24 18          	mov    %edx,0x18(%esp)
+ 5a3:	e8 fc ff ff ff       	call   5a4 <notepad_on_key+0x124>
+ 5a8:	8b 8b 08 80 00 00    	mov    0x8008(%ebx),%ecx
+ 5ae:	83 c4 10             	add    $0x10,%esp
+ 5b1:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 5b5:	39 c1                	cmp    %eax,%ecx
+ 5b7:	0f 8c 03 04 00 00    	jl     9c0 <notepad_on_key+0x540>
+ 5bd:	8b bb 00 80 00 00    	mov    0x8000(%ebx),%edi
+ 5c3:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 5c9:	8d 4f ff             	lea    -0x1(%edi),%ecx
+ 5cc:	39 c8                	cmp    %ecx,%eax
+ 5ce:	0f 8d 01 ff ff ff    	jge    4d5 <notepad_on_key+0x55>
+ 5d4:	83 c0 01             	add    $0x1,%eax
+ 5d7:	83 ec 08             	sub    $0x8,%esp
+ 5da:	c1 e0 08             	shl    $0x8,%eax
+ 5dd:	01 d8                	add    %ebx,%eax
+ 5df:	50                   	push   %eax
+ 5e0:	52                   	push   %edx
+ 5e1:	e8 fc ff ff ff       	call   5e2 <notepad_on_key+0x162>
+ 5e6:	8b 93 04 80 00 00    	mov    0x8004(%ebx),%edx
+ 5ec:	8b 83 00 80 00 00    	mov    0x8000(%ebx),%eax
+ 5f2:	83 c4 10             	add    $0x10,%esp
+ 5f5:	8d 4a 01             	lea    0x1(%edx),%ecx
+ 5f8:	83 e8 01             	sub    $0x1,%eax
+ 5fb:	39 c1                	cmp    %eax,%ecx
+ 5fd:	7d 4b                	jge    64a <notepad_on_key+0x1ca>
+ 5ff:	c1 e2 08             	shl    $0x8,%edx
+ 602:	8d 94 13 00 01 00 00 	lea    0x100(%ebx,%edx,1),%edx
+ 609:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 610:	83 c1 01             	add    $0x1,%ecx
+ 613:	83 ec 04             	sub    $0x4,%esp
+ 616:	89 d0                	mov    %edx,%eax
+ 618:	81 c2 00 01 00 00    	add    $0x100,%edx
+ 61e:	89 4c 24 10          	mov    %ecx,0x10(%esp)
+ 622:	68 00 01 00 00       	push   $0x100
+ 627:	52                   	push   %edx
+ 628:	89 54 24 14          	mov    %edx,0x14(%esp)
+ 62c:	50                   	push   %eax
+ 62d:	e8 fc ff ff ff       	call   62e <notepad_on_key+0x1ae>
+ 632:	8b 4c 24 1c          	mov    0x1c(%esp),%ecx
+ 636:	83 c4 10             	add    $0x10,%esp
+ 639:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 63d:	8b 83 00 80 00 00    	mov    0x8000(%ebx),%eax
+ 643:	83 e8 01             	sub    $0x1,%eax
+ 646:	39 c1                	cmp    %eax,%ecx
+ 648:	7c c6                	jl     610 <notepad_on_key+0x190>
+ 64a:	89 83 00 80 00 00    	mov    %eax,0x8000(%ebx)
+ 650:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 657:	e9 79 fe ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 65c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 660:	c7 83 08 80 00 00 00 	movl   $0x0,0x8008(%ebx)
+ 667:	00 00 00 
+ 66a:	e9 66 fe ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 66f:	90                   	nop
+ 670:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 676:	83 ec 0c             	sub    $0xc,%esp
+ 679:	c1 e0 08             	shl    $0x8,%eax
+ 67c:	01 d8                	add    %ebx,%eax
+ 67e:	50                   	push   %eax
+ 67f:	e8 fc ff ff ff       	call   680 <notepad_on_key+0x200>
+ 684:	83 c4 10             	add    $0x10,%esp
+ 687:	89 c2                	mov    %eax,%edx
+ 689:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ 68f:	39 d0                	cmp    %edx,%eax
+ 691:	0f 8c a1 02 00 00    	jl     938 <notepad_on_key+0x4b8>
+ 697:	8b 83 00 80 00 00    	mov    0x8000(%ebx),%eax
+ 69d:	8b 93 04 80 00 00    	mov    0x8004(%ebx),%edx
+ 6a3:	83 e8 01             	sub    $0x1,%eax
+ 6a6:	39 c2                	cmp    %eax,%edx
+ 6a8:	0f 8d 27 fe ff ff    	jge    4d5 <notepad_on_key+0x55>
+ 6ae:	c7 83 08 80 00 00 00 	movl   $0x0,0x8008(%ebx)
+ 6b5:	00 00 00 
+ 6b8:	83 c2 01             	add    $0x1,%edx
+ 6bb:	89 93 04 80 00 00    	mov    %edx,0x8004(%ebx)
+ 6c1:	e9 0f fe ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 6c6:	66 90                	xchg   %ax,%ax
+ 6c8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 6cf:	00 
+ 6d0:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ 6d6:	85 c0                	test   %eax,%eax
+ 6d8:	0f 8e c2 02 00 00    	jle    9a0 <notepad_on_key+0x520>
+ 6de:	83 e8 01             	sub    $0x1,%eax
+ 6e1:	89 83 08 80 00 00    	mov    %eax,0x8008(%ebx)
+ 6e7:	e9 e9 fd ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 6ec:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 6f0:	8b b3 00 80 00 00    	mov    0x8000(%ebx),%esi
+ 6f6:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 6fc:	8d 56 ff             	lea    -0x1(%esi),%edx
+ 6ff:	39 d0                	cmp    %edx,%eax
+ 701:	0f 8d ce fd ff ff    	jge    4d5 <notepad_on_key+0x55>
+ 707:	83 c0 01             	add    $0x1,%eax
+ 70a:	eb 15                	jmp    721 <notepad_on_key+0x2a1>
+ 70c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 710:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 716:	85 c0                	test   %eax,%eax
+ 718:	0f 8e b7 fd ff ff    	jle    4d5 <notepad_on_key+0x55>
+ 71e:	83 e8 01             	sub    $0x1,%eax
+ 721:	89 83 04 80 00 00    	mov    %eax,0x8004(%ebx)
+ 727:	c1 e0 08             	shl    $0x8,%eax
+ 72a:	83 ec 0c             	sub    $0xc,%esp
+ 72d:	01 d8                	add    %ebx,%eax
+ 72f:	50                   	push   %eax
+ 730:	e8 fc ff ff ff       	call   731 <notepad_on_key+0x2b1>
+ 735:	83 c4 10             	add    $0x10,%esp
+ 738:	39 83 08 80 00 00    	cmp    %eax,0x8008(%ebx)
+ 73e:	0f 8e 91 fd ff ff    	jle    4d5 <notepad_on_key+0x55>
+ 744:	89 83 08 80 00 00    	mov    %eax,0x8008(%ebx)
+ 74a:	e9 86 fd ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 74f:	90                   	nop
+ 750:	8b b3 08 80 00 00    	mov    0x8008(%ebx),%esi
+ 756:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 75c:	85 f6                	test   %esi,%esi
+ 75e:	0f 8f ec 01 00 00    	jg     950 <notepad_on_key+0x4d0>
+ 764:	85 c0                	test   %eax,%eax
+ 766:	0f 8e 69 fd ff ff    	jle    4d5 <notepad_on_key+0x55>
+ 76c:	83 e8 01             	sub    $0x1,%eax
+ 76f:	83 ec 0c             	sub    $0xc,%esp
+ 772:	c1 e0 08             	shl    $0x8,%eax
+ 775:	01 d8                	add    %ebx,%eax
+ 777:	50                   	push   %eax
+ 778:	e8 fc ff ff ff       	call   779 <notepad_on_key+0x2f9>
+ 77d:	5a                   	pop    %edx
+ 77e:	59                   	pop    %ecx
+ 77f:	89 c7                	mov    %eax,%edi
+ 781:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 787:	c1 e0 08             	shl    $0x8,%eax
+ 78a:	8d 14 03             	lea    (%ebx,%eax,1),%edx
+ 78d:	8d 84 03 00 ff ff ff 	lea    -0x100(%ebx,%eax,1),%eax
+ 794:	52                   	push   %edx
+ 795:	50                   	push   %eax
+ 796:	e8 fc ff ff ff       	call   797 <notepad_on_key+0x317>
+ 79b:	8b 83 00 80 00 00    	mov    0x8000(%ebx),%eax
+ 7a1:	8b 8b 04 80 00 00    	mov    0x8004(%ebx),%ecx
+ 7a7:	83 c4 10             	add    $0x10,%esp
+ 7aa:	83 e8 01             	sub    $0x1,%eax
+ 7ad:	39 c1                	cmp    %eax,%ecx
+ 7af:	7d 4f                	jge    800 <notepad_on_key+0x380>
+ 7b1:	89 ca                	mov    %ecx,%edx
+ 7b3:	c1 e2 08             	shl    $0x8,%edx
+ 7b6:	01 da                	add    %ebx,%edx
+ 7b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 7bf:	00 
+ 7c0:	83 c1 01             	add    $0x1,%ecx
+ 7c3:	83 ec 04             	sub    $0x4,%esp
+ 7c6:	89 d0                	mov    %edx,%eax
+ 7c8:	81 c2 00 01 00 00    	add    $0x100,%edx
+ 7ce:	89 4c 24 10          	mov    %ecx,0x10(%esp)
+ 7d2:	68 00 01 00 00       	push   $0x100
+ 7d7:	52                   	push   %edx
+ 7d8:	89 54 24 14          	mov    %edx,0x14(%esp)
+ 7dc:	50                   	push   %eax
+ 7dd:	e8 fc ff ff ff       	call   7de <notepad_on_key+0x35e>
+ 7e2:	8b 4c 24 1c          	mov    0x1c(%esp),%ecx
+ 7e6:	83 c4 10             	add    $0x10,%esp
+ 7e9:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 7ed:	8b 83 00 80 00 00    	mov    0x8000(%ebx),%eax
+ 7f3:	83 e8 01             	sub    $0x1,%eax
+ 7f6:	39 c1                	cmp    %eax,%ecx
+ 7f8:	7c c6                	jl     7c0 <notepad_on_key+0x340>
+ 7fa:	8b 8b 04 80 00 00    	mov    0x8004(%ebx),%ecx
+ 800:	83 e9 01             	sub    $0x1,%ecx
+ 803:	89 83 00 80 00 00    	mov    %eax,0x8000(%ebx)
+ 809:	89 8b 04 80 00 00    	mov    %ecx,0x8004(%ebx)
+ 80f:	89 bb 08 80 00 00    	mov    %edi,0x8008(%ebx)
+ 815:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 81c:	e9 b4 fc ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 821:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 828:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ 82e:	bf 04 00 00 00       	mov    $0x4,%edi
+ 833:	3d fd 00 00 00       	cmp    $0xfd,%eax
+ 838:	7f 70                	jg     8aa <notepad_on_key+0x42a>
+ 83a:	8b 93 04 80 00 00    	mov    0x8004(%ebx),%edx
+ 840:	83 ec 0c             	sub    $0xc,%esp
+ 843:	c1 e2 08             	shl    $0x8,%edx
+ 846:	01 da                	add    %ebx,%edx
+ 848:	52                   	push   %edx
+ 849:	89 54 24 18          	mov    %edx,0x18(%esp)
+ 84d:	e8 fc ff ff ff       	call   84e <notepad_on_key+0x3ce>
+ 852:	83 c4 10             	add    $0x10,%esp
+ 855:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 859:	3d fd 00 00 00       	cmp    $0xfd,%eax
+ 85e:	7f 4a                	jg     8aa <notepad_on_key+0x42a>
+ 860:	8b 8b 08 80 00 00    	mov    0x8008(%ebx),%ecx
+ 866:	83 ec 04             	sub    $0x4,%esp
+ 869:	89 fe                	mov    %edi,%esi
+ 86b:	29 c8                	sub    %ecx,%eax
+ 86d:	83 c0 01             	add    $0x1,%eax
+ 870:	50                   	push   %eax
+ 871:	8d 04 0a             	lea    (%edx,%ecx,1),%eax
+ 874:	50                   	push   %eax
+ 875:	8d 44 0a 01          	lea    0x1(%edx,%ecx,1),%eax
+ 879:	89 54 24 14          	mov    %edx,0x14(%esp)
+ 87d:	50                   	push   %eax
+ 87e:	e8 fc ff ff ff       	call   87f <notepad_on_key+0x3ff>
+ 883:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ 889:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 88d:	83 c4 10             	add    $0x10,%esp
+ 890:	c6 04 02 20          	movb   $0x20,(%edx,%eax,1)
+ 894:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ 89a:	83 c0 01             	add    $0x1,%eax
+ 89d:	83 ee 01             	sub    $0x1,%esi
+ 8a0:	89 83 08 80 00 00    	mov    %eax,0x8008(%ebx)
+ 8a6:	89 f7                	mov    %esi,%edi
+ 8a8:	75 89                	jne    833 <notepad_on_key+0x3b3>
+ 8aa:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 8b1:	e9 1f fc ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 8b6:	66 90                	xchg   %ax,%ax
+ 8b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 8bf:	00 
+ 8c0:	8d 42 e0             	lea    -0x20(%edx),%eax
+ 8c3:	3c 5e                	cmp    $0x5e,%al
+ 8c5:	0f 87 0a fc ff ff    	ja     4d5 <notepad_on_key+0x55>
+ 8cb:	8b 8b 04 80 00 00    	mov    0x8004(%ebx),%ecx
+ 8d1:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 8d5:	83 ec 0c             	sub    $0xc,%esp
+ 8d8:	c1 e1 08             	shl    $0x8,%ecx
+ 8db:	8d 04 0b             	lea    (%ebx,%ecx,1),%eax
+ 8de:	50                   	push   %eax
+ 8df:	89 c7                	mov    %eax,%edi
+ 8e1:	e8 fc ff ff ff       	call   8e2 <notepad_on_key+0x462>
+ 8e6:	83 c4 10             	add    $0x10,%esp
+ 8e9:	3d fd 00 00 00       	cmp    $0xfd,%eax
+ 8ee:	0f 8f e1 fb ff ff    	jg     4d5 <notepad_on_key+0x55>
+ 8f4:	8b 8b 08 80 00 00    	mov    0x8008(%ebx),%ecx
+ 8fa:	83 ec 04             	sub    $0x4,%esp
+ 8fd:	29 c8                	sub    %ecx,%eax
+ 8ff:	83 c0 01             	add    $0x1,%eax
+ 902:	50                   	push   %eax
+ 903:	8d 04 0f             	lea    (%edi,%ecx,1),%eax
+ 906:	50                   	push   %eax
+ 907:	8d 44 0f 01          	lea    0x1(%edi,%ecx,1),%eax
+ 90b:	50                   	push   %eax
+ 90c:	e8 fc ff ff ff       	call   90d <notepad_on_key+0x48d>
+ 911:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ 917:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 91b:	83 c4 10             	add    $0x10,%esp
+ 91e:	88 14 07             	mov    %dl,(%edi,%eax,1)
+ 921:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 928:	83 83 08 80 00 00 01 	addl   $0x1,0x8008(%ebx)
+ 92f:	e9 a1 fb ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 934:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 938:	83 c0 01             	add    $0x1,%eax
+ 93b:	89 83 08 80 00 00    	mov    %eax,0x8008(%ebx)
+ 941:	e9 8f fb ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 946:	66 90                	xchg   %ax,%ax
+ 948:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 94f:	00 
+ 950:	c1 e0 08             	shl    $0x8,%eax
+ 953:	83 ec 0c             	sub    $0xc,%esp
+ 956:	8d 14 03             	lea    (%ebx,%eax,1),%edx
+ 959:	52                   	push   %edx
+ 95a:	89 54 24 18          	mov    %edx,0x18(%esp)
+ 95e:	e8 fc ff ff ff       	call   95f <notepad_on_key+0x4df>
+ 963:	8b 8b 08 80 00 00    	mov    0x8008(%ebx),%ecx
+ 969:	83 c4 0c             	add    $0xc,%esp
+ 96c:	29 c8                	sub    %ecx,%eax
+ 96e:	83 c0 01             	add    $0x1,%eax
+ 971:	50                   	push   %eax
+ 972:	8b 54 24 10          	mov    0x10(%esp),%edx
+ 976:	8d 04 0a             	lea    (%edx,%ecx,1),%eax
+ 979:	50                   	push   %eax
+ 97a:	8d 44 0a ff          	lea    -0x1(%edx,%ecx,1),%eax
+ 97e:	50                   	push   %eax
+ 97f:	e8 fc ff ff ff       	call   980 <notepad_on_key+0x500>
+ 984:	83 ab 08 80 00 00 01 	subl   $0x1,0x8008(%ebx)
+ 98b:	83 c4 10             	add    $0x10,%esp
+ 98e:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 995:	e9 3b fb ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 99a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 9a0:	8b 83 04 80 00 00    	mov    0x8004(%ebx),%eax
+ 9a6:	85 c0                	test   %eax,%eax
+ 9a8:	0f 8e 27 fb ff ff    	jle    4d5 <notepad_on_key+0x55>
+ 9ae:	83 e8 01             	sub    $0x1,%eax
+ 9b1:	83 ec 0c             	sub    $0xc,%esp
+ 9b4:	89 83 04 80 00 00    	mov    %eax,0x8004(%ebx)
+ 9ba:	e9 02 fb ff ff       	jmp    4c1 <notepad_on_key+0x41>
+ 9bf:	90                   	nop
+ 9c0:	83 ec 04             	sub    $0x4,%esp
+ 9c3:	29 c8                	sub    %ecx,%eax
+ 9c5:	50                   	push   %eax
+ 9c6:	8d 44 0a 01          	lea    0x1(%edx,%ecx,1),%eax
+ 9ca:	01 d1                	add    %edx,%ecx
+ 9cc:	50                   	push   %eax
+ 9cd:	51                   	push   %ecx
+ 9ce:	e8 fc ff ff ff       	call   9cf <notepad_on_key+0x54f>
+ 9d3:	c6 83 10 80 00 00 01 	movb   $0x1,0x8010(%ebx)
+ 9da:	83 c4 10             	add    $0x10,%esp
+ 9dd:	e9 f3 fa ff ff       	jmp    4d5 <notepad_on_key+0x55>
+ 9e2:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 9e8:	83 ec 04             	sub    $0x4,%esp
+ 9eb:	01 f1                	add    %esi,%ecx
+ 9ed:	50                   	push   %eax
+ 9ee:	89 44 24 10          	mov    %eax,0x10(%esp)
+ 9f2:	51                   	push   %ecx
+ 9f3:	57                   	push   %edi
+ 9f4:	e8 fc ff ff ff       	call   9f5 <notepad_on_key+0x575>
+ 9f9:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 9fd:	83 c4 10             	add    $0x10,%esp
+ a00:	c6 04 17 00          	movb   $0x0,(%edi,%edx,1)
+ a04:	8b 83 08 80 00 00    	mov    0x8008(%ebx),%eax
+ a0a:	c6 04 06 00          	movb   $0x0,(%esi,%eax,1)
+ a0e:	e9 59 fb ff ff       	jmp    56c <notepad_on_key+0xec>

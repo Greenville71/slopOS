@@ -1,0 +1,349 @@
+
+login.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <login_screen>:
+   0:	55                   	push   %ebp
+   1:	57                   	push   %edi
+   2:	56                   	push   %esi
+   3:	53                   	push   %ebx
+   4:	81 ec 0c 01 00 00    	sub    $0x10c,%esp
+   a:	e8 fc ff ff ff       	call   b <login_screen+0xb>
+   f:	89 c7                	mov    %eax,%edi
+  11:	89 44 24 5c          	mov    %eax,0x5c(%esp)
+  15:	e8 fc ff ff ff       	call   16 <login_screen+0x16>
+  1a:	c6 44 24 60 00       	movb   $0x0,0x60(%esp)
+  1f:	89 c3                	mov    %eax,%ebx
+  21:	8d 87 84 fe ff ff    	lea    -0x17c(%edi),%eax
+  27:	c1 e8 1f             	shr    $0x1f,%eax
+  2a:	8d 84 38 84 fe ff ff 	lea    -0x17c(%eax,%edi,1),%eax
+  31:	31 ff                	xor    %edi,%edi
+  33:	d1 f8                	sar    $1,%eax
+  35:	89 c1                	mov    %eax,%ecx
+  37:	8d 83 fc fe ff ff    	lea    -0x104(%ebx),%eax
+  3d:	c1 e8 1f             	shr    $0x1f,%eax
+  40:	89 4c 24 58          	mov    %ecx,0x58(%esp)
+  44:	8d 84 18 fc fe ff ff 	lea    -0x104(%eax,%ebx,1),%eax
+  4b:	d1 f8                	sar    $1,%eax
+  4d:	89 c2                	mov    %eax,%edx
+  4f:	8d 40 18             	lea    0x18(%eax),%eax
+  52:	89 44 24 14          	mov    %eax,0x14(%esp)
+  56:	8d 81 a2 00 00 00    	lea    0xa2(%ecx),%eax
+  5c:	89 44 24 18          	mov    %eax,0x18(%esp)
+  60:	8d 42 2c             	lea    0x2c(%edx),%eax
+  63:	89 44 24 1c          	mov    %eax,0x1c(%esp)
+  67:	8d 81 b6 00 00 00    	lea    0xb6(%ecx),%eax
+  6d:	89 44 24 20          	mov    %eax,0x20(%esp)
+  71:	8d 42 60             	lea    0x60(%edx),%eax
+  74:	89 44 24 24          	mov    %eax,0x24(%esp)
+  78:	8d 81 86 00 00 00    	lea    0x86(%ecx),%eax
+  7e:	89 44 24 28          	mov    %eax,0x28(%esp)
+  82:	8d 41 28             	lea    0x28(%ecx),%eax
+  85:	89 44 24 04          	mov    %eax,0x4(%esp)
+  89:	8d 82 82 00 00 00    	lea    0x82(%edx),%eax
+  8f:	89 44 24 48          	mov    %eax,0x48(%esp)
+  93:	8d 82 8c 00 00 00    	lea    0x8c(%edx),%eax
+  99:	89 44 24 2c          	mov    %eax,0x2c(%esp)
+  9d:	8d 41 34             	lea    0x34(%ecx),%eax
+  a0:	89 44 24 0c          	mov    %eax,0xc(%esp)
+  a4:	8d 42 70             	lea    0x70(%edx),%eax
+  a7:	89 44 24 30          	mov    %eax,0x30(%esp)
+  ab:	8d 41 2c             	lea    0x2c(%ecx),%eax
+  ae:	89 44 24 34          	mov    %eax,0x34(%esp)
+  b2:	8d 82 c3 00 00 00    	lea    0xc3(%edx),%eax
+  b8:	89 44 24 4c          	mov    %eax,0x4c(%esp)
+  bc:	8d 82 cd 00 00 00    	lea    0xcd(%edx),%eax
+  c2:	89 44 24 38          	mov    %eax,0x38(%esp)
+  c6:	8d 81 a6 00 00 00    	lea    0xa6(%ecx),%eax
+  cc:	89 44 24 3c          	mov    %eax,0x3c(%esp)
+  d0:	8d 82 f0 00 00 00    	lea    0xf0(%edx),%eax
+  d6:	89 44 24 40          	mov    %eax,0x40(%esp)
+  da:	8d 41 6e             	lea    0x6e(%ecx),%eax
+  dd:	89 44 24 44          	mov    %eax,0x44(%esp)
+  e1:	8d 42 01             	lea    0x1(%edx),%eax
+  e4:	89 44 24 54          	mov    %eax,0x54(%esp)
+  e8:	89 c8                	mov    %ecx,%eax
+  ea:	29 d0                	sub    %edx,%eax
+  ec:	89 54 24 10          	mov    %edx,0x10(%esp)
+  f0:	89 44 24 50          	mov    %eax,0x50(%esp)
+  f4:	31 ed                	xor    %ebp,%ebp
+  f6:	31 f6                	xor    %esi,%esi
+  f8:	85 db                	test   %ebx,%ebx
+  fa:	7e 57                	jle    153 <login_screen+0x153>
+  fc:	89 7c 24 08          	mov    %edi,0x8(%esp)
+ 100:	8b 7c 24 5c          	mov    0x5c(%esp),%edi
+ 104:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 108:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 10f:	00 
+ 110:	89 e8                	mov    %ebp,%eax
+ 112:	99                   	cltd
+ 113:	f7 fb                	idiv   %ebx
+ 115:	8d 48 0c             	lea    0xc(%eax),%ecx
+ 118:	8d 44 2d 00          	lea    0x0(%ebp,%ebp,1),%eax
+ 11c:	83 c5 0f             	add    $0xf,%ebp
+ 11f:	99                   	cltd
+ 120:	c1 e1 08             	shl    $0x8,%ecx
+ 123:	f7 fb                	idiv   %ebx
+ 125:	83 c0 19             	add    $0x19,%eax
+ 128:	09 c1                	or     %eax,%ecx
+ 12a:	8d 04 76             	lea    (%esi,%esi,2),%eax
+ 12d:	c1 e0 02             	shl    $0x2,%eax
+ 130:	99                   	cltd
+ 131:	f7 fb                	idiv   %ebx
+ 133:	83 c0 0e             	add    $0xe,%eax
+ 136:	c1 e0 10             	shl    $0x10,%eax
+ 139:	09 c1                	or     %eax,%ecx
+ 13b:	51                   	push   %ecx
+ 13c:	57                   	push   %edi
+ 13d:	56                   	push   %esi
+ 13e:	83 c6 01             	add    $0x1,%esi
+ 141:	6a 00                	push   $0x0
+ 143:	e8 fc ff ff ff       	call   144 <login_screen+0x144>
+ 148:	83 c4 10             	add    $0x10,%esp
+ 14b:	39 f3                	cmp    %esi,%ebx
+ 14d:	75 c1                	jne    110 <login_screen+0x110>
+ 14f:	8b 7c 24 08          	mov    0x8(%esp),%edi
+ 153:	8b 6c 24 54          	mov    0x54(%esp),%ebp
+ 157:	8b 74 24 50          	mov    0x50(%esp),%esi
+ 15b:	89 5c 24 08          	mov    %ebx,0x8(%esp)
+ 15f:	bb 18 18 00 00       	mov    $0x1818,%ebx
+ 164:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 168:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 16f:	00 
+ 170:	83 ec 08             	sub    $0x8,%esp
+ 173:	8d 14 2e             	lea    (%esi,%ebp,1),%edx
+ 176:	53                   	push   %ebx
+ 177:	6a 10                	push   $0x10
+ 179:	68 04 01 00 00       	push   $0x104
+ 17e:	68 7c 01 00 00       	push   $0x17c
+ 183:	55                   	push   %ebp
+ 184:	83 c5 01             	add    $0x1,%ebp
+ 187:	52                   	push   %edx
+ 188:	e8 fc ff ff ff       	call   189 <login_screen+0x189>
+ 18d:	83 c4 20             	add    $0x20,%esp
+ 190:	81 eb 04 04 00 00    	sub    $0x404,%ebx
+ 196:	75 d8                	jne    170 <login_screen+0x170>
+ 198:	8b 5c 24 08          	mov    0x8(%esp),%ebx
+ 19c:	83 ec 08             	sub    $0x8,%esp
+ 19f:	be cd cc cc cc       	mov    $0xcccccccd,%esi
+ 1a4:	68 2e 1e 1e 00       	push   $0x1e1e2e
+ 1a9:	6a 10                	push   $0x10
+ 1ab:	68 04 01 00 00       	push   $0x104
+ 1b0:	68 7c 01 00 00       	push   $0x17c
+ 1b5:	ff 74 24 28          	push   0x28(%esp)
+ 1b9:	ff 74 24 74          	push   0x74(%esp)
+ 1bd:	e8 fc ff ff ff       	call   1be <login_screen+0x1be>
+ 1c2:	83 c4 18             	add    $0x18,%esp
+ 1c5:	68 fa b4 89 00       	push   $0x89b4fa
+ 1ca:	6a 0e                	push   $0xe
+ 1cc:	6a 38                	push   $0x38
+ 1ce:	6a 38                	push   $0x38
+ 1d0:	ff 74 24 2c          	push   0x2c(%esp)
+ 1d4:	ff 74 24 34          	push   0x34(%esp)
+ 1d8:	e8 fc ff ff ff       	call   1d9 <login_screen+0x1d9>
+ 1dd:	83 c4 20             	add    $0x20,%esp
+ 1e0:	68 ff ff ff 00       	push   $0xffffff
+ 1e5:	68 00 00 00 00       	push   $0x0
+ 1ea:	ff 74 24 24          	push   0x24(%esp)
+ 1ee:	ff 74 24 2c          	push   0x2c(%esp)
+ 1f2:	e8 fc ff ff ff       	call   1f3 <login_screen+0x1f3>
+ 1f7:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 1fc:	68 02 00 00 00       	push   $0x2
+ 201:	ff 74 24 3c          	push   0x3c(%esp)
+ 205:	ff 74 24 44          	push   0x44(%esp)
+ 209:	e8 fc ff ff ff       	call   20a <login_screen+0x20a>
+ 20e:	83 c4 18             	add    $0x18,%esp
+ 211:	68 44 32 31 00       	push   $0x313244
+ 216:	6a 08                	push   $0x8
+ 218:	6a 24                	push   $0x24
+ 21a:	68 2c 01 00 00       	push   $0x12c
+ 21f:	ff 74 24 60          	push   0x60(%esp)
+ 223:	ff 74 24 20          	push   0x20(%esp)
+ 227:	e8 fc ff ff ff       	call   228 <login_screen+0x228>
+ 22c:	83 c4 20             	add    $0x20,%esp
+ 22f:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 234:	8d 44 24 64          	lea    0x64(%esp),%eax
+ 238:	50                   	push   %eax
+ 239:	ff 74 24 34          	push   0x34(%esp)
+ 23d:	ff 74 24 18          	push   0x18(%esp)
+ 241:	e8 fc ff ff ff       	call   242 <login_screen+0x242>
+ 246:	e8 fc ff ff ff       	call   247 <login_screen+0x247>
+ 24b:	83 c4 10             	add    $0x10,%esp
+ 24e:	f7 e6                	mul    %esi
+ 250:	83 e2 20             	and    $0x20,%edx
+ 253:	0f 85 e7 01 00 00    	jne    440 <login_screen+0x440>
+ 259:	68 c8 ad a6 00       	push   $0xa6adc8
+ 25e:	68 0f 00 00 00       	push   $0xf
+ 263:	ff 74 24 38          	push   0x38(%esp)
+ 267:	ff 74 24 40          	push   0x40(%esp)
+ 26b:	e8 fc ff ff ff       	call   26c <login_screen+0x26c>
+ 270:	58                   	pop    %eax
+ 271:	5a                   	pop    %edx
+ 272:	68 fa b4 89 00       	push   $0x89b4fa
+ 277:	6a 08                	push   $0x8
+ 279:	6a 24                	push   $0x24
+ 27b:	68 2c 01 00 00       	push   $0x12c
+ 280:	ff 74 24 64          	push   0x64(%esp)
+ 284:	ff 74 24 20          	push   0x20(%esp)
+ 288:	e8 fc ff ff ff       	call   289 <login_screen+0x289>
+ 28d:	83 c4 20             	add    $0x20,%esp
+ 290:	68 ff ff ff 00       	push   $0xffffff
+ 295:	68 18 00 00 00       	push   $0x18
+ 29a:	ff 74 24 40          	push   0x40(%esp)
+ 29e:	ff 74 24 48          	push   0x48(%esp)
+ 2a2:	e8 fc ff ff ff       	call   2a3 <login_screen+0x2a3>
+ 2a7:	68 86 70 6c 00       	push   $0x6c7086
+ 2ac:	68 1f 00 00 00       	push   $0x1f
+ 2b1:	ff 74 24 58          	push   0x58(%esp)
+ 2b5:	ff 74 24 60          	push   0x60(%esp)
+ 2b9:	e8 fc ff ff ff       	call   2ba <login_screen+0x2ba>
+ 2be:	83 c4 20             	add    $0x20,%esp
+ 2c1:	e8 fc ff ff ff       	call   2c2 <login_screen+0x2c2>
+ 2c6:	66 90                	xchg   %ax,%ax
+ 2c8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 2cf:	00 
+ 2d0:	e8 fc ff ff ff       	call   2d1 <login_screen+0x2d1>
+ 2d5:	84 c0                	test   %al,%al
+ 2d7:	74 37                	je     310 <login_screen+0x310>
+ 2d9:	e8 fc ff ff ff       	call   2da <login_screen+0x2da>
+ 2de:	3c 0a                	cmp    $0xa,%al
+ 2e0:	74 5e                	je     340 <login_screen+0x340>
+ 2e2:	3c 08                	cmp    $0x8,%al
+ 2e4:	74 42                	je     328 <login_screen+0x328>
+ 2e6:	8d 50 e0             	lea    -0x20(%eax),%edx
+ 2e9:	80 fa 5e             	cmp    $0x5e,%dl
+ 2ec:	77 e2                	ja     2d0 <login_screen+0x2d0>
+ 2ee:	83 ff 13             	cmp    $0x13,%edi
+ 2f1:	7f dd                	jg     2d0 <login_screen+0x2d0>
+ 2f3:	88 44 3c 60          	mov    %al,0x60(%esp,%edi,1)
+ 2f7:	c6 44 3c 61 00       	movb   $0x0,0x61(%esp,%edi,1)
+ 2fc:	83 c7 01             	add    $0x1,%edi
+ 2ff:	e8 fc ff ff ff       	call   300 <login_screen+0x300>
+ 304:	84 c0                	test   %al,%al
+ 306:	75 d1                	jne    2d9 <login_screen+0x2d9>
+ 308:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 30f:	00 
+ 310:	83 ec 0c             	sub    $0xc,%esp
+ 313:	6a 10                	push   $0x10
+ 315:	e8 fc ff ff ff       	call   316 <login_screen+0x316>
+ 31a:	83 c4 10             	add    $0x10,%esp
+ 31d:	e9 d2 fd ff ff       	jmp    f4 <login_screen+0xf4>
+ 322:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 328:	85 ff                	test   %edi,%edi
+ 32a:	7e a4                	jle    2d0 <login_screen+0x2d0>
+ 32c:	83 ef 01             	sub    $0x1,%edi
+ 32f:	c6 44 3c 60 00       	movb   $0x0,0x60(%esp,%edi,1)
+ 334:	eb 9a                	jmp    2d0 <login_screen+0x2d0>
+ 336:	66 90                	xchg   %ax,%ax
+ 338:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 33f:	00 
+ 340:	85 ff                	test   %edi,%edi
+ 342:	0f 84 28 01 00 00    	je     470 <login_screen+0x470>
+ 348:	83 ec 04             	sub    $0x4,%esp
+ 34b:	6a 1f                	push   $0x1f
+ 34d:	8d 44 24 68          	lea    0x68(%esp),%eax
+ 351:	50                   	push   %eax
+ 352:	68 00 00 00 00       	push   $0x0
+ 357:	e8 fc ff ff ff       	call   358 <login_screen+0x358>
+ 35c:	c7 84 24 90 00 00 00 	movl   $0x6d6f682f,0x90(%esp)
+ 363:	2f 68 6f 6d 
+ 367:	c7 84 24 94 00 00 00 	movl   $0x2f65,0x94(%esp)
+ 36e:	65 2f 00 00 
+ 372:	c7 84 24 98 00 00 00 	movl   $0x0,0x98(%esp)
+ 379:	00 00 00 00 
+ 37d:	c7 84 24 9c 00 00 00 	movl   $0x0,0x9c(%esp)
+ 384:	00 00 00 00 
+ 388:	c7 84 24 a0 00 00 00 	movl   $0x0,0xa0(%esp)
+ 38f:	00 00 00 00 
+ 393:	c7 84 24 a4 00 00 00 	movl   $0x0,0xa4(%esp)
+ 39a:	00 00 00 00 
+ 39e:	c7 84 24 a8 00 00 00 	movl   $0x0,0xa8(%esp)
+ 3a5:	00 00 00 00 
+ 3a9:	c7 84 24 ac 00 00 00 	movl   $0x0,0xac(%esp)
+ 3b0:	00 00 00 00 
+ 3b4:	c7 84 24 b0 00 00 00 	movl   $0x0,0xb0(%esp)
+ 3bb:	00 00 00 00 
+ 3bf:	c7 84 24 b4 00 00 00 	movl   $0x0,0xb4(%esp)
+ 3c6:	00 00 00 00 
+ 3ca:	c7 84 24 b8 00 00 00 	movl   $0x0,0xb8(%esp)
+ 3d1:	00 00 00 00 
+ 3d5:	c7 84 24 bc 00 00 00 	movl   $0x0,0xbc(%esp)
+ 3dc:	00 00 00 00 
+ 3e0:	c7 84 24 c0 00 00 00 	movl   $0x0,0xc0(%esp)
+ 3e7:	00 00 00 00 
+ 3eb:	c7 84 24 c4 00 00 00 	movl   $0x0,0xc4(%esp)
+ 3f2:	00 00 00 00 
+ 3f6:	c7 84 24 c8 00 00 00 	movl   $0x0,0xc8(%esp)
+ 3fd:	00 00 00 00 
+ 401:	c7 84 24 cc 00 00 00 	movl   $0x0,0xcc(%esp)
+ 408:	00 00 00 00 
+ 40c:	5f                   	pop    %edi
+ 40d:	5d                   	pop    %ebp
+ 40e:	68 00 00 00 00       	push   $0x0
+ 413:	8d 9c 24 8c 00 00 00 	lea    0x8c(%esp),%ebx
+ 41a:	53                   	push   %ebx
+ 41b:	e8 fc ff ff ff       	call   41c <login_screen+0x41c>
+ 420:	89 1c 24             	mov    %ebx,(%esp)
+ 423:	e8 fc ff ff ff       	call   424 <login_screen+0x424>
+ 428:	83 c4 10             	add    $0x10,%esp
+ 42b:	85 c0                	test   %eax,%eax
+ 42d:	74 61                	je     490 <login_screen+0x490>
+ 42f:	81 c4 0c 01 00 00    	add    $0x10c,%esp
+ 435:	5b                   	pop    %ebx
+ 436:	5e                   	pop    %esi
+ 437:	5f                   	pop    %edi
+ 438:	5d                   	pop    %ebp
+ 439:	c3                   	ret
+ 43a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 440:	83 ec 0c             	sub    $0xc,%esp
+ 443:	68 fa b4 89 00       	push   $0x89b4fa
+ 448:	6a 14                	push   $0x14
+ 44a:	6a 02                	push   $0x2
+ 44c:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 450:	05 8a 00 00 00       	add    $0x8a,%eax
+ 455:	50                   	push   %eax
+ 456:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 45a:	8d 04 f8             	lea    (%eax,%edi,8),%eax
+ 45d:	50                   	push   %eax
+ 45e:	e8 fc ff ff ff       	call   45f <login_screen+0x45f>
+ 463:	83 c4 20             	add    $0x20,%esp
+ 466:	e9 ee fd ff ff       	jmp    259 <login_screen+0x259>
+ 46b:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 470:	83 ec 08             	sub    $0x8,%esp
+ 473:	68 37 00 00 00       	push   $0x37
+ 478:	8d 44 24 6c          	lea    0x6c(%esp),%eax
+ 47c:	50                   	push   %eax
+ 47d:	e8 fc ff ff ff       	call   47e <login_screen+0x47e>
+ 482:	83 c4 10             	add    $0x10,%esp
+ 485:	e9 be fe ff ff       	jmp    348 <login_screen+0x348>
+ 48a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 490:	83 ec 0c             	sub    $0xc,%esp
+ 493:	53                   	push   %ebx
+ 494:	e8 fc ff ff ff       	call   495 <login_screen+0x495>
+ 499:	58                   	pop    %eax
+ 49a:	5a                   	pop    %edx
+ 49b:	53                   	push   %ebx
+ 49c:	8d 9c 24 cc 00 00 00 	lea    0xcc(%esp),%ebx
+ 4a3:	53                   	push   %ebx
+ 4a4:	e8 fc ff ff ff       	call   4a5 <login_screen+0x4a5>
+ 4a9:	59                   	pop    %ecx
+ 4aa:	5e                   	pop    %esi
+ 4ab:	68 3c 00 00 00       	push   $0x3c
+ 4b0:	53                   	push   %ebx
+ 4b1:	e8 fc ff ff ff       	call   4b2 <login_screen+0x4b2>
+ 4b6:	c7 04 24 49 00 00 00 	movl   $0x49,(%esp)
+ 4bd:	e8 fc ff ff ff       	call   4be <login_screen+0x4be>
+ 4c2:	83 c4 0c             	add    $0xc,%esp
+ 4c5:	50                   	push   %eax
+ 4c6:	68 49 00 00 00       	push   $0x49
+ 4cb:	53                   	push   %ebx
+ 4cc:	e8 fc ff ff ff       	call   4cd <login_screen+0x4cd>
+ 4d1:	83 c4 10             	add    $0x10,%esp
+ 4d4:	81 c4 0c 01 00 00    	add    $0x10c,%esp
+ 4da:	5b                   	pop    %ebx
+ 4db:	5e                   	pop    %esi
+ 4dc:	5f                   	pop    %edi
+ 4dd:	5d                   	pop    %ebp
+ 4de:	c3                   	ret

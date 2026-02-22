@@ -1,0 +1,128 @@
+
+isr.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <isr_register_handler>:
+   0:	0f b6 44 24 04       	movzbl 0x4(%esp),%eax
+   5:	8b 54 24 08          	mov    0x8(%esp),%edx
+   9:	89 14 85 00 00 00 00 	mov    %edx,0x0(,%eax,4)
+  10:	c3                   	ret
+  11:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+  18:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  1f:	00 
+
+00000020 <pic_init>:
+  20:	b8 11 00 00 00       	mov    $0x11,%eax
+  25:	e6 20                	out    %al,$0x20
+  27:	e6 a0                	out    %al,$0xa0
+  29:	31 c0                	xor    %eax,%eax
+  2b:	e6 80                	out    %al,$0x80
+  2d:	b8 20 00 00 00       	mov    $0x20,%eax
+  32:	e6 21                	out    %al,$0x21
+  34:	b8 28 00 00 00       	mov    $0x28,%eax
+  39:	e6 a1                	out    %al,$0xa1
+  3b:	31 c0                	xor    %eax,%eax
+  3d:	e6 80                	out    %al,$0x80
+  3f:	b8 04 00 00 00       	mov    $0x4,%eax
+  44:	e6 21                	out    %al,$0x21
+  46:	b8 02 00 00 00       	mov    $0x2,%eax
+  4b:	e6 a1                	out    %al,$0xa1
+  4d:	31 c0                	xor    %eax,%eax
+  4f:	e6 80                	out    %al,$0x80
+  51:	b8 01 00 00 00       	mov    $0x1,%eax
+  56:	e6 21                	out    %al,$0x21
+  58:	e6 a1                	out    %al,$0xa1
+  5a:	31 c0                	xor    %eax,%eax
+  5c:	e6 80                	out    %al,$0x80
+  5e:	b8 fb ff ff ff       	mov    $0xfffffffb,%eax
+  63:	e6 21                	out    %al,$0x21
+  65:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  6a:	e6 a1                	out    %al,$0xa1
+  6c:	c3                   	ret
+  6d:	8d 76 00             	lea    0x0(%esi),%esi
+
+00000070 <pic_send_eoi>:
+  70:	80 7c 24 04 07       	cmpb   $0x7,0x4(%esp)
+  75:	76 07                	jbe    7e <pic_send_eoi+0xe>
+  77:	b8 20 00 00 00       	mov    $0x20,%eax
+  7c:	e6 a0                	out    %al,$0xa0
+  7e:	b8 20 00 00 00       	mov    $0x20,%eax
+  83:	e6 20                	out    %al,$0x20
+  85:	c3                   	ret
+  86:	66 90                	xchg   %ax,%ax
+  88:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  8f:	00 
+
+00000090 <irq_clear_mask>:
+  90:	8b 44 24 04          	mov    0x4(%esp),%eax
+  94:	ba 21 00 00 00       	mov    $0x21,%edx
+  99:	3c 08                	cmp    $0x8,%al
+  9b:	8d 48 f8             	lea    -0x8(%eax),%ecx
+  9e:	0f 42 c8             	cmovb  %eax,%ecx
+  a1:	b8 a1 00 00 00       	mov    $0xa1,%eax
+  a6:	0f 43 d0             	cmovae %eax,%edx
+  a9:	ec                   	in     (%dx),%al
+  aa:	0f b3 c8             	btr    %ecx,%eax
+  ad:	ee                   	out    %al,(%dx)
+  ae:	c3                   	ret
+  af:	90                   	nop
+
+000000b0 <irq_set_mask>:
+  b0:	53                   	push   %ebx
+  b1:	8b 4c 24 08          	mov    0x8(%esp),%ecx
+  b5:	ba 21 00 00 00       	mov    $0x21,%edx
+  ba:	80 f9 08             	cmp    $0x8,%cl
+  bd:	8d 41 f8             	lea    -0x8(%ecx),%eax
+  c0:	0f 43 c8             	cmovae %eax,%ecx
+  c3:	b8 a1 00 00 00       	mov    $0xa1,%eax
+  c8:	0f 43 d0             	cmovae %eax,%edx
+  cb:	ec                   	in     (%dx),%al
+  cc:	bb 01 00 00 00       	mov    $0x1,%ebx
+  d1:	d3 e3                	shl    %cl,%ebx
+  d3:	09 d8                	or     %ebx,%eax
+  d5:	ee                   	out    %al,(%dx)
+  d6:	5b                   	pop    %ebx
+  d7:	c3                   	ret
+  d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  df:	00 
+
+000000e0 <isr_handler>:
+  e0:	8b 54 24 04          	mov    0x4(%esp),%edx
+  e4:	8b 42 24             	mov    0x24(%edx),%eax
+  e7:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  ee:	85 c0                	test   %eax,%eax
+  f0:	74 0e                	je     100 <isr_handler+0x20>
+  f2:	89 54 24 04          	mov    %edx,0x4(%esp)
+  f6:	ff e0                	jmp    *%eax
+  f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  ff:	00 
+ 100:	c3                   	ret
+ 101:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 108:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 10f:	00 
+
+00000110 <irq_handler>:
+ 110:	53                   	push   %ebx
+ 111:	83 ec 08             	sub    $0x8,%esp
+ 114:	8b 5c 24 10          	mov    0x10(%esp),%ebx
+ 118:	8b 43 24             	mov    0x24(%ebx),%eax
+ 11b:	8b 14 85 00 00 00 00 	mov    0x0(,%eax,4),%edx
+ 122:	85 d2                	test   %edx,%edx
+ 124:	74 0c                	je     132 <irq_handler+0x22>
+ 126:	83 ec 0c             	sub    $0xc,%esp
+ 129:	53                   	push   %ebx
+ 12a:	ff d2                	call   *%edx
+ 12c:	8b 43 24             	mov    0x24(%ebx),%eax
+ 12f:	83 c4 10             	add    $0x10,%esp
+ 132:	83 e8 20             	sub    $0x20,%eax
+ 135:	3c 07                	cmp    $0x7,%al
+ 137:	76 07                	jbe    140 <irq_handler+0x30>
+ 139:	b8 20 00 00 00       	mov    $0x20,%eax
+ 13e:	e6 a0                	out    %al,$0xa0
+ 140:	b8 20 00 00 00       	mov    $0x20,%eax
+ 145:	e6 20                	out    %al,$0x20
+ 147:	83 c4 08             	add    $0x8,%esp
+ 14a:	5b                   	pop    %ebx
+ 14b:	c3                   	ret

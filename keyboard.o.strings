@@ -1,0 +1,37 @@
+!@#$%^&*()_+
+	QWERTYUIOP{}
+ASDFGHJKL:"~
+|ZXCVBNM<>?
+789-456+1230.
+1234567890-=
+	qwertyuiop[]
+asdfghjkl;'`
+\zxcvbnm,./
+789-456+1230.
+GCC: (GNU) 15.2.1 20260209
+keyboard.c
+kb_handler
+e0_prefix
+caps_on
+shift_held
+sc_shift
+kb_head
+kb_tail
+kb_buf
+sc_normal
+keyboard_init
+isr_register_handler
+irq_clear_mask
+keyboard_has_char
+keyboard_get_char
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rel.rodata
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

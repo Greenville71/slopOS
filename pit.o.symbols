@@ -1,0 +1,8 @@
+         U irq_clear_mask
+         U isr_register_handler
+00000000 d pit_freq
+00000070 T pit_get_ticks
+00000000 t pit_handler
+00000020 T pit_init
+00000080 T pit_sleep_ms
+00000000 b ticks

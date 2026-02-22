@@ -1,0 +1,23 @@
+UWVS
+[^_]
+[^_]
+UWVS
+[^_]
+[^_]
+GCC: (GNU) 15.2.1 20260209
+ata.c
+ata_present
+ata_init
+ata_ready
+ata_read_sectors
+ata_write_sectors
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

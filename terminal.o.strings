@@ -1,0 +1,268 @@
+jMUP
+[^_]
+[^_]
+D$( 9
+l[^_]
+YXVS
+YXVS
+<	vU
+XZVS
+\[^_]
+XZVW
+[^_]
+[^_]
+[^_]
+D$3  up
+D$7 
+D$+P
+|$?W
+D$+PkT$
+D$+PW
+tqUUh
+t]WWh
+QQhl
+D$3  
+t$?V
+PPhs
+|$?W
+D$+P
+D$+PW
+D$+PW
+D$+P
+D$+PW
+D$'P
+D$ PU
+t$31
+D$3  
+D<$P
+D$+PW
+D$+P
+D$+PW
+D$+PW
+D$+P
+D$+PW
+XZSV
+D</P
+D$+PW
+PPhg
+PPhx
+l$$W
+t$+V
+t$?V
+Y_hQ
+RRh7
+PPhQ
+PPhn
+PPhh
+UUh	
+|$?W
+XZVW
+UWVS
+D78h
+D7PSP
+[^_]
+[^_]
+       ____  _             ____  ____
+      / ___|| | ___  _ __ / __ \/ ___|
+      \___ \| |/ _ \| '_ \ |  | \___ \
+       ___) | | (_) | |_) | |__| |___) |
+      |____/|_|\___/| .__/ \____/|____/
+                    |_|    v0.2
+  Heap:        16 MiB (bump allocator)
+  Framebuffer: 3 MiB (1024x768x32)
+  -rw-r--r--  /etc/slopos.conf    (42 B)
+  -rwxr-xr-x  /bin/slopterm       (1337 B)
+  -rw-r--r--  /home/slop/notes.txt (0 B)
+  -rw-r--r--  /var/log/kernel.log  (69 B)
+  (virtual filesystem -- nothing real here)
+  ifconfig  Network config (IP, MAC, gateway)
+  ping      Ping host (e.g. ping 10.0.2.2)
+  dhcp      Request DHCP lease
+  matrix    The Matrix has you
+  SlopOS 0.2 SlopKernel i686 (compiled Feb 22 2026)
+  No IP configured. Run 'dhcp' to request one.
+  Theme: Catppuccin Mocha (full palette)
+  [0.002] IDT loaded, PIC remapped
+  [0.003] Framebuffer 1024x768x32
+  [0.010] PS/2 keyboard + mouse OK
+  You already are root. Always were.
+  You're already root, calm down.
+  Nice try. There's nothing to delete.
+ Welcome to SlopOS Terminal v0.2
+ Type 'help' for commands, 'sysinfo' for overview.
+  OS:      SlopOS 0.2
+  Kernel:  SlopKernel i686
+  Shell:   SlopTerm
+  WM:      SlopWM (stacking)
+  Display: 1024x768x32 VBE
+  Heap:    16 MiB bump alloc
+  Font:    VGA 8x16 bitmap
+  Theme:   Catppuccin Mocha
+  Stack:       64 KiB
+  Back buffer: 3 MiB
+SlopOS goes moo
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+  drwxr-xr-x  /dev/
+  drwxr-xr-x  /proc/
+@slopos $ 
+help
+Available commands:
+  help      Show this message
+  clear     Clear screen
+  sysinfo   System overview
+  uname     Kernel info
+  time      Current time
+  uptime    Time since boot
+  mem       Memory info
+  ps        Process list
+  whoami    Current user
+  hostname  Machine name
+  arp       Show ARP cache
+  ls        List files
+  cat       Read a file
+  echo      Echo text
+  cowsay    Moo
+  calc      Open Calculator
+  notepad   Open Notepad
+  reboot    Reboot system
+  color     Palette info
+clear
+sysinfo
+about
+uname
+  SlopOS 0.2 SlopKernel i686
+uname -a
+time
+uptime
+free
+  PID  STATE    NAME
+    0  running  kernel
+    1  running  gui
+    2  running  terminal
+whoami
+hostname
+  slopos
+ifconfig
+  inet 
+  mac 
+  gateway 
+  subnet 
+dhcp
+  DHCP request sent.
+  ARP cache empty
+  IP             MAC
+ping 
+  usage: ping <ip>
+  invalid IP address
+  No IP. Run 'dhcp' first.
+  PING ...
+  request timeout
+  /home/slop
+  uid=0(slop) gid=0(slop)
+date
+color
+matrix
+  Wake up, slop...
+  The Matrix has you.
+  Follow the white rabbit.
+  01001110 01100101 01101111
+  Knock knock, slop.
+calc
+  Calculator opened.
+notepad
+  Notepad opened.
+files
+  File Manager opened.
+settings
+  Settings opened.
+physics
+  Physics Lab opened.
+breakout
+  Breakout opened.
+reboot
+  Rebooting...
+cat 
+  usage: cat <file>
+/etc/slopos.conf
+  # SlopOS configuration
+  theme=catppuccin-mocha
+  resolution=1024x768
+  wallpaper=gradient
+/var/log/kernel.log
+  [0.000] SlopKernel booted
+  [0.001] GDT loaded
+  [0.015] GUI started
+  cat: file not found
+echo 
+cowsay 
+cowsay
+exit
+  There is no escape.
+sudo
+sudo 
+rm -rf /
+  command not found: 
+  reply in 
+@slopos
+GCC: (GNU) 15.2.1 20260209
+terminal.c
+tprint
+cmd_sysinfo
+cmd_mem
+cmd_cowsay
+cmd_ls
+cmd_time
+execute
+term_count
+terms
+memcpy
+strncpy
+strlen
+strcmp
+rtc_hours
+rtc_minutes
+rtc_seconds
+itoa
+strcat
+current_user
+pit_get_ticks
+net_get_config
+dhcp_request
+net_arp_cache_count
+net_arp_cache_get
+strncmp
+icmp_ping
+pit_sleep_ms
+net_poll
+icmp_ping_done
+gui_spawn_calculator
+gui_spawn_notepad
+gui_spawn_files
+gui_spawn_settings
+gui_spawn_physics
+gui_spawn_game
+terminal_create
+memset
+terminal_draw
+fb_draw_string_nobg
+fb_fill_rect
+terminal_on_key
+memmove
+strcpy
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rodata.str1.4
+.rodata.str1.1
+.rel.rodata
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

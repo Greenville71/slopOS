@@ -1,0 +1,99 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          1024 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         13
+  Section header string table index: 12
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 0000c7 00  AX  0   0 16
+  [ 2] .rel.text         REL             00000000 0002fc 000078 08   I 10   1  4
+  [ 3] .data             PROGBITS        00000000 0000fc 000004 00  WA  0   0  4
+  [ 4] .bss              NOBITS          00000000 000100 000008 00  WA  0   0  8
+  [ 5] .comment          PROGBITS        00000000 000100 00001c 01  MS  0   0  1
+  [ 6] .note.GNU-stack   PROGBITS        00000000 00011c 000000 00      0   0  1
+  [ 7] .note.gnu.pr[...] NOTE            00000000 00011c 000028 00   A  0   0  4
+  [ 8] .eh_frame         PROGBITS        00000000 000144 000084 00   A  0   0  4
+  [ 9] .rel.eh_frame     REL             00000000 000374 000020 08   I 10   8  4
+  [10] .symtab           SYMTAB          00000000 0001c8 0000d0 10     11   8  4
+  [11] .strtab           STRTAB          00000000 000298 000064 00      0   0  1
+  [12] .shstrtab         STRTAB          00000000 000394 00006a 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+There are no program headers in this file.
+
+There is no dynamic section in this file.
+
+Relocation section '.rel.text' at offset 0x2fc contains 15 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000001  00000401 R_386_32          00000000   .bss
+00000007  00000401 R_386_32          00000000   .bss
+00000012  00000401 R_386_32          00000000   .bss
+00000018  00000401 R_386_32          00000000   .bss
+00000032  00000301 R_386_32          00000000   .data
+0000004b  00000201 R_386_32          00000000   .text
+00000052  00000902 R_386_PC32        00000000   isr_register_handler
+00000071  00000401 R_386_32          00000000   .bss
+00000077  00000401 R_386_32          00000000   .bss
+00000088  00000401 R_386_32          00000000   .bss
+00000094  00000301 R_386_32          00000000   .data
+0000009a  00000401 R_386_32          00000000   .bss
+000000b2  00000401 R_386_32          00000000   .bss
+000000b8  00000401 R_386_32          00000000   .bss
+00000062  00000a02 R_386_PC32        00000000   irq_clear_mask
+
+Relocation section '.rel.eh_frame' at offset 0x374 contains 4 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000020  00000202 R_386_PC32        00000000   .text
+00000034  00000202 R_386_PC32        00000000   .text
+00000054  00000202 R_386_PC32        00000000   .text
+00000068  00000202 R_386_PC32        00000000   .text
+No processor specific unwind information to decode
+
+Symbol table '.symtab' contains 13 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS pit.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    3 .data
+     4: 00000000     0 SECTION LOCAL  DEFAULT    4 .bss
+     5: 00000000    29 FUNC    LOCAL  DEFAULT    1 pit_handler
+     6: 00000000     8 OBJECT  LOCAL  DEFAULT    4 ticks
+     7: 00000000     4 OBJECT  LOCAL  DEFAULT    3 pit_freq
+     8: 00000020    70 FUNC    GLOBAL DEFAULT    1 pit_init
+     9: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr_register_handler
+    10: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq_clear_mask
+    11: 00000070    12 FUNC    GLOBAL DEFAULT    1 pit_get_ticks
+    12: 00000080    71 FUNC    GLOBAL DEFAULT    1 pit_sleep_ms
+
+No version information found in this file.
+
+There is no GOT section in this file.
+
+Displaying notes found in: .note.gnu.property
+  Owner                Data size 	Description
+  GNU                  0x00000018	NT_GNU_PROPERTY_TYPE_0
+      Properties: x86 ISA used: 
+	x86 feature used: x86

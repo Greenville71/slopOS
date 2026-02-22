@@ -1,0 +1,62 @@
+UWVS
+hZGE
+GHPS
+hZGE
+D$ P
+hZGE
+D$pUser
+D$t: 
+\$\S
+D$@Upti
+D$Dme: 
+\$<S
+VkT$
+XZVS
+[^_]
+UWVS
+[^_]
+System Settings
+Display
+Resolution: 1024x768
+Color depth: 32-bit
+Refresh: ~30 fps (vsync off)
+Theme
+About
+SlopOS v0.3
+Kernel: SlopKernel i686
+RAM FS: 512 KiB pool
+Catppuccin Mocha
+Rose Pine
+Dracula
+Nord
+Solarized
+Emerald
+Peach Fuzz
+GCC: (GNU) 15.2.1 20260209
+settings.c
+scount
+sdata
+themes
+settings_create
+settings_draw
+fb_draw_string_nobg
+fb_draw_hline
+fb_fill_circle
+fb_fill_rounded_rect
+current_user
+strcat
+pit_get_ticks
+itoa
+settings_on_mouse
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rodata.str1.1
+.rel.rodata
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

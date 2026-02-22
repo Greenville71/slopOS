@@ -1,0 +1,5 @@
+00000000 T ata_init
+00000000 b ata_present
+000000e0 T ata_read_sectors
+000000d0 T ata_ready
+00000230 T ata_write_sectors

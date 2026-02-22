@@ -1,0 +1,355 @@
+
+pcnet.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <pcnet_poll>:
+   0:	8b 15 1c 00 00 00    	mov    0x1c,%edx
+   6:	85 d2                	test   %edx,%edx
+   8:	74 76                	je     80 <pcnet_poll+0x80>
+   a:	56                   	push   %esi
+   b:	53                   	push   %ebx
+   c:	31 db                	xor    %ebx,%ebx
+   e:	83 ec 04             	sub    $0x4,%esp
+  11:	eb 17                	jmp    2a <pcnet_poll+0x2a>
+  13:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+  18:	c7 46 04 00 06 00 80 	movl   $0x80000600,0x4(%esi)
+  1f:	83 c3 10             	add    $0x10,%ebx
+  22:	81 fb 00 01 00 00    	cmp    $0x100,%ebx
+  28:	74 46                	je     70 <pcnet_poll+0x70>
+  2a:	8b 35 14 00 00 00    	mov    0x14,%esi
+  30:	01 de                	add    %ebx,%esi
+  32:	8b 46 04             	mov    0x4(%esi),%eax
+  35:	85 c0                	test   %eax,%eax
+  37:	78 e6                	js     1f <pcnet_poll+0x1f>
+  39:	0f b7 46 08          	movzwl 0x8(%esi),%eax
+  3d:	66 25 ff 0f          	and    $0xfff,%ax
+  41:	8d 50 ff             	lea    -0x1(%eax),%edx
+  44:	66 81 fa ff 05       	cmp    $0x5ff,%dx
+  49:	77 cd                	ja     18 <pcnet_poll+0x18>
+  4b:	83 ec 08             	sub    $0x8,%esp
+  4e:	0f b7 c0             	movzwl %ax,%eax
+  51:	50                   	push   %eax
+  52:	8d 04 5b             	lea    (%ebx,%ebx,2),%eax
+  55:	c1 e0 05             	shl    $0x5,%eax
+  58:	03 05 10 00 00 00    	add    0x10,%eax
+  5e:	50                   	push   %eax
+  5f:	e8 fc ff ff ff       	call   60 <pcnet_poll+0x60>
+  64:	83 c4 10             	add    $0x10,%esp
+  67:	eb af                	jmp    18 <pcnet_poll+0x18>
+  69:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+  70:	83 c4 04             	add    $0x4,%esp
+  73:	5b                   	pop    %ebx
+  74:	5e                   	pop    %esi
+  75:	c3                   	ret
+  76:	66 90                	xchg   %ax,%ax
+  78:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  7f:	00 
+  80:	c3                   	ret
+  81:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+  88:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  8f:	00 
+
+00000090 <pcnet_send>:
+  90:	53                   	push   %ebx
+  91:	83 ec 18             	sub    $0x18,%esp
+  94:	8b 0d 1c 00 00 00    	mov    0x1c,%ecx
+  9a:	8b 54 24 24          	mov    0x24(%esp),%edx
+  9e:	85 c9                	test   %ecx,%ecx
+  a0:	74 56                	je     f8 <pcnet_send+0x68>
+  a2:	66 81 fa 00 06       	cmp    $0x600,%dx
+  a7:	77 4f                	ja     f8 <pcnet_send+0x68>
+  a9:	8b 0d 04 00 00 00    	mov    0x4,%ecx
+  af:	89 cb                	mov    %ecx,%ebx
+  b1:	c1 e3 04             	shl    $0x4,%ebx
+  b4:	03 1d 0c 00 00 00    	add    0xc,%ebx
+  ba:	8b 43 04             	mov    0x4(%ebx),%eax
+  bd:	85 c0                	test   %eax,%eax
+  bf:	79 41                	jns    102 <pcnet_send+0x72>
+  c1:	a1 00 00 00 00       	mov    0x0,%eax
+  c6:	39 c1                	cmp    %eax,%ecx
+  c8:	74 2e                	je     f8 <pcnet_send+0x68>
+  ca:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+  d0:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  d7:	00 
+  d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  df:	00 
+  e0:	83 c0 01             	add    $0x1,%eax
+  e3:	99                   	cltd
+  e4:	c1 ea 1d             	shr    $0x1d,%edx
+  e7:	01 d0                	add    %edx,%eax
+  e9:	83 e0 07             	and    $0x7,%eax
+  ec:	29 d0                	sub    %edx,%eax
+  ee:	39 c1                	cmp    %eax,%ecx
+  f0:	75 ee                	jne    e0 <pcnet_send+0x50>
+  f2:	89 0d 00 00 00 00    	mov    %ecx,0x0
+  f8:	83 c4 18             	add    $0x18,%esp
+  fb:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 100:	5b                   	pop    %ebx
+ 101:	c3                   	ret
+ 102:	83 ec 04             	sub    $0x4,%esp
+ 105:	0f b7 c2             	movzwl %dx,%eax
+ 108:	89 54 24 10          	mov    %edx,0x10(%esp)
+ 10c:	50                   	push   %eax
+ 10d:	8d 04 49             	lea    (%ecx,%ecx,2),%eax
+ 110:	c1 e0 09             	shl    $0x9,%eax
+ 113:	03 05 08 00 00 00    	add    0x8,%eax
+ 119:	ff 74 24 28          	push   0x28(%esp)
+ 11d:	50                   	push   %eax
+ 11e:	e8 fc ff ff ff       	call   11f <pcnet_send+0x8f>
+ 123:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+ 127:	b8 3c 00 00 00       	mov    $0x3c,%eax
+ 12c:	66 39 c2             	cmp    %ax,%dx
+ 12f:	0f 42 d0             	cmovb  %eax,%edx
+ 132:	a1 04 00 00 00       	mov    0x4,%eax
+ 137:	83 c4 10             	add    $0x10,%esp
+ 13a:	0f b7 d2             	movzwl %dx,%edx
+ 13d:	83 c0 01             	add    $0x1,%eax
+ 140:	81 ca 00 00 00 80    	or     $0x80000000,%edx
+ 146:	89 53 04             	mov    %edx,0x4(%ebx)
+ 149:	99                   	cltd
+ 14a:	c1 ea 1d             	shr    $0x1d,%edx
+ 14d:	01 d0                	add    %edx,%eax
+ 14f:	83 e0 07             	and    $0x7,%eax
+ 152:	29 d0                	sub    %edx,%eax
+ 154:	a3 04 00 00 00       	mov    %eax,0x4
+ 159:	83 c4 18             	add    $0x18,%esp
+ 15c:	31 c0                	xor    %eax,%eax
+ 15e:	5b                   	pop    %ebx
+ 15f:	c3                   	ret
+
+00000160 <pcnet_get_mac>:
+ 160:	83 ec 10             	sub    $0x10,%esp
+ 163:	6a 06                	push   $0x6
+ 165:	68 20 00 00 00       	push   $0x20
+ 16a:	ff 74 24 1c          	push   0x1c(%esp)
+ 16e:	e8 fc ff ff ff       	call   16f <pcnet_get_mac+0xf>
+ 173:	83 c4 1c             	add    $0x1c,%esp
+ 176:	c3                   	ret
+ 177:	90                   	nop
+ 178:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 17f:	00 
+
+00000180 <pcnet_init>:
+ 180:	55                   	push   %ebp
+ 181:	57                   	push   %edi
+ 182:	56                   	push   %esi
+ 183:	53                   	push   %ebx
+ 184:	83 ec 34             	sub    $0x34,%esp
+ 187:	8d 44 24 1b          	lea    0x1b(%esp),%eax
+ 18b:	c7 44 24 1c 00 00 00 	movl   $0x0,0x1c(%esp)
+ 192:	00 
+ 193:	c6 44 24 1b 00       	movb   $0x0,0x1b(%esp)
+ 198:	50                   	push   %eax
+ 199:	8d 44 24 20          	lea    0x20(%esp),%eax
+ 19d:	50                   	push   %eax
+ 19e:	e8 fc ff ff ff       	call   19f <pcnet_init+0x1f>
+ 1a3:	83 c4 10             	add    $0x10,%esp
+ 1a6:	85 c0                	test   %eax,%eax
+ 1a8:	0f 84 de 02 00 00    	je     48c <pcnet_init+0x30c>
+ 1ae:	8b 44 24 14          	mov    0x14(%esp),%eax
+ 1b2:	83 ec 0c             	sub    $0xc,%esp
+ 1b5:	6a 20                	push   $0x20
+ 1b7:	a3 28 00 00 00       	mov    %eax,0x28
+ 1bc:	e8 fc ff ff ff       	call   1bd <pcnet_init+0x3d>
+ 1c1:	c7 04 24 00 01 00 00 	movl   $0x100,(%esp)
+ 1c8:	a3 18 00 00 00       	mov    %eax,0x18
+ 1cd:	e8 fc ff ff ff       	call   1ce <pcnet_init+0x4e>
+ 1d2:	c7 04 24 00 60 00 00 	movl   $0x6000,(%esp)
+ 1d9:	a3 14 00 00 00       	mov    %eax,0x14
+ 1de:	e8 fc ff ff ff       	call   1df <pcnet_init+0x5f>
+ 1e3:	c7 04 24 80 00 00 00 	movl   $0x80,(%esp)
+ 1ea:	a3 10 00 00 00       	mov    %eax,0x10
+ 1ef:	e8 fc ff ff ff       	call   1f0 <pcnet_init+0x70>
+ 1f4:	c7 04 24 00 30 00 00 	movl   $0x3000,(%esp)
+ 1fb:	a3 0c 00 00 00       	mov    %eax,0xc
+ 200:	e8 fc ff ff ff       	call   201 <pcnet_init+0x81>
+ 205:	8b 15 18 00 00 00    	mov    0x18,%edx
+ 20b:	83 c4 10             	add    $0x10,%esp
+ 20e:	a3 08 00 00 00       	mov    %eax,0x8
+ 213:	85 d2                	test   %edx,%edx
+ 215:	0f 84 71 02 00 00    	je     48c <pcnet_init+0x30c>
+ 21b:	8b 35 14 00 00 00    	mov    0x14,%esi
+ 221:	85 f6                	test   %esi,%esi
+ 223:	0f 84 63 02 00 00    	je     48c <pcnet_init+0x30c>
+ 229:	8b 1d 10 00 00 00    	mov    0x10,%ebx
+ 22f:	85 db                	test   %ebx,%ebx
+ 231:	0f 84 55 02 00 00    	je     48c <pcnet_init+0x30c>
+ 237:	8b 0d 0c 00 00 00    	mov    0xc,%ecx
+ 23d:	85 c9                	test   %ecx,%ecx
+ 23f:	0f 84 47 02 00 00    	je     48c <pcnet_init+0x30c>
+ 245:	85 c0                	test   %eax,%eax
+ 247:	0f 84 3f 02 00 00    	je     48c <pcnet_init+0x30c>
+ 24d:	83 ec 04             	sub    $0x4,%esp
+ 250:	6a 20                	push   $0x20
+ 252:	6a 00                	push   $0x0
+ 254:	52                   	push   %edx
+ 255:	e8 fc ff ff ff       	call   256 <pcnet_init+0xd6>
+ 25a:	83 c4 0c             	add    $0xc,%esp
+ 25d:	68 00 01 00 00       	push   $0x100
+ 262:	6a 00                	push   $0x0
+ 264:	ff 35 14 00 00 00    	push   0x14
+ 26a:	e8 fc ff ff ff       	call   26b <pcnet_init+0xeb>
+ 26f:	83 c4 0c             	add    $0xc,%esp
+ 272:	68 80 00 00 00       	push   $0x80
+ 277:	6a 00                	push   $0x0
+ 279:	ff 35 0c 00 00 00    	push   0xc
+ 27f:	e8 fc ff ff ff       	call   280 <pcnet_init+0x100>
+ 284:	8b 3d 28 00 00 00    	mov    0x28,%edi
+ 28a:	83 c4 10             	add    $0x10,%esp
+ 28d:	31 c9                	xor    %ecx,%ecx
+ 28f:	8d 77 12             	lea    0x12(%edi),%esi
+ 292:	8d 5f 10             	lea    0x10(%edi),%ebx
+ 295:	8d 76 00             	lea    0x0(%esi),%esi
+ 298:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 29f:	00 
+ 2a0:	8d 14 0f             	lea    (%edi,%ecx,1),%edx
+ 2a3:	ec                   	in     (%dx),%al
+ 2a4:	88 81 20 00 00 00    	mov    %al,0x20(%ecx)
+ 2aa:	83 c1 01             	add    $0x1,%ecx
+ 2ad:	83 f9 06             	cmp    $0x6,%ecx
+ 2b0:	75 ee                	jne    2a0 <pcnet_init+0x120>
+ 2b2:	8d 57 14             	lea    0x14(%edi),%edx
+ 2b5:	31 c0                	xor    %eax,%eax
+ 2b7:	66 ef                	out    %ax,(%dx)
+ 2b9:	c7 44 24 1c 00 00 00 	movl   $0x0,0x1c(%esp)
+ 2c0:	00 
+ 2c1:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 2c5:	3d e7 03 00 00       	cmp    $0x3e7,%eax
+ 2ca:	7f 2a                	jg     2f6 <pcnet_init+0x176>
+ 2cc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 2d0:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 2d7:	00 
+ 2d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 2df:	00 
+ 2e0:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 2e4:	83 c0 01             	add    $0x1,%eax
+ 2e7:	89 44 24 1c          	mov    %eax,0x1c(%esp)
+ 2eb:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 2ef:	3d e7 03 00 00       	cmp    $0x3e7,%eax
+ 2f4:	7e ea                	jle    2e0 <pcnet_init+0x160>
+ 2f6:	8b 3d 18 00 00 00    	mov    0x18,%edi
+ 2fc:	31 c0                	xor    %eax,%eax
+ 2fe:	8b 15 14 00 00 00    	mov    0x14,%edx
+ 304:	83 ec 04             	sub    $0x4,%esp
+ 307:	8b 2d 0c 00 00 00    	mov    0xc,%ebp
+ 30d:	66 89 07             	mov    %ax,(%edi)
+ 310:	0f b7 05 20 00 00 00 	movzwl 0x20,%eax
+ 317:	89 54 24 10          	mov    %edx,0x10(%esp)
+ 31b:	66 89 47 02          	mov    %ax,0x2(%edi)
+ 31f:	0f b7 05 22 00 00 00 	movzwl 0x22,%eax
+ 326:	66 89 47 04          	mov    %ax,0x4(%edi)
+ 32a:	0f b7 05 24 00 00 00 	movzwl 0x24,%eax
+ 331:	66 89 47 06          	mov    %ax,0x6(%edi)
+ 335:	8d 47 08             	lea    0x8(%edi),%eax
+ 338:	6a 08                	push   $0x8
+ 33a:	6a 00                	push   $0x0
+ 33c:	50                   	push   %eax
+ 33d:	e8 fc ff ff ff       	call   33e <pcnet_init+0x1be>
+ 342:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+ 346:	89 6f 14             	mov    %ebp,0x14(%edi)
+ 349:	b8 01 00 00 00       	mov    $0x1,%eax
+ 34e:	89 57 10             	mov    %edx,0x10(%edi)
+ 351:	89 f2                	mov    %esi,%edx
+ 353:	66 ef                	out    %ax,(%dx)
+ 355:	89 f8                	mov    %edi,%eax
+ 357:	89 da                	mov    %ebx,%edx
+ 359:	66 ef                	out    %ax,(%dx)
+ 35b:	b8 02 00 00 00       	mov    $0x2,%eax
+ 360:	89 f2                	mov    %esi,%edx
+ 362:	66 ef                	out    %ax,(%dx)
+ 364:	89 f8                	mov    %edi,%eax
+ 366:	89 da                	mov    %ebx,%edx
+ 368:	c1 e8 10             	shr    $0x10,%eax
+ 36b:	66 ef                	out    %ax,(%dx)
+ 36d:	31 c0                	xor    %eax,%eax
+ 36f:	89 f2                	mov    %esi,%edx
+ 371:	66 ef                	out    %ax,(%dx)
+ 373:	b8 10 00 00 00       	mov    $0x10,%eax
+ 378:	89 da                	mov    %ebx,%edx
+ 37a:	66 ef                	out    %ax,(%dx)
+ 37c:	c7 44 24 28 00 00 00 	movl   $0x0,0x28(%esp)
+ 383:	00 
+ 384:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 388:	83 c4 10             	add    $0x10,%esp
+ 38b:	3d 9f 86 01 00       	cmp    $0x1869f,%eax
+ 390:	7e 1c                	jle    3ae <pcnet_init+0x22e>
+ 392:	eb 29                	jmp    3bd <pcnet_init+0x23d>
+ 394:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 398:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 39c:	83 c0 01             	add    $0x1,%eax
+ 39f:	89 44 24 18          	mov    %eax,0x18(%esp)
+ 3a3:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 3a7:	3d 9f 86 01 00       	cmp    $0x1869f,%eax
+ 3ac:	7f 0f                	jg     3bd <pcnet_init+0x23d>
+ 3ae:	31 c0                	xor    %eax,%eax
+ 3b0:	89 f2                	mov    %esi,%edx
+ 3b2:	66 ef                	out    %ax,(%dx)
+ 3b4:	89 da                	mov    %ebx,%edx
+ 3b6:	66 ed                	in     (%dx),%ax
+ 3b8:	f6 c4 01             	test   $0x1,%ah
+ 3bb:	74 db                	je     398 <pcnet_init+0x218>
+ 3bd:	31 c0                	xor    %eax,%eax
+ 3bf:	89 f2                	mov    %esi,%edx
+ 3c1:	66 ef                	out    %ax,(%dx)
+ 3c3:	b8 02 00 00 00       	mov    $0x2,%eax
+ 3c8:	89 da                	mov    %ebx,%edx
+ 3ca:	66 ef                	out    %ax,(%dx)
+ 3cc:	a1 14 00 00 00       	mov    0x14,%eax
+ 3d1:	8b 15 10 00 00 00    	mov    0x10,%edx
+ 3d7:	8d 88 00 01 00 00    	lea    0x100(%eax),%ecx
+ 3dd:	eb 21                	jmp    400 <pcnet_init+0x280>
+ 3df:	90                   	nop
+ 3e0:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 3e7:	00 
+ 3e8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 3ef:	00 
+ 3f0:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 3f7:	00 
+ 3f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 3ff:	00 
+ 400:	89 10                	mov    %edx,(%eax)
+ 402:	83 c0 10             	add    $0x10,%eax
+ 405:	81 c2 00 06 00 00    	add    $0x600,%edx
+ 40b:	c7 40 f4 00 06 00 80 	movl   $0x80000600,-0xc(%eax)
+ 412:	c7 40 f8 00 00 00 00 	movl   $0x0,-0x8(%eax)
+ 419:	c7 40 fc 00 00 00 00 	movl   $0x0,-0x4(%eax)
+ 420:	39 c8                	cmp    %ecx,%eax
+ 422:	75 dc                	jne    400 <pcnet_init+0x280>
+ 424:	a1 0c 00 00 00       	mov    0xc,%eax
+ 429:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 42f:	8d 88 80 00 00 00    	lea    0x80(%eax),%ecx
+ 435:	8d 76 00             	lea    0x0(%esi),%esi
+ 438:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 43f:	00 
+ 440:	89 10                	mov    %edx,(%eax)
+ 442:	83 c0 10             	add    $0x10,%eax
+ 445:	81 c2 00 06 00 00    	add    $0x600,%edx
+ 44b:	c7 40 f4 00 00 00 00 	movl   $0x0,-0xc(%eax)
+ 452:	c7 40 f8 00 00 00 00 	movl   $0x0,-0x8(%eax)
+ 459:	c7 40 fc 00 00 00 00 	movl   $0x0,-0x4(%eax)
+ 460:	39 c8                	cmp    %ecx,%eax
+ 462:	75 dc                	jne    440 <pcnet_init+0x2c0>
+ 464:	c7 05 04 00 00 00 00 	movl   $0x0,0x4
+ 46b:	00 00 00 
+ 46e:	31 c0                	xor    %eax,%eax
+ 470:	c7 05 00 00 00 00 00 	movl   $0x0,0x0
+ 477:	00 00 00 
+ 47a:	c7 05 1c 00 00 00 01 	movl   $0x1,0x1c
+ 481:	00 00 00 
+ 484:	83 c4 2c             	add    $0x2c,%esp
+ 487:	5b                   	pop    %ebx
+ 488:	5e                   	pop    %esi
+ 489:	5f                   	pop    %edi
+ 48a:	5d                   	pop    %ebp
+ 48b:	c3                   	ret
+ 48c:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 491:	eb f1                	jmp    484 <pcnet_init+0x304>
+ 493:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 498:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 49f:	00 
+
+000004a0 <pcnet_ready>:
+ 4a0:	a1 1c 00 00 00       	mov    0x1c,%eax
+ 4a5:	c3                   	ret

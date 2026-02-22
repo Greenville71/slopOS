@@ -1,0 +1,12 @@
+         U fb_draw_string_nobg
+         U fb_fill_circle
+         U fb_fill_rounded_rect
+         U itoa
+         U memset
+00000000 T physics_create
+000001f0 T physics_draw
+000005c0 T physics_on_key
+         U pit_get_ticks
+00000000 b pstate_count
+00000020 b pstates
+         U strcat

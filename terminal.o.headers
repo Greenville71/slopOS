@@ -1,0 +1,477 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          17496 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         17
+  Section header string table index: 16
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 001b2b 00  AX  0   0 16
+  [ 2] .rel.text         REL             00000000 0038bc 000a20 08   I 14   1  4
+  [ 3] .data             PROGBITS        00000000 001b5f 000000 00  WA  0   0  1
+  [ 4] .bss              NOBITS          00000000 001b60 018ae0 00  WA  0   0 32
+  [ 5] .rodata.str1.4    PROGBITS        00000000 001b60 000477 01 AMS  0   0  4
+  [ 6] .rodata.str1.1    PROGBITS        00000000 001fd7 00084b 01 AMS  0   0  1
+  [ 7] .rodata           PROGBITS        00000000 002824 00004c 00   A  0   0  4
+  [ 8] .rel.rodata       REL             00000000 0042dc 000098 08   I 14   7  4
+  [ 9] .comment          PROGBITS        00000000 002870 00001c 01  MS  0   0  1
+  [10] .note.GNU-stack   PROGBITS        00000000 00288c 000000 00      0   0  1
+  [11] .note.gnu.pr[...] NOTE            00000000 00288c 000028 00   A  0   0  4
+  [12] .eh_frame         PROGBITS        00000000 0028b4 000adc 00   A  0   0  4
+  [13] .rel.eh_frame     REL             00000000 004374 000050 08   I 14  12  4
+  [14] .symtab           SYMTAB          00000000 003390 000320 10     15  16  4
+  [15] .strtab           STRTAB          00000000 0036b0 00020a 00      0   0  1
+  [16] .shstrtab         STRTAB          00000000 0043c4 000094 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+There are no program headers in this file.
+
+There is no dynamic section in this file.
+
+Relocation section '.rel.text' at offset 0x38bc contains 324 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000040  00001002 R_386_PC32        00000000   memcpy
+0000005b  00001102 R_386_PC32        00000000   strncpy
+00000090  00001102 R_386_PC32        00000000   strncpy
+000000d9  00000501 R_386_32          00000000   .rodata.str1.4
+000000ed  00000501 R_386_32          00000000   .rodata.str1.4
+000000fe  00000501 R_386_32          00000000   .rodata.str1.4
+0000010f  00000501 R_386_32          00000000   .rodata.str1.4
+00000120  00000501 R_386_32          00000000   .rodata.str1.4
+00000131  00000501 R_386_32          00000000   .rodata.str1.4
+00000142  00000601 R_386_32          00000000   .rodata.str1.1
+00000153  00000601 R_386_32          00000000   .rodata.str1.1
+00000164  00000601 R_386_32          00000000   .rodata.str1.1
+00000175  00000601 R_386_32          00000000   .rodata.str1.1
+00000186  00000601 R_386_32          00000000   .rodata.str1.1
+00000197  00000601 R_386_32          00000000   .rodata.str1.1
+000001a8  00000601 R_386_32          00000000   .rodata.str1.1
+000001b9  00000601 R_386_32          00000000   .rodata.str1.1
+000001cd  00000601 R_386_32          00000000   .rodata.str1.1
+000001e9  00000501 R_386_32          00000000   .rodata.str1.4
+000001fd  00000601 R_386_32          00000000   .rodata.str1.1
+0000020e  00000501 R_386_32          00000000   .rodata.str1.4
+00000222  00000601 R_386_32          00000000   .rodata.str1.1
+00000236  00000601 R_386_32          00000000   .rodata.str1.1
+00000252  00001202 R_386_PC32        00000000   strlen
+0000034b  00000601 R_386_32          00000000   .rodata.str1.1
+0000035c  00000601 R_386_32          00000000   .rodata.str1.1
+0000036d  00000601 R_386_32          00000000   .rodata.str1.1
+0000037e  00000601 R_386_32          00000000   .rodata.str1.1
+0000038f  00000601 R_386_32          00000000   .rodata.str1.1
+000003e9  00000601 R_386_32          00000000   .rodata.str1.1
+000003fe  00000601 R_386_32          00000000   .rodata.str1.1
+0000040d  00000601 R_386_32          00000000   .rodata.str1.1
+00000413  00001302 R_386_PC32        00000000   strcmp
+00000429  00000501 R_386_32          00000000   .rodata.str1.4
+0000043a  00000501 R_386_32          00000000   .rodata.str1.4
+0000044b  00000501 R_386_32          00000000   .rodata.str1.4
+0000045c  00000501 R_386_32          00000000   .rodata.str1.4
+00000472  00000501 R_386_32          00000000   .rodata.str1.4
+000004de  00001402 R_386_PC32        00000000   rtc_hours
+000004e9  00001502 R_386_PC32        00000000   rtc_minutes
+000004f2  00001602 R_386_PC32        00000000   rtc_seconds
+00000513  00001702 R_386_PC32        00000000   itoa
+0000051c  00001802 R_386_PC32        00000000   strcat
+00000523  00000601 R_386_32          00000000   .rodata.str1.1
+00000529  00001802 R_386_PC32        00000000   strcat
+00000548  00001702 R_386_PC32        00000000   itoa
+00000551  00001802 R_386_PC32        00000000   strcat
+00000558  00000601 R_386_32          00000000   .rodata.str1.1
+0000055e  00001802 R_386_PC32        00000000   strcat
+00000578  00001702 R_386_PC32        00000000   itoa
+00000581  00001802 R_386_PC32        00000000   strcat
+000005a4  00000601 R_386_32          00000000   .rodata.str1.1
+000005aa  00001802 R_386_PC32        00000000   strcat
+000005c4  00000601 R_386_32          00000000   .rodata.str1.1
+000005ca  00001802 R_386_PC32        00000000   strcat
+000005dc  00000601 R_386_32          00000000   .rodata.str1.1
+000005e2  00001802 R_386_PC32        00000000   strcat
+00000607  00001901 R_386_32          00000000   current_user
+00000614  00001802 R_386_PC32        00000000   strcat
+0000061b  00000601 R_386_32          00000000   .rodata.str1.1
+00000621  00001802 R_386_PC32        00000000   strcat
+0000062a  00001802 R_386_PC32        00000000   strcat
+00000654  00000601 R_386_32          00000000   .rodata.str1.1
+0000065a  00001302 R_386_PC32        00000000   strcmp
+00000671  00000601 R_386_32          00000000   .rodata.str1.1
+00000682  00000601 R_386_32          00000000   .rodata.str1.1
+00000693  00000601 R_386_32          00000000   .rodata.str1.1
+000006a4  00000601 R_386_32          00000000   .rodata.str1.1
+000006b5  00000601 R_386_32          00000000   .rodata.str1.1
+000006c6  00000601 R_386_32          00000000   .rodata.str1.1
+000006d7  00000601 R_386_32          00000000   .rodata.str1.1
+000006e8  00000601 R_386_32          00000000   .rodata.str1.1
+000006f9  00000601 R_386_32          00000000   .rodata.str1.1
+0000070a  00000601 R_386_32          00000000   .rodata.str1.1
+0000071b  00000601 R_386_32          00000000   .rodata.str1.1
+0000072c  00000501 R_386_32          00000000   .rodata.str1.4
+0000073d  00000501 R_386_32          00000000   .rodata.str1.4
+0000074e  00000501 R_386_32          00000000   .rodata.str1.4
+0000075f  00000601 R_386_32          00000000   .rodata.str1.1
+00000770  00000601 R_386_32          00000000   .rodata.str1.1
+00000781  00000601 R_386_32          00000000   .rodata.str1.1
+00000792  00000601 R_386_32          00000000   .rodata.str1.1
+000007a3  00000601 R_386_32          00000000   .rodata.str1.1
+000007b4  00000601 R_386_32          00000000   .rodata.str1.1
+000007c5  00000601 R_386_32          00000000   .rodata.str1.1
+000007d6  00000501 R_386_32          00000000   .rodata.str1.4
+000007e7  00000601 R_386_32          00000000   .rodata.str1.1
+000007f8  00000601 R_386_32          00000000   .rodata.str1.1
+00000814  00000601 R_386_32          00000000   .rodata.str1.1
+0000081a  00001302 R_386_PC32        00000000   strcmp
+00000844  00000601 R_386_32          00000000   .rodata.str1.1
+0000084a  00001302 R_386_PC32        00000000   strcmp
+00000859  00000601 R_386_32          00000000   .rodata.str1.1
+0000085f  00001302 R_386_PC32        00000000   strcmp
+0000086e  00000601 R_386_32          00000000   .rodata.str1.1
+00000874  00001302 R_386_PC32        00000000   strcmp
+00000885  00000601 R_386_32          00000000   .rodata.str1.1
+000008ac  00000601 R_386_32          00000000   .rodata.str1.1
+000008b2  00001302 R_386_PC32        00000000   strcmp
+000008c3  00000501 R_386_32          00000000   .rodata.str1.4
+000008d7  00000601 R_386_32          00000000   .rodata.str1.1
+000008dd  00001302 R_386_PC32        00000000   strcmp
+000008f8  00000601 R_386_32          00000000   .rodata.str1.1
+000008fe  00001302 R_386_PC32        00000000   strcmp
+0000096e  00001a02 R_386_PC32        00000000   pit_get_ticks
+00000998  00001702 R_386_PC32        00000000   itoa
+000009a9  00001802 R_386_PC32        00000000   strcat
+000009b0  00000601 R_386_32          00000000   .rodata.str1.1
+000009b6  00001802 R_386_PC32        00000000   strcat
+000009cd  00001702 R_386_PC32        00000000   itoa
+000009da  00001802 R_386_PC32        00000000   strcat
+000009e1  00000601 R_386_32          00000000   .rodata.str1.1
+000009e7  00001802 R_386_PC32        00000000   strcat
+00000a05  00000601 R_386_32          00000000   .rodata.str1.1
+00000a0b  00001302 R_386_PC32        00000000   strcmp
+00000a19  00000601 R_386_32          00000000   .rodata.str1.1
+00000a1f  00001302 R_386_PC32        00000000   strcmp
+00000a2d  00000601 R_386_32          00000000   .rodata.str1.1
+00000a33  00001302 R_386_PC32        00000000   strcmp
+00000a46  00000601 R_386_32          00000000   .rodata.str1.1
+00000a57  00000601 R_386_32          00000000   .rodata.str1.1
+00000a68  00000601 R_386_32          00000000   .rodata.str1.1
+00000a77  00000601 R_386_32          00000000   .rodata.str1.1
+00000a96  00000601 R_386_32          00000000   .rodata.str1.1
+00000a9c  00001302 R_386_PC32        00000000   strcmp
+00000abd  00001901 R_386_32          00000000   current_user
+00000ac7  00001802 R_386_PC32        00000000   strcat
+00000ae4  00000601 R_386_32          00000000   .rodata.str1.1
+00000aea  00001302 R_386_PC32        00000000   strcmp
+00000afb  00000601 R_386_32          00000000   .rodata.str1.1
+00000b0e  00000601 R_386_32          00000000   .rodata.str1.1
+00000b14  00001302 R_386_PC32        00000000   strcmp
+00000b24  00001b02 R_386_PC32        00000000   net_get_config
+00000b3e  00000601 R_386_32          00000000   .rodata.str1.1
+00000b48  00001802 R_386_PC32        00000000   strcat
+00000b5e  00001702 R_386_PC32        00000000   itoa
+00000b77  00001802 R_386_PC32        00000000   strcat
+00000b83  00000601 R_386_32          00000000   .rodata.str1.1
+00000b89  00001302 R_386_PC32        00000000   strcmp
+00000b99  00001c02 R_386_PC32        00000000   dhcp_request
+00000ba3  00000601 R_386_32          00000000   .rodata.str1.1
+00000bb9  00000601 R_386_32          00000000   .rodata.str1.1
+00000bbf  00001802 R_386_PC32        00000000   strcat
+00000bcc  00001802 R_386_PC32        00000000   strcat
+00000bf4  00000601 R_386_32          00000000   .rodata.str1.1
+00000bfa  00001802 R_386_PC32        00000000   strcat
+00000c10  00001702 R_386_PC32        00000000   itoa
+00000c37  00001802 R_386_PC32        00000000   strcat
+00000c46  00000501 R_386_32          00000000   .rodata.str1.4
+00000c59  00000601 R_386_32          00000000   .rodata.str1.1
+00000c5f  00001302 R_386_PC32        00000000   strcmp
+00000c6f  00001d02 R_386_PC32        00000000   net_arp_cache_count
+00000c85  00000601 R_386_32          00000000   .rodata.str1.1
+00000cb2  00001e02 R_386_PC32        00000000   net_arp_cache_get
+00000ce7  00001702 R_386_PC32        00000000   itoa
+00000d00  00001802 R_386_PC32        00000000   strcat
+00000d0c  00000601 R_386_32          00000000   .rodata.str1.1
+00000d12  00001802 R_386_PC32        00000000   strcat
+00000d23  00000601 R_386_32          00000000   .rodata.str1.1
+00000d29  00001802 R_386_PC32        00000000   strcat
+00000d3c  00001802 R_386_PC32        00000000   strcat
+00000d64  00000601 R_386_32          00000000   .rodata.str1.1
+00000d6a  00001802 R_386_PC32        00000000   strcat
+00000d80  00001702 R_386_PC32        00000000   itoa
+00000d9d  00001802 R_386_PC32        00000000   strcat
+00000dac  00000601 R_386_32          00000000   .rodata.str1.1
+00000dc0  00000601 R_386_32          00000000   .rodata.str1.1
+00000dc6  00001f02 R_386_PC32        00000000   strncmp
+00000e3a  00000601 R_386_32          00000000   .rodata.str1.1
+00000e40  00001802 R_386_PC32        00000000   strcat
+00000e4d  00001802 R_386_PC32        00000000   strcat
+00000e73  00000601 R_386_32          00000000   .rodata.str1.1
+00000e79  00001802 R_386_PC32        00000000   strcat
+00000e93  00001702 R_386_PC32        00000000   itoa
+00000eac  00001802 R_386_PC32        00000000   strcat
+00000ebb  00000601 R_386_32          00000000   .rodata.str1.1
+00000ec1  00001802 R_386_PC32        00000000   strcat
+00000eca  00001802 R_386_PC32        00000000   strcat
+00000edf  00000601 R_386_32          00000000   .rodata.str1.1
+00000ee5  00001802 R_386_PC32        00000000   strcat
+00000ef7  00001702 R_386_PC32        00000000   itoa
+00000f13  00001802 R_386_PC32        00000000   strcat
+00000f22  00000601 R_386_32          00000000   .rodata.str1.1
+00000f28  00001802 R_386_PC32        00000000   strcat
+00000f35  00001802 R_386_PC32        00000000   strcat
+00000f5b  00000601 R_386_32          00000000   .rodata.str1.1
+00000f61  00001802 R_386_PC32        00000000   strcat
+00000f72  00000601 R_386_32          00000000   .rodata.str1.1
+00000f78  00001802 R_386_PC32        00000000   strcat
+00000f87  00001802 R_386_PC32        00000000   strcat
+00000faf  00000601 R_386_32          00000000   .rodata.str1.1
+00000fb5  00001302 R_386_PC32        00000000   strcmp
+00000fc6  00000601 R_386_32          00000000   .rodata.str1.1
+00000fdc  00000601 R_386_32          00000000   .rodata.str1.1
+00000fef  00000601 R_386_32          00000000   .rodata.str1.1
+00000ff5  00001302 R_386_PC32        00000000   strcmp
+00001006  00000601 R_386_32          00000000   .rodata.str1.1
+00001019  00000601 R_386_32          00000000   .rodata.str1.1
+0000101f  00001302 R_386_PC32        00000000   strcmp
+00001031  00000601 R_386_32          00000000   .rodata.str1.1
+00001037  00001302 R_386_PC32        00000000   strcmp
+0000104c  00000501 R_386_32          00000000   .rodata.str1.4
+00001065  00001b02 R_386_PC32        00000000   net_get_config
+0000107d  00002002 R_386_PC32        00000000   icmp_ping
+00001087  00000601 R_386_32          00000000   .rodata.str1.1
+000010a1  00002102 R_386_PC32        00000000   pit_sleep_ms
+000010b2  00002202 R_386_PC32        00000000   net_poll
+000010c1  00002302 R_386_PC32        00000000   icmp_ping_done
+000010d1  00000601 R_386_32          00000000   .rodata.str1.1
+000010f6  00001702 R_386_PC32        00000000   itoa
+00001103  00001802 R_386_PC32        00000000   strcat
+0000110a  00000601 R_386_32          00000000   .rodata.str1.1
+00001110  00001802 R_386_PC32        00000000   strcat
+00001130  00000601 R_386_32          00000000   .rodata.str1.1
+00001143  00000601 R_386_32          00000000   .rodata.str1.1
+00001149  00001302 R_386_PC32        00000000   strcmp
+00001160  00000601 R_386_32          00000000   .rodata.str1.1
+00001171  00000601 R_386_32          00000000   .rodata.str1.1
+00001182  00000601 R_386_32          00000000   .rodata.str1.1
+00001193  00000601 R_386_32          00000000   .rodata.str1.1
+000011a4  00000601 R_386_32          00000000   .rodata.str1.1
+000011b3  00000601 R_386_32          00000000   .rodata.str1.1
+000011c9  00000601 R_386_32          00000000   .rodata.str1.1
+000011dc  00000601 R_386_32          00000000   .rodata.str1.1
+000011e2  00001302 R_386_PC32        00000000   strcmp
+000011ee  00002402 R_386_PC32        00000000   gui_spawn_calculator
+000011f8  00000601 R_386_32          00000000   .rodata.str1.1
+0000120e  00000601 R_386_32          00000000   .rodata.str1.1
+00001221  00000601 R_386_32          00000000   .rodata.str1.1
+00001227  00001302 R_386_PC32        00000000   strcmp
+00001233  00002502 R_386_PC32        00000000   gui_spawn_notepad
+0000123d  00000601 R_386_32          00000000   .rodata.str1.1
+00001250  00000601 R_386_32          00000000   .rodata.str1.1
+00001256  00001302 R_386_PC32        00000000   strcmp
+00001262  00002602 R_386_PC32        00000000   gui_spawn_files
+0000126c  00000601 R_386_32          00000000   .rodata.str1.1
+0000127f  00000601 R_386_32          00000000   .rodata.str1.1
+00001285  00001302 R_386_PC32        00000000   strcmp
+00001291  00002702 R_386_PC32        00000000   gui_spawn_settings
+0000129b  00000601 R_386_32          00000000   .rodata.str1.1
+000012ae  00000601 R_386_32          00000000   .rodata.str1.1
+000012b4  00001302 R_386_PC32        00000000   strcmp
+000012c0  00002802 R_386_PC32        00000000   gui_spawn_physics
+000012ca  00000601 R_386_32          00000000   .rodata.str1.1
+000012dd  00000601 R_386_32          00000000   .rodata.str1.1
+000012e3  00001302 R_386_PC32        00000000   strcmp
+000012ef  00002902 R_386_PC32        00000000   gui_spawn_game
+000012f9  00000601 R_386_32          00000000   .rodata.str1.1
+0000130c  00000601 R_386_32          00000000   .rodata.str1.1
+00001312  00001302 R_386_PC32        00000000   strcmp
+00001325  00000601 R_386_32          00000000   .rodata.str1.1
+00001337  00002102 R_386_PC32        00000000   pit_sleep_ms
+0000134d  00000601 R_386_32          00000000   .rodata.str1.1
+00001353  00001302 R_386_PC32        00000000   strcmp
+0000135f  00000601 R_386_32          00000000   .rodata.str1.1
+00001373  00000601 R_386_32          00000000   .rodata.str1.1
+00001379  00001f02 R_386_PC32        00000000   strncmp
+00001397  00000601 R_386_32          00000000   .rodata.str1.1
+0000139d  00001f02 R_386_PC32        00000000   strncmp
+000013b4  00000601 R_386_32          00000000   .rodata.str1.1
+000013c8  00000601 R_386_32          00000000   .rodata.str1.1
+000013ce  00001f02 R_386_PC32        00000000   strncmp
+000013f3  00000601 R_386_32          00000000   .rodata.str1.1
+000013f9  00001302 R_386_PC32        00000000   strcmp
+0000140c  00000601 R_386_32          00000000   .rodata.str1.1
+0000141d  00000601 R_386_32          00000000   .rodata.str1.1
+0000142e  00000601 R_386_32          00000000   .rodata.str1.1
+0000143d  00000601 R_386_32          00000000   .rodata.str1.1
+00001451  00000601 R_386_32          00000000   .rodata.str1.1
+00001457  00001f02 R_386_PC32        00000000   strncmp
+00001478  00000601 R_386_32          00000000   .rodata.str1.1
+0000147e  00001302 R_386_PC32        00000000   strcmp
+00001495  00000601 R_386_32          00000000   .rodata.str1.1
+000014a6  00000601 R_386_32          00000000   .rodata.str1.1
+000014b7  00000501 R_386_32          00000000   .rodata.str1.4
+000014c8  00000501 R_386_32          00000000   .rodata.str1.4
+000014d9  00000501 R_386_32          00000000   .rodata.str1.4
+000014e8  00000601 R_386_32          00000000   .rodata.str1.1
+000014fb  00000601 R_386_32          00000000   .rodata.str1.1
+00001501  00001302 R_386_PC32        00000000   strcmp
+00001520  00000601 R_386_32          00000000   .rodata.str1.1
+00001533  00000601 R_386_32          00000000   .rodata.str1.1
+00001539  00001302 R_386_PC32        00000000   strcmp
+0000154a  00000601 R_386_32          00000000   .rodata.str1.1
+0000155d  00000601 R_386_32          00000000   .rodata.str1.1
+00001563  00001302 R_386_PC32        00000000   strcmp
+00001574  00000501 R_386_32          00000000   .rodata.str1.4
+00001588  00000601 R_386_32          00000000   .rodata.str1.1
+0000158e  00001f02 R_386_PC32        00000000   strncmp
+0000159f  00000501 R_386_32          00000000   .rodata.str1.4
+000015b2  00000601 R_386_32          00000000   .rodata.str1.1
+000015b8  00001302 R_386_PC32        00000000   strcmp
+000015c9  00000501 R_386_32          00000000   .rodata.str1.4
+000015e1  00000601 R_386_32          00000000   .rodata.str1.1
+000015eb  00001802 R_386_PC32        00000000   strcat
+000015f4  00001802 R_386_PC32        00000000   strcat
+00001617  00000301 R_386_32          00000000   .bss
+00001635  00000301 R_386_32          00000000   .bss
+0000163b  00000301 R_386_32          00000000   .bss
+00001641  00002b02 R_386_PC32        00000000   memset
+0000164b  00000501 R_386_32          00000000   .rodata.str1.4
+0000165c  00000501 R_386_32          00000000   .rodata.str1.4
+0000166d  00000601 R_386_32          00000000   .rodata.str1.1
+00001706  00002d02 R_386_PC32        00000000   fb_draw_string_nobg
+00001723  00001901 R_386_32          00000000   current_user
+0000172f  00001202 R_386_PC32        00000000   strlen
+00001742  00001901 R_386_32          00000000   current_user
+00001749  00002d02 R_386_PC32        00000000   fb_draw_string_nobg
+00001759  00000601 R_386_32          00000000   .rodata.str1.1
+00001760  00002d02 R_386_PC32        00000000   fb_draw_string_nobg
+0000176e  00000601 R_386_32          00000000   .rodata.str1.1
+00001775  00002d02 R_386_PC32        00000000   fb_draw_string_nobg
+0000178f  00002d02 R_386_PC32        00000000   fb_draw_string_nobg
+0000179a  00001a02 R_386_PC32        00000000   pit_get_ticks
+000017d2  00002e02 R_386_PC32        00000000   fb_fill_rect
+00001821  00000f01 R_386_32          00000000   .rodata
+000018a7  00003002 R_386_PC32        00000000   memmove
+00001904  00003102 R_386_PC32        00000000   strcpy
+0000196e  00003002 R_386_PC32        00000000   memmove
+000019c1  00003102 R_386_PC32        00000000   strcpy
+000019cd  00001202 R_386_PC32        00000000   strlen
+00001a70  00003002 R_386_PC32        00000000   memmove
+00001ac0  00001302 R_386_PC32        00000000   strcmp
+00001b07  00001002 R_386_PC32        00000000   memcpy
+
+Relocation section '.rel.rodata' at offset 0x42dc contains 19 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000000  00000201 R_386_32          00000000   .text
+00000004  00000201 R_386_32          00000000   .text
+00000008  00000201 R_386_32          00000000   .text
+0000000c  00000201 R_386_32          00000000   .text
+00000010  00000201 R_386_32          00000000   .text
+00000014  00000201 R_386_32          00000000   .text
+00000018  00000201 R_386_32          00000000   .text
+0000001c  00000201 R_386_32          00000000   .text
+00000020  00000201 R_386_32          00000000   .text
+00000024  00000201 R_386_32          00000000   .text
+00000028  00000201 R_386_32          00000000   .text
+0000002c  00000201 R_386_32          00000000   .text
+00000030  00000201 R_386_32          00000000   .text
+00000034  00000201 R_386_32          00000000   .text
+00000038  00000201 R_386_32          00000000   .text
+0000003c  00000201 R_386_32          00000000   .text
+00000040  00000201 R_386_32          00000000   .text
+00000044  00000201 R_386_32          00000000   .text
+00000048  00000201 R_386_32          00000000   .text
+
+Relocation section '.rel.eh_frame' at offset 0x4374 contains 10 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000020  00000202 R_386_PC32        00000000   .text
+000000a0  00000202 R_386_PC32        00000000   .text
+000000c4  00000202 R_386_PC32        00000000   .text
+000000e4  00000202 R_386_PC32        00000000   .text
+00000134  00000202 R_386_PC32        00000000   .text
+0000016c  00000202 R_386_PC32        00000000   .text
+00000240  00000202 R_386_PC32        00000000   .text
+00000960  00000202 R_386_PC32        00000000   .text
+00000990  00000202 R_386_PC32        00000000   .text
+00000a48  00000202 R_386_PC32        00000000   .text
+No processor specific unwind information to decode
+
+Symbol table '.symtab' contains 50 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS terminal.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    4 .bss
+     4: 00000000   193 FUNC    LOCAL  DEFAULT    1 tprint
+     5: 00000000     0 SECTION LOCAL  DEFAULT    5 .rodata.str1.4
+     6: 00000000     0 SECTION LOCAL  DEFAULT    6 .rodata.str1.1
+     7: 000000d0   263 FUNC    LOCAL  DEFAULT    1 cmd_sysinfo
+     8: 000001e0    76 FUNC    LOCAL  DEFAULT    1 cmd_mem
+     9: 00000230   421 FUNC    LOCAL  DEFAULT    1 cmd_cowsay
+    10: 000003e0   157 FUNC    LOCAL  DEFAULT    1 cmd_ls
+    11: 00000480   366 FUNC    LOCAL  DEFAULT    1 cmd_time
+    12: 000005f0  4126 FUNC    LOCAL  DEFAULT    1 execute
+    13: 00000000     4 OBJECT  LOCAL  DEFAULT    4 term_count
+    14: 00000020 0x18ac0 OBJECT  LOCAL  DEFAULT    4 terms
+    15: 00000000     0 SECTION LOCAL  DEFAULT    7 .rodata
+    16: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memcpy
+    17: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strncpy
+    18: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strlen
+    19: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strcmp
+    20: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND rtc_hours
+    21: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND rtc_minutes
+    22: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND rtc_seconds
+    23: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND itoa
+    24: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strcat
+    25: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND current_user
+    26: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pit_get_ticks
+    27: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND net_get_config
+    28: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND dhcp_request
+    29: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND net_arp_cache_count
+    30: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND net_arp_cache_get
+    31: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strncmp
+    32: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND icmp_ping
+    33: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pit_sleep_ms
+    34: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND net_poll
+    35: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND icmp_ping_done
+    36: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gui_spawn_calculator
+    37: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gui_spawn_notepad
+    38: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gui_spawn_files
+    39: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gui_spawn_settings
+    40: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gui_spawn_physics
+    41: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gui_spawn_game
+    42: 00001610   114 FUNC    GLOBAL DEFAULT    1 terminal_create
+    43: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memset
+    44: 00001690   337 FUNC    GLOBAL DEFAULT    1 terminal_draw
+    45: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_draw_string_nobg
+    46: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_fill_rect
+    47: 000017f0   827 FUNC    GLOBAL DEFAULT    1 terminal_on_key
+    48: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memmove
+    49: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strcpy
+
+No version information found in this file.
+
+There is no GOT section in this file.
+
+Displaying notes found in: .note.gnu.property
+  Owner                Data size 	Description
+  GNU                  0x00000018	NT_GNU_PROPERTY_TYPE_0
+      Properties: x86 ISA used: x86-64-baseline
+	x86 feature used: x86

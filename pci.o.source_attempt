@@ -1,0 +1,236 @@
+
+pci.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <pci_find_device>:
+   0:	55                   	push   %ebp
+   1:	bd f8 0c 00 00       	mov    $0xcf8,%ebp
+   6:	57                   	push   %edi
+   7:	56                   	push   %esi
+   8:	53                   	push   %ebx
+   9:	83 ec 0c             	sub    $0xc,%esp
+   c:	0f b7 44 24 20       	movzwl 0x20(%esp),%eax
+  11:	66 89 44 24 02       	mov    %ax,0x2(%esp)
+  16:	0f b7 44 24 24       	movzwl 0x24(%esp),%eax
+  1b:	66 89 04 24          	mov    %ax,(%esp)
+  1f:	31 c0                	xor    %eax,%eax
+  21:	89 44 24 08          	mov    %eax,0x8(%esp)
+  25:	89 c6                	mov    %eax,%esi
+  27:	31 d2                	xor    %edx,%edx
+  29:	c1 e6 10             	shl    $0x10,%esi
+  2c:	89 54 24 04          	mov    %edx,0x4(%esp)
+  30:	89 d3                	mov    %edx,%ebx
+  32:	31 c9                	xor    %ecx,%ecx
+  34:	c1 e3 0b             	shl    $0xb,%ebx
+  37:	90                   	nop
+  38:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  3f:	00 
+  40:	89 c8                	mov    %ecx,%eax
+  42:	89 ea                	mov    %ebp,%edx
+  44:	c1 e0 08             	shl    $0x8,%eax
+  47:	09 f0                	or     %esi,%eax
+  49:	09 d8                	or     %ebx,%eax
+  4b:	0d 00 00 00 80       	or     $0x80000000,%eax
+  50:	ef                   	out    %eax,(%dx)
+  51:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+  56:	ed                   	in     (%dx),%eax
+  57:	66 83 f8 ff          	cmp    $0xffff,%ax
+  5b:	74 12                	je     6f <pci_find_device+0x6f>
+  5d:	89 c2                	mov    %eax,%edx
+  5f:	c1 ea 10             	shr    $0x10,%edx
+  62:	66 39 14 24          	cmp    %dx,(%esp)
+  66:	75 07                	jne    6f <pci_find_device+0x6f>
+  68:	66 39 44 24 02       	cmp    %ax,0x2(%esp)
+  6d:	74 31                	je     a0 <pci_find_device+0xa0>
+  6f:	83 c1 01             	add    $0x1,%ecx
+  72:	83 f9 08             	cmp    $0x8,%ecx
+  75:	75 c9                	jne    40 <pci_find_device+0x40>
+  77:	8b 54 24 04          	mov    0x4(%esp),%edx
+  7b:	83 c2 01             	add    $0x1,%edx
+  7e:	83 fa 20             	cmp    $0x20,%edx
+  81:	75 a9                	jne    2c <pci_find_device+0x2c>
+  83:	8b 44 24 08          	mov    0x8(%esp),%eax
+  87:	83 c0 01             	add    $0x1,%eax
+  8a:	3d 00 01 00 00       	cmp    $0x100,%eax
+  8f:	75 90                	jne    21 <pci_find_device+0x21>
+  91:	83 c4 0c             	add    $0xc,%esp
+  94:	31 c0                	xor    %eax,%eax
+  96:	5b                   	pop    %ebx
+  97:	5e                   	pop    %esi
+  98:	5f                   	pop    %edi
+  99:	5d                   	pop    %ebp
+  9a:	c3                   	ret
+  9b:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+  a0:	8b 5c 24 28          	mov    0x28(%esp),%ebx
+  a4:	8b 44 24 08          	mov    0x8(%esp),%eax
+  a8:	8b 54 24 04          	mov    0x4(%esp),%edx
+  ac:	85 db                	test   %ebx,%ebx
+  ae:	74 02                	je     b2 <pci_find_device+0xb2>
+  b0:	88 03                	mov    %al,(%ebx)
+  b2:	8b 5c 24 2c          	mov    0x2c(%esp),%ebx
+  b6:	85 db                	test   %ebx,%ebx
+  b8:	74 06                	je     c0 <pci_find_device+0xc0>
+  ba:	8b 44 24 2c          	mov    0x2c(%esp),%eax
+  be:	88 10                	mov    %dl,(%eax)
+  c0:	8b 44 24 30          	mov    0x30(%esp),%eax
+  c4:	85 c0                	test   %eax,%eax
+  c6:	74 06                	je     ce <pci_find_device+0xce>
+  c8:	8b 44 24 30          	mov    0x30(%esp),%eax
+  cc:	88 08                	mov    %cl,(%eax)
+  ce:	83 c4 0c             	add    $0xc,%esp
+  d1:	b8 01 00 00 00       	mov    $0x1,%eax
+  d6:	5b                   	pop    %ebx
+  d7:	5e                   	pop    %esi
+  d8:	5f                   	pop    %edi
+  d9:	5d                   	pop    %ebp
+  da:	c3                   	ret
+  db:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+
+000000e0 <pci_read_bar0>:
+  e0:	0f b6 44 24 04       	movzbl 0x4(%esp),%eax
+  e5:	0f b6 54 24 0c       	movzbl 0xc(%esp),%edx
+  ea:	c1 e0 10             	shl    $0x10,%eax
+  ed:	c1 e2 08             	shl    $0x8,%edx
+  f0:	09 d0                	or     %edx,%eax
+  f2:	0f b6 54 24 08       	movzbl 0x8(%esp),%edx
+  f7:	c1 e2 0b             	shl    $0xb,%edx
+  fa:	09 d0                	or     %edx,%eax
+  fc:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 101:	0d 10 00 00 80       	or     $0x80000010,%eax
+ 106:	ef                   	out    %eax,(%dx)
+ 107:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 10c:	ed                   	in     (%dx),%eax
+ 10d:	89 c1                	mov    %eax,%ecx
+ 10f:	89 c2                	mov    %eax,%edx
+ 111:	83 e1 f0             	and    $0xfffffff0,%ecx
+ 114:	83 e2 fc             	and    $0xfffffffc,%edx
+ 117:	a8 01                	test   $0x1,%al
+ 119:	89 c8                	mov    %ecx,%eax
+ 11b:	0f 45 c2             	cmovne %edx,%eax
+ 11e:	c3                   	ret
+ 11f:	90                   	nop
+
+00000120 <pci_read_irq_line>:
+ 120:	0f b6 44 24 04       	movzbl 0x4(%esp),%eax
+ 125:	0f b6 54 24 0c       	movzbl 0xc(%esp),%edx
+ 12a:	c1 e0 10             	shl    $0x10,%eax
+ 12d:	c1 e2 08             	shl    $0x8,%edx
+ 130:	09 d0                	or     %edx,%eax
+ 132:	0f b6 54 24 08       	movzbl 0x8(%esp),%edx
+ 137:	c1 e2 0b             	shl    $0xb,%edx
+ 13a:	09 d0                	or     %edx,%eax
+ 13c:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 141:	0d 3c 00 00 80       	or     $0x8000003c,%eax
+ 146:	ef                   	out    %eax,(%dx)
+ 147:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 14c:	ed                   	in     (%dx),%eax
+ 14d:	c3                   	ret
+ 14e:	66 90                	xchg   %ax,%ax
+
+00000150 <pci_enable_bus_master>:
+ 150:	57                   	push   %edi
+ 151:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 156:	56                   	push   %esi
+ 157:	53                   	push   %ebx
+ 158:	0f b6 4c 24 10       	movzbl 0x10(%esp),%ecx
+ 15d:	0f b6 44 24 18       	movzbl 0x18(%esp),%eax
+ 162:	c1 e1 10             	shl    $0x10,%ecx
+ 165:	c1 e0 08             	shl    $0x8,%eax
+ 168:	09 c1                	or     %eax,%ecx
+ 16a:	0f b6 44 24 14       	movzbl 0x14(%esp),%eax
+ 16f:	c1 e0 0b             	shl    $0xb,%eax
+ 172:	09 c1                	or     %eax,%ecx
+ 174:	81 c9 04 00 00 80    	or     $0x80000004,%ecx
+ 17a:	89 c8                	mov    %ecx,%eax
+ 17c:	ef                   	out    %eax,(%dx)
+ 17d:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 182:	ed                   	in     (%dx),%eax
+ 183:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 188:	89 c3                	mov    %eax,%ebx
+ 18a:	89 c8                	mov    %ecx,%eax
+ 18c:	ef                   	out    %eax,(%dx)
+ 18d:	89 d8                	mov    %ebx,%eax
+ 18f:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 194:	83 c8 04             	or     $0x4,%eax
+ 197:	ef                   	out    %eax,(%dx)
+ 198:	5b                   	pop    %ebx
+ 199:	5e                   	pop    %esi
+ 19a:	5f                   	pop    %edi
+ 19b:	c3                   	ret
+ 19c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+000001a0 <pci_find_pcnet>:
+ 1a0:	57                   	push   %edi
+ 1a1:	56                   	push   %esi
+ 1a2:	53                   	push   %ebx
+ 1a3:	83 ec 14             	sub    $0x14,%esp
+ 1a6:	8d 44 24 13          	lea    0x13(%esp),%eax
+ 1aa:	8b 7c 24 28          	mov    0x28(%esp),%edi
+ 1ae:	50                   	push   %eax
+ 1af:	8d 44 24 16          	lea    0x16(%esp),%eax
+ 1b3:	50                   	push   %eax
+ 1b4:	8d 44 24 19          	lea    0x19(%esp),%eax
+ 1b8:	50                   	push   %eax
+ 1b9:	68 00 20 00 00       	push   $0x2000
+ 1be:	68 22 10 00 00       	push   $0x1022
+ 1c3:	e8 fc ff ff ff       	call   1c4 <pci_find_pcnet+0x24>
+ 1c8:	83 c4 14             	add    $0x14,%esp
+ 1cb:	89 c3                	mov    %eax,%ebx
+ 1cd:	85 c0                	test   %eax,%eax
+ 1cf:	0f 84 90 00 00 00    	je     265 <pci_find_pcnet+0xc5>
+ 1d5:	0f b6 4c 24 11       	movzbl 0x11(%esp),%ecx
+ 1da:	0f b6 44 24 13       	movzbl 0x13(%esp),%eax
+ 1df:	c1 e1 10             	shl    $0x10,%ecx
+ 1e2:	c1 e0 08             	shl    $0x8,%eax
+ 1e5:	09 c1                	or     %eax,%ecx
+ 1e7:	0f b6 44 24 12       	movzbl 0x12(%esp),%eax
+ 1ec:	c1 e0 0b             	shl    $0xb,%eax
+ 1ef:	09 c1                	or     %eax,%ecx
+ 1f1:	8b 44 24 24          	mov    0x24(%esp),%eax
+ 1f5:	85 c0                	test   %eax,%eax
+ 1f7:	74 28                	je     221 <pci_find_pcnet+0x81>
+ 1f9:	89 c8                	mov    %ecx,%eax
+ 1fb:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 200:	0d 10 00 00 80       	or     $0x80000010,%eax
+ 205:	ef                   	out    %eax,(%dx)
+ 206:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 20b:	ed                   	in     (%dx),%eax
+ 20c:	89 c6                	mov    %eax,%esi
+ 20e:	89 c2                	mov    %eax,%edx
+ 210:	83 e6 f0             	and    $0xfffffff0,%esi
+ 213:	83 e2 fc             	and    $0xfffffffc,%edx
+ 216:	a8 01                	test   $0x1,%al
+ 218:	8b 44 24 24          	mov    0x24(%esp),%eax
+ 21c:	0f 44 d6             	cmove  %esi,%edx
+ 21f:	89 10                	mov    %edx,(%eax)
+ 221:	85 ff                	test   %edi,%edi
+ 223:	74 15                	je     23a <pci_find_pcnet+0x9a>
+ 225:	89 c8                	mov    %ecx,%eax
+ 227:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 22c:	0d 3c 00 00 80       	or     $0x8000003c,%eax
+ 231:	ef                   	out    %eax,(%dx)
+ 232:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 237:	ed                   	in     (%dx),%eax
+ 238:	88 07                	mov    %al,(%edi)
+ 23a:	81 c9 04 00 00 80    	or     $0x80000004,%ecx
+ 240:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 245:	89 c8                	mov    %ecx,%eax
+ 247:	ef                   	out    %eax,(%dx)
+ 248:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 24d:	ed                   	in     (%dx),%eax
+ 24e:	ba f8 0c 00 00       	mov    $0xcf8,%edx
+ 253:	89 04 24             	mov    %eax,(%esp)
+ 256:	89 c8                	mov    %ecx,%eax
+ 258:	ef                   	out    %eax,(%dx)
+ 259:	8b 04 24             	mov    (%esp),%eax
+ 25c:	ba fc 0c 00 00       	mov    $0xcfc,%edx
+ 261:	83 c8 04             	or     $0x4,%eax
+ 264:	ef                   	out    %eax,(%dx)
+ 265:	83 c4 14             	add    $0x14,%esp
+ 268:	89 d8                	mov    %ebx,%eax
+ 26a:	5b                   	pop    %ebx
+ 26b:	5e                   	pop    %esi
+ 26c:	5f                   	pop    %edi
+ 26d:	c3                   	ret

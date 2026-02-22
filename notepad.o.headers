@@ -1,0 +1,167 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          4824 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         16
+  Section header string table index: 15
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 000a13 00  AX  0   0 16
+  [ 2] .rel.text         REL             00000000 001008 000198 08   I 13   1  4
+  [ 3] .data             PROGBITS        00000000 000a47 000000 00  WA  0   0  1
+  [ 4] .bss              NOBITS          00000000 000a48 020070 00  WA  0   0 32
+  [ 5] .rodata.str1.1    PROGBITS        00000000 000a48 00001e 01 AMS  0   0  1
+  [ 6] .rodata           PROGBITS        00000000 000a68 00004c 00   A  0   0  4
+  [ 7] .rel.rodata       REL             00000000 0011a0 000098 08   I 13   6  4
+  [ 8] .comment          PROGBITS        00000000 000ab4 00001c 01  MS  0   0  1
+  [ 9] .note.GNU-stack   PROGBITS        00000000 000ad0 000000 00      0   0  1
+  [10] .note.gnu.pr[...] NOTE            00000000 000ad0 000028 00   A  0   0  4
+  [11] .eh_frame         PROGBITS        00000000 000af8 000314 00   A  0   0  4
+  [12] .rel.eh_frame     REL             00000000 001238 000018 08   I 13  11  4
+  [13] .symtab           SYMTAB          00000000 000e0c 000150 10     14   8  4
+  [14] .strtab           STRTAB          00000000 000f5c 0000ac 00      0   0  1
+  [15] .shstrtab         STRTAB          00000000 001250 000085 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+There are no program headers in this file.
+
+There is no dynamic section in this file.
+
+Relocation section '.rel.text' at offset 0x1008 contains 51 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000007  00000301 R_386_32          00000000   .bss
+00000025  00000301 R_386_32          00000000   .bss
+0000002b  00000301 R_386_32          00000000   .bss
+00000031  00000902 R_386_PC32        00000000   memset
+00000105  00000b02 R_386_PC32        00000000   fb_fill_rect
+00000160  00000c02 R_386_PC32        00000000   itoa
+00000168  00000d02 R_386_PC32        00000000   strlen
+0000019b  00000e02 R_386_PC32        00000000   fb_draw_string_nobg
+000001aa  00000d02 R_386_PC32        00000000   strlen
+000001e0  00000601 R_386_32          00000000   .rodata.str1.1
+000001e7  00000e02 R_386_PC32        00000000   fb_draw_string_nobg
+00000215  00000e02 R_386_PC32        00000000   fb_draw_string_nobg
+0000029b  00000b02 R_386_PC32        00000000   fb_fill_rect
+000002a8  00000601 R_386_32          00000000   .rodata.str1.1
+000002b2  00000f02 R_386_PC32        00000000   strcat
+000002d3  00000c02 R_386_PC32        00000000   itoa
+000002dc  00000f02 R_386_PC32        00000000   strcat
+000002e3  00000601 R_386_32          00000000   .rodata.str1.1
+000002e9  00000f02 R_386_PC32        00000000   strcat
+00000305  00000c02 R_386_PC32        00000000   itoa
+00000311  00000f02 R_386_PC32        00000000   strcat
+00000318  00000601 R_386_32          00000000   .rodata.str1.1
+0000031e  00000f02 R_386_PC32        00000000   strcat
+0000032f  00000c02 R_386_PC32        00000000   itoa
+00000338  00000f02 R_386_PC32        00000000   strcat
+00000351  00000e02 R_386_PC32        00000000   fb_draw_string_nobg
+00000361  00001002 R_386_PC32        00000000   pit_get_ticks
+000003bd  00001102 R_386_PC32        00000000   fb_blend_pixel
+0000041f  00000b02 R_386_PC32        00000000   fb_fill_rect
+00000431  00000601 R_386_32          00000000   .rodata.str1.1
+0000045f  00000e02 R_386_PC32        00000000   fb_draw_string_nobg
+000004b1  00000701 R_386_32          00000000   .rodata
+000004c8  00000d02 R_386_PC32        00000000   strlen
+0000051a  00001302 R_386_PC32        00000000   memcpy
+00000552  00000d02 R_386_PC32        00000000   strlen
+000005a4  00000d02 R_386_PC32        00000000   strlen
+000005e2  00000f02 R_386_PC32        00000000   strcat
+0000062e  00001302 R_386_PC32        00000000   memcpy
+00000680  00000d02 R_386_PC32        00000000   strlen
+00000731  00000d02 R_386_PC32        00000000   strlen
+00000779  00000d02 R_386_PC32        00000000   strlen
+00000797  00000f02 R_386_PC32        00000000   strcat
+000007de  00001302 R_386_PC32        00000000   memcpy
+0000084e  00000d02 R_386_PC32        00000000   strlen
+0000087f  00001402 R_386_PC32        00000000   memmove
+000008e2  00000d02 R_386_PC32        00000000   strlen
+0000090d  00001402 R_386_PC32        00000000   memmove
+0000095f  00000d02 R_386_PC32        00000000   strlen
+00000980  00001402 R_386_PC32        00000000   memmove
+000009cf  00001402 R_386_PC32        00000000   memmove
+000009f5  00001302 R_386_PC32        00000000   memcpy
+
+Relocation section '.rel.rodata' at offset 0x11a0 contains 19 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000000  00000201 R_386_32          00000000   .text
+00000004  00000201 R_386_32          00000000   .text
+00000008  00000201 R_386_32          00000000   .text
+0000000c  00000201 R_386_32          00000000   .text
+00000010  00000201 R_386_32          00000000   .text
+00000014  00000201 R_386_32          00000000   .text
+00000018  00000201 R_386_32          00000000   .text
+0000001c  00000201 R_386_32          00000000   .text
+00000020  00000201 R_386_32          00000000   .text
+00000024  00000201 R_386_32          00000000   .text
+00000028  00000201 R_386_32          00000000   .text
+0000002c  00000201 R_386_32          00000000   .text
+00000030  00000201 R_386_32          00000000   .text
+00000034  00000201 R_386_32          00000000   .text
+00000038  00000201 R_386_32          00000000   .text
+0000003c  00000201 R_386_32          00000000   .text
+00000040  00000201 R_386_32          00000000   .text
+00000044  00000201 R_386_32          00000000   .text
+00000048  00000201 R_386_32          00000000   .text
+
+Relocation section '.rel.eh_frame' at offset 0x1238 contains 3 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000020  00000202 R_386_PC32        00000000   .text
+00000050  00000202 R_386_PC32        00000000   .text
+000001fc  00000202 R_386_PC32        00000000   .text
+No processor specific unwind information to decode
+
+Symbol table '.symtab' contains 21 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS notepad.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    4 .bss
+     4: 00000000     4 OBJECT  LOCAL  DEFAULT    4 pad_count
+     5: 00000020 0x20050 OBJECT  LOCAL  DEFAULT    4 pads
+     6: 00000000     0 SECTION LOCAL  DEFAULT    5 .rodata.str1.1
+     7: 00000000     0 SECTION LOCAL  DEFAULT    6 .rodata
+     8: 00000000    73 FUNC    GLOBAL DEFAULT    1 notepad_create
+     9: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memset
+    10: 00000050  1072 FUNC    GLOBAL DEFAULT    1 notepad_draw
+    11: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_fill_rect
+    12: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND itoa
+    13: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strlen
+    14: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_draw_string_nobg
+    15: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strcat
+    16: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pit_get_ticks
+    17: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_blend_pixel
+    18: 00000480  1427 FUNC    GLOBAL DEFAULT    1 notepad_on_key
+    19: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memcpy
+    20: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memmove
+
+No version information found in this file.
+
+There is no GOT section in this file.
+
+Displaying notes found in: .note.gnu.property
+  Owner                Data size 	Description
+  GNU                  0x00000018	NT_GNU_PROPERTY_TYPE_0
+      Properties: x86 ISA used: x86-64-baseline
+	x86 feature used: x86

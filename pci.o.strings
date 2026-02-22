@@ -1,0 +1,23 @@
+D$ f
+D$$f
+f9D$
+[^_]
+[^_]
+|$(P
+GCC: (GNU) 15.2.1 20260209
+pci.c
+pci_find_device
+pci_read_bar0
+pci_read_irq_line
+pci_enable_bus_master
+pci_find_pcnet
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

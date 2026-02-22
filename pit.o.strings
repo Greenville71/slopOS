@@ -1,0 +1,19 @@
+GCC: (GNU) 15.2.1 20260209
+pit.c
+pit_handler
+pit_freq
+pit_init
+isr_register_handler
+irq_clear_mask
+pit_get_ticks
+pit_sleep_ms
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

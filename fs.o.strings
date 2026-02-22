@@ -1,0 +1,66 @@
+j;WS
+[^_]
+[^_]
+[^_]
+[^_]
+[^_]
+X@9\$
+UWVS
+;|$8
+t$8S
+/home
+/home/user
+/etc
+/var
+/etc/motd
+slopos
+/etc/hostname
+/etc/slopos.conf
+/home/user/readme.txt
+/home/user/notes.txt
+Welcome to SlopOS 0.3
+Your files are stored in RAM.
+theme=catppuccin-mocha
+resolution=1024x768
+wallpaper=gradient
+SlopOS Filesystem
+==================
+This is a RAM-based filesystem.
+Files persist while the system is running.
+Use the File Manager or terminal to create files.
+Shopping list:
+- More RAM
+- A real disk driver
+- World domination
+GCC: (GNU) 15.2.1 20260209
+fs.c
+ftable
+pool_used
+pool
+fs_exists
+strcmp
+fs_size
+fs_mkdir
+strncpy
+fs_write
+memcpy
+fs_create
+fs_init
+memset
+strlen
+fs_read
+fs_delete
+fs_list
+strncmp
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rodata.str1.1
+.rodata.str1.4
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

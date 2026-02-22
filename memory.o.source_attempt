@@ -1,0 +1,28 @@
+
+memory.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <heap_init>:
+   0:	8b 44 24 04          	mov    0x4(%esp),%eax
+   4:	a3 00 00 00 00       	mov    %eax,0x0
+   9:	03 44 24 08          	add    0x8(%esp),%eax
+   d:	a3 04 00 00 00       	mov    %eax,0x4
+  12:	c3                   	ret
+  13:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+  18:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  1f:	00 
+
+00000020 <kmalloc>:
+  20:	8b 44 24 04          	mov    0x4(%esp),%eax
+  24:	8d 50 0f             	lea    0xf(%eax),%edx
+  27:	a1 00 00 00 00       	mov    0x0,%eax
+  2c:	83 e2 f0             	and    $0xfffffff0,%edx
+  2f:	01 c2                	add    %eax,%edx
+  31:	39 15 04 00 00 00    	cmp    %edx,0x4
+  37:	72 07                	jb     40 <kmalloc+0x20>
+  39:	89 15 00 00 00 00    	mov    %edx,0x0
+  3f:	c3                   	ret
+  40:	31 c0                	xor    %eax,%eax
+  42:	c3                   	ret

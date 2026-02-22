@@ -1,0 +1,15 @@
+         U fb_blend_pixel
+         U fb_draw_string_nobg
+         U fb_fill_rect
+         U itoa
+         U memcpy
+         U memmove
+         U memset
+00000000 T notepad_create
+00000050 T notepad_draw
+00000480 T notepad_on_key
+00000000 b pad_count
+00000020 b pads
+         U pit_get_ticks
+         U strcat
+         U strlen

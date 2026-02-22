@@ -1,0 +1,265 @@
+
+keyboard.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <kb_handler>:
+   0:	e4 60                	in     $0x60,%al
+   2:	3c e0                	cmp    $0xe0,%al
+   4:	0f 84 b6 00 00 00    	je     c0 <kb_handler+0xc0>
+   a:	80 3d 00 00 00 00 00 	cmpb   $0x0,0x0
+  11:	0f 85 89 00 00 00    	jne    a0 <kb_handler+0xa0>
+  17:	84 c0                	test   %al,%al
+  19:	0f 88 e1 00 00 00    	js     100 <kb_handler+0x100>
+  1f:	3c 2a                	cmp    $0x2a,%al
+  21:	0f 84 a9 00 00 00    	je     d0 <kb_handler+0xd0>
+  27:	3c 36                	cmp    $0x36,%al
+  29:	0f 84 a1 00 00 00    	je     d0 <kb_handler+0xd0>
+  2f:	0f b6 0d 01 00 00 00 	movzbl 0x1,%ecx
+  36:	3c 3a                	cmp    $0x3a,%al
+  38:	0f 84 e2 02 00 00    	je     320 <kb_handler+0x320>
+  3e:	0f b6 c0             	movzbl %al,%eax
+  41:	80 3d 02 00 00 00 00 	cmpb   $0x0,0x2
+  48:	0f 84 ca 00 00 00    	je     118 <kb_handler+0x118>
+  4e:	0f b6 90 40 00 00 00 	movzbl 0x40(%eax),%edx
+  55:	84 c9                	test   %cl,%cl
+  57:	0f 84 93 00 00 00    	je     f0 <kb_handler+0xf0>
+  5d:	8d 42 9f             	lea    -0x61(%edx),%eax
+  60:	3c 19                	cmp    $0x19,%al
+  62:	77 7c                	ja     e0 <kb_handler+0xe0>
+  64:	83 ea 20             	sub    $0x20,%edx
+  67:	a1 08 00 00 00       	mov    0x8,%eax
+  6c:	8d 48 01             	lea    0x1(%eax),%ecx
+  6f:	c1 f9 1f             	sar    $0x1f,%ecx
+  72:	c1 e9 18             	shr    $0x18,%ecx
+  75:	8d 44 08 01          	lea    0x1(%eax,%ecx,1),%eax
+  79:	0f b6 c0             	movzbl %al,%eax
+  7c:	29 c8                	sub    %ecx,%eax
+  7e:	8b 0d 04 00 00 00    	mov    0x4,%ecx
+  84:	39 c8                	cmp    %ecx,%eax
+  86:	74 11                	je     99 <kb_handler+0x99>
+  88:	8b 0d 08 00 00 00    	mov    0x8,%ecx
+  8e:	a3 08 00 00 00       	mov    %eax,0x8
+  93:	88 91 20 00 00 00    	mov    %dl,0x20(%ecx)
+  99:	c3                   	ret
+  9a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+  a0:	c6 05 00 00 00 00 00 	movb   $0x0,0x0
+  a7:	84 c0                	test   %al,%al
+  a9:	78 ee                	js     99 <kb_handler+0x99>
+  ab:	83 e8 47             	sub    $0x47,%eax
+  ae:	3c 0c                	cmp    $0xc,%al
+  b0:	77 e7                	ja     99 <kb_handler+0x99>
+  b2:	0f b6 c0             	movzbl %al,%eax
+  b5:	ff 24 85 00 00 00 00 	jmp    *0x0(,%eax,4)
+  bc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  c0:	c6 05 00 00 00 00 01 	movb   $0x1,0x0
+  c7:	c3                   	ret
+  c8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  cf:	00 
+  d0:	c6 05 02 00 00 00 01 	movb   $0x1,0x2
+  d7:	c3                   	ret
+  d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  df:	00 
+  e0:	8d 42 bf             	lea    -0x41(%edx),%eax
+  e3:	3c 19                	cmp    $0x19,%al
+  e5:	77 09                	ja     f0 <kb_handler+0xf0>
+  e7:	83 c2 20             	add    $0x20,%edx
+  ea:	e9 78 ff ff ff       	jmp    67 <kb_handler+0x67>
+  ef:	90                   	nop
+  f0:	84 d2                	test   %dl,%dl
+  f2:	0f 85 6f ff ff ff    	jne    67 <kb_handler+0x67>
+  f8:	c3                   	ret
+  f9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 100:	83 e0 7f             	and    $0x7f,%eax
+ 103:	3c 2a                	cmp    $0x2a,%al
+ 105:	74 04                	je     10b <kb_handler+0x10b>
+ 107:	3c 36                	cmp    $0x36,%al
+ 109:	75 8e                	jne    99 <kb_handler+0x99>
+ 10b:	c6 05 02 00 00 00 00 	movb   $0x0,0x2
+ 112:	c3                   	ret
+ 113:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 118:	0f b6 90 c0 00 00 00 	movzbl 0xc0(%eax),%edx
+ 11f:	e9 31 ff ff ff       	jmp    55 <kb_handler+0x55>
+ 124:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 128:	a1 08 00 00 00       	mov    0x8,%eax
+ 12d:	83 c0 01             	add    $0x1,%eax
+ 130:	99                   	cltd
+ 131:	c1 ea 18             	shr    $0x18,%edx
+ 134:	01 d0                	add    %edx,%eax
+ 136:	0f b6 c0             	movzbl %al,%eax
+ 139:	29 d0                	sub    %edx,%eax
+ 13b:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 141:	39 d0                	cmp    %edx,%eax
+ 143:	0f 84 50 ff ff ff    	je     99 <kb_handler+0x99>
+ 149:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 14f:	a3 08 00 00 00       	mov    %eax,0x8
+ 154:	c6 82 20 00 00 00 f8 	movb   $0xf8,0x20(%edx)
+ 15b:	c3                   	ret
+ 15c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 160:	a1 08 00 00 00       	mov    0x8,%eax
+ 165:	83 c0 01             	add    $0x1,%eax
+ 168:	99                   	cltd
+ 169:	c1 ea 18             	shr    $0x18,%edx
+ 16c:	01 d0                	add    %edx,%eax
+ 16e:	0f b6 c0             	movzbl %al,%eax
+ 171:	29 d0                	sub    %edx,%eax
+ 173:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 179:	39 d0                	cmp    %edx,%eax
+ 17b:	0f 84 18 ff ff ff    	je     99 <kb_handler+0x99>
+ 181:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 187:	a3 08 00 00 00       	mov    %eax,0x8
+ 18c:	c6 82 20 00 00 00 f6 	movb   $0xf6,0x20(%edx)
+ 193:	c3                   	ret
+ 194:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 198:	a1 08 00 00 00       	mov    0x8,%eax
+ 19d:	83 c0 01             	add    $0x1,%eax
+ 1a0:	99                   	cltd
+ 1a1:	c1 ea 18             	shr    $0x18,%edx
+ 1a4:	01 d0                	add    %edx,%eax
+ 1a6:	0f b6 c0             	movzbl %al,%eax
+ 1a9:	29 d0                	sub    %edx,%eax
+ 1ab:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 1b1:	39 d0                	cmp    %edx,%eax
+ 1b3:	0f 84 e0 fe ff ff    	je     99 <kb_handler+0x99>
+ 1b9:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 1bf:	a3 08 00 00 00       	mov    %eax,0x8
+ 1c4:	c6 82 20 00 00 00 fa 	movb   $0xfa,0x20(%edx)
+ 1cb:	c3                   	ret
+ 1cc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 1d0:	a1 08 00 00 00       	mov    0x8,%eax
+ 1d5:	83 c0 01             	add    $0x1,%eax
+ 1d8:	99                   	cltd
+ 1d9:	c1 ea 18             	shr    $0x18,%edx
+ 1dc:	01 d0                	add    %edx,%eax
+ 1de:	0f b6 c0             	movzbl %al,%eax
+ 1e1:	29 d0                	sub    %edx,%eax
+ 1e3:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 1e9:	39 d0                	cmp    %edx,%eax
+ 1eb:	0f 84 a8 fe ff ff    	je     99 <kb_handler+0x99>
+ 1f1:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 1f7:	a3 08 00 00 00       	mov    %eax,0x8
+ 1fc:	c6 82 20 00 00 00 f7 	movb   $0xf7,0x20(%edx)
+ 203:	c3                   	ret
+ 204:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 208:	a1 08 00 00 00       	mov    0x8,%eax
+ 20d:	83 c0 01             	add    $0x1,%eax
+ 210:	99                   	cltd
+ 211:	c1 ea 18             	shr    $0x18,%edx
+ 214:	01 d0                	add    %edx,%eax
+ 216:	0f b6 c0             	movzbl %al,%eax
+ 219:	29 d0                	sub    %edx,%eax
+ 21b:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 221:	39 d0                	cmp    %edx,%eax
+ 223:	0f 84 70 fe ff ff    	je     99 <kb_handler+0x99>
+ 229:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 22f:	a3 08 00 00 00       	mov    %eax,0x8
+ 234:	c6 82 20 00 00 00 fe 	movb   $0xfe,0x20(%edx)
+ 23b:	c3                   	ret
+ 23c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 240:	a1 08 00 00 00       	mov    0x8,%eax
+ 245:	83 c0 01             	add    $0x1,%eax
+ 248:	99                   	cltd
+ 249:	c1 ea 18             	shr    $0x18,%edx
+ 24c:	01 d0                	add    %edx,%eax
+ 24e:	0f b6 c0             	movzbl %al,%eax
+ 251:	29 d0                	sub    %edx,%eax
+ 253:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 259:	39 d0                	cmp    %edx,%eax
+ 25b:	0f 84 38 fe ff ff    	je     99 <kb_handler+0x99>
+ 261:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 267:	a3 08 00 00 00       	mov    %eax,0x8
+ 26c:	c6 82 20 00 00 00 fd 	movb   $0xfd,0x20(%edx)
+ 273:	c3                   	ret
+ 274:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 278:	a1 08 00 00 00       	mov    0x8,%eax
+ 27d:	83 c0 01             	add    $0x1,%eax
+ 280:	99                   	cltd
+ 281:	c1 ea 18             	shr    $0x18,%edx
+ 284:	01 d0                	add    %edx,%eax
+ 286:	0f b6 c0             	movzbl %al,%eax
+ 289:	29 d0                	sub    %edx,%eax
+ 28b:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 291:	39 d0                	cmp    %edx,%eax
+ 293:	0f 84 00 fe ff ff    	je     99 <kb_handler+0x99>
+ 299:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 29f:	a3 08 00 00 00       	mov    %eax,0x8
+ 2a4:	c6 82 20 00 00 00 f9 	movb   $0xf9,0x20(%edx)
+ 2ab:	c3                   	ret
+ 2ac:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 2b0:	a1 08 00 00 00       	mov    0x8,%eax
+ 2b5:	83 c0 01             	add    $0x1,%eax
+ 2b8:	99                   	cltd
+ 2b9:	c1 ea 18             	shr    $0x18,%edx
+ 2bc:	01 d0                	add    %edx,%eax
+ 2be:	0f b6 c0             	movzbl %al,%eax
+ 2c1:	29 d0                	sub    %edx,%eax
+ 2c3:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 2c9:	39 d0                	cmp    %edx,%eax
+ 2cb:	0f 84 c8 fd ff ff    	je     99 <kb_handler+0x99>
+ 2d1:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 2d7:	a3 08 00 00 00       	mov    %eax,0x8
+ 2dc:	c6 82 20 00 00 00 fb 	movb   $0xfb,0x20(%edx)
+ 2e3:	c3                   	ret
+ 2e4:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 2e8:	a1 08 00 00 00       	mov    0x8,%eax
+ 2ed:	83 c0 01             	add    $0x1,%eax
+ 2f0:	99                   	cltd
+ 2f1:	c1 ea 18             	shr    $0x18,%edx
+ 2f4:	01 d0                	add    %edx,%eax
+ 2f6:	0f b6 c0             	movzbl %al,%eax
+ 2f9:	29 d0                	sub    %edx,%eax
+ 2fb:	8b 15 04 00 00 00    	mov    0x4,%edx
+ 301:	39 d0                	cmp    %edx,%eax
+ 303:	0f 84 90 fd ff ff    	je     99 <kb_handler+0x99>
+ 309:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 30f:	a3 08 00 00 00       	mov    %eax,0x8
+ 314:	c6 82 20 00 00 00 fc 	movb   $0xfc,0x20(%edx)
+ 31b:	c3                   	ret
+ 31c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 320:	83 f1 01             	xor    $0x1,%ecx
+ 323:	88 0d 01 00 00 00    	mov    %cl,0x1
+ 329:	c3                   	ret
+ 32a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+00000330 <keyboard_init>:
+ 330:	83 ec 14             	sub    $0x14,%esp
+ 333:	68 00 00 00 00       	push   $0x0
+ 338:	6a 21                	push   $0x21
+ 33a:	e8 fc ff ff ff       	call   33b <keyboard_init+0xb>
+ 33f:	c7 04 24 01 00 00 00 	movl   $0x1,(%esp)
+ 346:	e8 fc ff ff ff       	call   347 <keyboard_init+0x17>
+ 34b:	83 c4 1c             	add    $0x1c,%esp
+ 34e:	c3                   	ret
+ 34f:	90                   	nop
+
+00000350 <keyboard_has_char>:
+ 350:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 356:	a1 04 00 00 00       	mov    0x4,%eax
+ 35b:	39 c2                	cmp    %eax,%edx
+ 35d:	0f 95 c0             	setne  %al
+ 360:	c3                   	ret
+ 361:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 368:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 36f:	00 
+
+00000370 <keyboard_get_char>:
+ 370:	eb 07                	jmp    379 <keyboard_get_char+0x9>
+ 372:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 378:	f4                   	hlt
+ 379:	8b 15 08 00 00 00    	mov    0x8,%edx
+ 37f:	a1 04 00 00 00       	mov    0x4,%eax
+ 384:	39 c2                	cmp    %eax,%edx
+ 386:	74 f0                	je     378 <keyboard_get_char+0x8>
+ 388:	a1 04 00 00 00       	mov    0x4,%eax
+ 38d:	0f b6 88 20 00 00 00 	movzbl 0x20(%eax),%ecx
+ 394:	a1 04 00 00 00       	mov    0x4,%eax
+ 399:	83 c0 01             	add    $0x1,%eax
+ 39c:	99                   	cltd
+ 39d:	c1 ea 18             	shr    $0x18,%edx
+ 3a0:	01 d0                	add    %edx,%eax
+ 3a2:	0f b6 c0             	movzbl %al,%eax
+ 3a5:	29 d0                	sub    %edx,%eax
+ 3a7:	a3 04 00 00 00       	mov    %eax,0x4
+ 3ac:	89 c8                	mov    %ecx,%eax
+ 3ae:	c3                   	ret

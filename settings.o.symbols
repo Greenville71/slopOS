@@ -1,0 +1,14 @@
+         U current_user
+         U fb_draw_hline
+         U fb_draw_string_nobg
+         U fb_fill_circle
+         U fb_fill_rounded_rect
+         U itoa
+         U pit_get_ticks
+00000000 b scount
+00000004 b sdata
+00000000 T settings_create
+00000030 T settings_draw
+000003f0 T settings_on_mouse
+         U strcat
+00000000 r themes

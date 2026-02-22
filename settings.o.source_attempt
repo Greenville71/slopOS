@@ -1,0 +1,352 @@
+
+settings.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <settings_create>:
+   0:	a1 00 00 00 00       	mov    0x0,%eax
+   5:	31 d2                	xor    %edx,%edx
+   7:	83 f8 01             	cmp    $0x1,%eax
+   a:	7f 1b                	jg     27 <settings_create+0x27>
+   c:	c7 04 85 04 00 00 00 	movl   $0x0,0x4(,%eax,4)
+  13:	00 00 00 00 
+  17:	8d 50 01             	lea    0x1(%eax),%edx
+  1a:	89 15 00 00 00 00    	mov    %edx,0x0
+  20:	8d 14 85 04 00 00 00 	lea    0x4(,%eax,4),%edx
+  27:	89 d0                	mov    %edx,%eax
+  29:	c3                   	ret
+  2a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+00000030 <settings_draw>:
+  30:	55                   	push   %ebp
+  31:	57                   	push   %edi
+  32:	56                   	push   %esi
+  33:	53                   	push   %ebx
+  34:	81 ec 8c 00 00 00    	sub    $0x8c,%esp
+  3a:	8b ac 24 a0 00 00 00 	mov    0xa0(%esp),%ebp
+  41:	8b 45 68             	mov    0x68(%ebp),%eax
+  44:	89 44 24 0c          	mov    %eax,0xc(%esp)
+  48:	85 c0                	test   %eax,%eax
+  4a:	0f 84 8a 03 00 00    	je     3da <settings_draw+0x3aa>
+  50:	8b 7d 04             	mov    0x4(%ebp),%edi
+  53:	8b 75 00             	mov    0x0(%ebp),%esi
+  56:	68 f4 d6 cd 00       	push   $0xcdd6f4
+  5b:	68 00 00 00 00       	push   $0x0
+  60:	8d 5e 10             	lea    0x10(%esi),%ebx
+  63:	8d 47 2c             	lea    0x2c(%edi),%eax
+  66:	83 c6 1c             	add    $0x1c,%esi
+  69:	50                   	push   %eax
+  6a:	53                   	push   %ebx
+  6b:	e8 fc ff ff ff       	call   6c <settings_draw+0x3c>
+  70:	68 5a 47 45 00       	push   $0x45475a
+  75:	8b 45 08             	mov    0x8(%ebp),%eax
+  78:	83 e8 20             	sub    $0x20,%eax
+  7b:	50                   	push   %eax
+  7c:	8d 47 48             	lea    0x48(%edi),%eax
+  7f:	50                   	push   %eax
+  80:	53                   	push   %ebx
+  81:	e8 fc ff ff ff       	call   82 <settings_draw+0x52>
+  86:	83 c4 20             	add    $0x20,%esp
+  89:	8d 47 54             	lea    0x54(%edi),%eax
+  8c:	68 fa b4 89 00       	push   $0x89b4fa
+  91:	68 10 00 00 00       	push   $0x10
+  96:	50                   	push   %eax
+  97:	53                   	push   %ebx
+  98:	e8 fc ff ff ff       	call   99 <settings_draw+0x69>
+  9d:	8d 47 6a             	lea    0x6a(%edi),%eax
+  a0:	89 74 24 18          	mov    %esi,0x18(%esp)
+  a4:	68 f4 d6 cd 00       	push   $0xcdd6f4
+  a9:	68 18 00 00 00       	push   $0x18
+  ae:	50                   	push   %eax
+  af:	56                   	push   %esi
+  b0:	e8 fc ff ff ff       	call   b1 <settings_draw+0x81>
+  b5:	83 c4 20             	add    $0x20,%esp
+  b8:	8d 47 7c             	lea    0x7c(%edi),%eax
+  bb:	68 f4 d6 cd 00       	push   $0xcdd6f4
+  c0:	68 2d 00 00 00       	push   $0x2d
+  c5:	50                   	push   %eax
+  c6:	56                   	push   %esi
+  c7:	e8 fc ff ff ff       	call   c8 <settings_draw+0x98>
+  cc:	8d 87 8e 00 00 00    	lea    0x8e(%edi),%eax
+  d2:	68 c8 ad a6 00       	push   $0xa6adc8
+  d7:	68 41 00 00 00       	push   $0x41
+  dc:	50                   	push   %eax
+  dd:	56                   	push   %esi
+  de:	31 f6                	xor    %esi,%esi
+  e0:	e8 fc ff ff ff       	call   e1 <settings_draw+0xb1>
+  e5:	83 c4 20             	add    $0x20,%esp
+  e8:	8d 87 aa 00 00 00    	lea    0xaa(%edi),%eax
+  ee:	68 fa b4 89 00       	push   $0x89b4fa
+  f3:	68 5e 00 00 00       	push   $0x5e
+  f8:	50                   	push   %eax
+  f9:	53                   	push   %ebx
+  fa:	e8 fc ff ff ff       	call   fb <settings_draw+0xcb>
+  ff:	83 c4 10             	add    $0x10,%esp
+ 102:	89 ac 24 a0 00 00 00 	mov    %ebp,0xa0(%esp)
+ 109:	8d af c0 00 00 00    	lea    0xc0(%edi),%ebp
+ 10f:	89 7c 24 18          	mov    %edi,0x18(%esp)
+ 113:	89 5c 24 1c          	mov    %ebx,0x1c(%esp)
+ 117:	eb 43                	jmp    15c <settings_draw+0x12c>
+ 119:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 120:	ff 34 f5 04 00 00 00 	push   0x4(,%esi,8)
+ 127:	6a 08                	push   $0x8
+ 129:	52                   	push   %edx
+ 12a:	50                   	push   %eax
+ 12b:	e8 fc ff ff ff       	call   12c <settings_draw+0xfc>
+ 130:	83 c4 10             	add    $0x10,%esp
+ 133:	b8 c8 ad a6 00       	mov    $0xa6adc8,%eax
+ 138:	83 c7 05             	add    $0x5,%edi
+ 13b:	83 c3 18             	add    $0x18,%ebx
+ 13e:	50                   	push   %eax
+ 13f:	ff 34 f5 00 00 00 00 	push   0x0(,%esi,8)
+ 146:	83 c6 01             	add    $0x1,%esi
+ 149:	57                   	push   %edi
+ 14a:	53                   	push   %ebx
+ 14b:	e8 fc ff ff ff       	call   14c <settings_draw+0x11c>
+ 150:	83 c4 10             	add    $0x10,%esp
+ 153:	83 fe 07             	cmp    $0x7,%esi
+ 156:	0f 84 84 00 00 00    	je     1e0 <settings_draw+0x1b0>
+ 15c:	b8 ab aa aa aa       	mov    $0xaaaaaaab,%eax
+ 161:	89 f3                	mov    %esi,%ebx
+ 163:	8b 4c 24 0c          	mov    0xc(%esp),%ecx
+ 167:	f7 e6                	mul    %esi
+ 169:	89 d0                	mov    %edx,%eax
+ 16b:	83 e2 fe             	and    $0xfffffffe,%edx
+ 16e:	d1 e8                	shr    $1,%eax
+ 170:	01 c2                	add    %eax,%edx
+ 172:	8d 04 c0             	lea    (%eax,%eax,8),%eax
+ 175:	29 d3                	sub    %edx,%ebx
+ 177:	8d 7c 85 00          	lea    0x0(%ebp,%eax,4),%edi
+ 17b:	69 db 82 00 00 00    	imul   $0x82,%ebx,%ebx
+ 181:	03 5c 24 08          	add    0x8(%esp),%ebx
+ 185:	8d 57 0c             	lea    0xc(%edi),%edx
+ 188:	8d 43 0a             	lea    0xa(%ebx),%eax
+ 18b:	39 31                	cmp    %esi,(%ecx)
+ 18d:	75 91                	jne    120 <settings_draw+0xf0>
+ 18f:	89 44 24 14          	mov    %eax,0x14(%esp)
+ 193:	8d 4f fe             	lea    -0x2(%edi),%ecx
+ 196:	83 ec 08             	sub    $0x8,%esp
+ 199:	89 54 24 18          	mov    %edx,0x18(%esp)
+ 19d:	68 5a 47 45 00       	push   $0x45475a
+ 1a2:	6a 08                	push   $0x8
+ 1a4:	6a 1e                	push   $0x1e
+ 1a6:	6a 7c                	push   $0x7c
+ 1a8:	51                   	push   %ecx
+ 1a9:	8d 4b fc             	lea    -0x4(%ebx),%ecx
+ 1ac:	51                   	push   %ecx
+ 1ad:	e8 fc ff ff ff       	call   1ae <settings_draw+0x17e>
+ 1b2:	83 c4 20             	add    $0x20,%esp
+ 1b5:	ff 34 f5 04 00 00 00 	push   0x4(,%esi,8)
+ 1bc:	6a 08                	push   $0x8
+ 1be:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 1c2:	52                   	push   %edx
+ 1c3:	8b 44 24 20          	mov    0x20(%esp),%eax
+ 1c7:	50                   	push   %eax
+ 1c8:	e8 fc ff ff ff       	call   1c9 <settings_draw+0x199>
+ 1cd:	83 c4 10             	add    $0x10,%esp
+ 1d0:	b8 f4 d6 cd 00       	mov    $0xcdd6f4,%eax
+ 1d5:	e9 5e ff ff ff       	jmp    138 <settings_draw+0x108>
+ 1da:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 1e0:	8b ac 24 a0 00 00 00 	mov    0xa0(%esp),%ebp
+ 1e7:	8b 7c 24 18          	mov    0x18(%esp),%edi
+ 1eb:	8b 5c 24 1c          	mov    0x1c(%esp),%ebx
+ 1ef:	68 5a 47 45 00       	push   $0x45475a
+ 1f4:	8b 45 08             	mov    0x8(%ebp),%eax
+ 1f7:	83 e8 20             	sub    $0x20,%eax
+ 1fa:	50                   	push   %eax
+ 1fb:	8d 87 34 01 00 00    	lea    0x134(%edi),%eax
+ 201:	50                   	push   %eax
+ 202:	53                   	push   %ebx
+ 203:	e8 fc ff ff ff       	call   204 <settings_draw+0x1d4>
+ 208:	8d 87 40 01 00 00    	lea    0x140(%edi),%eax
+ 20e:	68 fa b4 89 00       	push   $0x89b4fa
+ 213:	68 64 00 00 00       	push   $0x64
+ 218:	50                   	push   %eax
+ 219:	53                   	push   %ebx
+ 21a:	e8 fc ff ff ff       	call   21b <settings_draw+0x1eb>
+ 21f:	83 c4 20             	add    $0x20,%esp
+ 222:	8d 87 56 01 00 00    	lea    0x156(%edi),%eax
+ 228:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 22d:	68 6a 00 00 00       	push   $0x6a
+ 232:	50                   	push   %eax
+ 233:	8b 74 24 14          	mov    0x14(%esp),%esi
+ 237:	56                   	push   %esi
+ 238:	e8 fc ff ff ff       	call   239 <settings_draw+0x209>
+ 23d:	8d 87 68 01 00 00    	lea    0x168(%edi),%eax
+ 243:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 248:	68 76 00 00 00       	push   $0x76
+ 24d:	50                   	push   %eax
+ 24e:	56                   	push   %esi
+ 24f:	e8 fc ff ff ff       	call   250 <settings_draw+0x220>
+ 254:	c7 44 24 70 55 73 65 	movl   $0x72657355,0x70(%esp)
+ 25b:	72 
+ 25c:	c7 44 24 74 3a 20 00 	movl   $0x203a,0x74(%esp)
+ 263:	00 
+ 264:	c7 44 24 78 00 00 00 	movl   $0x0,0x78(%esp)
+ 26b:	00 
+ 26c:	c7 44 24 7c 00 00 00 	movl   $0x0,0x7c(%esp)
+ 273:	00 
+ 274:	c7 84 24 80 00 00 00 	movl   $0x0,0x80(%esp)
+ 27b:	00 00 00 00 
+ 27f:	c7 84 24 84 00 00 00 	movl   $0x0,0x84(%esp)
+ 286:	00 00 00 00 
+ 28a:	c7 84 24 88 00 00 00 	movl   $0x0,0x88(%esp)
+ 291:	00 00 00 00 
+ 295:	c7 84 24 8c 00 00 00 	movl   $0x0,0x8c(%esp)
+ 29c:	00 00 00 00 
+ 2a0:	c7 84 24 90 00 00 00 	movl   $0x0,0x90(%esp)
+ 2a7:	00 00 00 00 
+ 2ab:	c7 84 24 94 00 00 00 	movl   $0x0,0x94(%esp)
+ 2b2:	00 00 00 00 
+ 2b6:	c7 84 24 98 00 00 00 	movl   $0x0,0x98(%esp)
+ 2bd:	00 00 00 00 
+ 2c1:	c7 84 24 9c 00 00 00 	movl   $0x0,0x9c(%esp)
+ 2c8:	00 00 00 00 
+ 2cc:	83 c4 18             	add    $0x18,%esp
+ 2cf:	68 00 00 00 00       	push   $0x0
+ 2d4:	8d 5c 24 5c          	lea    0x5c(%esp),%ebx
+ 2d8:	53                   	push   %ebx
+ 2d9:	e8 fc ff ff ff       	call   2da <settings_draw+0x2aa>
+ 2de:	8d 87 7a 01 00 00    	lea    0x17a(%edi),%eax
+ 2e4:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 2e9:	53                   	push   %ebx
+ 2ea:	50                   	push   %eax
+ 2eb:	56                   	push   %esi
+ 2ec:	e8 fc ff ff ff       	call   2ed <settings_draw+0x2bd>
+ 2f1:	83 c4 20             	add    $0x20,%esp
+ 2f4:	8d 87 8c 01 00 00    	lea    0x18c(%edi),%eax
+ 2fa:	81 c7 9e 01 00 00    	add    $0x19e,%edi
+ 300:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 305:	68 8e 00 00 00       	push   $0x8e
+ 30a:	50                   	push   %eax
+ 30b:	89 74 24 14          	mov    %esi,0x14(%esp)
+ 30f:	56                   	push   %esi
+ 310:	e8 fc ff ff ff       	call   311 <settings_draw+0x2e1>
+ 315:	c7 44 24 40 55 70 74 	movl   $0x69747055,0x40(%esp)
+ 31c:	69 
+ 31d:	c7 44 24 44 6d 65 3a 	movl   $0x203a656d,0x44(%esp)
+ 324:	20 
+ 325:	c7 44 24 48 00 00 00 	movl   $0x0,0x48(%esp)
+ 32c:	00 
+ 32d:	c7 44 24 4c 00 00 00 	movl   $0x0,0x4c(%esp)
+ 334:	00 
+ 335:	c7 44 24 50 00 00 00 	movl   $0x0,0x50(%esp)
+ 33c:	00 
+ 33d:	c7 44 24 54 00 00 00 	movl   $0x0,0x54(%esp)
+ 344:	00 
+ 345:	c7 44 24 58 00 00 00 	movl   $0x0,0x58(%esp)
+ 34c:	00 
+ 34d:	c7 44 24 5c 00 00 00 	movl   $0x0,0x5c(%esp)
+ 354:	00 
+ 355:	e8 fc ff ff ff       	call   356 <settings_draw+0x326>
+ 35a:	ba 1f 85 eb 51       	mov    $0x51eb851f,%edx
+ 35f:	83 c4 0c             	add    $0xc,%esp
+ 362:	f7 e2                	mul    %edx
+ 364:	b8 89 88 88 88       	mov    $0x88888889,%eax
+ 369:	6a 0a                	push   $0xa
+ 36b:	c1 ea 05             	shr    $0x5,%edx
+ 36e:	8d 74 24 30          	lea    0x30(%esp),%esi
+ 372:	89 d5                	mov    %edx,%ebp
+ 374:	f7 e2                	mul    %edx
+ 376:	56                   	push   %esi
+ 377:	c1 ea 05             	shr    $0x5,%edx
+ 37a:	52                   	push   %edx
+ 37b:	89 54 24 1c          	mov    %edx,0x1c(%esp)
+ 37f:	e8 fc ff ff ff       	call   380 <settings_draw+0x350>
+ 384:	58                   	pop    %eax
+ 385:	5a                   	pop    %edx
+ 386:	56                   	push   %esi
+ 387:	8d 5c 24 3c          	lea    0x3c(%esp),%ebx
+ 38b:	53                   	push   %ebx
+ 38c:	e8 fc ff ff ff       	call   38d <settings_draw+0x35d>
+ 391:	59                   	pop    %ecx
+ 392:	58                   	pop    %eax
+ 393:	68 a3 00 00 00       	push   $0xa3
+ 398:	53                   	push   %ebx
+ 399:	e8 fc ff ff ff       	call   39a <settings_draw+0x36a>
+ 39e:	83 c4 0c             	add    $0xc,%esp
+ 3a1:	6a 0a                	push   $0xa
+ 3a3:	56                   	push   %esi
+ 3a4:	6b 54 24 18 3c       	imul   $0x3c,0x18(%esp),%edx
+ 3a9:	29 d5                	sub    %edx,%ebp
+ 3ab:	55                   	push   %ebp
+ 3ac:	e8 fc ff ff ff       	call   3ad <settings_draw+0x37d>
+ 3b1:	58                   	pop    %eax
+ 3b2:	5a                   	pop    %edx
+ 3b3:	56                   	push   %esi
+ 3b4:	53                   	push   %ebx
+ 3b5:	e8 fc ff ff ff       	call   3b6 <settings_draw+0x386>
+ 3ba:	59                   	pop    %ecx
+ 3bb:	5e                   	pop    %esi
+ 3bc:	68 a6 00 00 00       	push   $0xa6
+ 3c1:	53                   	push   %ebx
+ 3c2:	e8 fc ff ff ff       	call   3c3 <settings_draw+0x393>
+ 3c7:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 3cc:	53                   	push   %ebx
+ 3cd:	57                   	push   %edi
+ 3ce:	ff 74 24 24          	push   0x24(%esp)
+ 3d2:	e8 fc ff ff ff       	call   3d3 <settings_draw+0x3a3>
+ 3d7:	83 c4 20             	add    $0x20,%esp
+ 3da:	81 c4 8c 00 00 00    	add    $0x8c,%esp
+ 3e0:	5b                   	pop    %ebx
+ 3e1:	5e                   	pop    %esi
+ 3e2:	5f                   	pop    %edi
+ 3e3:	5d                   	pop    %ebp
+ 3e4:	c3                   	ret
+ 3e5:	8d 76 00             	lea    0x0(%esi),%esi
+ 3e8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 3ef:	00 
+
+000003f0 <settings_on_mouse>:
+ 3f0:	55                   	push   %ebp
+ 3f1:	57                   	push   %edi
+ 3f2:	56                   	push   %esi
+ 3f3:	53                   	push   %ebx
+ 3f4:	8b 44 24 14          	mov    0x14(%esp),%eax
+ 3f8:	8b 5c 24 18          	mov    0x18(%esp),%ebx
+ 3fc:	8b 78 68             	mov    0x68(%eax),%edi
+ 3ff:	85 ff                	test   %edi,%edi
+ 401:	74 75                	je     478 <settings_on_mouse+0x88>
+ 403:	80 7c 24 20 01       	cmpb   $0x1,0x20(%esp)
+ 408:	75 6e                	jne    478 <settings_on_mouse+0x88>
+ 40a:	31 c9                	xor    %ecx,%ecx
+ 40c:	be ab aa aa aa       	mov    $0xaaaaaaab,%esi
+ 411:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 418:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 41f:	00 
+ 420:	89 c8                	mov    %ecx,%eax
+ 422:	89 cd                	mov    %ecx,%ebp
+ 424:	f7 e6                	mul    %esi
+ 426:	89 d0                	mov    %edx,%eax
+ 428:	83 e2 fe             	and    $0xfffffffe,%edx
+ 42b:	d1 e8                	shr    $1,%eax
+ 42d:	01 c2                	add    %eax,%edx
+ 42f:	29 d5                	sub    %edx,%ebp
+ 431:	69 d5 82 00 00 00    	imul   $0x82,%ebp,%edx
+ 437:	8d 6a 18             	lea    0x18(%edx),%ebp
+ 43a:	39 dd                	cmp    %ebx,%ebp
+ 43c:	7f 32                	jg     470 <settings_on_mouse+0x80>
+ 43e:	81 c2 93 00 00 00    	add    $0x93,%edx
+ 444:	39 da                	cmp    %ebx,%edx
+ 446:	7c 28                	jl     470 <settings_on_mouse+0x80>
+ 448:	8d 04 c0             	lea    (%eax,%eax,8),%eax
+ 44b:	c1 e0 02             	shl    $0x2,%eax
+ 44e:	8d 90 b4 00 00 00    	lea    0xb4(%eax),%edx
+ 454:	3b 54 24 1c          	cmp    0x1c(%esp),%edx
+ 458:	7f 16                	jg     470 <settings_on_mouse+0x80>
+ 45a:	05 d1 00 00 00       	add    $0xd1,%eax
+ 45f:	3b 44 24 1c          	cmp    0x1c(%esp),%eax
+ 463:	7c 0b                	jl     470 <settings_on_mouse+0x80>
+ 465:	89 0f                	mov    %ecx,(%edi)
+ 467:	90                   	nop
+ 468:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 46f:	00 
+ 470:	83 c1 01             	add    $0x1,%ecx
+ 473:	83 f9 07             	cmp    $0x7,%ecx
+ 476:	75 a8                	jne    420 <settings_on_mouse+0x30>
+ 478:	5b                   	pop    %ebx
+ 479:	5e                   	pop    %esi
+ 47a:	5f                   	pop    %edi
+ 47b:	5d                   	pop    %ebp
+ 47c:	c3                   	ret

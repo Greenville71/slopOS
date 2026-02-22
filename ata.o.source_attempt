@@ -1,0 +1,328 @@
+
+ata.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <ata_init>:
+   0:	53                   	push   %ebx
+   1:	ba f6 03 00 00       	mov    $0x3f6,%edx
+   6:	31 c0                	xor    %eax,%eax
+   8:	ee                   	out    %al,(%dx)
+   9:	ba f7 01 00 00       	mov    $0x1f7,%edx
+   e:	ec                   	in     (%dx),%al
+   f:	ec                   	in     (%dx),%al
+  10:	ec                   	in     (%dx),%al
+  11:	ec                   	in     (%dx),%al
+  12:	b8 a0 ff ff ff       	mov    $0xffffffa0,%eax
+  17:	ba f6 01 00 00       	mov    $0x1f6,%edx
+  1c:	ee                   	out    %al,(%dx)
+  1d:	ba f7 01 00 00       	mov    $0x1f7,%edx
+  22:	ec                   	in     (%dx),%al
+  23:	ec                   	in     (%dx),%al
+  24:	ec                   	in     (%dx),%al
+  25:	ec                   	in     (%dx),%al
+  26:	ba f2 01 00 00       	mov    $0x1f2,%edx
+  2b:	31 c0                	xor    %eax,%eax
+  2d:	ee                   	out    %al,(%dx)
+  2e:	ba f3 01 00 00       	mov    $0x1f3,%edx
+  33:	ee                   	out    %al,(%dx)
+  34:	ba f4 01 00 00       	mov    $0x1f4,%edx
+  39:	ee                   	out    %al,(%dx)
+  3a:	ba f5 01 00 00       	mov    $0x1f5,%edx
+  3f:	ee                   	out    %al,(%dx)
+  40:	b8 ec ff ff ff       	mov    $0xffffffec,%eax
+  45:	ba f7 01 00 00       	mov    $0x1f7,%edx
+  4a:	ee                   	out    %al,(%dx)
+  4b:	ec                   	in     (%dx),%al
+  4c:	ec                   	in     (%dx),%al
+  4d:	ec                   	in     (%dx),%al
+  4e:	ec                   	in     (%dx),%al
+  4f:	ec                   	in     (%dx),%al
+  50:	84 c0                	test   %al,%al
+  52:	74 1a                	je     6e <ata_init+0x6e>
+  54:	b9 10 27 00 00       	mov    $0x2710,%ecx
+  59:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+  60:	ec                   	in     (%dx),%al
+  61:	84 c0                	test   %al,%al
+  63:	79 18                	jns    7d <ata_init+0x7d>
+  65:	31 c0                	xor    %eax,%eax
+  67:	e6 80                	out    %al,$0x80
+  69:	83 e9 01             	sub    $0x1,%ecx
+  6c:	75 f2                	jne    60 <ata_init+0x60>
+  6e:	31 d2                	xor    %edx,%edx
+  70:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  75:	5b                   	pop    %ebx
+  76:	89 15 00 00 00 00    	mov    %edx,0x0
+  7c:	c3                   	ret
+  7d:	b9 10 27 00 00       	mov    $0x2710,%ecx
+  82:	ba f7 01 00 00       	mov    $0x1f7,%edx
+  87:	90                   	nop
+  88:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  8f:	00 
+  90:	ec                   	in     (%dx),%al
+  91:	a8 01                	test   $0x1,%al
+  93:	75 d9                	jne    6e <ata_init+0x6e>
+  95:	83 e0 08             	and    $0x8,%eax
+  98:	75 09                	jne    a3 <ata_init+0xa3>
+  9a:	e6 80                	out    %al,$0x80
+  9c:	83 e9 01             	sub    $0x1,%ecx
+  9f:	75 ef                	jne    90 <ata_init+0x90>
+  a1:	eb cb                	jmp    6e <ata_init+0x6e>
+  a3:	b9 00 01 00 00       	mov    $0x100,%ecx
+  a8:	ba f0 01 00 00       	mov    $0x1f0,%edx
+  ad:	8d 76 00             	lea    0x0(%esi),%esi
+  b0:	66 ed                	in     (%dx),%ax
+  b2:	66 ed                	in     (%dx),%ax
+  b4:	83 e9 02             	sub    $0x2,%ecx
+  b7:	75 f7                	jne    b0 <ata_init+0xb0>
+  b9:	ba 01 00 00 00       	mov    $0x1,%edx
+  be:	31 c0                	xor    %eax,%eax
+  c0:	5b                   	pop    %ebx
+  c1:	89 15 00 00 00 00    	mov    %edx,0x0
+  c7:	c3                   	ret
+  c8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  cf:	00 
+
+000000d0 <ata_ready>:
+  d0:	a1 00 00 00 00       	mov    0x0,%eax
+  d5:	c3                   	ret
+  d6:	66 90                	xchg   %ax,%ax
+  d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  df:	00 
+
+000000e0 <ata_read_sectors>:
+  e0:	55                   	push   %ebp
+  e1:	57                   	push   %edi
+  e2:	56                   	push   %esi
+  e3:	53                   	push   %ebx
+  e4:	83 ec 04             	sub    $0x4,%esp
+  e7:	8b 15 00 00 00 00    	mov    0x0,%edx
+  ed:	8b 6c 24 18          	mov    0x18(%esp),%ebp
+  f1:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+  f5:	8b 4c 24 20          	mov    0x20(%esp),%ecx
+  f9:	85 d2                	test   %edx,%edx
+  fb:	74 43                	je     140 <ata_read_sectors+0x60>
+  fd:	85 c9                	test   %ecx,%ecx
+  ff:	74 3f                	je     140 <ata_read_sectors+0x60>
+ 101:	8d 7c 05 00          	lea    0x0(%ebp,%eax,1),%edi
+ 105:	81 c1 00 02 00 00    	add    $0x200,%ecx
+ 10b:	89 3c 24             	mov    %edi,(%esp)
+ 10e:	85 c0                	test   %eax,%eax
+ 110:	0f 84 08 01 00 00    	je     21e <ata_read_sectors+0x13e>
+ 116:	66 90                	xchg   %ax,%ax
+ 118:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 11f:	00 
+ 120:	bb 10 27 00 00       	mov    $0x2710,%ebx
+ 125:	bf f7 01 00 00       	mov    $0x1f7,%edi
+ 12a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 130:	89 fa                	mov    %edi,%edx
+ 132:	ec                   	in     (%dx),%al
+ 133:	84 c0                	test   %al,%al
+ 135:	79 16                	jns    14d <ata_read_sectors+0x6d>
+ 137:	31 c0                	xor    %eax,%eax
+ 139:	e6 80                	out    %al,$0x80
+ 13b:	83 eb 01             	sub    $0x1,%ebx
+ 13e:	75 f0                	jne    130 <ata_read_sectors+0x50>
+ 140:	83 c4 04             	add    $0x4,%esp
+ 143:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 148:	5b                   	pop    %ebx
+ 149:	5e                   	pop    %esi
+ 14a:	5f                   	pop    %edi
+ 14b:	5d                   	pop    %ebp
+ 14c:	c3                   	ret
+ 14d:	ba f6 03 00 00       	mov    $0x3f6,%edx
+ 152:	31 c0                	xor    %eax,%eax
+ 154:	ee                   	out    %al,(%dx)
+ 155:	89 fa                	mov    %edi,%edx
+ 157:	ec                   	in     (%dx),%al
+ 158:	ec                   	in     (%dx),%al
+ 159:	ec                   	in     (%dx),%al
+ 15a:	ec                   	in     (%dx),%al
+ 15b:	89 e8                	mov    %ebp,%eax
+ 15d:	ba f6 01 00 00       	mov    $0x1f6,%edx
+ 162:	c1 e8 18             	shr    $0x18,%eax
+ 165:	83 e0 0f             	and    $0xf,%eax
+ 168:	83 c8 e0             	or     $0xffffffe0,%eax
+ 16b:	ee                   	out    %al,(%dx)
+ 16c:	89 e8                	mov    %ebp,%eax
+ 16e:	ba f5 01 00 00       	mov    $0x1f5,%edx
+ 173:	c1 e8 10             	shr    $0x10,%eax
+ 176:	ee                   	out    %al,(%dx)
+ 177:	89 e8                	mov    %ebp,%eax
+ 179:	ba f4 01 00 00       	mov    $0x1f4,%edx
+ 17e:	c1 e8 08             	shr    $0x8,%eax
+ 181:	ee                   	out    %al,(%dx)
+ 182:	ba f3 01 00 00       	mov    $0x1f3,%edx
+ 187:	89 e8                	mov    %ebp,%eax
+ 189:	ee                   	out    %al,(%dx)
+ 18a:	b8 01 00 00 00       	mov    $0x1,%eax
+ 18f:	ba f2 01 00 00       	mov    $0x1f2,%edx
+ 194:	ee                   	out    %al,(%dx)
+ 195:	b8 20 00 00 00       	mov    $0x20,%eax
+ 19a:	89 fa                	mov    %edi,%edx
+ 19c:	ee                   	out    %al,(%dx)
+ 19d:	bb 10 27 00 00       	mov    $0x2710,%ebx
+ 1a2:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 1a7:	90                   	nop
+ 1a8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 1af:	00 
+ 1b0:	ec                   	in     (%dx),%al
+ 1b1:	84 c0                	test   %al,%al
+ 1b3:	79 0b                	jns    1c0 <ata_read_sectors+0xe0>
+ 1b5:	31 c0                	xor    %eax,%eax
+ 1b7:	e6 80                	out    %al,$0x80
+ 1b9:	83 eb 01             	sub    $0x1,%ebx
+ 1bc:	75 f2                	jne    1b0 <ata_read_sectors+0xd0>
+ 1be:	eb 80                	jmp    140 <ata_read_sectors+0x60>
+ 1c0:	bb 10 27 00 00       	mov    $0x2710,%ebx
+ 1c5:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 1ca:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 1d0:	ec                   	in     (%dx),%al
+ 1d1:	a8 01                	test   $0x1,%al
+ 1d3:	0f 85 67 ff ff ff    	jne    140 <ata_read_sectors+0x60>
+ 1d9:	83 e0 08             	and    $0x8,%eax
+ 1dc:	75 0c                	jne    1ea <ata_read_sectors+0x10a>
+ 1de:	e6 80                	out    %al,$0x80
+ 1e0:	83 eb 01             	sub    $0x1,%ebx
+ 1e3:	75 eb                	jne    1d0 <ata_read_sectors+0xf0>
+ 1e5:	e9 56 ff ff ff       	jmp    140 <ata_read_sectors+0x60>
+ 1ea:	8d 99 00 fe ff ff    	lea    -0x200(%ecx),%ebx
+ 1f0:	ba f0 01 00 00       	mov    $0x1f0,%edx
+ 1f5:	8d 76 00             	lea    0x0(%esi),%esi
+ 1f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 1ff:	00 
+ 200:	66 ed                	in     (%dx),%ax
+ 202:	66 89 03             	mov    %ax,(%ebx)
+ 205:	83 c3 02             	add    $0x2,%ebx
+ 208:	39 d9                	cmp    %ebx,%ecx
+ 20a:	75 f4                	jne    200 <ata_read_sectors+0x120>
+ 20c:	83 c5 01             	add    $0x1,%ebp
+ 20f:	81 c1 00 02 00 00    	add    $0x200,%ecx
+ 215:	3b 2c 24             	cmp    (%esp),%ebp
+ 218:	0f 85 02 ff ff ff    	jne    120 <ata_read_sectors+0x40>
+ 21e:	83 c4 04             	add    $0x4,%esp
+ 221:	31 c0                	xor    %eax,%eax
+ 223:	5b                   	pop    %ebx
+ 224:	5e                   	pop    %esi
+ 225:	5f                   	pop    %edi
+ 226:	5d                   	pop    %ebp
+ 227:	c3                   	ret
+ 228:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 22f:	00 
+
+00000230 <ata_write_sectors>:
+ 230:	55                   	push   %ebp
+ 231:	57                   	push   %edi
+ 232:	56                   	push   %esi
+ 233:	53                   	push   %ebx
+ 234:	83 ec 04             	sub    $0x4,%esp
+ 237:	8b 15 00 00 00 00    	mov    0x0,%edx
+ 23d:	8b 6c 24 18          	mov    0x18(%esp),%ebp
+ 241:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 245:	8b 4c 24 20          	mov    0x20(%esp),%ecx
+ 249:	85 d2                	test   %edx,%edx
+ 24b:	74 46                	je     293 <ata_write_sectors+0x63>
+ 24d:	85 c9                	test   %ecx,%ecx
+ 24f:	74 42                	je     293 <ata_write_sectors+0x63>
+ 251:	85 c0                	test   %eax,%eax
+ 253:	0f 84 0c 01 00 00    	je     365 <ata_write_sectors+0x135>
+ 259:	01 e8                	add    %ebp,%eax
+ 25b:	81 c1 00 02 00 00    	add    $0x200,%ecx
+ 261:	89 04 24             	mov    %eax,(%esp)
+ 264:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 268:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 26f:	00 
+ 270:	bb 10 27 00 00       	mov    $0x2710,%ebx
+ 275:	8d 76 00             	lea    0x0(%esi),%esi
+ 278:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 27f:	00 
+ 280:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 285:	ec                   	in     (%dx),%al
+ 286:	84 c0                	test   %al,%al
+ 288:	79 16                	jns    2a0 <ata_write_sectors+0x70>
+ 28a:	31 c0                	xor    %eax,%eax
+ 28c:	e6 80                	out    %al,$0x80
+ 28e:	83 eb 01             	sub    $0x1,%ebx
+ 291:	75 ed                	jne    280 <ata_write_sectors+0x50>
+ 293:	83 c4 04             	add    $0x4,%esp
+ 296:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 29b:	5b                   	pop    %ebx
+ 29c:	5e                   	pop    %esi
+ 29d:	5f                   	pop    %edi
+ 29e:	5d                   	pop    %ebp
+ 29f:	c3                   	ret
+ 2a0:	ba f6 03 00 00       	mov    $0x3f6,%edx
+ 2a5:	31 c0                	xor    %eax,%eax
+ 2a7:	ee                   	out    %al,(%dx)
+ 2a8:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 2ad:	ec                   	in     (%dx),%al
+ 2ae:	ec                   	in     (%dx),%al
+ 2af:	ec                   	in     (%dx),%al
+ 2b0:	ec                   	in     (%dx),%al
+ 2b1:	89 e8                	mov    %ebp,%eax
+ 2b3:	ba f6 01 00 00       	mov    $0x1f6,%edx
+ 2b8:	c1 e8 18             	shr    $0x18,%eax
+ 2bb:	83 e0 0f             	and    $0xf,%eax
+ 2be:	83 c8 e0             	or     $0xffffffe0,%eax
+ 2c1:	ee                   	out    %al,(%dx)
+ 2c2:	89 e8                	mov    %ebp,%eax
+ 2c4:	ba f5 01 00 00       	mov    $0x1f5,%edx
+ 2c9:	c1 e8 10             	shr    $0x10,%eax
+ 2cc:	ee                   	out    %al,(%dx)
+ 2cd:	89 e8                	mov    %ebp,%eax
+ 2cf:	ba f4 01 00 00       	mov    $0x1f4,%edx
+ 2d4:	c1 e8 08             	shr    $0x8,%eax
+ 2d7:	ee                   	out    %al,(%dx)
+ 2d8:	ba f3 01 00 00       	mov    $0x1f3,%edx
+ 2dd:	89 e8                	mov    %ebp,%eax
+ 2df:	ee                   	out    %al,(%dx)
+ 2e0:	b8 01 00 00 00       	mov    $0x1,%eax
+ 2e5:	ba f2 01 00 00       	mov    $0x1f2,%edx
+ 2ea:	ee                   	out    %al,(%dx)
+ 2eb:	b8 30 00 00 00       	mov    $0x30,%eax
+ 2f0:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 2f5:	ee                   	out    %al,(%dx)
+ 2f6:	bb 10 27 00 00       	mov    $0x2710,%ebx
+ 2fb:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 300:	ec                   	in     (%dx),%al
+ 301:	a8 01                	test   $0x1,%al
+ 303:	75 8e                	jne    293 <ata_write_sectors+0x63>
+ 305:	83 e0 08             	and    $0x8,%eax
+ 308:	75 09                	jne    313 <ata_write_sectors+0xe3>
+ 30a:	e6 80                	out    %al,$0x80
+ 30c:	83 eb 01             	sub    $0x1,%ebx
+ 30f:	75 ef                	jne    300 <ata_write_sectors+0xd0>
+ 311:	eb 80                	jmp    293 <ata_write_sectors+0x63>
+ 313:	8d 99 00 fe ff ff    	lea    -0x200(%ecx),%ebx
+ 319:	ba f0 01 00 00       	mov    $0x1f0,%edx
+ 31e:	66 90                	xchg   %ax,%ax
+ 320:	0f b7 03             	movzwl (%ebx),%eax
+ 323:	66 ef                	out    %ax,(%dx)
+ 325:	83 c3 02             	add    $0x2,%ebx
+ 328:	39 d9                	cmp    %ebx,%ecx
+ 32a:	75 f4                	jne    320 <ata_write_sectors+0xf0>
+ 32c:	bb 10 27 00 00       	mov    $0x2710,%ebx
+ 331:	ba f7 01 00 00       	mov    $0x1f7,%edx
+ 336:	66 90                	xchg   %ax,%ax
+ 338:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 33f:	00 
+ 340:	ec                   	in     (%dx),%al
+ 341:	84 c0                	test   %al,%al
+ 343:	79 0e                	jns    353 <ata_write_sectors+0x123>
+ 345:	31 c0                	xor    %eax,%eax
+ 347:	e6 80                	out    %al,$0x80
+ 349:	83 eb 01             	sub    $0x1,%ebx
+ 34c:	75 f2                	jne    340 <ata_write_sectors+0x110>
+ 34e:	e9 40 ff ff ff       	jmp    293 <ata_write_sectors+0x63>
+ 353:	83 c5 01             	add    $0x1,%ebp
+ 356:	81 c1 00 02 00 00    	add    $0x200,%ecx
+ 35c:	3b 2c 24             	cmp    (%esp),%ebp
+ 35f:	0f 85 0b ff ff ff    	jne    270 <ata_write_sectors+0x40>
+ 365:	83 c4 04             	add    $0x4,%esp
+ 368:	31 c0                	xor    %eax,%eax
+ 36a:	5b                   	pop    %ebx
+ 36b:	5e                   	pop    %esi
+ 36c:	5f                   	pop    %edi
+ 36d:	5d                   	pop    %ebp
+ 36e:	c3                   	ret

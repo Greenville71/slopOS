@@ -1,0 +1,72 @@
+
+pit.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <pit_handler>:
+   0:	a1 00 00 00 00       	mov    0x0,%eax
+   5:	8b 15 04 00 00 00    	mov    0x4,%edx
+   b:	83 c0 01             	add    $0x1,%eax
+   e:	83 d2 00             	adc    $0x0,%edx
+  11:	a3 00 00 00 00       	mov    %eax,0x0
+  16:	89 15 04 00 00 00    	mov    %edx,0x4
+  1c:	c3                   	ret
+  1d:	8d 76 00             	lea    0x0(%esi),%esi
+
+00000020 <pit_init>:
+  20:	83 ec 14             	sub    $0x14,%esp
+  23:	31 d2                	xor    %edx,%edx
+  25:	b8 dc 34 12 00       	mov    $0x1234dc,%eax
+  2a:	8b 4c 24 18          	mov    0x18(%esp),%ecx
+  2e:	f7 f1                	div    %ecx
+  30:	89 0d 00 00 00 00    	mov    %ecx,0x0
+  36:	89 c1                	mov    %eax,%ecx
+  38:	b8 36 00 00 00       	mov    $0x36,%eax
+  3d:	e6 43                	out    %al,$0x43
+  3f:	89 c8                	mov    %ecx,%eax
+  41:	e6 40                	out    %al,$0x40
+  43:	89 c8                	mov    %ecx,%eax
+  45:	c1 e8 08             	shr    $0x8,%eax
+  48:	e6 40                	out    %al,$0x40
+  4a:	68 00 00 00 00       	push   $0x0
+  4f:	6a 20                	push   $0x20
+  51:	e8 fc ff ff ff       	call   52 <pit_init+0x32>
+  56:	c7 44 24 20 00 00 00 	movl   $0x0,0x20(%esp)
+  5d:	00 
+  5e:	83 c4 1c             	add    $0x1c,%esp
+  61:	e9 fc ff ff ff       	jmp    62 <pit_init+0x42>
+  66:	66 90                	xchg   %ax,%ax
+  68:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  6f:	00 
+
+00000070 <pit_get_ticks>:
+  70:	a1 00 00 00 00       	mov    0x0,%eax
+  75:	8b 15 04 00 00 00    	mov    0x4,%edx
+  7b:	c3                   	ret
+  7c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+00000080 <pit_sleep_ms>:
+  80:	56                   	push   %esi
+  81:	b8 d3 4d 62 10       	mov    $0x10624dd3,%eax
+  86:	8b 0d 00 00 00 00    	mov    0x0,%ecx
+  8c:	53                   	push   %ebx
+  8d:	8b 54 24 0c          	mov    0xc(%esp),%edx
+  91:	0f af 15 00 00 00 00 	imul   0x0,%edx
+  98:	8b 1d 04 00 00 00    	mov    0x4,%ebx
+  9e:	f7 e2                	mul    %edx
+  a0:	c1 ea 06             	shr    $0x6,%edx
+  a3:	01 d1                	add    %edx,%ecx
+  a5:	83 d3 00             	adc    $0x0,%ebx
+  a8:	eb 07                	jmp    b1 <pit_sleep_ms+0x31>
+  aa:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+  b0:	f4                   	hlt
+  b1:	a1 00 00 00 00       	mov    0x0,%eax
+  b6:	8b 15 04 00 00 00    	mov    0x4,%edx
+  bc:	39 c8                	cmp    %ecx,%eax
+  be:	89 d0                	mov    %edx,%eax
+  c0:	19 d8                	sbb    %ebx,%eax
+  c2:	72 ec                	jb     b0 <pit_sleep_ms+0x30>
+  c4:	5b                   	pop    %ebx
+  c5:	5e                   	pop    %esi
+  c6:	c3                   	ret

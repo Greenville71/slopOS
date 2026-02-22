@@ -1,0 +1,1400 @@
+
+net.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <dhcp_parse_options>:
+       0:	66 83 fa 01          	cmp    $0x1,%dx
+       4:	0f 86 ed 00 00 00    	jbe    f7 <dhcp_parse_options+0xf7>
+       a:	55                   	push   %ebp
+       b:	57                   	push   %edi
+       c:	89 c7                	mov    %eax,%edi
+       e:	56                   	push   %esi
+       f:	89 d6                	mov    %edx,%esi
+      11:	53                   	push   %ebx
+      12:	83 ec 0c             	sub    $0xc,%esp
+      15:	eb 18                	jmp    2f <dhcp_parse_options+0x2f>
+      17:	90                   	nop
+      18:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+      1f:	00 
+      20:	83 ee 02             	sub    $0x2,%esi
+      23:	8d 7c 1f 02          	lea    0x2(%edi,%ebx,1),%edi
+      27:	29 ee                	sub    %ebp,%esi
+      29:	66 83 fe 01          	cmp    $0x1,%si
+      2d:	76 50                	jbe    7f <dhcp_parse_options+0x7f>
+      2f:	0f b6 07             	movzbl (%edi),%eax
+      32:	3c ff                	cmp    $0xff,%al
+      34:	74 49                	je     7f <dhcp_parse_options+0x7f>
+      36:	0f b6 6f 01          	movzbl 0x1(%edi),%ebp
+      3a:	8d 55 02             	lea    0x2(%ebp),%edx
+      3d:	89 eb                	mov    %ebp,%ebx
+      3f:	66 39 d6             	cmp    %dx,%si
+      42:	72 3b                	jb     7f <dhcp_parse_options+0x7f>
+      44:	3c 35                	cmp    $0x35,%al
+      46:	75 04                	jne    4c <dhcp_parse_options+0x4c>
+      48:	84 db                	test   %bl,%bl
+      4a:	75 d4                	jne    20 <dhcp_parse_options+0x20>
+      4c:	80 fb 04             	cmp    $0x4,%bl
+      4f:	0f 94 c2             	sete   %dl
+      52:	3c 01                	cmp    $0x1,%al
+      54:	75 3a                	jne    90 <dhcp_parse_options+0x90>
+      56:	84 d2                	test   %dl,%dl
+      58:	74 36                	je     90 <dhcp_parse_options+0x90>
+      5a:	83 ec 04             	sub    $0x4,%esp
+      5d:	8d 47 02             	lea    0x2(%edi),%eax
+      60:	8d 7c 1f 02          	lea    0x2(%edi,%ebx,1),%edi
+      64:	83 ee 02             	sub    $0x2,%esi
+      67:	6a 04                	push   $0x4
+      69:	29 ee                	sub    %ebp,%esi
+      6b:	50                   	push   %eax
+      6c:	68 6c 01 00 00       	push   $0x16c
+      71:	e8 fc ff ff ff       	call   72 <dhcp_parse_options+0x72>
+      76:	83 c4 10             	add    $0x10,%esp
+      79:	66 83 fe 01          	cmp    $0x1,%si
+      7d:	77 b0                	ja     2f <dhcp_parse_options+0x2f>
+      7f:	83 c4 0c             	add    $0xc,%esp
+      82:	5b                   	pop    %ebx
+      83:	5e                   	pop    %esi
+      84:	5f                   	pop    %edi
+      85:	5d                   	pop    %ebp
+      86:	c3                   	ret
+      87:	90                   	nop
+      88:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+      8f:	00 
+      90:	80 fb 03             	cmp    $0x3,%bl
+      93:	0f 97 c1             	seta   %cl
+      96:	3c 03                	cmp    $0x3,%al
+      98:	75 26                	jne    c0 <dhcp_parse_options+0xc0>
+      9a:	84 c9                	test   %cl,%cl
+      9c:	74 22                	je     c0 <dhcp_parse_options+0xc0>
+      9e:	83 ec 04             	sub    $0x4,%esp
+      a1:	8d 47 02             	lea    0x2(%edi),%eax
+      a4:	6a 04                	push   $0x4
+      a6:	50                   	push   %eax
+      a7:	68 68 01 00 00       	push   $0x168
+      ac:	e8 fc ff ff ff       	call   ad <dhcp_parse_options+0xad>
+      b1:	83 c4 10             	add    $0x10,%esp
+      b4:	e9 67 ff ff ff       	jmp    20 <dhcp_parse_options+0x20>
+      b9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+      c0:	3c 36                	cmp    $0x36,%al
+      c2:	75 08                	jne    cc <dhcp_parse_options+0xcc>
+      c4:	84 d2                	test   %dl,%dl
+      c6:	0f 85 54 ff ff ff    	jne    20 <dhcp_parse_options+0x20>
+      cc:	3c 06                	cmp    $0x6,%al
+      ce:	0f 85 4c ff ff ff    	jne    20 <dhcp_parse_options+0x20>
+      d4:	84 c9                	test   %cl,%cl
+      d6:	0f 84 44 ff ff ff    	je     20 <dhcp_parse_options+0x20>
+      dc:	83 ec 04             	sub    $0x4,%esp
+      df:	8d 47 02             	lea    0x2(%edi),%eax
+      e2:	6a 04                	push   $0x4
+      e4:	50                   	push   %eax
+      e5:	68 70 01 00 00       	push   $0x170
+      ea:	e8 fc ff ff ff       	call   eb <dhcp_parse_options+0xeb>
+      ef:	83 c4 10             	add    $0x10,%esp
+      f2:	e9 29 ff ff ff       	jmp    20 <dhcp_parse_options+0x20>
+      f7:	c3                   	ret
+      f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+      ff:	00 
+
+00000100 <eth_send>:
+     100:	57                   	push   %edi
+     101:	56                   	push   %esi
+     102:	89 d6                	mov    %edx,%esi
+     104:	53                   	push   %ebx
+     105:	89 cb                	mov    %ecx,%ebx
+     107:	81 ec 10 06 00 00    	sub    $0x610,%esp
+     10d:	8b 8c 24 20 06 00 00 	mov    0x620(%esp),%ecx
+     114:	8d 51 0e             	lea    0xe(%ecx),%edx
+     117:	66 81 fa 00 06       	cmp    $0x600,%dx
+     11c:	77 5e                	ja     17c <eth_send+0x7c>
+     11e:	83 ec 04             	sub    $0x4,%esp
+     121:	89 f7                	mov    %esi,%edi
+     123:	6a 06                	push   $0x6
+     125:	50                   	push   %eax
+     126:	8d 74 24 1c          	lea    0x1c(%esp),%esi
+     12a:	56                   	push   %esi
+     12b:	89 54 24 18          	mov    %edx,0x18(%esp)
+     12f:	89 4c 24 1c          	mov    %ecx,0x1c(%esp)
+     133:	e8 fc ff ff ff       	call   134 <eth_send+0x34>
+     138:	83 c4 0c             	add    $0xc,%esp
+     13b:	6a 06                	push   $0x6
+     13d:	68 74 01 00 00       	push   $0x174
+     142:	8d 44 24 22          	lea    0x22(%esp),%eax
+     146:	50                   	push   %eax
+     147:	e8 fc ff ff ff       	call   148 <eth_send+0x48>
+     14c:	89 f8                	mov    %edi,%eax
+     14e:	c6 44 24 2c 08       	movb   $0x8,0x2c(%esp)
+     153:	88 44 24 2d          	mov    %al,0x2d(%esp)
+     157:	0f b7 4c 24 1c       	movzwl 0x1c(%esp),%ecx
+     15c:	83 c4 0c             	add    $0xc,%esp
+     15f:	51                   	push   %ecx
+     160:	53                   	push   %ebx
+     161:	8d 44 24 2a          	lea    0x2a(%esp),%eax
+     165:	50                   	push   %eax
+     166:	e8 fc ff ff ff       	call   167 <eth_send+0x67>
+     16b:	58                   	pop    %eax
+     16c:	5a                   	pop    %edx
+     16d:	0f b7 54 24 10       	movzwl 0x10(%esp),%edx
+     172:	52                   	push   %edx
+     173:	56                   	push   %esi
+     174:	e8 fc ff ff ff       	call   175 <eth_send+0x75>
+     179:	83 c4 10             	add    $0x10,%esp
+     17c:	81 c4 10 06 00 00    	add    $0x610,%esp
+     182:	5b                   	pop    %ebx
+     183:	5e                   	pop    %esi
+     184:	5f                   	pop    %edi
+     185:	c3                   	ret
+     186:	66 90                	xchg   %ax,%ax
+     188:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     18f:	00 
+
+00000190 <arp_lookup>:
+     190:	56                   	push   %esi
+     191:	53                   	push   %ebx
+     192:	31 db                	xor    %ebx,%ebx
+     194:	83 ec 04             	sub    $0x4,%esp
+     197:	8b 74 24 10          	mov    0x10(%esp),%esi
+     19b:	eb 0e                	jmp    1ab <arp_lookup+0x1b>
+     19d:	8d 76 00             	lea    0x0(%esi),%esi
+     1a0:	83 c3 10             	add    $0x10,%ebx
+     1a3:	81 fb 00 01 00 00    	cmp    $0x100,%ebx
+     1a9:	74 4d                	je     1f8 <arp_lookup+0x68>
+     1ab:	8b 83 6c 00 00 00    	mov    0x6c(%ebx),%eax
+     1b1:	85 c0                	test   %eax,%eax
+     1b3:	74 eb                	je     1a0 <arp_lookup+0x10>
+     1b5:	83 ec 04             	sub    $0x4,%esp
+     1b8:	8d 83 60 00 00 00    	lea    0x60(%ebx),%eax
+     1be:	6a 04                	push   $0x4
+     1c0:	56                   	push   %esi
+     1c1:	50                   	push   %eax
+     1c2:	e8 fc ff ff ff       	call   1c3 <arp_lookup+0x33>
+     1c7:	83 c4 10             	add    $0x10,%esp
+     1ca:	85 c0                	test   %eax,%eax
+     1cc:	75 d2                	jne    1a0 <arp_lookup+0x10>
+     1ce:	83 ec 04             	sub    $0x4,%esp
+     1d1:	81 c3 64 00 00 00    	add    $0x64,%ebx
+     1d7:	6a 06                	push   $0x6
+     1d9:	53                   	push   %ebx
+     1da:	ff 74 24 20          	push   0x20(%esp)
+     1de:	e8 fc ff ff ff       	call   1df <arp_lookup+0x4f>
+     1e3:	83 c4 10             	add    $0x10,%esp
+     1e6:	b8 01 00 00 00       	mov    $0x1,%eax
+     1eb:	83 c4 04             	add    $0x4,%esp
+     1ee:	5b                   	pop    %ebx
+     1ef:	5e                   	pop    %esi
+     1f0:	c3                   	ret
+     1f1:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+     1f8:	83 c4 04             	add    $0x4,%esp
+     1fb:	31 c0                	xor    %eax,%eax
+     1fd:	5b                   	pop    %ebx
+     1fe:	5e                   	pop    %esi
+     1ff:	c3                   	ret
+
+00000200 <net_arp_cache_count>:
+     200:	b8 6c 00 00 00       	mov    $0x6c,%eax
+     205:	31 d2                	xor    %edx,%edx
+     207:	90                   	nop
+     208:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     20f:	00 
+     210:	83 38 01             	cmpl   $0x1,(%eax)
+     213:	83 da ff             	sbb    $0xffffffff,%edx
+     216:	83 c0 10             	add    $0x10,%eax
+     219:	3d 6c 01 00 00       	cmp    $0x16c,%eax
+     21e:	75 f0                	jne    210 <net_arp_cache_count+0x10>
+     220:	89 d0                	mov    %edx,%eax
+     222:	c3                   	ret
+     223:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+     228:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     22f:	00 
+
+00000230 <net_arp_cache_get>:
+     230:	53                   	push   %ebx
+     231:	31 c0                	xor    %eax,%eax
+     233:	31 c9                	xor    %ecx,%ecx
+     235:	83 ec 18             	sub    $0x18,%esp
+     238:	8b 5c 24 20          	mov    0x20(%esp),%ebx
+     23c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     240:	89 c2                	mov    %eax,%edx
+     242:	c1 e2 04             	shl    $0x4,%edx
+     245:	83 ba 6c 00 00 00 00 	cmpl   $0x0,0x6c(%edx)
+     24c:	74 07                	je     255 <net_arp_cache_get+0x25>
+     24e:	39 cb                	cmp    %ecx,%ebx
+     250:	74 16                	je     268 <net_arp_cache_get+0x38>
+     252:	83 c1 01             	add    $0x1,%ecx
+     255:	83 c0 01             	add    $0x1,%eax
+     258:	83 f8 10             	cmp    $0x10,%eax
+     25b:	75 e3                	jne    240 <net_arp_cache_get+0x10>
+     25d:	83 c4 18             	add    $0x18,%esp
+     260:	31 c0                	xor    %eax,%eax
+     262:	5b                   	pop    %ebx
+     263:	c3                   	ret
+     264:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     268:	83 ec 04             	sub    $0x4,%esp
+     26b:	8d 82 60 00 00 00    	lea    0x60(%edx),%eax
+     271:	6a 04                	push   $0x4
+     273:	89 54 24 14          	mov    %edx,0x14(%esp)
+     277:	50                   	push   %eax
+     278:	ff 74 24 30          	push   0x30(%esp)
+     27c:	e8 fc ff ff ff       	call   27d <net_arp_cache_get+0x4d>
+     281:	83 c4 0c             	add    $0xc,%esp
+     284:	6a 06                	push   $0x6
+     286:	8b 54 24 14          	mov    0x14(%esp),%edx
+     28a:	81 c2 64 00 00 00    	add    $0x64,%edx
+     290:	52                   	push   %edx
+     291:	ff 74 24 34          	push   0x34(%esp)
+     295:	e8 fc ff ff ff       	call   296 <net_arp_cache_get+0x66>
+     29a:	83 c4 10             	add    $0x10,%esp
+     29d:	b8 01 00 00 00       	mov    $0x1,%eax
+     2a2:	83 c4 18             	add    $0x18,%esp
+     2a5:	5b                   	pop    %ebx
+     2a6:	c3                   	ret
+     2a7:	90                   	nop
+     2a8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     2af:	00 
+
+000002b0 <net_arp_rx>:
+     2b0:	55                   	push   %ebp
+     2b1:	57                   	push   %edi
+     2b2:	56                   	push   %esi
+     2b3:	53                   	push   %ebx
+     2b4:	83 ec 4c             	sub    $0x4c,%esp
+     2b7:	8b 7c 24 60          	mov    0x60(%esp),%edi
+     2bb:	66 83 7c 24 64 1b    	cmpw   $0x1b,0x64(%esp)
+     2c1:	77 0d                	ja     2d0 <net_arp_rx+0x20>
+     2c3:	83 c4 4c             	add    $0x4c,%esp
+     2c6:	5b                   	pop    %ebx
+     2c7:	5e                   	pop    %esi
+     2c8:	5f                   	pop    %edi
+     2c9:	5d                   	pop    %ebp
+     2ca:	c3                   	ret
+     2cb:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+     2d0:	83 ec 04             	sub    $0x4,%esp
+     2d3:	8d 47 08             	lea    0x8(%edi),%eax
+     2d6:	0f b7 6f 06          	movzwl 0x6(%edi),%ebp
+     2da:	6a 06                	push   $0x6
+     2dc:	50                   	push   %eax
+     2dd:	8d 74 24 2a          	lea    0x2a(%esp),%esi
+     2e1:	56                   	push   %esi
+     2e2:	e8 fc ff ff ff       	call   2e3 <net_arp_rx+0x33>
+     2e7:	83 c4 0c             	add    $0xc,%esp
+     2ea:	8d 47 0e             	lea    0xe(%edi),%eax
+     2ed:	83 c7 18             	add    $0x18,%edi
+     2f0:	6a 04                	push   $0x4
+     2f2:	50                   	push   %eax
+     2f3:	8d 5c 24 22          	lea    0x22(%esp),%ebx
+     2f7:	53                   	push   %ebx
+     2f8:	e8 fc ff ff ff       	call   2f9 <net_arp_rx+0x49>
+     2fd:	83 c4 0c             	add    $0xc,%esp
+     300:	6a 04                	push   $0x4
+     302:	57                   	push   %edi
+     303:	31 ff                	xor    %edi,%edi
+     305:	8d 44 24 26          	lea    0x26(%esp),%eax
+     309:	50                   	push   %eax
+     30a:	e8 fc ff ff ff       	call   30b <net_arp_rx+0x5b>
+     30f:	83 c4 10             	add    $0x10,%esp
+     312:	eb 1b                	jmp    32f <net_arp_rx+0x7f>
+     314:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     318:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     31f:	00 
+     320:	83 c7 10             	add    $0x10,%edi
+     323:	81 ff 00 01 00 00    	cmp    $0x100,%edi
+     329:	0f 84 f9 00 00 00    	je     428 <net_arp_rx+0x178>
+     32f:	8b 97 6c 00 00 00    	mov    0x6c(%edi),%edx
+     335:	85 d2                	test   %edx,%edx
+     337:	74 e7                	je     320 <net_arp_rx+0x70>
+     339:	83 ec 04             	sub    $0x4,%esp
+     33c:	8d 87 60 00 00 00    	lea    0x60(%edi),%eax
+     342:	6a 04                	push   $0x4
+     344:	53                   	push   %ebx
+     345:	50                   	push   %eax
+     346:	e8 fc ff ff ff       	call   347 <net_arp_rx+0x97>
+     34b:	83 c4 10             	add    $0x10,%esp
+     34e:	85 c0                	test   %eax,%eax
+     350:	75 ce                	jne    320 <net_arp_rx+0x70>
+     352:	83 ec 04             	sub    $0x4,%esp
+     355:	81 c7 64 00 00 00    	add    $0x64,%edi
+     35b:	6a 06                	push   $0x6
+     35d:	56                   	push   %esi
+     35e:	57                   	push   %edi
+     35f:	e8 fc ff ff ff       	call   360 <net_arp_rx+0xb0>
+     364:	83 c4 10             	add    $0x10,%esp
+     367:	66 81 fd 00 01       	cmp    $0x100,%bp
+     36c:	0f 85 51 ff ff ff    	jne    2c3 <net_arp_rx+0x13>
+     372:	a1 7c 01 00 00       	mov    0x17c,%eax
+     377:	85 c0                	test   %eax,%eax
+     379:	0f 84 44 ff ff ff    	je     2c3 <net_arp_rx+0x13>
+     37f:	83 ec 04             	sub    $0x4,%esp
+     382:	6a 04                	push   $0x4
+     384:	68 64 01 00 00       	push   $0x164
+     389:	8d 44 24 26          	lea    0x26(%esp),%eax
+     38d:	50                   	push   %eax
+     38e:	e8 fc ff ff ff       	call   38f <net_arp_rx+0xdf>
+     393:	83 c4 10             	add    $0x10,%esp
+     396:	85 c0                	test   %eax,%eax
+     398:	0f 85 25 ff ff ff    	jne    2c3 <net_arp_rx+0x13>
+     39e:	83 ec 04             	sub    $0x4,%esp
+     3a1:	6a 1c                	push   $0x1c
+     3a3:	6a 00                	push   $0x0
+     3a5:	8d 7c 24 30          	lea    0x30(%esp),%edi
+     3a9:	57                   	push   %edi
+     3aa:	e8 fc ff ff ff       	call   3ab <net_arp_rx+0xfb>
+     3af:	c7 44 24 34 00 01 08 	movl   $0x80100,0x34(%esp)
+     3b6:	00 
+     3b7:	c7 44 24 38 06 04 00 	movl   $0x2000406,0x38(%esp)
+     3be:	02 
+     3bf:	83 c4 0c             	add    $0xc,%esp
+     3c2:	6a 06                	push   $0x6
+     3c4:	68 74 01 00 00       	push   $0x174
+     3c9:	8d 44 24 38          	lea    0x38(%esp),%eax
+     3cd:	50                   	push   %eax
+     3ce:	e8 fc ff ff ff       	call   3cf <net_arp_rx+0x11f>
+     3d3:	83 c4 0c             	add    $0xc,%esp
+     3d6:	6a 04                	push   $0x4
+     3d8:	68 64 01 00 00       	push   $0x164
+     3dd:	8d 44 24 3e          	lea    0x3e(%esp),%eax
+     3e1:	50                   	push   %eax
+     3e2:	e8 fc ff ff ff       	call   3e3 <net_arp_rx+0x133>
+     3e7:	83 c4 0c             	add    $0xc,%esp
+     3ea:	6a 06                	push   $0x6
+     3ec:	56                   	push   %esi
+     3ed:	8d 44 24 42          	lea    0x42(%esp),%eax
+     3f1:	50                   	push   %eax
+     3f2:	e8 fc ff ff ff       	call   3f3 <net_arp_rx+0x143>
+     3f7:	83 c4 0c             	add    $0xc,%esp
+     3fa:	6a 04                	push   $0x4
+     3fc:	53                   	push   %ebx
+     3fd:	8d 44 24 48          	lea    0x48(%esp),%eax
+     401:	50                   	push   %eax
+     402:	e8 fc ff ff ff       	call   403 <net_arp_rx+0x153>
+     407:	89 f9                	mov    %edi,%ecx
+     409:	ba 06 08 00 00       	mov    $0x806,%edx
+     40e:	89 f0                	mov    %esi,%eax
+     410:	c7 04 24 1c 00 00 00 	movl   $0x1c,(%esp)
+     417:	e8 e4 fc ff ff       	call   100 <eth_send>
+     41c:	83 c4 10             	add    $0x10,%esp
+     41f:	e9 9f fe ff ff       	jmp    2c3 <net_arp_rx+0x13>
+     424:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     428:	a1 40 00 00 00       	mov    0x40,%eax
+     42d:	83 ec 04             	sub    $0x4,%esp
+     430:	6a 04                	push   $0x4
+     432:	99                   	cltd
+     433:	53                   	push   %ebx
+     434:	c1 ea 1c             	shr    $0x1c,%edx
+     437:	8d 3c 10             	lea    (%eax,%edx,1),%edi
+     43a:	83 c0 01             	add    $0x1,%eax
+     43d:	83 e7 0f             	and    $0xf,%edi
+     440:	a3 40 00 00 00       	mov    %eax,0x40
+     445:	29 d7                	sub    %edx,%edi
+     447:	c1 e7 04             	shl    $0x4,%edi
+     44a:	8d 97 60 00 00 00    	lea    0x60(%edi),%edx
+     450:	81 c7 64 00 00 00    	add    $0x64,%edi
+     456:	52                   	push   %edx
+     457:	89 54 24 1c          	mov    %edx,0x1c(%esp)
+     45b:	e8 fc ff ff ff       	call   45c <net_arp_rx+0x1ac>
+     460:	83 c4 0c             	add    $0xc,%esp
+     463:	6a 06                	push   $0x6
+     465:	56                   	push   %esi
+     466:	57                   	push   %edi
+     467:	e8 fc ff ff ff       	call   468 <net_arp_rx+0x1b8>
+     46c:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+     470:	83 c4 10             	add    $0x10,%esp
+     473:	c7 42 0c 01 00 00 00 	movl   $0x1,0xc(%edx)
+     47a:	66 81 fd 00 01       	cmp    $0x100,%bp
+     47f:	0f 84 ed fe ff ff    	je     372 <net_arp_rx+0xc2>
+     485:	83 c4 4c             	add    $0x4c,%esp
+     488:	5b                   	pop    %ebx
+     489:	5e                   	pop    %esi
+     48a:	5f                   	pop    %edi
+     48b:	5d                   	pop    %ebp
+     48c:	c3                   	ret
+     48d:	8d 76 00             	lea    0x0(%esi),%esi
+
+00000490 <arp_resolve>:
+     490:	57                   	push   %edi
+     491:	56                   	push   %esi
+     492:	53                   	push   %ebx
+     493:	31 db                	xor    %ebx,%ebx
+     495:	83 ec 20             	sub    $0x20,%esp
+     498:	8b 74 24 30          	mov    0x30(%esp),%esi
+     49c:	eb 0d                	jmp    4ab <arp_resolve+0x1b>
+     49e:	66 90                	xchg   %ax,%ax
+     4a0:	83 c3 10             	add    $0x10,%ebx
+     4a3:	81 fb 00 01 00 00    	cmp    $0x100,%ebx
+     4a9:	74 4d                	je     4f8 <arp_resolve+0x68>
+     4ab:	8b 8b 6c 00 00 00    	mov    0x6c(%ebx),%ecx
+     4b1:	85 c9                	test   %ecx,%ecx
+     4b3:	74 eb                	je     4a0 <arp_resolve+0x10>
+     4b5:	83 ec 04             	sub    $0x4,%esp
+     4b8:	8d 83 60 00 00 00    	lea    0x60(%ebx),%eax
+     4be:	6a 04                	push   $0x4
+     4c0:	56                   	push   %esi
+     4c1:	50                   	push   %eax
+     4c2:	e8 fc ff ff ff       	call   4c3 <arp_resolve+0x33>
+     4c7:	83 c4 10             	add    $0x10,%esp
+     4ca:	85 c0                	test   %eax,%eax
+     4cc:	75 d2                	jne    4a0 <arp_resolve+0x10>
+     4ce:	83 ec 04             	sub    $0x4,%esp
+     4d1:	81 c3 64 00 00 00    	add    $0x64,%ebx
+     4d7:	6a 06                	push   $0x6
+     4d9:	53                   	push   %ebx
+     4da:	ff 74 24 40          	push   0x40(%esp)
+     4de:	e8 fc ff ff ff       	call   4df <arp_resolve+0x4f>
+     4e3:	83 c4 10             	add    $0x10,%esp
+     4e6:	b8 01 00 00 00       	mov    $0x1,%eax
+     4eb:	83 c4 20             	add    $0x20,%esp
+     4ee:	5b                   	pop    %ebx
+     4ef:	5e                   	pop    %esi
+     4f0:	5f                   	pop    %edi
+     4f1:	c3                   	ret
+     4f2:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+     4f8:	c7 44 24 04 00 01 08 	movl   $0x80100,0x4(%esp)
+     4ff:	00 
+     500:	83 ec 04             	sub    $0x4,%esp
+     503:	c7 44 24 0c 06 04 00 	movl   $0x1000406,0xc(%esp)
+     50a:	01 
+     50b:	6a 06                	push   $0x6
+     50d:	68 74 01 00 00       	push   $0x174
+     512:	8d 44 24 18          	lea    0x18(%esp),%eax
+     516:	50                   	push   %eax
+     517:	e8 fc ff ff ff       	call   518 <arp_resolve+0x88>
+     51c:	8b 15 7c 01 00 00    	mov    0x17c,%edx
+     522:	83 c4 10             	add    $0x10,%esp
+     525:	b8 64 01 00 00       	mov    $0x164,%eax
+     52a:	85 d2                	test   %edx,%edx
+     52c:	0f 84 d9 00 00 00    	je     60b <arp_resolve+0x17b>
+     532:	83 ec 04             	sub    $0x4,%esp
+     535:	bf 14 00 00 00       	mov    $0x14,%edi
+     53a:	6a 04                	push   $0x4
+     53c:	50                   	push   %eax
+     53d:	8d 44 24 1e          	lea    0x1e(%esp),%eax
+     541:	50                   	push   %eax
+     542:	e8 fc ff ff ff       	call   543 <arp_resolve+0xb3>
+     547:	83 c4 0c             	add    $0xc,%esp
+     54a:	6a 06                	push   $0x6
+     54c:	6a 00                	push   $0x0
+     54e:	8d 44 24 22          	lea    0x22(%esp),%eax
+     552:	50                   	push   %eax
+     553:	e8 fc ff ff ff       	call   554 <arp_resolve+0xc4>
+     558:	83 c4 0c             	add    $0xc,%esp
+     55b:	6a 04                	push   $0x4
+     55d:	56                   	push   %esi
+     55e:	8d 44 24 28          	lea    0x28(%esp),%eax
+     562:	50                   	push   %eax
+     563:	e8 fc ff ff ff       	call   564 <arp_resolve+0xd4>
+     568:	8d 4c 24 14          	lea    0x14(%esp),%ecx
+     56c:	ba 06 08 00 00       	mov    $0x806,%edx
+     571:	b8 00 00 00 00       	mov    $0x0,%eax
+     576:	c7 04 24 1c 00 00 00 	movl   $0x1c,(%esp)
+     57d:	e8 7e fb ff ff       	call   100 <eth_send>
+     582:	83 c4 10             	add    $0x10,%esp
+     585:	8d 76 00             	lea    0x0(%esi),%esi
+     588:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     58f:	00 
+     590:	83 ec 0c             	sub    $0xc,%esp
+     593:	31 db                	xor    %ebx,%ebx
+     595:	6a 32                	push   $0x32
+     597:	e8 fc ff ff ff       	call   598 <arp_resolve+0x108>
+     59c:	e8 fc ff ff ff       	call   59d <arp_resolve+0x10d>
+     5a1:	83 c4 10             	add    $0x10,%esp
+     5a4:	eb 25                	jmp    5cb <arp_resolve+0x13b>
+     5a6:	eb 18                	jmp    5c0 <arp_resolve+0x130>
+     5a8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     5af:	00 
+     5b0:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     5b7:	00 
+     5b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     5bf:	00 
+     5c0:	83 c3 10             	add    $0x10,%ebx
+     5c3:	81 fb 00 01 00 00    	cmp    $0x100,%ebx
+     5c9:	74 32                	je     5fd <arp_resolve+0x16d>
+     5cb:	8b 83 6c 00 00 00    	mov    0x6c(%ebx),%eax
+     5d1:	85 c0                	test   %eax,%eax
+     5d3:	74 eb                	je     5c0 <arp_resolve+0x130>
+     5d5:	83 ec 04             	sub    $0x4,%esp
+     5d8:	8d 83 60 00 00 00    	lea    0x60(%ebx),%eax
+     5de:	6a 04                	push   $0x4
+     5e0:	56                   	push   %esi
+     5e1:	50                   	push   %eax
+     5e2:	e8 fc ff ff ff       	call   5e3 <arp_resolve+0x153>
+     5e7:	83 c4 10             	add    $0x10,%esp
+     5ea:	85 c0                	test   %eax,%eax
+     5ec:	0f 84 dc fe ff ff    	je     4ce <arp_resolve+0x3e>
+     5f2:	83 c3 10             	add    $0x10,%ebx
+     5f5:	81 fb 00 01 00 00    	cmp    $0x100,%ebx
+     5fb:	75 ce                	jne    5cb <arp_resolve+0x13b>
+     5fd:	83 ef 01             	sub    $0x1,%edi
+     600:	75 8e                	jne    590 <arp_resolve+0x100>
+     602:	83 c4 20             	add    $0x20,%esp
+     605:	31 c0                	xor    %eax,%eax
+     607:	5b                   	pop    %ebx
+     608:	5e                   	pop    %esi
+     609:	5f                   	pop    %edi
+     60a:	c3                   	ret
+     60b:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+     612:	89 e0                	mov    %esp,%eax
+     614:	e9 19 ff ff ff       	jmp    532 <arp_resolve+0xa2>
+     619:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+
+00000620 <ip_send>:
+     620:	55                   	push   %ebp
+     621:	57                   	push   %edi
+     622:	56                   	push   %esi
+     623:	53                   	push   %ebx
+     624:	89 c3                	mov    %eax,%ebx
+     626:	81 ec 2c 06 00 00    	sub    $0x62c,%esp
+     62c:	8b 84 24 40 06 00 00 	mov    0x640(%esp),%eax
+     633:	89 4c 24 0c          	mov    %ecx,0xc(%esp)
+     637:	0f b7 f8             	movzwl %ax,%edi
+     63a:	8d 77 14             	lea    0x14(%edi),%esi
+     63d:	81 fe 00 06 00 00    	cmp    $0x600,%esi
+     643:	7e 0b                	jle    650 <ip_send+0x30>
+     645:	81 c4 2c 06 00 00    	add    $0x62c,%esp
+     64b:	5b                   	pop    %ebx
+     64c:	5e                   	pop    %esi
+     64d:	5f                   	pop    %edi
+     64e:	5d                   	pop    %ebp
+     64f:	c3                   	ret
+     650:	83 c0 14             	add    $0x14,%eax
+     653:	b9 45 00 00 00       	mov    $0x45,%ecx
+     658:	31 ed                	xor    %ebp,%ebp
+     65a:	83 ec 04             	sub    $0x4,%esp
+     65d:	66 c1 c0 08          	rol    $0x8,%ax
+     661:	66 89 4c 24 24       	mov    %cx,0x24(%esp)
+     666:	66 89 44 24 26       	mov    %ax,0x26(%esp)
+     66b:	0f b7 05 00 00 00 00 	movzwl 0x0,%eax
+     672:	66 89 6c 24 2e       	mov    %bp,0x2e(%esp)
+     677:	b0 40                	mov    $0x40,%al
+     679:	c7 44 24 28 00 00 40 	movl   $0x400000,0x28(%esp)
+     680:	00 
+     681:	88 d4                	mov    %dl,%ah
+     683:	66 89 44 24 2c       	mov    %ax,0x2c(%esp)
+     688:	6a 04                	push   $0x4
+     68a:	68 64 01 00 00       	push   $0x164
+     68f:	8d 44 24 38          	lea    0x38(%esp),%eax
+     693:	50                   	push   %eax
+     694:	e8 fc ff ff ff       	call   695 <ip_send+0x75>
+     699:	83 c4 0c             	add    $0xc,%esp
+     69c:	6a 04                	push   $0x4
+     69e:	53                   	push   %ebx
+     69f:	8d 44 24 3c          	lea    0x3c(%esp),%eax
+     6a3:	50                   	push   %eax
+     6a4:	e8 fc ff ff ff       	call   6a5 <ip_send+0x85>
+     6a9:	83 c4 10             	add    $0x10,%esp
+     6ac:	31 c9                	xor    %ecx,%ecx
+     6ae:	8d 54 24 20          	lea    0x20(%esp),%edx
+     6b2:	8d 6c 24 34          	lea    0x34(%esp),%ebp
+     6b6:	66 90                	xchg   %ax,%ax
+     6b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     6bf:	00 
+     6c0:	0f b7 02             	movzwl (%edx),%eax
+     6c3:	83 c2 02             	add    $0x2,%edx
+     6c6:	66 c1 c0 08          	rol    $0x8,%ax
+     6ca:	0f b7 c0             	movzwl %ax,%eax
+     6cd:	01 c1                	add    %eax,%ecx
+     6cf:	39 ea                	cmp    %ebp,%edx
+     6d1:	75 ed                	jne    6c0 <ip_send+0xa0>
+     6d3:	89 c8                	mov    %ecx,%eax
+     6d5:	c1 e8 10             	shr    $0x10,%eax
+     6d8:	74 13                	je     6ed <ip_send+0xcd>
+     6da:	0f b7 c9             	movzwl %cx,%ecx
+     6dd:	01 c1                	add    %eax,%ecx
+     6df:	0f b7 c1             	movzwl %cx,%eax
+     6e2:	89 ca                	mov    %ecx,%edx
+     6e4:	83 c0 01             	add    $0x1,%eax
+     6e7:	c1 ea 10             	shr    $0x10,%edx
+     6ea:	0f 45 c8             	cmovne %eax,%ecx
+     6ed:	f7 d1                	not    %ecx
+     6ef:	83 ec 04             	sub    $0x4,%esp
+     6f2:	66 c1 c1 08          	rol    $0x8,%cx
+     6f6:	66 89 4c 24 2e       	mov    %cx,0x2e(%esp)
+     6fb:	57                   	push   %edi
+     6fc:	ff 74 24 14          	push   0x14(%esp)
+     700:	55                   	push   %ebp
+     701:	e8 fc ff ff ff       	call   702 <ip_send+0xe2>
+     706:	83 c4 10             	add    $0x10,%esp
+     709:	80 3b ff             	cmpb   $0xff,(%ebx)
+     70c:	75 06                	jne    714 <ip_send+0xf4>
+     70e:	80 7b 01 ff          	cmpb   $0xff,0x1(%ebx)
+     712:	74 3c                	je     750 <ip_send+0x130>
+     714:	83 ec 08             	sub    $0x8,%esp
+     717:	8d 7c 24 22          	lea    0x22(%esp),%edi
+     71b:	57                   	push   %edi
+     71c:	53                   	push   %ebx
+     71d:	e8 fc ff ff ff       	call   71e <ip_send+0xfe>
+     722:	83 c4 10             	add    $0x10,%esp
+     725:	85 c0                	test   %eax,%eax
+     727:	0f 84 18 ff ff ff    	je     645 <ip_send+0x25>
+     72d:	83 ec 0c             	sub    $0xc,%esp
+     730:	89 f8                	mov    %edi,%eax
+     732:	ba 00 08 00 00       	mov    $0x800,%edx
+     737:	56                   	push   %esi
+     738:	8d 4c 24 30          	lea    0x30(%esp),%ecx
+     73c:	e8 bf f9 ff ff       	call   100 <eth_send>
+     741:	83 c4 10             	add    $0x10,%esp
+     744:	81 c4 2c 06 00 00    	add    $0x62c,%esp
+     74a:	5b                   	pop    %ebx
+     74b:	5e                   	pop    %esi
+     74c:	5f                   	pop    %edi
+     74d:	5d                   	pop    %ebp
+     74e:	c3                   	ret
+     74f:	90                   	nop
+     750:	80 7b 02 ff          	cmpb   $0xff,0x2(%ebx)
+     754:	75 be                	jne    714 <ip_send+0xf4>
+     756:	80 7b 03 ff          	cmpb   $0xff,0x3(%ebx)
+     75a:	75 b8                	jne    714 <ip_send+0xf4>
+     75c:	83 ec 04             	sub    $0x4,%esp
+     75f:	6a 06                	push   $0x6
+     761:	68 00 00 00 00       	push   $0x0
+     766:	8d 7c 24 26          	lea    0x26(%esp),%edi
+     76a:	57                   	push   %edi
+     76b:	e8 fc ff ff ff       	call   76c <ip_send+0x14c>
+     770:	83 c4 10             	add    $0x10,%esp
+     773:	eb b8                	jmp    72d <ip_send+0x10d>
+     775:	8d 76 00             	lea    0x0(%esi),%esi
+     778:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     77f:	00 
+
+00000780 <net_icmp_rx.part.0>:
+     780:	55                   	push   %ebp
+     781:	57                   	push   %edi
+     782:	89 cf                	mov    %ecx,%edi
+     784:	56                   	push   %esi
+     785:	53                   	push   %ebx
+     786:	81 ec 1c 01 00 00    	sub    $0x11c,%esp
+     78c:	0f b6 08             	movzbl (%eax),%ecx
+     78f:	0f b7 58 04          	movzwl 0x4(%eax),%ebx
+     793:	0f b7 70 06          	movzwl 0x6(%eax),%esi
+     797:	80 f9 08             	cmp    $0x8,%cl
+     79a:	74 3c                	je     7d8 <net_icmp_rx.part.0+0x58>
+     79c:	84 c9                	test   %cl,%cl
+     79e:	75 29                	jne    7c9 <net_icmp_rx.part.0+0x49>
+     7a0:	a1 0c 00 00 00       	mov    0xc,%eax
+     7a5:	85 c0                	test   %eax,%eax
+     7a7:	74 20                	je     7c9 <net_icmp_rx.part.0+0x49>
+     7a9:	66 c1 c3 08          	rol    $0x8,%bx
+     7ad:	66 3b 1d 16 00 00 00 	cmp    0x16,%bx
+     7b4:	75 13                	jne    7c9 <net_icmp_rx.part.0+0x49>
+     7b6:	89 f0                	mov    %esi,%eax
+     7b8:	66 c1 c0 08          	rol    $0x8,%ax
+     7bc:	66 3b 05 14 00 00 00 	cmp    0x14,%ax
+     7c3:	0f 84 0b 01 00 00    	je     8d4 <net_icmp_rx.part.0+0x154>
+     7c9:	81 c4 1c 01 00 00    	add    $0x11c,%esp
+     7cf:	5b                   	pop    %ebx
+     7d0:	5e                   	pop    %esi
+     7d1:	5f                   	pop    %edi
+     7d2:	5d                   	pop    %ebp
+     7d3:	c3                   	ret
+     7d4:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     7d8:	8b 0d 7c 01 00 00    	mov    0x17c,%ecx
+     7de:	85 c9                	test   %ecx,%ecx
+     7e0:	74 e7                	je     7c9 <net_icmp_rx.part.0+0x49>
+     7e2:	b9 f8 00 00 00       	mov    $0xf8,%ecx
+     7e7:	66 89 74 24 16       	mov    %si,0x16(%esp)
+     7ec:	66 39 ca             	cmp    %cx,%dx
+     7ef:	89 54 24 0c          	mov    %edx,0xc(%esp)
+     7f3:	0f 46 ca             	cmovbe %edx,%ecx
+     7f6:	66 89 5c 24 14       	mov    %bx,0x14(%esp)
+     7fb:	83 c0 08             	add    $0x8,%eax
+     7fe:	83 ec 04             	sub    $0x4,%esp
+     801:	c7 44 24 14 00 00 00 	movl   $0x0,0x14(%esp)
+     808:	00 
+     809:	0f b7 f1             	movzwl %cx,%esi
+     80c:	89 cd                	mov    %ecx,%ebp
+     80e:	8d 4e f8             	lea    -0x8(%esi),%ecx
+     811:	51                   	push   %ecx
+     812:	50                   	push   %eax
+     813:	8d 44 24 24          	lea    0x24(%esp),%eax
+     817:	50                   	push   %eax
+     818:	e8 fc ff ff ff       	call   819 <net_icmp_rx.part.0+0x99>
+     81d:	83 c4 10             	add    $0x10,%esp
+     820:	66 83 7c 24 0c 01    	cmpw   $0x1,0xc(%esp)
+     826:	0f 86 d4 00 00 00    	jbe    900 <net_icmp_rx.part.0+0x180>
+     82c:	89 f0                	mov    %esi,%eax
+     82e:	31 c9                	xor    %ecx,%ecx
+     830:	66 d1 e8             	shr    $1,%ax
+     833:	0f b7 d0             	movzwl %ax,%edx
+     836:	66 89 44 24 0c       	mov    %ax,0xc(%esp)
+     83b:	8d 5c 54 10          	lea    0x10(%esp,%edx,2),%ebx
+     83f:	89 d8                	mov    %ebx,%eax
+     841:	8d 5c 24 10          	lea    0x10(%esp),%ebx
+     845:	eb 19                	jmp    860 <net_icmp_rx.part.0+0xe0>
+     847:	90                   	nop
+     848:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     84f:	00 
+     850:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     857:	00 
+     858:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     85f:	00 
+     860:	0f b7 13             	movzwl (%ebx),%edx
+     863:	83 c3 02             	add    $0x2,%ebx
+     866:	66 c1 c2 08          	rol    $0x8,%dx
+     86a:	0f b7 d2             	movzwl %dx,%edx
+     86d:	01 d1                	add    %edx,%ecx
+     86f:	39 c3                	cmp    %eax,%ebx
+     871:	75 ed                	jne    860 <net_icmp_rx.part.0+0xe0>
+     873:	83 e5 01             	and    $0x1,%ebp
+     876:	0f b7 44 24 0c       	movzwl 0xc(%esp),%eax
+     87b:	74 10                	je     88d <net_icmp_rx.part.0+0x10d>
+     87d:	83 e8 01             	sub    $0x1,%eax
+     880:	0f b7 c0             	movzwl %ax,%eax
+     883:	0f b6 44 44 12       	movzbl 0x12(%esp,%eax,2),%eax
+     888:	c1 e0 08             	shl    $0x8,%eax
+     88b:	01 c1                	add    %eax,%ecx
+     88d:	89 c8                	mov    %ecx,%eax
+     88f:	c1 e8 10             	shr    $0x10,%eax
+     892:	74 13                	je     8a7 <net_icmp_rx.part.0+0x127>
+     894:	0f b7 c9             	movzwl %cx,%ecx
+     897:	01 c1                	add    %eax,%ecx
+     899:	0f b7 c1             	movzwl %cx,%eax
+     89c:	89 cb                	mov    %ecx,%ebx
+     89e:	83 c0 01             	add    $0x1,%eax
+     8a1:	c1 eb 10             	shr    $0x10,%ebx
+     8a4:	0f 45 c8             	cmovne %eax,%ecx
+     8a7:	f7 d1                	not    %ecx
+     8a9:	83 ec 0c             	sub    $0xc,%esp
+     8ac:	89 f8                	mov    %edi,%eax
+     8ae:	66 c1 c1 08          	rol    $0x8,%cx
+     8b2:	ba 01 00 00 00       	mov    $0x1,%edx
+     8b7:	66 89 4c 24 1e       	mov    %cx,0x1e(%esp)
+     8bc:	56                   	push   %esi
+     8bd:	8d 4c 24 20          	lea    0x20(%esp),%ecx
+     8c1:	e8 5a fd ff ff       	call   620 <ip_send>
+     8c6:	83 c4 10             	add    $0x10,%esp
+     8c9:	81 c4 1c 01 00 00    	add    $0x11c,%esp
+     8cf:	5b                   	pop    %ebx
+     8d0:	5e                   	pop    %esi
+     8d1:	5f                   	pop    %edi
+     8d2:	5d                   	pop    %ebp
+     8d3:	c3                   	ret
+     8d4:	c7 05 0c 00 00 00 00 	movl   $0x0,0xc
+     8db:	00 00 00 
+     8de:	e8 fc ff ff ff       	call   8df <net_icmp_rx.part.0+0x15f>
+     8e3:	2b 05 10 00 00 00    	sub    0x10,%eax
+     8e9:	8d 04 80             	lea    (%eax,%eax,4),%eax
+     8ec:	01 c0                	add    %eax,%eax
+     8ee:	a3 08 00 00 00       	mov    %eax,0x8
+     8f3:	e9 d1 fe ff ff       	jmp    7c9 <net_icmp_rx.part.0+0x49>
+     8f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     8ff:	00 
+     900:	0f b6 4c 24 10       	movzbl 0x10(%esp),%ecx
+     905:	c1 e1 08             	shl    $0x8,%ecx
+     908:	eb 9d                	jmp    8a7 <net_icmp_rx.part.0+0x127>
+     90a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+00000910 <dhcp_send>:
+     910:	57                   	push   %edi
+     911:	89 c7                	mov    %eax,%edi
+     913:	56                   	push   %esi
+     914:	53                   	push   %ebx
+     915:	89 d3                	mov    %edx,%ebx
+     917:	81 ec 14 07 00 00    	sub    $0x714,%esp
+     91d:	68 f0 00 00 00       	push   $0xf0
+     922:	6a 00                	push   $0x0
+     924:	8d 74 24 14          	lea    0x14(%esp),%esi
+     928:	56                   	push   %esi
+     929:	e8 fc ff ff ff       	call   92a <dhcp_send+0x1a>
+     92e:	b9 01 01 00 00       	mov    $0x101,%ecx
+     933:	c6 44 24 1a 06       	movb   $0x6,0x1a(%esp)
+     938:	66 89 4c 24 18       	mov    %cx,0x18(%esp)
+     93d:	83 c4 0c             	add    $0xc,%esp
+     940:	6a 06                	push   $0x6
+     942:	68 74 01 00 00       	push   $0x174
+     947:	8d 44 24 30          	lea    0x30(%esp),%eax
+     94b:	50                   	push   %eax
+     94c:	e8 fc ff ff ff       	call   94d <dhcp_send+0x3d>
+     951:	89 f8                	mov    %edi,%eax
+     953:	83 c4 10             	add    $0x10,%esp
+     956:	3c 03                	cmp    $0x3,%al
+     958:	0f 85 b2 00 00 00    	jne    a10 <dhcp_send+0x100>
+     95e:	85 db                	test   %ebx,%ebx
+     960:	0f 84 aa 00 00 00    	je     a10 <dhcp_send+0x100>
+     966:	0f cb                	bswap  %ebx
+     968:	c6 84 24 fc 00 00 00 	movb   $0x4,0xfc(%esp)
+     96f:	04 
+     970:	8d 84 24 01 01 00 00 	lea    0x101(%esp),%eax
+     977:	89 5c 24 18          	mov    %ebx,0x18(%esp)
+     97b:	c7 84 24 f8 00 00 00 	movl   $0x32030135,0xf8(%esp)
+     982:	35 01 03 32 
+     986:	89 9c 24 fd 00 00 00 	mov    %ebx,0xfd(%esp)
+     98d:	8d 94 24 10 07 00 00 	lea    0x710(%esp),%edx
+     994:	c6 00 ff             	movb   $0xff,(%eax)
+     997:	83 ec 04             	sub    $0x4,%esp
+     99a:	29 d0                	sub    %edx,%eax
+     99c:	c7 44 24 08 ff ff ff 	movl   $0xffffffff,0x8(%esp)
+     9a3:	ff 
+     9a4:	8d 98 09 07 00 00    	lea    0x709(%eax),%ebx
+     9aa:	66 05 11 07          	add    $0x711,%ax
+     9ae:	c7 84 24 38 01 00 00 	movl   $0x43004400,0x138(%esp)
+     9b5:	00 44 00 43 
+     9b9:	66 c1 c0 08          	rol    $0x8,%ax
+     9bd:	0f b7 db             	movzwl %bx,%ebx
+     9c0:	66 89 84 24 3c 01 00 	mov    %ax,0x13c(%esp)
+     9c7:	00 
+     9c8:	31 c0                	xor    %eax,%eax
+     9ca:	66 89 84 24 3e 01 00 	mov    %ax,0x13e(%esp)
+     9d1:	00 
+     9d2:	53                   	push   %ebx
+     9d3:	83 c3 08             	add    $0x8,%ebx
+     9d6:	56                   	push   %esi
+     9d7:	8d 84 24 48 01 00 00 	lea    0x148(%esp),%eax
+     9de:	50                   	push   %eax
+     9df:	e8 fc ff ff ff       	call   9e0 <dhcp_send+0xd0>
+     9e4:	8d 44 24 14          	lea    0x14(%esp),%eax
+     9e8:	ba 11 00 00 00       	mov    $0x11,%edx
+     9ed:	89 1c 24             	mov    %ebx,(%esp)
+     9f0:	8d 8c 24 44 01 00 00 	lea    0x144(%esp),%ecx
+     9f7:	e8 24 fc ff ff       	call   620 <ip_send>
+     9fc:	81 c4 20 07 00 00    	add    $0x720,%esp
+     a02:	5b                   	pop    %ebx
+     a03:	5e                   	pop    %esi
+     a04:	5f                   	pop    %edi
+     a05:	c3                   	ret
+     a06:	66 90                	xchg   %ax,%ax
+     a08:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     a0f:	00 
+     a10:	89 f8                	mov    %edi,%eax
+     a12:	ba 35 01 00 00       	mov    $0x135,%edx
+     a17:	88 84 24 fa 00 00 00 	mov    %al,0xfa(%esp)
+     a1e:	8d 84 24 fb 00 00 00 	lea    0xfb(%esp),%eax
+     a25:	66 89 94 24 f8 00 00 	mov    %dx,0xf8(%esp)
+     a2c:	00 
+     a2d:	e9 5b ff ff ff       	jmp    98d <dhcp_send+0x7d>
+     a32:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+     a38:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     a3f:	00 
+
+00000a40 <dhcp_rx_cb>:
+     a40:	55                   	push   %ebp
+     a41:	57                   	push   %edi
+     a42:	56                   	push   %esi
+     a43:	53                   	push   %ebx
+     a44:	83 ec 1c             	sub    $0x1c,%esp
+     a47:	8b 44 24 34          	mov    0x34(%esp),%eax
+     a4b:	8b 5c 24 30          	mov    0x30(%esp),%ebx
+     a4f:	66 3d ef 00          	cmp    $0xef,%ax
+     a53:	0f 86 f6 00 00 00    	jbe    b4f <dhcp_rx_cb+0x10f>
+     a59:	80 3b 02             	cmpb   $0x2,(%ebx)
+     a5c:	0f 85 ed 00 00 00    	jne    b4f <dhcp_rx_cb+0x10f>
+     a62:	8d 88 10 ff ff ff    	lea    -0xf0(%eax),%ecx
+     a68:	89 cf                	mov    %ecx,%edi
+     a6a:	66 83 f9 01          	cmp    $0x1,%cx
+     a6e:	0f 86 db 00 00 00    	jbe    b4f <dhcp_rx_cb+0x10f>
+     a74:	8d 93 f0 00 00 00    	lea    0xf0(%ebx),%edx
+     a7a:	89 dd                	mov    %ebx,%ebp
+     a7c:	89 cb                	mov    %ecx,%ebx
+     a7e:	89 54 24 0c          	mov    %edx,0xc(%esp)
+     a82:	eb 1e                	jmp    aa2 <dhcp_rx_cb+0x62>
+     a84:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     a88:	0f b6 c8             	movzbl %al,%ecx
+     a8b:	8d 54 0a 02          	lea    0x2(%edx,%ecx,1),%edx
+     a8f:	b9 fe ff ff ff       	mov    $0xfffffffe,%ecx
+     a94:	29 c1                	sub    %eax,%ecx
+     a96:	01 cb                	add    %ecx,%ebx
+     a98:	66 83 fb 01          	cmp    $0x1,%bx
+     a9c:	0f 86 ad 00 00 00    	jbe    b4f <dhcp_rx_cb+0x10f>
+     aa2:	0f b6 0a             	movzbl (%edx),%ecx
+     aa5:	80 f9 ff             	cmp    $0xff,%cl
+     aa8:	0f 84 a1 00 00 00    	je     b4f <dhcp_rx_cb+0x10f>
+     aae:	0f b6 42 01          	movzbl 0x1(%edx),%eax
+     ab2:	80 f9 35             	cmp    $0x35,%cl
+     ab5:	75 d1                	jne    a88 <dhcp_rx_cb+0x48>
+     ab7:	84 c0                	test   %al,%al
+     ab9:	74 cd                	je     a88 <dhcp_rx_cb+0x48>
+     abb:	0f b6 42 02          	movzbl 0x2(%edx),%eax
+     abf:	3c 02                	cmp    $0x2,%al
+     ac1:	75 4d                	jne    b10 <dhcp_rx_cb+0xd0>
+     ac3:	83 ec 04             	sub    $0x4,%esp
+     ac6:	8d 45 10             	lea    0x10(%ebp),%eax
+     ac9:	6a 04                	push   $0x4
+     acb:	50                   	push   %eax
+     acc:	68 64 01 00 00       	push   $0x164
+     ad1:	e8 fc ff ff ff       	call   ad2 <dhcp_rx_cb+0x92>
+     ad6:	8b 45 10             	mov    0x10(%ebp),%eax
+     ad9:	0f b7 d7             	movzwl %di,%edx
+     adc:	b9 02 00 00 00       	mov    $0x2,%ecx
+     ae1:	0f c8                	bswap  %eax
+     ae3:	a3 00 00 00 00       	mov    %eax,0x0
+     ae8:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+     aec:	e8 0f f5 ff ff       	call   0 <dhcp_parse_options>
+     af1:	8b 15 00 00 00 00    	mov    0x0,%edx
+     af7:	83 c4 2c             	add    $0x2c,%esp
+     afa:	b8 03 00 00 00       	mov    $0x3,%eax
+     aff:	5b                   	pop    %ebx
+     b00:	5e                   	pop    %esi
+     b01:	5f                   	pop    %edi
+     b02:	5d                   	pop    %ebp
+     b03:	e9 08 fe ff ff       	jmp    910 <dhcp_send>
+     b08:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     b0f:	00 
+     b10:	3c 05                	cmp    $0x5,%al
+     b12:	75 3b                	jne    b4f <dhcp_rx_cb+0x10f>
+     b14:	83 ec 04             	sub    $0x4,%esp
+     b17:	8d 5d 10             	lea    0x10(%ebp),%ebx
+     b1a:	6a 04                	push   $0x4
+     b1c:	53                   	push   %ebx
+     b1d:	68 64 01 00 00       	push   $0x164
+     b22:	e8 fc ff ff ff       	call   b23 <dhcp_rx_cb+0xe3>
+     b27:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+     b2b:	0f b7 d7             	movzwl %di,%edx
+     b2e:	b9 05 00 00 00       	mov    $0x5,%ecx
+     b33:	e8 c8 f4 ff ff       	call   0 <dhcp_parse_options>
+     b38:	83 c4 10             	add    $0x10,%esp
+     b3b:	c7 05 7c 01 00 00 01 	movl   $0x1,0x17c
+     b42:	00 00 00 
+     b45:	c7 05 04 00 00 00 01 	movl   $0x1,0x4
+     b4c:	00 00 00 
+     b4f:	83 c4 1c             	add    $0x1c,%esp
+     b52:	5b                   	pop    %ebx
+     b53:	5e                   	pop    %esi
+     b54:	5f                   	pop    %edi
+     b55:	5d                   	pop    %ebp
+     b56:	c3                   	ret
+     b57:	90                   	nop
+     b58:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     b5f:	00 
+
+00000b60 <net_ip_rx>:
+     b60:	55                   	push   %ebp
+     b61:	57                   	push   %edi
+     b62:	56                   	push   %esi
+     b63:	53                   	push   %ebx
+     b64:	83 ec 2c             	sub    $0x2c,%esp
+     b67:	8b 4c 24 44          	mov    0x44(%esp),%ecx
+     b6b:	8b 74 24 40          	mov    0x40(%esp),%esi
+     b6f:	66 83 f9 13          	cmp    $0x13,%cx
+     b73:	0f 86 35 01 00 00    	jbe    cae <net_ip_rx+0x14e>
+     b79:	0f b6 06             	movzbl (%esi),%eax
+     b7c:	83 e0 0f             	and    $0xf,%eax
+     b7f:	c1 e0 02             	shl    $0x2,%eax
+     b82:	0f b6 f8             	movzbl %al,%edi
+     b85:	3c 13                	cmp    $0x13,%al
+     b87:	0f 86 21 01 00 00    	jbe    cae <net_ip_rx+0x14e>
+     b8d:	66 39 cf             	cmp    %cx,%di
+     b90:	0f 87 18 01 00 00    	ja     cae <net_ip_rx+0x14e>
+     b96:	0f b7 5e 02          	movzwl 0x2(%esi),%ebx
+     b9a:	0f b7 e9             	movzwl %cx,%ebp
+     b9d:	0f b6 c0             	movzbl %al,%eax
+     ba0:	0f b6 56 09          	movzbl 0x9(%esi),%edx
+     ba4:	89 44 24 0c          	mov    %eax,0xc(%esp)
+     ba8:	89 e8                	mov    %ebp,%eax
+     baa:	8b 6c 24 0c          	mov    0xc(%esp),%ebp
+     bae:	29 f9                	sub    %edi,%ecx
+     bb0:	66 c1 c3 08          	rol    $0x8,%bx
+     bb4:	88 54 24 08          	mov    %dl,0x8(%esp)
+     bb8:	29 fb                	sub    %edi,%ebx
+     bba:	29 e8                	sub    %ebp,%eax
+     bbc:	0f b7 d3             	movzwl %bx,%edx
+     bbf:	39 c2                	cmp    %eax,%edx
+     bc1:	8d 46 0c             	lea    0xc(%esi),%eax
+     bc4:	0f 4f d9             	cmovg  %ecx,%ebx
+     bc7:	83 ec 04             	sub    $0x4,%esp
+     bca:	6a 04                	push   $0x4
+     bcc:	50                   	push   %eax
+     bcd:	8d 7c 24 28          	lea    0x28(%esp),%edi
+     bd1:	57                   	push   %edi
+     bd2:	e8 fc ff ff ff       	call   bd3 <net_ip_rx+0x73>
+     bd7:	83 c4 10             	add    $0x10,%esp
+     bda:	80 7c 24 08 01       	cmpb   $0x1,0x8(%esp)
+     bdf:	0f 84 b3 00 00 00    	je     c98 <net_ip_rx+0x138>
+     be5:	80 7c 24 08 11       	cmpb   $0x11,0x8(%esp)
+     bea:	0f 85 be 00 00 00    	jne    cae <net_ip_rx+0x14e>
+     bf0:	66 83 fb 07          	cmp    $0x7,%bx
+     bf4:	0f 86 b4 00 00 00    	jbe    cae <net_ip_rx+0x14e>
+     bfa:	8b 44 24 0c          	mov    0xc(%esp),%eax
+     bfe:	01 f0                	add    %esi,%eax
+     c00:	0f b7 50 04          	movzwl 0x4(%eax),%edx
+     c04:	66 c1 c2 08          	rol    $0x8,%dx
+     c08:	66 83 fa 07          	cmp    $0x7,%dx
+     c0c:	0f 86 9c 00 00 00    	jbe    cae <net_ip_rx+0x14e>
+     c12:	66 39 d3             	cmp    %dx,%bx
+     c15:	0f 82 93 00 00 00    	jb     cae <net_ip_rx+0x14e>
+     c1b:	8b 0d 18 00 00 00    	mov    0x18,%ecx
+     c21:	85 c9                	test   %ecx,%ecx
+     c23:	0f 8e 85 00 00 00    	jle    cae <net_ip_rx+0x14e>
+     c29:	0f b7 08             	movzwl (%eax),%ecx
+     c2c:	8d 5a f8             	lea    -0x8(%edx),%ebx
+     c2f:	8d 68 08             	lea    0x8(%eax),%ebp
+     c32:	31 f6                	xor    %esi,%esi
+     c34:	0f b7 db             	movzwl %bx,%ebx
+     c37:	66 c1 c1 08          	rol    $0x8,%cx
+     c3b:	89 5c 24 0c          	mov    %ebx,0xc(%esp)
+     c3f:	66 89 4c 24 08       	mov    %cx,0x8(%esp)
+     c44:	0f b7 48 02          	movzwl 0x2(%eax),%ecx
+     c48:	0f b7 44 24 08       	movzwl 0x8(%esp),%eax
+     c4d:	66 c1 c1 08          	rol    $0x8,%cx
+     c51:	89 44 24 08          	mov    %eax,0x8(%esp)
+     c55:	89 cb                	mov    %ecx,%ebx
+     c57:	eb 12                	jmp    c6b <net_ip_rx+0x10b>
+     c59:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+     c60:	83 c6 01             	add    $0x1,%esi
+     c63:	3b 35 18 00 00 00    	cmp    0x18,%esi
+     c69:	7d 43                	jge    cae <net_ip_rx+0x14e>
+     c6b:	66 3b 1c f5 20 00 00 	cmp    0x20(,%esi,8),%bx
+     c72:	00 
+     c73:	75 eb                	jne    c60 <net_ip_rx+0x100>
+     c75:	8b 04 f5 24 00 00 00 	mov    0x24(,%esi,8),%eax
+     c7c:	85 c0                	test   %eax,%eax
+     c7e:	74 e0                	je     c60 <net_ip_rx+0x100>
+     c80:	ff 74 24 08          	push   0x8(%esp)
+     c84:	57                   	push   %edi
+     c85:	ff 74 24 14          	push   0x14(%esp)
+     c89:	55                   	push   %ebp
+     c8a:	ff d0                	call   *%eax
+     c8c:	83 c4 10             	add    $0x10,%esp
+     c8f:	eb cf                	jmp    c60 <net_ip_rx+0x100>
+     c91:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+     c98:	66 83 fb 07          	cmp    $0x7,%bx
+     c9c:	76 10                	jbe    cae <net_ip_rx+0x14e>
+     c9e:	8b 44 24 0c          	mov    0xc(%esp),%eax
+     ca2:	89 f9                	mov    %edi,%ecx
+     ca4:	0f b7 d3             	movzwl %bx,%edx
+     ca7:	01 f0                	add    %esi,%eax
+     ca9:	e8 d2 fa ff ff       	call   780 <net_icmp_rx.part.0>
+     cae:	83 c4 2c             	add    $0x2c,%esp
+     cb1:	5b                   	pop    %ebx
+     cb2:	5e                   	pop    %esi
+     cb3:	5f                   	pop    %edi
+     cb4:	5d                   	pop    %ebp
+     cb5:	c3                   	ret
+     cb6:	66 90                	xchg   %ax,%ax
+     cb8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     cbf:	00 
+
+00000cc0 <net_rx_packet>:
+     cc0:	8b 44 24 08          	mov    0x8(%esp),%eax
+     cc4:	8b 54 24 04          	mov    0x4(%esp),%edx
+     cc8:	66 83 f8 0d          	cmp    $0xd,%ax
+     ccc:	76 11                	jbe    cdf <net_rx_packet+0x1f>
+     cce:	0f b7 4a 0c          	movzwl 0xc(%edx),%ecx
+     cd2:	66 81 f9 08 06       	cmp    $0x608,%cx
+     cd7:	74 27                	je     d00 <net_rx_packet+0x40>
+     cd9:	66 83 f9 08          	cmp    $0x8,%cx
+     cdd:	74 01                	je     ce0 <net_rx_packet+0x20>
+     cdf:	c3                   	ret
+     ce0:	83 e8 0e             	sub    $0xe,%eax
+     ce3:	83 c2 0e             	add    $0xe,%edx
+     ce6:	0f b7 c0             	movzwl %ax,%eax
+     ce9:	89 54 24 04          	mov    %edx,0x4(%esp)
+     ced:	89 44 24 08          	mov    %eax,0x8(%esp)
+     cf1:	e9 6a fe ff ff       	jmp    b60 <net_ip_rx>
+     cf6:	66 90                	xchg   %ax,%ax
+     cf8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     cff:	00 
+     d00:	83 e8 0e             	sub    $0xe,%eax
+     d03:	83 c2 0e             	add    $0xe,%edx
+     d06:	0f b7 c0             	movzwl %ax,%eax
+     d09:	89 54 24 04          	mov    %edx,0x4(%esp)
+     d0d:	89 44 24 08          	mov    %eax,0x8(%esp)
+     d11:	e9 9a f5 ff ff       	jmp    2b0 <net_arp_rx>
+     d16:	66 90                	xchg   %ax,%ax
+     d18:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     d1f:	00 
+
+00000d20 <net_icmp_rx>:
+     d20:	8b 54 24 08          	mov    0x8(%esp),%edx
+     d24:	8b 44 24 04          	mov    0x4(%esp),%eax
+     d28:	8b 4c 24 0c          	mov    0xc(%esp),%ecx
+     d2c:	66 83 fa 07          	cmp    $0x7,%dx
+     d30:	76 0e                	jbe    d40 <net_icmp_rx+0x20>
+     d32:	0f b7 d2             	movzwl %dx,%edx
+     d35:	e9 46 fa ff ff       	jmp    780 <net_icmp_rx.part.0>
+     d3a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+     d40:	c3                   	ret
+     d41:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+     d48:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     d4f:	00 
+
+00000d50 <icmp_ping>:
+     d50:	53                   	push   %ebx
+     d51:	31 db                	xor    %ebx,%ebx
+     d53:	83 ec 18             	sub    $0x18,%esp
+     d56:	c7 44 24 08 08 00 00 	movl   $0x8,0x8(%esp)
+     d5d:	00 
+     d5e:	e8 fc ff ff ff       	call   d5f <icmp_ping+0xf>
+     d63:	b9 00 01 00 00       	mov    $0x100,%ecx
+     d68:	ba 01 00 00 00       	mov    $0x1,%edx
+     d6d:	66 a3 16 00 00 00    	mov    %ax,0x16
+     d73:	66 c1 c0 08          	rol    $0x8,%ax
+     d77:	66 89 44 24 0c       	mov    %ax,0xc(%esp)
+     d7c:	66 89 4c 24 0e       	mov    %cx,0xe(%esp)
+     d81:	66 89 15 14 00 00 00 	mov    %dx,0x14
+     d88:	8d 54 24 08          	lea    0x8(%esp),%edx
+     d8c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     d90:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     d97:	00 
+     d98:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     d9f:	00 
+     da0:	0f b7 02             	movzwl (%edx),%eax
+     da3:	83 c2 02             	add    $0x2,%edx
+     da6:	66 c1 c0 08          	rol    $0x8,%ax
+     daa:	0f b7 c0             	movzwl %ax,%eax
+     dad:	01 c3                	add    %eax,%ebx
+     daf:	8d 44 24 10          	lea    0x10(%esp),%eax
+     db3:	39 c2                	cmp    %eax,%edx
+     db5:	75 e9                	jne    da0 <icmp_ping+0x50>
+     db7:	89 d8                	mov    %ebx,%eax
+     db9:	c1 e8 10             	shr    $0x10,%eax
+     dbc:	74 13                	je     dd1 <icmp_ping+0x81>
+     dbe:	0f b7 db             	movzwl %bx,%ebx
+     dc1:	01 c3                	add    %eax,%ebx
+     dc3:	0f b7 c3             	movzwl %bx,%eax
+     dc6:	89 da                	mov    %ebx,%edx
+     dc8:	83 c0 01             	add    $0x1,%eax
+     dcb:	c1 ea 10             	shr    $0x10,%edx
+     dce:	0f 45 d8             	cmovne %eax,%ebx
+     dd1:	f7 d3                	not    %ebx
+     dd3:	66 c1 c3 08          	rol    $0x8,%bx
+     dd7:	66 89 5c 24 0a       	mov    %bx,0xa(%esp)
+     ddc:	e8 fc ff ff ff       	call   ddd <icmp_ping+0x8d>
+     de1:	83 ec 0c             	sub    $0xc,%esp
+     de4:	ba 01 00 00 00       	mov    $0x1,%edx
+     de9:	c7 05 0c 00 00 00 01 	movl   $0x1,0xc
+     df0:	00 00 00 
+     df3:	6a 08                	push   $0x8
+     df5:	a3 10 00 00 00       	mov    %eax,0x10
+     dfa:	8b 44 24 30          	mov    0x30(%esp),%eax
+     dfe:	8d 4c 24 18          	lea    0x18(%esp),%ecx
+     e02:	e8 19 f8 ff ff       	call   620 <ip_send>
+     e07:	83 c4 28             	add    $0x28,%esp
+     e0a:	5b                   	pop    %ebx
+     e0b:	c3                   	ret
+     e0c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+00000e10 <icmp_ping_done>:
+     e10:	a1 0c 00 00 00       	mov    0xc,%eax
+     e15:	8b 54 24 04          	mov    0x4(%esp),%edx
+     e19:	85 c0                	test   %eax,%eax
+     e1b:	0f 94 c0             	sete   %al
+     e1e:	85 d2                	test   %edx,%edx
+     e20:	74 0c                	je     e2e <icmp_ping_done+0x1e>
+     e22:	84 c0                	test   %al,%al
+     e24:	74 08                	je     e2e <icmp_ping_done+0x1e>
+     e26:	8b 0d 08 00 00 00    	mov    0x8,%ecx
+     e2c:	89 0a                	mov    %ecx,(%edx)
+     e2e:	0f b6 c0             	movzbl %al,%eax
+     e31:	c3                   	ret
+     e32:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+     e38:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     e3f:	00 
+
+00000e40 <udp_send>:
+     e40:	57                   	push   %edi
+     e41:	56                   	push   %esi
+     e42:	53                   	push   %ebx
+     e43:	81 ec f0 05 00 00    	sub    $0x5f0,%esp
+     e49:	8b 84 24 10 06 00 00 	mov    0x610(%esp),%eax
+     e50:	0f b7 c8             	movzwl %ax,%ecx
+     e53:	8d 51 08             	lea    0x8(%ecx),%edx
+     e56:	81 fa dc 05 00 00    	cmp    $0x5dc,%edx
+     e5c:	7f 6f                	jg     ecd <udp_send+0x8d>
+     e5e:	0f b7 9c 24 08 06 00 	movzwl 0x608(%esp),%ebx
+     e65:	00 
+     e66:	83 c0 08             	add    $0x8,%eax
+     e69:	83 ec 04             	sub    $0x4,%esp
+     e6c:	66 c1 c0 08          	rol    $0x8,%ax
+     e70:	66 c1 c3 08          	rol    $0x8,%bx
+     e74:	66 89 44 24 1c       	mov    %ax,0x1c(%esp)
+     e79:	31 c0                	xor    %eax,%eax
+     e7b:	89 de                	mov    %ebx,%esi
+     e7d:	0f b7 9c 24 08 06 00 	movzwl 0x608(%esp),%ebx
+     e84:	00 
+     e85:	66 89 44 24 1e       	mov    %ax,0x1e(%esp)
+     e8a:	66 89 74 24 18       	mov    %si,0x18(%esp)
+     e8f:	66 c1 c3 08          	rol    $0x8,%bx
+     e93:	66 89 5c 24 1a       	mov    %bx,0x1a(%esp)
+     e98:	51                   	push   %ecx
+     e99:	ff b4 24 14 06 00 00 	push   0x614(%esp)
+     ea0:	8d 44 24 28          	lea    0x28(%esp),%eax
+     ea4:	50                   	push   %eax
+     ea5:	89 54 24 1c          	mov    %edx,0x1c(%esp)
+     ea9:	e8 fc ff ff ff       	call   eaa <udp_send+0x6a>
+     eae:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+     eb2:	8b 84 24 10 06 00 00 	mov    0x610(%esp),%eax
+     eb9:	8d 4c 24 24          	lea    0x24(%esp),%ecx
+     ebd:	89 14 24             	mov    %edx,(%esp)
+     ec0:	ba 11 00 00 00       	mov    $0x11,%edx
+     ec5:	e8 56 f7 ff ff       	call   620 <ip_send>
+     eca:	83 c4 10             	add    $0x10,%esp
+     ecd:	81 c4 f0 05 00 00    	add    $0x5f0,%esp
+     ed3:	5b                   	pop    %ebx
+     ed4:	5e                   	pop    %esi
+     ed5:	5f                   	pop    %edi
+     ed6:	c3                   	ret
+     ed7:	90                   	nop
+     ed8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     edf:	00 
+
+00000ee0 <net_udp_rx>:
+     ee0:	55                   	push   %ebp
+     ee1:	57                   	push   %edi
+     ee2:	56                   	push   %esi
+     ee3:	53                   	push   %ebx
+     ee4:	83 ec 1c             	sub    $0x1c,%esp
+     ee7:	8b 54 24 34          	mov    0x34(%esp),%edx
+     eeb:	8b 4c 24 30          	mov    0x30(%esp),%ecx
+     eef:	66 83 fa 07          	cmp    $0x7,%dx
+     ef3:	76 55                	jbe    f4a <net_udp_rx+0x6a>
+     ef5:	0f b7 41 04          	movzwl 0x4(%ecx),%eax
+     ef9:	66 c1 c0 08          	rol    $0x8,%ax
+     efd:	66 83 f8 07          	cmp    $0x7,%ax
+     f01:	76 47                	jbe    f4a <net_udp_rx+0x6a>
+     f03:	66 39 d0             	cmp    %dx,%ax
+     f06:	77 42                	ja     f4a <net_udp_rx+0x6a>
+     f08:	8b 15 18 00 00 00    	mov    0x18,%edx
+     f0e:	85 d2                	test   %edx,%edx
+     f10:	7e 38                	jle    f4a <net_udp_rx+0x6a>
+     f12:	0f b7 59 02          	movzwl 0x2(%ecx),%ebx
+     f16:	0f b7 11             	movzwl (%ecx),%edx
+     f19:	8d 79 08             	lea    0x8(%ecx),%edi
+     f1c:	66 c1 c3 08          	rol    $0x8,%bx
+     f20:	66 c1 c2 08          	rol    $0x8,%dx
+     f24:	89 de                	mov    %ebx,%esi
+     f26:	8d 58 f8             	lea    -0x8(%eax),%ebx
+     f29:	0f b7 ea             	movzwl %dx,%ebp
+     f2c:	31 c0                	xor    %eax,%eax
+     f2e:	0f b7 cb             	movzwl %bx,%ecx
+     f31:	89 4c 24 0c          	mov    %ecx,0xc(%esp)
+     f35:	66 3b 34 c5 20 00 00 	cmp    0x20(,%eax,8),%si
+     f3c:	00 
+     f3d:	74 19                	je     f58 <net_udp_rx+0x78>
+     f3f:	83 c0 01             	add    $0x1,%eax
+     f42:	3b 05 18 00 00 00    	cmp    0x18,%eax
+     f48:	7c eb                	jl     f35 <net_udp_rx+0x55>
+     f4a:	83 c4 1c             	add    $0x1c,%esp
+     f4d:	5b                   	pop    %ebx
+     f4e:	5e                   	pop    %esi
+     f4f:	5f                   	pop    %edi
+     f50:	5d                   	pop    %ebp
+     f51:	c3                   	ret
+     f52:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+     f58:	8b 14 c5 24 00 00 00 	mov    0x24(,%eax,8),%edx
+     f5f:	85 d2                	test   %edx,%edx
+     f61:	74 dc                	je     f3f <net_udp_rx+0x5f>
+     f63:	89 44 24 08          	mov    %eax,0x8(%esp)
+     f67:	55                   	push   %ebp
+     f68:	ff 74 24 3c          	push   0x3c(%esp)
+     f6c:	ff 74 24 14          	push   0x14(%esp)
+     f70:	57                   	push   %edi
+     f71:	ff d2                	call   *%edx
+     f73:	8b 44 24 18          	mov    0x18(%esp),%eax
+     f77:	83 c4 10             	add    $0x10,%esp
+     f7a:	eb c3                	jmp    f3f <net_udp_rx+0x5f>
+     f7c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+00000f80 <udp_listen>:
+     f80:	a1 18 00 00 00       	mov    0x18,%eax
+     f85:	8b 54 24 04          	mov    0x4(%esp),%edx
+     f89:	83 f8 03             	cmp    $0x3,%eax
+     f8c:	7f 22                	jg     fb0 <udp_listen+0x30>
+     f8e:	66 89 14 c5 20 00 00 	mov    %dx,0x20(,%eax,8)
+     f95:	00 
+     f96:	8b 54 24 08          	mov    0x8(%esp),%edx
+     f9a:	89 14 c5 24 00 00 00 	mov    %edx,0x24(,%eax,8)
+     fa1:	83 c0 01             	add    $0x1,%eax
+     fa4:	a3 18 00 00 00       	mov    %eax,0x18
+     fa9:	31 c0                	xor    %eax,%eax
+     fab:	c3                   	ret
+     fac:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+     fb0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+     fb5:	c3                   	ret
+     fb6:	66 90                	xchg   %ax,%ax
+     fb8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+     fbf:	00 
+
+00000fc0 <dhcp_discover>:
+     fc0:	a1 60 01 00 00       	mov    0x160,%eax
+     fc5:	85 c0                	test   %eax,%eax
+     fc7:	75 07                	jne    fd0 <dhcp_discover+0x10>
+     fc9:	c3                   	ret
+     fca:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+     fd0:	31 d2                	xor    %edx,%edx
+     fd2:	b8 01 00 00 00       	mov    $0x1,%eax
+     fd7:	c7 05 04 00 00 00 00 	movl   $0x0,0x4
+     fde:	00 00 00 
+     fe1:	c7 05 7c 01 00 00 00 	movl   $0x0,0x17c
+     fe8:	00 00 00 
+     feb:	e9 20 f9 ff ff       	jmp    910 <dhcp_send>
+
+00000ff0 <dhcp_request>:
+     ff0:	a1 60 01 00 00       	mov    0x160,%eax
+     ff5:	85 c0                	test   %eax,%eax
+     ff7:	75 07                	jne    1000 <dhcp_request+0x10>
+     ff9:	c3                   	ret
+     ffa:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+    1000:	31 d2                	xor    %edx,%edx
+    1002:	b8 01 00 00 00       	mov    $0x1,%eax
+    1007:	c7 05 04 00 00 00 00 	movl   $0x0,0x4
+    100e:	00 00 00 
+    1011:	c7 05 7c 01 00 00 00 	movl   $0x0,0x17c
+    1018:	00 00 00 
+    101b:	e9 f0 f8 ff ff       	jmp    910 <dhcp_send>
+
+00001020 <dhcp_ready>:
+    1020:	a1 04 00 00 00       	mov    0x4,%eax
+    1025:	c3                   	ret
+    1026:	66 90                	xchg   %ax,%ax
+    1028:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+    102f:	00 
+
+00001030 <net_init>:
+    1030:	83 ec 10             	sub    $0x10,%esp
+    1033:	6a 1c                	push   $0x1c
+    1035:	6a 00                	push   $0x0
+    1037:	68 64 01 00 00       	push   $0x164
+    103c:	e8 fc ff ff ff       	call   103d <net_init+0xd>
+    1041:	83 c4 0c             	add    $0xc,%esp
+    1044:	68 00 01 00 00       	push   $0x100
+    1049:	6a 00                	push   $0x0
+    104b:	68 60 00 00 00       	push   $0x60
+    1050:	e8 fc ff ff ff       	call   1051 <net_init+0x21>
+    1055:	c7 05 40 00 00 00 00 	movl   $0x0,0x40
+    105c:	00 00 00 
+    105f:	c7 05 18 00 00 00 00 	movl   $0x0,0x18
+    1066:	00 00 00 
+    1069:	c7 05 0c 00 00 00 00 	movl   $0x0,0xc
+    1070:	00 00 00 
+    1073:	c7 05 04 00 00 00 00 	movl   $0x0,0x4
+    107a:	00 00 00 
+    107d:	e8 fc ff ff ff       	call   107e <net_init+0x4e>
+    1082:	83 c4 10             	add    $0x10,%esp
+    1085:	85 c0                	test   %eax,%eax
+    1087:	75 07                	jne    1090 <net_init+0x60>
+    1089:	83 c4 0c             	add    $0xc,%esp
+    108c:	c3                   	ret
+    108d:	8d 76 00             	lea    0x0(%esi),%esi
+    1090:	83 ec 0c             	sub    $0xc,%esp
+    1093:	68 74 01 00 00       	push   $0x174
+    1098:	e8 fc ff ff ff       	call   1099 <net_init+0x69>
+    109d:	a1 18 00 00 00       	mov    0x18,%eax
+    10a2:	83 c4 10             	add    $0x10,%esp
+    10a5:	83 f8 03             	cmp    $0x3,%eax
+    10a8:	7f 20                	jg     10ca <net_init+0x9a>
+    10aa:	c7 04 c5 24 00 00 00 	movl   $0xa40,0x24(,%eax,8)
+    10b1:	40 0a 00 00 
+    10b5:	ba 44 00 00 00       	mov    $0x44,%edx
+    10ba:	66 89 14 c5 20 00 00 	mov    %dx,0x20(,%eax,8)
+    10c1:	00 
+    10c2:	83 c0 01             	add    $0x1,%eax
+    10c5:	a3 18 00 00 00       	mov    %eax,0x18
+    10ca:	c7 05 60 01 00 00 01 	movl   $0x1,0x160
+    10d1:	00 00 00 
+    10d4:	83 c4 0c             	add    $0xc,%esp
+    10d7:	c3                   	ret
+    10d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+    10df:	00 
+
+000010e0 <net_poll>:
+    10e0:	a1 60 01 00 00       	mov    0x160,%eax
+    10e5:	85 c0                	test   %eax,%eax
+    10e7:	75 07                	jne    10f0 <net_poll+0x10>
+    10e9:	c3                   	ret
+    10ea:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+    10f0:	e9 fc ff ff ff       	jmp    10f1 <net_poll+0x11>
+    10f5:	8d 76 00             	lea    0x0(%esi),%esi
+    10f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+    10ff:	00 
+
+00001100 <net_get_config>:
+    1100:	b8 64 01 00 00       	mov    $0x164,%eax
+    1105:	c3                   	ret

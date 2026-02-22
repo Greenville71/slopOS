@@ -1,0 +1,557 @@
+
+game.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <game_reset>:
+   0:	53                   	push   %ebx
+   1:	8b 50 54             	mov    0x54(%eax),%edx
+   4:	89 c1                	mov    %eax,%ecx
+   6:	c7 41 0c 00 02 00 00 	movl   $0x200,0xc(%ecx)
+   d:	8d 59 50             	lea    0x50(%ecx),%ebx
+  10:	89 d0                	mov    %edx,%eax
+  12:	c7 41 10 00 fd ff ff 	movl   $0xfffffd00,0x10(%ecx)
+  19:	c1 e8 1f             	shr    $0x1f,%eax
+  1c:	c6 41 50 00          	movb   $0x0,0x50(%ecx)
+  20:	01 d0                	add    %edx,%eax
+  22:	8d 51 1e             	lea    0x1e(%ecx),%edx
+  25:	d1 f8                	sar    $1,%eax
+  27:	89 01                	mov    %eax,(%ecx)
+  29:	c1 e0 08             	shl    $0x8,%eax
+  2c:	89 41 04             	mov    %eax,0x4(%ecx)
+  2f:	8b 41 58             	mov    0x58(%ecx),%eax
+  32:	83 e8 32             	sub    $0x32,%eax
+  35:	c1 e0 08             	shl    $0x8,%eax
+  38:	89 41 08             	mov    %eax,0x8(%ecx)
+  3b:	8d 42 f6             	lea    -0xa(%edx),%eax
+  3e:	66 90                	xchg   %ax,%ax
+  40:	c6 00 01             	movb   $0x1,(%eax)
+  43:	83 c0 02             	add    $0x2,%eax
+  46:	c6 40 ff 01          	movb   $0x1,-0x1(%eax)
+  4a:	39 d0                	cmp    %edx,%eax
+  4c:	75 f2                	jne    40 <game_reset+0x40>
+  4e:	8d 50 0a             	lea    0xa(%eax),%edx
+  51:	39 da                	cmp    %ebx,%edx
+  53:	75 e6                	jne    3b <game_reset+0x3b>
+  55:	c7 41 48 00 00 00 00 	movl   $0x0,0x48(%ecx)
+  5c:	5b                   	pop    %ebx
+  5d:	c7 41 4c 03 00 00 00 	movl   $0x3,0x4c(%ecx)
+  64:	c6 41 51 00          	movb   $0x0,0x51(%ecx)
+  68:	c3                   	ret
+  69:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+
+00000070 <game_create>:
+  70:	53                   	push   %ebx
+  71:	31 db                	xor    %ebx,%ebx
+  73:	83 ec 08             	sub    $0x8,%esp
+  76:	a1 00 00 00 00       	mov    0x0,%eax
+  7b:	83 f8 01             	cmp    $0x1,%eax
+  7e:	7f 37                	jg     b7 <game_create+0x47>
+  80:	8d 50 01             	lea    0x1(%eax),%edx
+  83:	83 ec 04             	sub    $0x4,%esp
+  86:	6b c0 5c             	imul   $0x5c,%eax,%eax
+  89:	6a 5c                	push   $0x5c
+  8b:	6a 00                	push   $0x0
+  8d:	89 15 00 00 00 00    	mov    %edx,0x0
+  93:	8d 98 20 00 00 00    	lea    0x20(%eax),%ebx
+  99:	53                   	push   %ebx
+  9a:	e8 fc ff ff ff       	call   9b <game_create+0x2b>
+  9f:	89 d8                	mov    %ebx,%eax
+  a1:	c7 43 54 90 01 00 00 	movl   $0x190,0x54(%ebx)
+  a8:	c7 43 58 54 01 00 00 	movl   $0x154,0x58(%ebx)
+  af:	e8 4c ff ff ff       	call   0 <game_reset>
+  b4:	83 c4 10             	add    $0x10,%esp
+  b7:	83 c4 08             	add    $0x8,%esp
+  ba:	89 d8                	mov    %ebx,%eax
+  bc:	5b                   	pop    %ebx
+  bd:	c3                   	ret
+  be:	66 90                	xchg   %ax,%ax
+
+000000c0 <game_draw>:
+  c0:	55                   	push   %ebp
+  c1:	57                   	push   %edi
+  c2:	56                   	push   %esi
+  c3:	53                   	push   %ebx
+  c4:	81 ec 8c 00 00 00    	sub    $0x8c,%esp
+  ca:	8b 8c 24 a0 00 00 00 	mov    0xa0(%esp),%ecx
+  d1:	8b 79 68             	mov    0x68(%ecx),%edi
+  d4:	89 7c 24 14          	mov    %edi,0x14(%esp)
+  d8:	85 ff                	test   %edi,%edi
+  da:	0f 84 98 03 00 00    	je     478 <game_draw+0x3b8>
+  e0:	8b 41 08             	mov    0x8(%ecx),%eax
+  e3:	83 ec 08             	sub    $0x8,%esp
+  e6:	89 fe                	mov    %edi,%esi
+  e8:	83 e8 10             	sub    $0x10,%eax
+  eb:	89 47 54             	mov    %eax,0x54(%edi)
+  ee:	8b 59 0c             	mov    0xc(%ecx),%ebx
+  f1:	8d 53 c0             	lea    -0x40(%ebx),%edx
+  f4:	89 57 58             	mov    %edx,0x58(%edi)
+  f7:	8b 19                	mov    (%ecx),%ebx
+  f9:	8b 49 04             	mov    0x4(%ecx),%ecx
+  fc:	89 5c 24 2c          	mov    %ebx,0x2c(%esp)
+ 100:	83 c3 08             	add    $0x8,%ebx
+ 103:	89 4c 24 30          	mov    %ecx,0x30(%esp)
+ 107:	83 c1 20             	add    $0x20,%ecx
+ 10a:	89 5c 24 20          	mov    %ebx,0x20(%esp)
+ 10e:	89 4c 24 28          	mov    %ecx,0x28(%esp)
+ 112:	68 1b 11 11 00       	push   $0x11111b
+ 117:	6a 08                	push   $0x8
+ 119:	52                   	push   %edx
+ 11a:	50                   	push   %eax
+ 11b:	51                   	push   %ecx
+ 11c:	53                   	push   %ebx
+ 11d:	e8 fc ff ff ff       	call   11e <game_draw+0x5e>
+ 122:	8b 7f 54             	mov    0x54(%edi),%edi
+ 125:	b8 67 66 66 66       	mov    $0x66666667,%eax
+ 12a:	83 c4 20             	add    $0x20,%esp
+ 12d:	8d 4f ec             	lea    -0x14(%edi),%ecx
+ 130:	f7 e9                	imul   %ecx
+ 132:	c1 f9 1f             	sar    $0x1f,%ecx
+ 135:	8d 46 1e             	lea    0x1e(%esi),%eax
+ 138:	89 44 24 2c          	mov    %eax,0x2c(%esp)
+ 13c:	c1 fa 02             	sar    $0x2,%edx
+ 13f:	89 d3                	mov    %edx,%ebx
+ 141:	29 cb                	sub    %ecx,%ebx
+ 143:	80 7e 50 00          	cmpb   $0x0,0x50(%esi)
+ 147:	0f 84 6e 01 00 00    	je     2bb <game_draw+0x1fb>
+ 14d:	0f b6 46 51          	movzbl 0x51(%esi),%eax
+ 151:	84 c0                	test   %al,%al
+ 153:	0f 85 62 01 00 00    	jne    2bb <game_draw+0x1fb>
+ 159:	8b 4e 0c             	mov    0xc(%esi),%ecx
+ 15c:	8b 56 10             	mov    0x10(%esi),%edx
+ 15f:	89 74 24 14          	mov    %esi,0x14(%esp)
+ 163:	89 4c 24 08          	mov    %ecx,0x8(%esp)
+ 167:	03 4e 04             	add    0x4(%esi),%ecx
+ 16a:	89 54 24 0c          	mov    %edx,0xc(%esp)
+ 16e:	03 56 08             	add    0x8(%esi),%edx
+ 171:	85 c9                	test   %ecx,%ecx
+ 173:	89 4e 04             	mov    %ecx,0x4(%esi)
+ 176:	89 56 08             	mov    %edx,0x8(%esi)
+ 179:	8d b1 ff 00 00 00    	lea    0xff(%ecx),%esi
+ 17f:	0f 49 f1             	cmovns %ecx,%esi
+ 182:	89 f5                	mov    %esi,%ebp
+ 184:	8d b2 ff 00 00 00    	lea    0xff(%edx),%esi
+ 18a:	c1 fd 08             	sar    $0x8,%ebp
+ 18d:	85 d2                	test   %edx,%edx
+ 18f:	0f 49 f2             	cmovns %edx,%esi
+ 192:	c1 fe 08             	sar    $0x8,%esi
+ 195:	89 74 24 10          	mov    %esi,0x10(%esp)
+ 199:	81 f9 ff 04 00 00    	cmp    $0x4ff,%ecx
+ 19f:	7f 14                	jg     1b5 <game_draw+0xf5>
+ 1a1:	8b 4c 24 08          	mov    0x8(%esp),%ecx
+ 1a5:	8b 74 24 14          	mov    0x14(%esp),%esi
+ 1a9:	f7 d9                	neg    %ecx
+ 1ab:	c7 46 04 00 04 00 00 	movl   $0x400,0x4(%esi)
+ 1b2:	89 4e 0c             	mov    %ecx,0xc(%esi)
+ 1b5:	83 ef 04             	sub    $0x4,%edi
+ 1b8:	39 fd                	cmp    %edi,%ebp
+ 1ba:	7c 0d                	jl     1c9 <game_draw+0x109>
+ 1bc:	8b 4c 24 14          	mov    0x14(%esp),%ecx
+ 1c0:	c1 e7 08             	shl    $0x8,%edi
+ 1c3:	f7 59 0c             	negl   0xc(%ecx)
+ 1c6:	89 79 04             	mov    %edi,0x4(%ecx)
+ 1c9:	81 fa ff 04 00 00    	cmp    $0x4ff,%edx
+ 1cf:	7f 14                	jg     1e5 <game_draw+0x125>
+ 1d1:	8b 54 24 0c          	mov    0xc(%esp),%edx
+ 1d5:	8b 4c 24 14          	mov    0x14(%esp),%ecx
+ 1d9:	f7 da                	neg    %edx
+ 1db:	c7 41 08 00 04 00 00 	movl   $0x400,0x8(%ecx)
+ 1e2:	89 51 10             	mov    %edx,0x10(%ecx)
+ 1e5:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 1e9:	8b 4f 58             	mov    0x58(%edi),%ecx
+ 1ec:	8b 37                	mov    (%edi),%esi
+ 1ee:	89 4c 24 30          	mov    %ecx,0x30(%esp)
+ 1f2:	8d 51 e2             	lea    -0x1e(%ecx),%edx
+ 1f5:	89 74 24 3c          	mov    %esi,0x3c(%esp)
+ 1f9:	39 54 24 10          	cmp    %edx,0x10(%esp)
+ 1fd:	0f 8d b2 03 00 00    	jge    5b5 <game_draw+0x4f5>
+ 203:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 207:	88 44 24 3b          	mov    %al,0x3b(%esp)
+ 20b:	8d 77 1e             	lea    0x1e(%edi),%esi
+ 20e:	83 c7 50             	add    $0x50,%edi
+ 211:	89 74 24 2c          	mov    %esi,0x2c(%esp)
+ 215:	89 74 24 34          	mov    %esi,0x34(%esp)
+ 219:	89 7c 24 1c          	mov    %edi,0x1c(%esp)
+ 21d:	bf 1e 00 00 00       	mov    $0x1e,%edi
+ 222:	89 7c 24 0c          	mov    %edi,0xc(%esp)
+ 226:	39 7c 24 10          	cmp    %edi,0x10(%esp)
+ 22a:	8d 46 f6             	lea    -0xa(%esi),%eax
+ 22d:	ba 0a 00 00 00       	mov    $0xa,%edx
+ 232:	0f 9d 44 24 08       	setge  0x8(%esp)
+ 237:	90                   	nop
+ 238:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 23f:	00 
+ 240:	8d 0c 1a             	lea    (%edx,%ebx,1),%ecx
+ 243:	80 38 00             	cmpb   $0x0,(%eax)
+ 246:	74 18                	je     260 <game_draw+0x1a0>
+ 248:	39 d5                	cmp    %edx,%ebp
+ 24a:	7c 14                	jl     260 <game_draw+0x1a0>
+ 24c:	39 cd                	cmp    %ecx,%ebp
+ 24e:	7f 10                	jg     260 <game_draw+0x1a0>
+ 250:	80 7c 24 08 00       	cmpb   $0x0,0x8(%esp)
+ 255:	0f 85 ad 02 00 00    	jne    508 <game_draw+0x448>
+ 25b:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 260:	83 c0 01             	add    $0x1,%eax
+ 263:	89 ca                	mov    %ecx,%edx
+ 265:	39 f0                	cmp    %esi,%eax
+ 267:	75 d7                	jne    240 <game_draw+0x180>
+ 269:	8b 7c 24 0c          	mov    0xc(%esp),%edi
+ 26d:	8d 70 0a             	lea    0xa(%eax),%esi
+ 270:	83 c7 13             	add    $0x13,%edi
+ 273:	3b 74 24 1c          	cmp    0x1c(%esp),%esi
+ 277:	75 a9                	jne    222 <game_draw+0x162>
+ 279:	8b 4c 24 34          	mov    0x34(%esp),%ecx
+ 27d:	0f b6 44 24 3b       	movzbl 0x3b(%esp),%eax
+ 282:	8b 54 24 30          	mov    0x30(%esp),%edx
+ 286:	39 54 24 10          	cmp    %edx,0x10(%esp)
+ 28a:	0f 8d da 02 00 00    	jge    56a <game_draw+0x4aa>
+ 290:	8b 74 24 2c          	mov    0x2c(%esp),%esi
+ 294:	8b 7c 24 1c          	mov    0x1c(%esp),%edi
+ 298:	8d 56 f6             	lea    -0xa(%esi),%edx
+ 29b:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 2a0:	0a 02                	or     (%edx),%al
+ 2a2:	83 c2 02             	add    $0x2,%edx
+ 2a5:	0a 42 ff             	or     -0x1(%edx),%al
+ 2a8:	39 f2                	cmp    %esi,%edx
+ 2aa:	75 f4                	jne    2a0 <game_draw+0x1e0>
+ 2ac:	8d 72 0a             	lea    0xa(%edx),%esi
+ 2af:	39 fe                	cmp    %edi,%esi
+ 2b1:	75 e5                	jne    298 <game_draw+0x1d8>
+ 2b3:	84 c0                	test   %al,%al
+ 2b5:	0f 84 76 02 00 00    	je     531 <game_draw+0x471>
+ 2bb:	8b 4c 24 24          	mov    0x24(%esp),%ecx
+ 2bf:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 2c3:	8b 7c 24 2c          	mov    0x2c(%esp),%edi
+ 2c7:	83 c1 13             	add    $0x13,%ecx
+ 2ca:	83 c0 3e             	add    $0x3e,%eax
+ 2cd:	89 4c 24 1c          	mov    %ecx,0x1c(%esp)
+ 2d1:	8d 4b fe             	lea    -0x2(%ebx),%ecx
+ 2d4:	89 4c 24 10          	mov    %ecx,0x10(%esp)
+ 2d8:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 2dc:	31 c0                	xor    %eax,%eax
+ 2de:	8b 6c 24 1c          	mov    0x1c(%esp),%ebp
+ 2e2:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 2e6:	8d 77 f6             	lea    -0xa(%edi),%esi
+ 2e9:	89 e8                	mov    %ebp,%eax
+ 2eb:	89 dd                	mov    %ebx,%ebp
+ 2ed:	89 c3                	mov    %eax,%ebx
+ 2ef:	90                   	nop
+ 2f0:	80 3e 00             	cmpb   $0x0,(%esi)
+ 2f3:	74 23                	je     318 <game_draw+0x258>
+ 2f5:	83 ec 08             	sub    $0x8,%esp
+ 2f8:	8b 44 24 10          	mov    0x10(%esp),%eax
+ 2fc:	ff 34 85 00 00 00 00 	push   0x0(,%eax,4)
+ 303:	6a 03                	push   $0x3
+ 305:	6a 10                	push   $0x10
+ 307:	ff 74 24 24          	push   0x24(%esp)
+ 30b:	ff 74 24 24          	push   0x24(%esp)
+ 30f:	53                   	push   %ebx
+ 310:	e8 fc ff ff ff       	call   311 <game_draw+0x251>
+ 315:	83 c4 20             	add    $0x20,%esp
+ 318:	83 c6 01             	add    $0x1,%esi
+ 31b:	01 eb                	add    %ebp,%ebx
+ 31d:	39 f7                	cmp    %esi,%edi
+ 31f:	75 cf                	jne    2f0 <game_draw+0x230>
+ 321:	8b 44 24 08          	mov    0x8(%esp),%eax
+ 325:	83 44 24 0c 13       	addl   $0x13,0xc(%esp)
+ 32a:	89 eb                	mov    %ebp,%ebx
+ 32c:	83 c7 0a             	add    $0xa,%edi
+ 32f:	83 c0 01             	add    $0x1,%eax
+ 332:	83 f8 05             	cmp    $0x5,%eax
+ 335:	75 a7                	jne    2de <game_draw+0x21e>
+ 337:	83 ec 08             	sub    $0x8,%esp
+ 33a:	68 fe be b4 00       	push   $0xb4befe
+ 33f:	6a 04                	push   $0x4
+ 341:	6a 0a                	push   $0xa
+ 343:	6a 3c                	push   $0x3c
+ 345:	8b 6c 24 2c          	mov    0x2c(%esp),%ebp
+ 349:	8b 74 24 38          	mov    0x38(%esp),%esi
+ 34d:	8b 45 58             	mov    0x58(%ebp),%eax
+ 350:	8d 44 30 e2          	lea    -0x1e(%eax,%esi,1),%eax
+ 354:	50                   	push   %eax
+ 355:	8b 5c 24 34          	mov    0x34(%esp),%ebx
+ 359:	8b 45 00             	mov    0x0(%ebp),%eax
+ 35c:	8d 44 18 e2          	lea    -0x1e(%eax,%ebx,1),%eax
+ 360:	50                   	push   %eax
+ 361:	e8 fc ff ff ff       	call   362 <game_draw+0x2a2>
+ 366:	83 c4 20             	add    $0x20,%esp
+ 369:	68 ff ff ff 00       	push   $0xffffff
+ 36e:	6a 04                	push   $0x4
+ 370:	8b 55 08             	mov    0x8(%ebp),%edx
+ 373:	85 d2                	test   %edx,%edx
+ 375:	8d 82 ff 00 00 00    	lea    0xff(%edx),%eax
+ 37b:	0f 49 c2             	cmovns %edx,%eax
+ 37e:	c1 f8 08             	sar    $0x8,%eax
+ 381:	01 f0                	add    %esi,%eax
+ 383:	50                   	push   %eax
+ 384:	8b 55 04             	mov    0x4(%ebp),%edx
+ 387:	85 d2                	test   %edx,%edx
+ 389:	8d 82 ff 00 00 00    	lea    0xff(%edx),%eax
+ 38f:	0f 49 c2             	cmovns %edx,%eax
+ 392:	89 5c 24 24          	mov    %ebx,0x24(%esp)
+ 396:	c1 f8 08             	sar    $0x8,%eax
+ 399:	01 d8                	add    %ebx,%eax
+ 39b:	50                   	push   %eax
+ 39c:	e8 fc ff ff ff       	call   39d <game_draw+0x2dd>
+ 3a1:	c6 44 24 70 00       	movb   $0x0,0x70(%esp)
+ 3a6:	58                   	pop    %eax
+ 3a7:	5a                   	pop    %edx
+ 3a8:	68 00 00 00 00       	push   $0x0
+ 3ad:	8d 74 24 6c          	lea    0x6c(%esp),%esi
+ 3b1:	56                   	push   %esi
+ 3b2:	e8 fc ff ff ff       	call   3b3 <game_draw+0x2f3>
+ 3b7:	83 c4 0c             	add    $0xc,%esp
+ 3ba:	6a 0a                	push   $0xa
+ 3bc:	8d 5c 24 50          	lea    0x50(%esp),%ebx
+ 3c0:	53                   	push   %ebx
+ 3c1:	ff 75 48             	push   0x48(%ebp)
+ 3c4:	e8 fc ff ff ff       	call   3c5 <game_draw+0x305>
+ 3c9:	59                   	pop    %ecx
+ 3ca:	5f                   	pop    %edi
+ 3cb:	53                   	push   %ebx
+ 3cc:	56                   	push   %esi
+ 3cd:	e8 fc ff ff ff       	call   3ce <game_draw+0x30e>
+ 3d2:	8b 7c 24 38          	mov    0x38(%esp),%edi
+ 3d6:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 3db:	56                   	push   %esi
+ 3dc:	83 c7 28             	add    $0x28,%edi
+ 3df:	57                   	push   %edi
+ 3e0:	8b 44 24 40          	mov    0x40(%esp),%eax
+ 3e4:	83 c0 10             	add    $0x10,%eax
+ 3e7:	50                   	push   %eax
+ 3e8:	e8 fc ff ff ff       	call   3e9 <game_draw+0x329>
+ 3ed:	c7 44 24 70 4c 69 76 	movl   $0x6576694c,0x70(%esp)
+ 3f4:	65 
+ 3f5:	c7 44 24 74 73 3a 20 	movl   $0x203a73,0x74(%esp)
+ 3fc:	00 
+ 3fd:	c7 44 24 78 00 00 00 	movl   $0x0,0x78(%esp)
+ 404:	00 
+ 405:	c7 44 24 7c 00 00 00 	movl   $0x0,0x7c(%esp)
+ 40c:	00 
+ 40d:	83 c4 1c             	add    $0x1c,%esp
+ 410:	6a 0a                	push   $0xa
+ 412:	53                   	push   %ebx
+ 413:	ff 75 4c             	push   0x4c(%ebp)
+ 416:	e8 fc ff ff ff       	call   417 <game_draw+0x357>
+ 41b:	58                   	pop    %eax
+ 41c:	5a                   	pop    %edx
+ 41d:	53                   	push   %ebx
+ 41e:	8d 5c 24 5c          	lea    0x5c(%esp),%ebx
+ 422:	53                   	push   %ebx
+ 423:	e8 fc ff ff ff       	call   424 <game_draw+0x364>
+ 428:	68 a8 8b f3 00       	push   $0xf38ba8
+ 42d:	53                   	push   %ebx
+ 42e:	57                   	push   %edi
+ 42f:	8b 44 24 34          	mov    0x34(%esp),%eax
+ 433:	03 45 54             	add    0x54(%ebp),%eax
+ 436:	83 e8 50             	sub    $0x50,%eax
+ 439:	50                   	push   %eax
+ 43a:	e8 fc ff ff ff       	call   43b <game_draw+0x37b>
+ 43f:	8b 45 58             	mov    0x58(%ebp),%eax
+ 442:	83 c4 20             	add    $0x20,%esp
+ 445:	80 7d 51 00          	cmpb   $0x0,0x51(%ebp)
+ 449:	75 38                	jne    483 <game_draw+0x3c3>
+ 44b:	8b 4c 24 14          	mov    0x14(%esp),%ecx
+ 44f:	80 79 50 00          	cmpb   $0x0,0x50(%ecx)
+ 453:	0f 84 a7 01 00 00    	je     600 <game_draw+0x540>
+ 459:	68 c8 ad a6 00       	push   $0xa6adc8
+ 45e:	68 00 00 00 00       	push   $0x0
+ 463:	8b 4c 24 28          	mov    0x28(%esp),%ecx
+ 467:	8d 44 01 06          	lea    0x6(%ecx,%eax,1),%eax
+ 46b:	50                   	push   %eax
+ 46c:	ff 74 24 24          	push   0x24(%esp)
+ 470:	e8 fc ff ff ff       	call   471 <game_draw+0x3b1>
+ 475:	83 c4 10             	add    $0x10,%esp
+ 478:	81 c4 8c 00 00 00    	add    $0x8c,%esp
+ 47e:	5b                   	pop    %ebx
+ 47f:	5e                   	pop    %esi
+ 480:	5f                   	pop    %edi
+ 481:	5d                   	pop    %ebp
+ 482:	c3                   	ret
+ 483:	89 c2                	mov    %eax,%edx
+ 485:	83 ec 08             	sub    $0x8,%esp
+ 488:	c1 ea 1f             	shr    $0x1f,%edx
+ 48b:	68 44 32 31 00       	push   $0x313244
+ 490:	01 d0                	add    %edx,%eax
+ 492:	6a 0c                	push   $0xc
+ 494:	6a 28                	push   $0x28
+ 496:	d1 f8                	sar    $1,%eax
+ 498:	68 a0 00 00 00       	push   $0xa0
+ 49d:	8b 5c 24 38          	mov    0x38(%esp),%ebx
+ 4a1:	8d 44 03 ec          	lea    -0x14(%ebx,%eax,1),%eax
+ 4a5:	50                   	push   %eax
+ 4a6:	8b 7c 24 30          	mov    0x30(%esp),%edi
+ 4aa:	8b 74 24 34          	mov    0x34(%esp),%esi
+ 4ae:	8b 57 54             	mov    0x54(%edi),%edx
+ 4b1:	89 d0                	mov    %edx,%eax
+ 4b3:	c1 e8 1f             	shr    $0x1f,%eax
+ 4b6:	01 d0                	add    %edx,%eax
+ 4b8:	d1 f8                	sar    $1,%eax
+ 4ba:	8d 44 06 b0          	lea    -0x50(%esi,%eax,1),%eax
+ 4be:	50                   	push   %eax
+ 4bf:	e8 fc ff ff ff       	call   4c0 <game_draw+0x400>
+ 4c4:	83 c4 20             	add    $0x20,%esp
+ 4c7:	68 a8 8b f3 00       	push   $0xf38ba8
+ 4cc:	8b 57 58             	mov    0x58(%edi),%edx
+ 4cf:	68 08 00 00 00       	push   $0x8
+ 4d4:	89 d0                	mov    %edx,%eax
+ 4d6:	c1 e8 1f             	shr    $0x1f,%eax
+ 4d9:	01 d0                	add    %edx,%eax
+ 4db:	d1 f8                	sar    $1,%eax
+ 4dd:	8d 44 03 f8          	lea    -0x8(%ebx,%eax,1),%eax
+ 4e1:	50                   	push   %eax
+ 4e2:	8b 57 54             	mov    0x54(%edi),%edx
+ 4e5:	89 d0                	mov    %edx,%eax
+ 4e7:	c1 e8 1f             	shr    $0x1f,%eax
+ 4ea:	01 d0                	add    %edx,%eax
+ 4ec:	d1 f8                	sar    $1,%eax
+ 4ee:	8d 44 06 d0          	lea    -0x30(%esi,%eax,1),%eax
+ 4f2:	50                   	push   %eax
+ 4f3:	e8 fc ff ff ff       	call   4f4 <game_draw+0x434>
+ 4f8:	8b 47 58             	mov    0x58(%edi),%eax
+ 4fb:	83 c4 10             	add    $0x10,%esp
+ 4fe:	e9 56 ff ff ff       	jmp    459 <game_draw+0x399>
+ 503:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 508:	8b 7c 24 0c          	mov    0xc(%esp),%edi
+ 50c:	8d 57 10             	lea    0x10(%edi),%edx
+ 50f:	39 54 24 10          	cmp    %edx,0x10(%esp)
+ 513:	0f 8f 47 fd ff ff    	jg     260 <game_draw+0x1a0>
+ 519:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 51d:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+ 521:	c6 00 00             	movb   $0x0,(%eax)
+ 524:	29 f2                	sub    %esi,%edx
+ 526:	f7 5f 10             	negl   0x10(%edi)
+ 529:	01 57 48             	add    %edx,0x48(%edi)
+ 52c:	e9 2f fd ff ff       	jmp    260 <game_draw+0x1a0>
+ 531:	8b 44 24 14          	mov    0x14(%esp),%eax
+ 535:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+ 539:	81 40 48 f4 01 00 00 	addl   $0x1f4,0x48(%eax)
+ 540:	8d 41 f6             	lea    -0xa(%ecx),%eax
+ 543:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 548:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 54f:	00 
+ 550:	c6 00 01             	movb   $0x1,(%eax)
+ 553:	83 c0 02             	add    $0x2,%eax
+ 556:	c6 40 ff 01          	movb   $0x1,-0x1(%eax)
+ 55a:	39 c1                	cmp    %eax,%ecx
+ 55c:	75 f2                	jne    550 <game_draw+0x490>
+ 55e:	83 c1 0a             	add    $0xa,%ecx
+ 561:	39 d1                	cmp    %edx,%ecx
+ 563:	75 db                	jne    540 <game_draw+0x480>
+ 565:	e9 51 fd ff ff       	jmp    2bb <game_draw+0x1fb>
+ 56a:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 56e:	8b 57 4c             	mov    0x4c(%edi),%edx
+ 571:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 575:	83 ea 01             	sub    $0x1,%edx
+ 578:	89 57 4c             	mov    %edx,0x4c(%edi)
+ 57b:	85 d2                	test   %edx,%edx
+ 57d:	0f 8e be 00 00 00    	jle    641 <game_draw+0x581>
+ 583:	8b 54 24 3c          	mov    0x3c(%esp),%edx
+ 587:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 58b:	c1 e2 08             	shl    $0x8,%edx
+ 58e:	c7 47 0c 00 02 00 00 	movl   $0x200,0xc(%edi)
+ 595:	89 57 04             	mov    %edx,0x4(%edi)
+ 598:	8b 54 24 30          	mov    0x30(%esp),%edx
+ 59c:	c7 47 10 00 fd ff ff 	movl   $0xfffffd00,0x10(%edi)
+ 5a3:	83 ea 32             	sub    $0x32,%edx
+ 5a6:	c6 47 50 00          	movb   $0x0,0x50(%edi)
+ 5aa:	c1 e2 08             	shl    $0x8,%edx
+ 5ad:	89 57 08             	mov    %edx,0x8(%edi)
+ 5b0:	e9 db fc ff ff       	jmp    290 <game_draw+0x1d0>
+ 5b5:	8d 51 ec             	lea    -0x14(%ecx),%edx
+ 5b8:	39 54 24 10          	cmp    %edx,0x10(%esp)
+ 5bc:	0f 8f 41 fc ff ff    	jg     203 <game_draw+0x143>
+ 5c2:	8d 56 e2             	lea    -0x1e(%esi),%edx
+ 5c5:	39 d5                	cmp    %edx,%ebp
+ 5c7:	0f 8c 36 fc ff ff    	jl     203 <game_draw+0x143>
+ 5cd:	8d 56 1e             	lea    0x1e(%esi),%edx
+ 5d0:	39 d5                	cmp    %edx,%ebp
+ 5d2:	0f 8f 2b fc ff ff    	jg     203 <game_draw+0x143>
+ 5d8:	8b 57 10             	mov    0x10(%edi),%edx
+ 5db:	85 d2                	test   %edx,%edx
+ 5dd:	0f 8e 20 fc ff ff    	jle    203 <game_draw+0x143>
+ 5e3:	f7 da                	neg    %edx
+ 5e5:	89 57 10             	mov    %edx,0x10(%edi)
+ 5e8:	89 ea                	mov    %ebp,%edx
+ 5ea:	29 f2                	sub    %esi,%edx
+ 5ec:	c1 e2 05             	shl    $0x5,%edx
+ 5ef:	89 57 0c             	mov    %edx,0xc(%edi)
+ 5f2:	e9 0c fc ff ff       	jmp    203 <game_draw+0x143>
+ 5f7:	90                   	nop
+ 5f8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 5ff:	00 
+ 600:	89 c2                	mov    %eax,%edx
+ 602:	68 c8 ad a6 00       	push   $0xa6adc8
+ 607:	c1 ea 1f             	shr    $0x1f,%edx
+ 60a:	68 12 00 00 00       	push   $0x12
+ 60f:	01 d0                	add    %edx,%eax
+ 611:	d1 f8                	sar    $1,%eax
+ 613:	03 44 24 28          	add    0x28(%esp),%eax
+ 617:	50                   	push   %eax
+ 618:	8b 5c 24 20          	mov    0x20(%esp),%ebx
+ 61c:	8b 4c 24 24          	mov    0x24(%esp),%ecx
+ 620:	8b 53 54             	mov    0x54(%ebx),%edx
+ 623:	89 d0                	mov    %edx,%eax
+ 625:	c1 e8 1f             	shr    $0x1f,%eax
+ 628:	01 d0                	add    %edx,%eax
+ 62a:	d1 f8                	sar    $1,%eax
+ 62c:	8d 44 01 b8          	lea    -0x48(%ecx,%eax,1),%eax
+ 630:	50                   	push   %eax
+ 631:	e8 fc ff ff ff       	call   632 <game_draw+0x572>
+ 636:	8b 43 58             	mov    0x58(%ebx),%eax
+ 639:	83 c4 10             	add    $0x10,%esp
+ 63c:	e9 18 fe ff ff       	jmp    459 <game_draw+0x399>
+ 641:	c6 47 51 01          	movb   $0x1,0x51(%edi)
+ 645:	e9 46 fc ff ff       	jmp    290 <game_draw+0x1d0>
+ 64a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+00000650 <game_on_key>:
+ 650:	53                   	push   %ebx
+ 651:	8b 44 24 08          	mov    0x8(%esp),%eax
+ 655:	8b 54 24 0c          	mov    0xc(%esp),%edx
+ 659:	8b 40 68             	mov    0x68(%eax),%eax
+ 65c:	85 c0                	test   %eax,%eax
+ 65e:	74 17                	je     677 <game_on_key+0x27>
+ 660:	80 fa fc             	cmp    $0xfc,%dl
+ 663:	74 1b                	je     680 <game_on_key+0x30>
+ 665:	80 fa fb             	cmp    $0xfb,%dl
+ 668:	74 2e                	je     698 <game_on_key+0x48>
+ 66a:	80 fa 20             	cmp    $0x20,%dl
+ 66d:	74 51                	je     6c0 <game_on_key+0x70>
+ 66f:	83 e2 df             	and    $0xffffffdf,%edx
+ 672:	80 fa 52             	cmp    $0x52,%dl
+ 675:	74 39                	je     6b0 <game_on_key+0x60>
+ 677:	5b                   	pop    %ebx
+ 678:	c3                   	ret
+ 679:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 680:	8b 08                	mov    (%eax),%ecx
+ 682:	8d 51 f0             	lea    -0x10(%ecx),%edx
+ 685:	b9 1e 00 00 00       	mov    $0x1e,%ecx
+ 68a:	39 ca                	cmp    %ecx,%edx
+ 68c:	0f 4c d1             	cmovl  %ecx,%edx
+ 68f:	89 10                	mov    %edx,(%eax)
+ 691:	5b                   	pop    %ebx
+ 692:	c3                   	ret
+ 693:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 698:	8b 08                	mov    (%eax),%ecx
+ 69a:	8b 50 54             	mov    0x54(%eax),%edx
+ 69d:	83 c1 10             	add    $0x10,%ecx
+ 6a0:	8d 5a e3             	lea    -0x1d(%edx),%ebx
+ 6a3:	83 ea 1e             	sub    $0x1e,%edx
+ 6a6:	39 d9                	cmp    %ebx,%ecx
+ 6a8:	0f 4c d1             	cmovl  %ecx,%edx
+ 6ab:	89 10                	mov    %edx,(%eax)
+ 6ad:	5b                   	pop    %ebx
+ 6ae:	c3                   	ret
+ 6af:	90                   	nop
+ 6b0:	5b                   	pop    %ebx
+ 6b1:	e9 4a f9 ff ff       	jmp    0 <game_reset>
+ 6b6:	66 90                	xchg   %ax,%ax
+ 6b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 6bf:	00 
+ 6c0:	80 78 51 00          	cmpb   $0x0,0x51(%eax)
+ 6c4:	75 ea                	jne    6b0 <game_on_key+0x60>
+ 6c6:	c6 40 50 01          	movb   $0x1,0x50(%eax)
+ 6ca:	5b                   	pop    %ebx
+ 6cb:	c3                   	ret

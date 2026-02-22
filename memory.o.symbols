@@ -1,0 +1,4 @@
+00000000 b heap_current
+00000004 b heap_end
+00000000 T heap_init
+00000020 T kmalloc

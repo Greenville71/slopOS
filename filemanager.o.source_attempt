@@ -1,0 +1,764 @@
+
+filemanager.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <fm_refresh>:
+   0:	53                   	push   %ebx
+   1:	89 c3                	mov    %eax,%ebx
+   3:	83 ec 0c             	sub    $0xc,%esp
+   6:	6a 20                	push   $0x20
+   8:	50                   	push   %eax
+   9:	05 88 08 00 00       	add    $0x888,%eax
+   e:	50                   	push   %eax
+   f:	e8 fc ff ff ff       	call   10 <fm_refresh+0x10>
+  14:	8b 93 84 08 00 00    	mov    0x884(%ebx),%edx
+  1a:	83 c4 10             	add    $0x10,%esp
+  1d:	89 83 80 08 00 00    	mov    %eax,0x880(%ebx)
+  23:	39 d0                	cmp    %edx,%eax
+  25:	7f 09                	jg     30 <fm_refresh+0x30>
+  27:	8d 50 ff             	lea    -0x1(%eax),%edx
+  2a:	89 93 84 08 00 00    	mov    %edx,0x884(%ebx)
+  30:	85 d2                	test   %edx,%edx
+  32:	79 0a                	jns    3e <fm_refresh+0x3e>
+  34:	c7 83 84 08 00 00 00 	movl   $0x0,0x884(%ebx)
+  3b:	00 00 00 
+  3e:	c7 83 c8 0a 00 00 00 	movl   $0x0,0xac8(%ebx)
+  45:	00 00 00 
+  48:	85 c0                	test   %eax,%eax
+  4a:	7e 0f                	jle    5b <fm_refresh+0x5b>
+  4c:	6b 83 84 08 00 00 44 	imul   $0x44,0x884(%ebx),%eax
+  53:	01 d8                	add    %ebx,%eax
+  55:	80 78 40 00          	cmpb   $0x0,0x40(%eax)
+  59:	74 05                	je     60 <fm_refresh+0x60>
+  5b:	83 c4 08             	add    $0x8,%esp
+  5e:	5b                   	pop    %ebx
+  5f:	c3                   	ret
+  60:	83 ec 04             	sub    $0x4,%esp
+  63:	8d 93 c8 08 00 00    	lea    0x8c8(%ebx),%edx
+  69:	68 ff 01 00 00       	push   $0x1ff
+  6e:	52                   	push   %edx
+  6f:	50                   	push   %eax
+  70:	e8 fc ff ff ff       	call   71 <fm_refresh+0x71>
+  75:	83 c4 10             	add    $0x10,%esp
+  78:	89 83 c8 0a 00 00    	mov    %eax,0xac8(%ebx)
+  7e:	85 c0                	test   %eax,%eax
+  80:	7e 0e                	jle    90 <fm_refresh+0x90>
+  82:	c6 84 03 c8 08 00 00 	movb   $0x0,0x8c8(%ebx,%eax,1)
+  89:	00 
+  8a:	83 c4 08             	add    $0x8,%esp
+  8d:	5b                   	pop    %ebx
+  8e:	c3                   	ret
+  8f:	90                   	nop
+  90:	c7 83 c8 0a 00 00 00 	movl   $0x0,0xac8(%ebx)
+  97:	00 00 00 
+  9a:	eb bf                	jmp    5b <fm_refresh+0x5b>
+  9c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+000000a0 <filemgr_create>:
+  a0:	56                   	push   %esi
+  a1:	31 f6                	xor    %esi,%esi
+  a3:	53                   	push   %ebx
+  a4:	83 ec 04             	sub    $0x4,%esp
+  a7:	a1 00 00 00 00       	mov    0x0,%eax
+  ac:	83 f8 01             	cmp    $0x1,%eax
+  af:	7f 5c                	jg     10d <filemgr_create+0x6d>
+  b1:	69 d8 04 0b 00 00    	imul   $0xb04,%eax,%ebx
+  b7:	83 ec 04             	sub    $0x4,%esp
+  ba:	8d 50 01             	lea    0x1(%eax),%edx
+  bd:	68 04 0b 00 00       	push   $0xb04
+  c2:	6a 00                	push   $0x0
+  c4:	8d b3 20 00 00 00    	lea    0x20(%ebx),%esi
+  ca:	81 c3 a8 08 00 00    	add    $0x8a8,%ebx
+  d0:	89 15 00 00 00 00    	mov    %edx,0x0
+  d6:	56                   	push   %esi
+  d7:	e8 fc ff ff ff       	call   d8 <filemgr_create+0x38>
+  dc:	58                   	pop    %eax
+  dd:	5a                   	pop    %edx
+  de:	68 00 00 00 00       	push   $0x0
+  e3:	53                   	push   %ebx
+  e4:	e8 fc ff ff ff       	call   e5 <filemgr_create+0x45>
+  e9:	59                   	pop    %ecx
+  ea:	58                   	pop    %eax
+  eb:	68 00 00 00 00       	push   $0x0
+  f0:	53                   	push   %ebx
+  f1:	e8 fc ff ff ff       	call   f2 <filemgr_create+0x52>
+  f6:	58                   	pop    %eax
+  f7:	5a                   	pop    %edx
+  f8:	68 07 00 00 00       	push   $0x7
+  fd:	53                   	push   %ebx
+  fe:	e8 fc ff ff ff       	call   ff <filemgr_create+0x5f>
+ 103:	89 f0                	mov    %esi,%eax
+ 105:	e8 f6 fe ff ff       	call   0 <fm_refresh>
+ 10a:	83 c4 10             	add    $0x10,%esp
+ 10d:	83 c4 04             	add    $0x4,%esp
+ 110:	89 f0                	mov    %esi,%eax
+ 112:	5b                   	pop    %ebx
+ 113:	5e                   	pop    %esi
+ 114:	c3                   	ret
+ 115:	8d 76 00             	lea    0x0(%esi),%esi
+ 118:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 11f:	00 
+
+00000120 <filemgr_draw>:
+ 120:	55                   	push   %ebp
+ 121:	57                   	push   %edi
+ 122:	56                   	push   %esi
+ 123:	53                   	push   %ebx
+ 124:	83 ec 7c             	sub    $0x7c,%esp
+ 127:	8b 84 24 90 00 00 00 	mov    0x90(%esp),%eax
+ 12e:	8b 78 68             	mov    0x68(%eax),%edi
+ 131:	85 ff                	test   %edi,%edi
+ 133:	0f 84 49 03 00 00    	je     482 <filemgr_draw+0x362>
+ 139:	83 ec 08             	sub    $0x8,%esp
+ 13c:	8b 18                	mov    (%eax),%ebx
+ 13e:	8b 70 04             	mov    0x4(%eax),%esi
+ 141:	68 44 32 31 00       	push   $0x313244
+ 146:	6a 06                	push   $0x6
+ 148:	8d 4b 08             	lea    0x8(%ebx),%ecx
+ 14b:	8d 6e 44             	lea    0x44(%esi),%ebp
+ 14e:	6a 18                	push   $0x18
+ 150:	8b 84 24 a4 00 00 00 	mov    0xa4(%esp),%eax
+ 157:	8b 40 08             	mov    0x8(%eax),%eax
+ 15a:	89 44 24 18          	mov    %eax,0x18(%esp)
+ 15e:	83 e8 10             	sub    $0x10,%eax
+ 161:	50                   	push   %eax
+ 162:	8d 46 24             	lea    0x24(%esi),%eax
+ 165:	50                   	push   %eax
+ 166:	89 4c 24 34          	mov    %ecx,0x34(%esp)
+ 16a:	51                   	push   %ecx
+ 16b:	e8 fc ff ff ff       	call   16c <filemgr_draw+0x4c>
+ 170:	8d 87 88 08 00 00    	lea    0x888(%edi),%eax
+ 176:	89 7c 24 24          	mov    %edi,0x24(%esp)
+ 17a:	8d 53 10             	lea    0x10(%ebx),%edx
+ 17d:	89 44 24 2c          	mov    %eax,0x2c(%esp)
+ 181:	83 c4 20             	add    $0x20,%esp
+ 184:	68 fa b4 89 00       	push   $0x89b4fa
+ 189:	50                   	push   %eax
+ 18a:	8d 46 28             	lea    0x28(%esi),%eax
+ 18d:	50                   	push   %eax
+ 18e:	89 54 24 14          	mov    %edx,0x14(%esp)
+ 192:	52                   	push   %edx
+ 193:	e8 fc ff ff ff       	call   194 <filemgr_draw+0x74>
+ 198:	59                   	pop    %ecx
+ 199:	5f                   	pop    %edi
+ 19a:	68 a1 e3 a6 00       	push   $0xa6e3a1
+ 19f:	6a 06                	push   $0x6
+ 1a1:	8d 7e 48             	lea    0x48(%esi),%edi
+ 1a4:	6a 18                	push   $0x18
+ 1a6:	6a 5a                	push   $0x5a
+ 1a8:	55                   	push   %ebp
+ 1a9:	ff 74 24 34          	push   0x34(%esp)
+ 1ad:	e8 fc ff ff ff       	call   1ae <filemgr_draw+0x8e>
+ 1b2:	83 c4 20             	add    $0x20,%esp
+ 1b5:	68 1b 11 11 00       	push   $0x11111b
+ 1ba:	68 09 00 00 00       	push   $0x9
+ 1bf:	57                   	push   %edi
+ 1c0:	ff 74 24 14          	push   0x14(%esp)
+ 1c4:	e8 fc ff ff ff       	call   1c5 <filemgr_draw+0xa5>
+ 1c9:	58                   	pop    %eax
+ 1ca:	8d 43 68             	lea    0x68(%ebx),%eax
+ 1cd:	5a                   	pop    %edx
+ 1ce:	68 a8 8b f3 00       	push   $0xf38ba8
+ 1d3:	6a 06                	push   $0x6
+ 1d5:	6a 18                	push   $0x18
+ 1d7:	6a 3c                	push   $0x3c
+ 1d9:	55                   	push   %ebp
+ 1da:	50                   	push   %eax
+ 1db:	e8 fc ff ff ff       	call   1dc <filemgr_draw+0xbc>
+ 1e0:	83 c4 20             	add    $0x20,%esp
+ 1e3:	8d 43 70             	lea    0x70(%ebx),%eax
+ 1e6:	68 ff ff ff 00       	push   $0xffffff
+ 1eb:	68 14 00 00 00       	push   $0x14
+ 1f0:	57                   	push   %edi
+ 1f1:	50                   	push   %eax
+ 1f2:	e8 fc ff ff ff       	call   1f3 <filemgr_draw+0xd3>
+ 1f7:	59                   	pop    %ecx
+ 1f8:	58                   	pop    %eax
+ 1f9:	8d 83 aa 00 00 00    	lea    0xaa(%ebx),%eax
+ 1ff:	68 5a 47 45 00       	push   $0x45475a
+ 204:	6a 06                	push   $0x6
+ 206:	6a 18                	push   $0x18
+ 208:	6a 28                	push   $0x28
+ 20a:	55                   	push   %ebp
+ 20b:	50                   	push   %eax
+ 20c:	e8 fc ff ff ff       	call   20d <filemgr_draw+0xed>
+ 211:	83 c4 20             	add    $0x20,%esp
+ 214:	8d 83 b2 00 00 00    	lea    0xb2(%ebx),%eax
+ 21a:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 21f:	68 1b 00 00 00       	push   $0x1b
+ 224:	57                   	push   %edi
+ 225:	50                   	push   %eax
+ 226:	e8 fc ff ff ff       	call   227 <filemgr_draw+0x107>
+ 22b:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 22f:	83 c4 10             	add    $0x10,%esp
+ 232:	8d 46 64             	lea    0x64(%esi),%eax
+ 235:	80 bf 00 0b 00 00 00 	cmpb   $0x0,0xb00(%edi)
+ 23c:	0f 85 fe 02 00 00    	jne    540 <filemgr_draw+0x420>
+ 242:	8b 8c 24 90 00 00 00 	mov    0x90(%esp),%ecx
+ 249:	8b 74 24 18          	mov    0x18(%esp),%esi
+ 24d:	8b 49 08             	mov    0x8(%ecx),%ecx
+ 250:	8d 51 e8             	lea    -0x18(%ecx),%edx
+ 253:	89 4c 24 08          	mov    %ecx,0x8(%esp)
+ 257:	89 d1                	mov    %edx,%ecx
+ 259:	c1 e9 1f             	shr    $0x1f,%ecx
+ 25c:	01 d1                	add    %edx,%ecx
+ 25e:	d1 f9                	sar    $1,%ecx
+ 260:	89 4c 24 24          	mov    %ecx,0x24(%esp)
+ 264:	01 f1                	add    %esi,%ecx
+ 266:	8b 74 24 04          	mov    0x4(%esp),%esi
+ 26a:	89 4c 24 1c          	mov    %ecx,0x1c(%esp)
+ 26e:	83 c1 08             	add    $0x8,%ecx
+ 271:	8b 96 80 08 00 00    	mov    0x880(%esi),%edx
+ 277:	85 d2                	test   %edx,%edx
+ 279:	0f 8e 69 03 00 00    	jle    5e8 <filemgr_draw+0x4c8>
+ 27f:	8d 73 0c             	lea    0xc(%ebx),%esi
+ 282:	8d 54 24 30          	lea    0x30(%esp),%edx
+ 286:	89 44 24 28          	mov    %eax,0x28(%esp)
+ 28a:	8b 5c 24 04          	mov    0x4(%esp),%ebx
+ 28e:	89 74 24 14          	mov    %esi,0x14(%esp)
+ 292:	8d 70 02             	lea    0x2(%eax),%esi
+ 295:	8d 7c 24 40          	lea    0x40(%esp),%edi
+ 299:	89 74 24 08          	mov    %esi,0x8(%esp)
+ 29d:	31 f6                	xor    %esi,%esi
+ 29f:	89 54 24 20          	mov    %edx,0x20(%esp)
+ 2a3:	89 4c 24 2c          	mov    %ecx,0x2c(%esp)
+ 2a7:	eb 72                	jmp    31b <filemgr_draw+0x1fb>
+ 2a9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 2b0:	83 ec 08             	sub    $0x8,%esp
+ 2b3:	68 25 00 00 00       	push   $0x25
+ 2b8:	57                   	push   %edi
+ 2b9:	e8 fc ff ff ff       	call   2ba <filemgr_draw+0x19a>
+ 2be:	58                   	pop    %eax
+ 2bf:	5a                   	pop    %edx
+ 2c0:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 2c4:	52                   	push   %edx
+ 2c5:	57                   	push   %edi
+ 2c6:	e8 fc ff ff ff       	call   2c7 <filemgr_draw+0x1a7>
+ 2cb:	59                   	pop    %ecx
+ 2cc:	58                   	pop    %eax
+ 2cd:	68 28 00 00 00       	push   $0x28
+ 2d2:	57                   	push   %edi
+ 2d3:	e8 fc ff ff ff       	call   2d4 <filemgr_draw+0x1b4>
+ 2d8:	83 c4 10             	add    $0x10,%esp
+ 2db:	55                   	push   %ebp
+ 2dc:	57                   	push   %edi
+ 2dd:	ff 74 24 10          	push   0x10(%esp)
+ 2e1:	ff 74 24 20          	push   0x20(%esp)
+ 2e5:	e8 fc ff ff ff       	call   2e6 <filemgr_draw+0x1c6>
+ 2ea:	83 c4 10             	add    $0x10,%esp
+ 2ed:	80 7b 40 00          	cmpb   $0x0,0x40(%ebx)
+ 2f1:	0f 84 a9 00 00 00    	je     3a0 <filemgr_draw+0x280>
+ 2f7:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 2fb:	83 44 24 08 14       	addl   $0x14,0x8(%esp)
+ 300:	83 c6 01             	add    $0x1,%esi
+ 303:	83 c3 44             	add    $0x44,%ebx
+ 306:	39 b0 80 08 00 00    	cmp    %esi,0x880(%eax)
+ 30c:	0f 8e 7e 01 00 00    	jle    490 <filemgr_draw+0x370>
+ 312:	83 fe 12             	cmp    $0x12,%esi
+ 315:	0f 84 75 01 00 00    	je     490 <filemgr_draw+0x370>
+ 31b:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 31f:	39 b0 84 08 00 00    	cmp    %esi,0x884(%eax)
+ 325:	0f 84 c5 00 00 00    	je     3f0 <filemgr_draw+0x2d0>
+ 32b:	80 7b 40 01          	cmpb   $0x1,0x40(%ebx)
+ 32f:	19 ed                	sbb    %ebp,%ebp
+ 331:	83 ec 0c             	sub    $0xc,%esp
+ 334:	ff 74 24 18          	push   0x18(%esp)
+ 338:	81 e5 fa 21 44 00    	and    $0x4421fa,%ebp
+ 33e:	81 c5 fa b4 89 00    	add    $0x89b4fa,%ebp
+ 344:	e8 fc ff ff ff       	call   345 <filemgr_draw+0x225>
+ 349:	83 c4 0c             	add    $0xc,%esp
+ 34c:	50                   	push   %eax
+ 34d:	89 44 24 18          	mov    %eax,0x18(%esp)
+ 351:	ff 74 24 14          	push   0x14(%esp)
+ 355:	53                   	push   %ebx
+ 356:	e8 fc ff ff ff       	call   357 <filemgr_draw+0x237>
+ 35b:	8b 54 24 20          	mov    0x20(%esp),%edx
+ 35f:	83 c4 10             	add    $0x10,%esp
+ 362:	01 da                	add    %ebx,%edx
+ 364:	85 c0                	test   %eax,%eax
+ 366:	0f 45 d3             	cmovne %ebx,%edx
+ 369:	80 7b 40 00          	cmpb   $0x0,0x40(%ebx)
+ 36d:	89 54 24 10          	mov    %edx,0x10(%esp)
+ 371:	0f 85 39 ff ff ff    	jne    2b0 <filemgr_draw+0x190>
+ 377:	83 ec 08             	sub    $0x8,%esp
+ 37a:	68 2a 00 00 00       	push   $0x2a
+ 37f:	57                   	push   %edi
+ 380:	e8 fc ff ff ff       	call   381 <filemgr_draw+0x261>
+ 385:	59                   	pop    %ecx
+ 386:	58                   	pop    %eax
+ 387:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 38b:	52                   	push   %edx
+ 38c:	57                   	push   %edi
+ 38d:	e8 fc ff ff ff       	call   38e <filemgr_draw+0x26e>
+ 392:	83 c4 10             	add    $0x10,%esp
+ 395:	e9 41 ff ff ff       	jmp    2db <filemgr_draw+0x1bb>
+ 39a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 3a0:	83 ec 04             	sub    $0x4,%esp
+ 3a3:	6a 0a                	push   $0xa
+ 3a5:	8b 6c 24 28          	mov    0x28(%esp),%ebp
+ 3a9:	55                   	push   %ebp
+ 3aa:	ff 73 3c             	push   0x3c(%ebx)
+ 3ad:	e8 fc ff ff ff       	call   3ae <filemgr_draw+0x28e>
+ 3b2:	58                   	pop    %eax
+ 3b3:	5a                   	pop    %edx
+ 3b4:	68 2d 00 00 00       	push   $0x2d
+ 3b9:	55                   	push   %ebp
+ 3ba:	e8 fc ff ff ff       	call   3bb <filemgr_draw+0x29b>
+ 3bf:	89 2c 24             	mov    %ebp,(%esp)
+ 3c2:	e8 fc ff ff ff       	call   3c3 <filemgr_draw+0x2a3>
+ 3c7:	68 86 70 6c 00       	push   $0x6c7086
+ 3cc:	8d 14 c5 00 00 00 00 	lea    0x0(,%eax,8),%edx
+ 3d3:	55                   	push   %ebp
+ 3d4:	ff 74 24 20          	push   0x20(%esp)
+ 3d8:	8b 44 24 38          	mov    0x38(%esp),%eax
+ 3dc:	29 d0                	sub    %edx,%eax
+ 3de:	83 e8 08             	sub    $0x8,%eax
+ 3e1:	50                   	push   %eax
+ 3e2:	e8 fc ff ff ff       	call   3e3 <filemgr_draw+0x2c3>
+ 3e7:	83 c4 20             	add    $0x20,%esp
+ 3ea:	e9 08 ff ff ff       	jmp    2f7 <filemgr_draw+0x1d7>
+ 3ef:	90                   	nop
+ 3f0:	83 ec 08             	sub    $0x8,%esp
+ 3f3:	68 5a 47 45 00       	push   $0x45475a
+ 3f8:	6a 04                	push   $0x4
+ 3fa:	6a 14                	push   $0x14
+ 3fc:	ff 74 24 38          	push   0x38(%esp)
+ 400:	8b 44 24 20          	mov    0x20(%esp),%eax
+ 404:	83 e8 02             	sub    $0x2,%eax
+ 407:	50                   	push   %eax
+ 408:	ff 74 24 34          	push   0x34(%esp)
+ 40c:	e8 fc ff ff ff       	call   40d <filemgr_draw+0x2ed>
+ 411:	83 c4 20             	add    $0x20,%esp
+ 414:	e9 12 ff ff ff       	jmp    32b <filemgr_draw+0x20b>
+ 419:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 420:	8b 7c 24 0c          	mov    0xc(%esp),%edi
+ 424:	c6 44 24 40 00       	movb   $0x0,0x40(%esp)
+ 429:	83 ec 04             	sub    $0x4,%esp
+ 42c:	6a 0a                	push   $0xa
+ 42e:	8b 74 24 28          	mov    0x28(%esp),%esi
+ 432:	56                   	push   %esi
+ 433:	8b 44 24 10          	mov    0x10(%esp),%eax
+ 437:	ff b0 80 08 00 00    	push   0x880(%eax)
+ 43d:	e8 fc ff ff ff       	call   43e <filemgr_draw+0x31e>
+ 442:	58                   	pop    %eax
+ 443:	5a                   	pop    %edx
+ 444:	56                   	push   %esi
+ 445:	57                   	push   %edi
+ 446:	e8 fc ff ff ff       	call   447 <filemgr_draw+0x327>
+ 44b:	59                   	pop    %ecx
+ 44c:	5b                   	pop    %ebx
+ 44d:	68 3a 00 00 00       	push   $0x3a
+ 452:	57                   	push   %edi
+ 453:	e8 fc ff ff ff       	call   454 <filemgr_draw+0x334>
+ 458:	68 c8 ad a6 00       	push   $0xa6adc8
+ 45d:	57                   	push   %edi
+ 45e:	8b 84 24 a8 00 00 00 	mov    0xa8(%esp),%eax
+ 465:	8b 8c 24 a8 00 00 00 	mov    0xa8(%esp),%ecx
+ 46c:	8b 40 0c             	mov    0xc(%eax),%eax
+ 46f:	03 41 04             	add    0x4(%ecx),%eax
+ 472:	83 e8 14             	sub    $0x14,%eax
+ 475:	50                   	push   %eax
+ 476:	ff 74 24 34          	push   0x34(%esp)
+ 47a:	e8 fc ff ff ff       	call   47b <filemgr_draw+0x35b>
+ 47f:	83 c4 20             	add    $0x20,%esp
+ 482:	83 c4 7c             	add    $0x7c,%esp
+ 485:	5b                   	pop    %ebx
+ 486:	5e                   	pop    %esi
+ 487:	5f                   	pop    %edi
+ 488:	5d                   	pop    %ebp
+ 489:	c3                   	ret
+ 48a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 490:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 494:	8b 4c 24 2c          	mov    0x2c(%esp),%ecx
+ 498:	83 ec 08             	sub    $0x8,%esp
+ 49b:	68 25 18 18 00       	push   $0x181825
+ 4a0:	6a 08                	push   $0x8
+ 4a2:	68 68 01 00 00       	push   $0x168
+ 4a7:	ff 74 24 38          	push   0x38(%esp)
+ 4ab:	50                   	push   %eax
+ 4ac:	89 44 24 24          	mov    %eax,0x24(%esp)
+ 4b0:	51                   	push   %ecx
+ 4b1:	e8 fc ff ff ff       	call   4b2 <filemgr_draw+0x392>
+ 4b6:	8b 44 24 24          	mov    0x24(%esp),%eax
+ 4ba:	83 c4 20             	add    $0x20,%esp
+ 4bd:	8b 80 c8 0a 00 00    	mov    0xac8(%eax),%eax
+ 4c3:	85 c0                	test   %eax,%eax
+ 4c5:	8b 44 24 08          	mov    0x8(%esp),%eax
+ 4c9:	0f 8e f1 00 00 00    	jle    5c0 <filemgr_draw+0x4a0>
+ 4cf:	8d 68 08             	lea    0x8(%eax),%ebp
+ 4d2:	05 5f 01 00 00       	add    $0x15f,%eax
+ 4d7:	89 7c 24 0c          	mov    %edi,0xc(%esp)
+ 4db:	8b 74 24 04          	mov    0x4(%esp),%esi
+ 4df:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 4e3:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 4e7:	31 db                	xor    %ebx,%ebx
+ 4e9:	8d 78 10             	lea    0x10(%eax),%edi
+ 4ec:	eb 30                	jmp    51e <filemgr_draw+0x3fe>
+ 4ee:	66 90                	xchg   %ax,%ax
+ 4f0:	88 44 24 40          	mov    %al,0x40(%esp)
+ 4f4:	c6 44 24 41 00       	movb   $0x0,0x41(%esp)
+ 4f9:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 4fe:	ff 74 24 10          	push   0x10(%esp)
+ 502:	55                   	push   %ebp
+ 503:	57                   	push   %edi
+ 504:	83 c7 08             	add    $0x8,%edi
+ 507:	e8 fc ff ff ff       	call   508 <filemgr_draw+0x3e8>
+ 50c:	83 c4 10             	add    $0x10,%esp
+ 50f:	83 c3 01             	add    $0x1,%ebx
+ 512:	39 9e c8 0a 00 00    	cmp    %ebx,0xac8(%esi)
+ 518:	0f 8e 02 ff ff ff    	jle    420 <filemgr_draw+0x300>
+ 51e:	3b 6c 24 08          	cmp    0x8(%esp),%ebp
+ 522:	0f 8f f8 fe ff ff    	jg     420 <filemgr_draw+0x300>
+ 528:	0f b6 84 1e c8 08 00 	movzbl 0x8c8(%esi,%ebx,1),%eax
+ 52f:	00 
+ 530:	3c 0a                	cmp    $0xa,%al
+ 532:	75 bc                	jne    4f0 <filemgr_draw+0x3d0>
+ 534:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 538:	83 c5 10             	add    $0x10,%ebp
+ 53b:	8d 78 10             	lea    0x10(%eax),%edi
+ 53e:	eb cf                	jmp    50f <filemgr_draw+0x3ef>
+ 540:	89 44 24 14          	mov    %eax,0x14(%esp)
+ 544:	83 ec 08             	sub    $0x8,%esp
+ 547:	68 5a 47 45 00       	push   $0x45475a
+ 54c:	6a 06                	push   $0x6
+ 54e:	6a 1c                	push   $0x1c
+ 550:	8b 84 24 a4 00 00 00 	mov    0xa4(%esp),%eax
+ 557:	8b 40 08             	mov    0x8(%eax),%eax
+ 55a:	8d 50 f0             	lea    -0x10(%eax),%edx
+ 55d:	89 44 24 24          	mov    %eax,0x24(%esp)
+ 561:	52                   	push   %edx
+ 562:	8d 56 60             	lea    0x60(%esi),%edx
+ 565:	52                   	push   %edx
+ 566:	ff 74 24 34          	push   0x34(%esp)
+ 56a:	e8 fc ff ff ff       	call   56b <filemgr_draw+0x44b>
+ 56f:	83 c4 20             	add    $0x20,%esp
+ 572:	68 f4 d6 cd 00       	push   $0xcdd6f4
+ 577:	68 1e 00 00 00       	push   $0x1e
+ 57c:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 580:	50                   	push   %eax
+ 581:	89 44 24 1c          	mov    %eax,0x1c(%esp)
+ 585:	ff 74 24 14          	push   0x14(%esp)
+ 589:	e8 fc ff ff ff       	call   58a <filemgr_draw+0x46a>
+ 58e:	68 fa b4 89 00       	push   $0x89b4fa
+ 593:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 597:	8d 90 cc 0a 00 00    	lea    0xacc(%eax),%edx
+ 59d:	52                   	push   %edx
+ 59e:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 5a2:	50                   	push   %eax
+ 5a3:	8d 43 40             	lea    0x40(%ebx),%eax
+ 5a6:	50                   	push   %eax
+ 5a7:	e8 fc ff ff ff       	call   5a8 <filemgr_draw+0x488>
+ 5ac:	8d 86 80 00 00 00    	lea    0x80(%esi),%eax
+ 5b2:	83 c4 20             	add    $0x20,%esp
+ 5b5:	e9 88 fc ff ff       	jmp    242 <filemgr_draw+0x122>
+ 5ba:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 5c0:	83 c0 28             	add    $0x28,%eax
+ 5c3:	68 86 70 6c 00       	push   $0x6c7086
+ 5c8:	68 2f 00 00 00       	push   $0x2f
+ 5cd:	50                   	push   %eax
+ 5ce:	8b 44 24 28          	mov    0x28(%esp),%eax
+ 5d2:	83 c0 18             	add    $0x18,%eax
+ 5d5:	50                   	push   %eax
+ 5d6:	e8 fc ff ff ff       	call   5d7 <filemgr_draw+0x4b7>
+ 5db:	83 c4 10             	add    $0x10,%esp
+ 5de:	e9 41 fe ff ff       	jmp    424 <filemgr_draw+0x304>
+ 5e3:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 5e8:	8d 74 24 30          	lea    0x30(%esp),%esi
+ 5ec:	8d 7c 24 40          	lea    0x40(%esp),%edi
+ 5f0:	89 74 24 20          	mov    %esi,0x20(%esp)
+ 5f4:	e9 9f fe ff ff       	jmp    498 <filemgr_draw+0x378>
+ 5f9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+
+00000600 <filemgr_on_key>:
+ 600:	56                   	push   %esi
+ 601:	53                   	push   %ebx
+ 602:	81 ec 94 00 00 00    	sub    $0x94,%esp
+ 608:	8b 94 24 a0 00 00 00 	mov    0xa0(%esp),%edx
+ 60f:	8b 84 24 a4 00 00 00 	mov    0xa4(%esp),%eax
+ 616:	8b 52 68             	mov    0x68(%edx),%edx
+ 619:	85 d2                	test   %edx,%edx
+ 61b:	74 47                	je     664 <filemgr_on_key+0x64>
+ 61d:	80 ba 00 0b 00 00 00 	cmpb   $0x0,0xb00(%edx)
+ 624:	75 4a                	jne    670 <filemgr_on_key+0x70>
+ 626:	3c fe                	cmp    $0xfe,%al
+ 628:	0f 84 8a 00 00 00    	je     6b8 <filemgr_on_key+0xb8>
+ 62e:	3c fd                	cmp    $0xfd,%al
+ 630:	0f 84 8a 01 00 00    	je     7c0 <filemgr_on_key+0x1c0>
+ 636:	3c 0a                	cmp    $0xa,%al
+ 638:	0f 84 12 01 00 00    	je     750 <filemgr_on_key+0x150>
+ 63e:	89 c1                	mov    %eax,%ecx
+ 640:	83 e1 df             	and    $0xffffffdf,%ecx
+ 643:	80 f9 4e             	cmp    $0x4e,%cl
+ 646:	0f 85 99 01 00 00    	jne    7e5 <filemgr_on_key+0x1e5>
+ 64c:	c6 82 00 0b 00 00 01 	movb   $0x1,0xb00(%edx)
+ 653:	c7 82 fc 0a 00 00 00 	movl   $0x0,0xafc(%edx)
+ 65a:	00 00 00 
+ 65d:	c6 82 cc 0a 00 00 00 	movb   $0x0,0xacc(%edx)
+ 664:	81 c4 94 00 00 00    	add    $0x94,%esp
+ 66a:	5b                   	pop    %ebx
+ 66b:	5e                   	pop    %esi
+ 66c:	c3                   	ret
+ 66d:	8d 76 00             	lea    0x0(%esi),%esi
+ 670:	3c 0a                	cmp    $0xa,%al
+ 672:	74 6c                	je     6e0 <filemgr_on_key+0xe0>
+ 674:	3c 1b                	cmp    $0x1b,%al
+ 676:	0f 84 c1 00 00 00    	je     73d <filemgr_on_key+0x13d>
+ 67c:	3c 08                	cmp    $0x8,%al
+ 67e:	0f 84 a4 01 00 00    	je     828 <filemgr_on_key+0x228>
+ 684:	8d 48 e0             	lea    -0x20(%eax),%ecx
+ 687:	80 f9 5e             	cmp    $0x5e,%cl
+ 68a:	77 d8                	ja     664 <filemgr_on_key+0x64>
+ 68c:	8b 9a fc 0a 00 00    	mov    0xafc(%edx),%ebx
+ 692:	83 fb 27             	cmp    $0x27,%ebx
+ 695:	7f cd                	jg     664 <filemgr_on_key+0x64>
+ 697:	8d 4b 01             	lea    0x1(%ebx),%ecx
+ 69a:	89 8a fc 0a 00 00    	mov    %ecx,0xafc(%edx)
+ 6a0:	0f b7 0d 00 00 00 00 	movzwl 0x0,%ecx
+ 6a7:	88 c1                	mov    %al,%cl
+ 6a9:	66 89 8c 1a cc 0a 00 	mov    %cx,0xacc(%edx,%ebx,1)
+ 6b0:	00 
+ 6b1:	eb b1                	jmp    664 <filemgr_on_key+0x64>
+ 6b3:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 6b8:	8b 82 84 08 00 00    	mov    0x884(%edx),%eax
+ 6be:	85 c0                	test   %eax,%eax
+ 6c0:	7e a2                	jle    664 <filemgr_on_key+0x64>
+ 6c2:	83 e8 01             	sub    $0x1,%eax
+ 6c5:	89 82 84 08 00 00    	mov    %eax,0x884(%edx)
+ 6cb:	81 c4 94 00 00 00    	add    $0x94,%esp
+ 6d1:	89 d0                	mov    %edx,%eax
+ 6d3:	5b                   	pop    %ebx
+ 6d4:	5e                   	pop    %esi
+ 6d5:	e9 26 f9 ff ff       	jmp    0 <fm_refresh>
+ 6da:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 6e0:	8b 82 fc 0a 00 00    	mov    0xafc(%edx),%eax
+ 6e6:	85 c0                	test   %eax,%eax
+ 6e8:	7e 53                	jle    73d <filemgr_on_key+0x13d>
+ 6ea:	83 ec 08             	sub    $0x8,%esp
+ 6ed:	8d 82 88 08 00 00    	lea    0x888(%edx),%eax
+ 6f3:	89 54 24 10          	mov    %edx,0x10(%esp)
+ 6f7:	50                   	push   %eax
+ 6f8:	8d 4c 24 1c          	lea    0x1c(%esp),%ecx
+ 6fc:	51                   	push   %ecx
+ 6fd:	e8 fc ff ff ff       	call   6fe <filemgr_on_key+0xfe>
+ 702:	5e                   	pop    %esi
+ 703:	58                   	pop    %eax
+ 704:	8b 54 24 10          	mov    0x10(%esp),%edx
+ 708:	8d 82 cc 0a 00 00    	lea    0xacc(%edx),%eax
+ 70e:	50                   	push   %eax
+ 70f:	8d 4c 24 1c          	lea    0x1c(%esp),%ecx
+ 713:	51                   	push   %ecx
+ 714:	e8 fc ff ff ff       	call   715 <filemgr_on_key+0x115>
+ 719:	83 c4 0c             	add    $0xc,%esp
+ 71c:	6a 00                	push   $0x0
+ 71e:	68 41 00 00 00       	push   $0x41
+ 723:	8d 4c 24 1c          	lea    0x1c(%esp),%ecx
+ 727:	51                   	push   %ecx
+ 728:	e8 fc ff ff ff       	call   729 <filemgr_on_key+0x129>
+ 72d:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 731:	e8 ca f8 ff ff       	call   0 <fm_refresh>
+ 736:	8b 54 24 18          	mov    0x18(%esp),%edx
+ 73a:	83 c4 10             	add    $0x10,%esp
+ 73d:	c6 82 00 0b 00 00 00 	movb   $0x0,0xb00(%edx)
+ 744:	81 c4 94 00 00 00    	add    $0x94,%esp
+ 74a:	5b                   	pop    %ebx
+ 74b:	5e                   	pop    %esi
+ 74c:	c3                   	ret
+ 74d:	8d 76 00             	lea    0x0(%esi),%esi
+ 750:	8b 9a 80 08 00 00    	mov    0x880(%edx),%ebx
+ 756:	85 db                	test   %ebx,%ebx
+ 758:	0f 8e 06 ff ff ff    	jle    664 <filemgr_on_key+0x64>
+ 75e:	6b 82 84 08 00 00 44 	imul   $0x44,0x884(%edx),%eax
+ 765:	01 d0                	add    %edx,%eax
+ 767:	80 78 40 00          	cmpb   $0x0,0x40(%eax)
+ 76b:	0f 84 f3 fe ff ff    	je     664 <filemgr_on_key+0x64>
+ 771:	89 54 24 0c          	mov    %edx,0xc(%esp)
+ 775:	8d 8a 88 08 00 00    	lea    0x888(%edx),%ecx
+ 77b:	83 ec 08             	sub    $0x8,%esp
+ 77e:	50                   	push   %eax
+ 77f:	51                   	push   %ecx
+ 780:	89 4c 24 18          	mov    %ecx,0x18(%esp)
+ 784:	e8 fc ff ff ff       	call   785 <filemgr_on_key+0x185>
+ 789:	5a                   	pop    %edx
+ 78a:	59                   	pop    %ecx
+ 78b:	68 07 00 00 00       	push   $0x7
+ 790:	8b 4c 24 14          	mov    0x14(%esp),%ecx
+ 794:	51                   	push   %ecx
+ 795:	e8 fc ff ff ff       	call   796 <filemgr_on_key+0x196>
+ 79a:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+ 79e:	c7 82 84 08 00 00 00 	movl   $0x0,0x884(%edx)
+ 7a5:	00 00 00 
+ 7a8:	81 c4 a4 00 00 00    	add    $0xa4,%esp
+ 7ae:	89 d0                	mov    %edx,%eax
+ 7b0:	5b                   	pop    %ebx
+ 7b1:	5e                   	pop    %esi
+ 7b2:	e9 49 f8 ff ff       	jmp    0 <fm_refresh>
+ 7b7:	90                   	nop
+ 7b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 7bf:	00 
+ 7c0:	8b 82 80 08 00 00    	mov    0x880(%edx),%eax
+ 7c6:	8b 8a 84 08 00 00    	mov    0x884(%edx),%ecx
+ 7cc:	83 e8 01             	sub    $0x1,%eax
+ 7cf:	39 c1                	cmp    %eax,%ecx
+ 7d1:	0f 8d 8d fe ff ff    	jge    664 <filemgr_on_key+0x64>
+ 7d7:	83 c1 01             	add    $0x1,%ecx
+ 7da:	89 8a 84 08 00 00    	mov    %ecx,0x884(%edx)
+ 7e0:	e9 e6 fe ff ff       	jmp    6cb <filemgr_on_key+0xcb>
+ 7e5:	80 f9 44             	cmp    $0x44,%cl
+ 7e8:	74 04                	je     7ee <filemgr_on_key+0x1ee>
+ 7ea:	3c f8                	cmp    $0xf8,%al
+ 7ec:	75 62                	jne    850 <filemgr_on_key+0x250>
+ 7ee:	8b 82 80 08 00 00    	mov    0x880(%edx),%eax
+ 7f4:	85 c0                	test   %eax,%eax
+ 7f6:	0f 8e 68 fe ff ff    	jle    664 <filemgr_on_key+0x64>
+ 7fc:	6b 82 84 08 00 00 44 	imul   $0x44,0x884(%edx),%eax
+ 803:	83 ec 0c             	sub    $0xc,%esp
+ 806:	89 54 24 14          	mov    %edx,0x14(%esp)
+ 80a:	01 d0                	add    %edx,%eax
+ 80c:	50                   	push   %eax
+ 80d:	e8 fc ff ff ff       	call   80e <filemgr_on_key+0x20e>
+ 812:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 816:	81 c4 a4 00 00 00    	add    $0xa4,%esp
+ 81c:	5b                   	pop    %ebx
+ 81d:	5e                   	pop    %esi
+ 81e:	e9 dd f7 ff ff       	jmp    0 <fm_refresh>
+ 823:	2e 8d 74 26 00       	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 828:	8b 82 fc 0a 00 00    	mov    0xafc(%edx),%eax
+ 82e:	85 c0                	test   %eax,%eax
+ 830:	0f 8e 2e fe ff ff    	jle    664 <filemgr_on_key+0x64>
+ 836:	83 e8 01             	sub    $0x1,%eax
+ 839:	89 82 fc 0a 00 00    	mov    %eax,0xafc(%edx)
+ 83f:	c6 84 02 cc 0a 00 00 	movb   $0x0,0xacc(%edx,%eax,1)
+ 846:	00 
+ 847:	e9 18 fe ff ff       	jmp    664 <filemgr_on_key+0x64>
+ 84c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 850:	3c 08                	cmp    $0x8,%al
+ 852:	0f 85 0c fe ff ff    	jne    664 <filemgr_on_key+0x64>
+ 858:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 85c:	8d b2 88 08 00 00    	lea    0x888(%edx),%esi
+ 862:	83 ec 0c             	sub    $0xc,%esp
+ 865:	56                   	push   %esi
+ 866:	e8 fc ff ff ff       	call   867 <filemgr_on_key+0x267>
+ 86b:	83 c4 10             	add    $0x10,%esp
+ 86e:	83 f8 01             	cmp    $0x1,%eax
+ 871:	0f 8e ed fd ff ff    	jle    664 <filemgr_on_key+0x64>
+ 877:	8b 54 24 08          	mov    0x8(%esp),%edx
+ 87b:	c6 84 02 87 08 00 00 	movb   $0x0,0x887(%edx,%eax,1)
+ 882:	00 
+ 883:	0f b6 9a 88 08 00 00 	movzbl 0x888(%edx),%ebx
+ 88a:	84 db                	test   %bl,%bl
+ 88c:	74 1e                	je     8ac <filemgr_on_key+0x2ac>
+ 88e:	89 f0                	mov    %esi,%eax
+ 890:	0f b6 48 01          	movzbl 0x1(%eax),%ecx
+ 894:	80 fb 2f             	cmp    $0x2f,%bl
+ 897:	74 0f                	je     8a8 <filemgr_on_key+0x2a8>
+ 899:	84 c9                	test   %cl,%cl
+ 89b:	74 0f                	je     8ac <filemgr_on_key+0x2ac>
+ 89d:	83 c0 01             	add    $0x1,%eax
+ 8a0:	89 cb                	mov    %ecx,%ebx
+ 8a2:	eb ec                	jmp    890 <filemgr_on_key+0x290>
+ 8a4:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 8a8:	84 c9                	test   %cl,%cl
+ 8aa:	75 14                	jne    8c0 <filemgr_on_key+0x2c0>
+ 8ac:	c6 46 01 00          	movb   $0x0,0x1(%esi)
+ 8b0:	c7 82 84 08 00 00 00 	movl   $0x0,0x884(%edx)
+ 8b7:	00 00 00 
+ 8ba:	e9 0c fe ff ff       	jmp    6cb <filemgr_on_key+0xcb>
+ 8bf:	90                   	nop
+ 8c0:	89 c6                	mov    %eax,%esi
+ 8c2:	89 cb                	mov    %ecx,%ebx
+ 8c4:	83 c0 01             	add    $0x1,%eax
+ 8c7:	eb c7                	jmp    890 <filemgr_on_key+0x290>
+ 8c9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+
+000008d0 <filemgr_on_mouse>:
+ 8d0:	56                   	push   %esi
+ 8d1:	53                   	push   %ebx
+ 8d2:	83 ec 04             	sub    $0x4,%esp
+ 8d5:	8b 74 24 10          	mov    0x10(%esp),%esi
+ 8d9:	8b 54 24 14          	mov    0x14(%esp),%edx
+ 8dd:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 8e1:	8b 5e 68             	mov    0x68(%esi),%ebx
+ 8e4:	85 db                	test   %ebx,%ebx
+ 8e6:	0f 84 84 00 00 00    	je     970 <filemgr_on_mouse+0xa0>
+ 8ec:	80 7c 24 1c 01       	cmpb   $0x1,0x1c(%esp)
+ 8f1:	75 7d                	jne    970 <filemgr_on_mouse+0xa0>
+ 8f3:	83 f8 27             	cmp    $0x27,%eax
+ 8f6:	7e 78                	jle    970 <filemgr_on_mouse+0xa0>
+ 8f8:	83 f8 3f             	cmp    $0x3f,%eax
+ 8fb:	7e 53                	jle    950 <filemgr_on_mouse+0x80>
+ 8fd:	8d 48 b8             	lea    -0x48(%eax),%ecx
+ 900:	80 bb 00 0b 00 00 00 	cmpb   $0x0,0xb00(%ebx)
+ 907:	75 77                	jne    980 <filemgr_on_mouse+0xb0>
+ 909:	b8 67 66 66 66       	mov    $0x66666667,%eax
+ 90e:	f7 e9                	imul   %ecx
+ 910:	89 c8                	mov    %ecx,%eax
+ 912:	c1 f8 1f             	sar    $0x1f,%eax
+ 915:	c1 fa 03             	sar    $0x3,%edx
+ 918:	29 c2                	sub    %eax,%edx
+ 91a:	39 93 80 08 00 00    	cmp    %edx,0x880(%ebx)
+ 920:	7e 4e                	jle    970 <filemgr_on_mouse+0xa0>
+ 922:	39 93 84 08 00 00    	cmp    %edx,0x884(%ebx)
+ 928:	75 0e                	jne    938 <filemgr_on_mouse+0x68>
+ 92a:	6b c2 44             	imul   $0x44,%edx,%eax
+ 92d:	80 7c 03 40 00       	cmpb   $0x0,0x40(%ebx,%eax,1)
+ 932:	0f 85 b8 00 00 00    	jne    9f0 <filemgr_on_mouse+0x120>
+ 938:	89 93 84 08 00 00    	mov    %edx,0x884(%ebx)
+ 93e:	83 c4 04             	add    $0x4,%esp
+ 941:	89 d8                	mov    %ebx,%eax
+ 943:	5b                   	pop    %ebx
+ 944:	5e                   	pop    %esi
+ 945:	e9 b6 f6 ff ff       	jmp    0 <fm_refresh>
+ 94a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 950:	8d 42 f8             	lea    -0x8(%edx),%eax
+ 953:	83 f8 59             	cmp    $0x59,%eax
+ 956:	77 38                	ja     990 <filemgr_on_mouse+0xc0>
+ 958:	c6 83 00 0b 00 00 01 	movb   $0x1,0xb00(%ebx)
+ 95f:	c7 83 fc 0a 00 00 00 	movl   $0x0,0xafc(%ebx)
+ 966:	00 00 00 
+ 969:	c6 83 cc 0a 00 00 00 	movb   $0x0,0xacc(%ebx)
+ 970:	83 c4 04             	add    $0x4,%esp
+ 973:	5b                   	pop    %ebx
+ 974:	5e                   	pop    %esi
+ 975:	c3                   	ret
+ 976:	66 90                	xchg   %ax,%ax
+ 978:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 97f:	00 
+ 980:	8d 48 9c             	lea    -0x64(%eax),%ecx
+ 983:	83 f9 ed             	cmp    $0xffffffed,%ecx
+ 986:	0f 8d 7d ff ff ff    	jge    909 <filemgr_on_mouse+0x39>
+ 98c:	eb e2                	jmp    970 <filemgr_on_mouse+0xa0>
+ 98e:	66 90                	xchg   %ax,%ax
+ 990:	8d 42 98             	lea    -0x68(%edx),%eax
+ 993:	83 f8 3b             	cmp    $0x3b,%eax
+ 996:	76 28                	jbe    9c0 <filemgr_on_mouse+0xf0>
+ 998:	81 ea aa 00 00 00    	sub    $0xaa,%edx
+ 99e:	83 fa 27             	cmp    $0x27,%edx
+ 9a1:	77 cd                	ja     970 <filemgr_on_mouse+0xa0>
+ 9a3:	c7 44 24 14 08 00 00 	movl   $0x8,0x14(%esp)
+ 9aa:	00 
+ 9ab:	89 74 24 10          	mov    %esi,0x10(%esp)
+ 9af:	83 c4 04             	add    $0x4,%esp
+ 9b2:	5b                   	pop    %ebx
+ 9b3:	5e                   	pop    %esi
+ 9b4:	e9 47 fc ff ff       	jmp    600 <filemgr_on_key>
+ 9b9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 9c0:	8b 83 80 08 00 00    	mov    0x880(%ebx),%eax
+ 9c6:	85 c0                	test   %eax,%eax
+ 9c8:	7e a6                	jle    970 <filemgr_on_mouse+0xa0>
+ 9ca:	6b 83 84 08 00 00 44 	imul   $0x44,0x884(%ebx),%eax
+ 9d1:	83 ec 0c             	sub    $0xc,%esp
+ 9d4:	01 d8                	add    %ebx,%eax
+ 9d6:	50                   	push   %eax
+ 9d7:	e8 fc ff ff ff       	call   9d8 <filemgr_on_mouse+0x108>
+ 9dc:	83 c4 14             	add    $0x14,%esp
+ 9df:	89 d8                	mov    %ebx,%eax
+ 9e1:	5b                   	pop    %ebx
+ 9e2:	5e                   	pop    %esi
+ 9e3:	e9 18 f6 ff ff       	jmp    0 <fm_refresh>
+ 9e8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 9ef:	00 
+ 9f0:	c7 44 24 14 0a 00 00 	movl   $0xa,0x14(%esp)
+ 9f7:	00 
+ 9f8:	eb b1                	jmp    9ab <filemgr_on_mouse+0xdb>

@@ -1,0 +1,15 @@
+         U irq_clear_mask
+         U isr_register_handler
+00000004 d max_x
+00000000 d max_y
+00000008 b mbuttons
+00000000 b mbytes
+00000004 b mcycle
+000002c0 T mouse_get_button
+000002a0 T mouse_get_x
+000002b0 T mouse_get_y
+00000000 t mouse_handler
+00000120 T mouse_init
+000002e0 T mouse_set_bounds
+0000000c d mx
+00000008 d my

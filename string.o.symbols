@@ -1,0 +1,11 @@
+00000300 T itoa
+00000260 T memcmp
+00000050 T memcpy
+00000080 T memmove
+00000000 T memset
+000002b0 T strcat
+000001b0 T strcmp
+00000110 T strcpy
+000000e0 T strlen
+00000210 T strncmp
+00000140 T strncpy

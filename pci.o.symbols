@@ -1,0 +1,5 @@
+00000150 T pci_enable_bus_master
+00000000 T pci_find_device
+000001a0 T pci_find_pcnet
+000000e0 T pci_read_bar0
+00000120 T pci_read_irq_line

@@ -1,0 +1,551 @@
+
+fs.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <fs_exists>:
+   0:	56                   	push   %esi
+   1:	53                   	push   %ebx
+   2:	bb 20 00 08 00       	mov    $0x80020,%ebx
+   7:	83 ec 04             	sub    $0x4,%esp
+   a:	8b 74 24 10          	mov    0x10(%esp),%esi
+   e:	eb 1b                	jmp    2b <fs_exists+0x2b>
+  10:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  17:	00 
+  18:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  1f:	00 
+  20:	83 c3 48             	add    $0x48,%ebx
+  23:	81 fb 20 24 08 00    	cmp    $0x82420,%ebx
+  29:	74 22                	je     4d <fs_exists+0x4d>
+  2b:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+  2f:	74 ef                	je     20 <fs_exists+0x20>
+  31:	83 ec 08             	sub    $0x8,%esp
+  34:	56                   	push   %esi
+  35:	53                   	push   %ebx
+  36:	e8 fc ff ff ff       	call   37 <fs_exists+0x37>
+  3b:	83 c4 10             	add    $0x10,%esp
+  3e:	85 c0                	test   %eax,%eax
+  40:	75 de                	jne    20 <fs_exists+0x20>
+  42:	83 c4 04             	add    $0x4,%esp
+  45:	b8 01 00 00 00       	mov    $0x1,%eax
+  4a:	5b                   	pop    %ebx
+  4b:	5e                   	pop    %esi
+  4c:	c3                   	ret
+  4d:	83 c4 04             	add    $0x4,%esp
+  50:	31 c0                	xor    %eax,%eax
+  52:	5b                   	pop    %ebx
+  53:	5e                   	pop    %esi
+  54:	c3                   	ret
+  55:	8d 76 00             	lea    0x0(%esi),%esi
+  58:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  5f:	00 
+
+00000060 <fs_size>:
+  60:	57                   	push   %edi
+  61:	56                   	push   %esi
+  62:	31 f6                	xor    %esi,%esi
+  64:	53                   	push   %ebx
+  65:	bb 20 00 08 00       	mov    $0x80020,%ebx
+  6a:	8b 7c 24 10          	mov    0x10(%esp),%edi
+  6e:	eb 1e                	jmp    8e <fs_size+0x2e>
+  70:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  77:	00 
+  78:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  7f:	00 
+  80:	83 c6 01             	add    $0x1,%esi
+  83:	83 c3 48             	add    $0x48,%ebx
+  86:	81 fe 80 00 00 00    	cmp    $0x80,%esi
+  8c:	74 25                	je     b3 <fs_size+0x53>
+  8e:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+  92:	74 ec                	je     80 <fs_size+0x20>
+  94:	83 ec 08             	sub    $0x8,%esp
+  97:	57                   	push   %edi
+  98:	53                   	push   %ebx
+  99:	e8 fc ff ff ff       	call   9a <fs_size+0x3a>
+  9e:	83 c4 10             	add    $0x10,%esp
+  a1:	85 c0                	test   %eax,%eax
+  a3:	75 db                	jne    80 <fs_size+0x20>
+  a5:	8d 04 f6             	lea    (%esi,%esi,8),%eax
+  a8:	5b                   	pop    %ebx
+  a9:	5e                   	pop    %esi
+  aa:	8b 04 c5 60 00 08 00 	mov    0x80060(,%eax,8),%eax
+  b1:	5f                   	pop    %edi
+  b2:	c3                   	ret
+  b3:	5b                   	pop    %ebx
+  b4:	31 c0                	xor    %eax,%eax
+  b6:	5e                   	pop    %esi
+  b7:	5f                   	pop    %edi
+  b8:	c3                   	ret
+  b9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+
+000000c0 <fs_mkdir>:
+  c0:	57                   	push   %edi
+  c1:	56                   	push   %esi
+  c2:	31 f6                	xor    %esi,%esi
+  c4:	53                   	push   %ebx
+  c5:	bb 20 00 08 00       	mov    $0x80020,%ebx
+  ca:	8b 7c 24 10          	mov    0x10(%esp),%edi
+  ce:	eb 1e                	jmp    ee <fs_mkdir+0x2e>
+  d0:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  d7:	00 
+  d8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+  df:	00 
+  e0:	83 c6 01             	add    $0x1,%esi
+  e3:	83 c3 48             	add    $0x48,%ebx
+  e6:	81 fe 80 00 00 00    	cmp    $0x80,%esi
+  ec:	74 20                	je     10e <fs_mkdir+0x4e>
+  ee:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+  f2:	74 ec                	je     e0 <fs_mkdir+0x20>
+  f4:	83 ec 08             	sub    $0x8,%esp
+  f7:	57                   	push   %edi
+  f8:	53                   	push   %ebx
+  f9:	e8 fc ff ff ff       	call   fa <fs_mkdir+0x3a>
+  fe:	83 c4 10             	add    $0x10,%esp
+ 101:	85 c0                	test   %eax,%eax
+ 103:	75 db                	jne    e0 <fs_mkdir+0x20>
+ 105:	5b                   	pop    %ebx
+ 106:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 10b:	5e                   	pop    %esi
+ 10c:	5f                   	pop    %edi
+ 10d:	c3                   	ret
+ 10e:	ba 65 00 08 00       	mov    $0x80065,%edx
+ 113:	31 c0                	xor    %eax,%eax
+ 115:	eb 16                	jmp    12d <fs_mkdir+0x6d>
+ 117:	90                   	nop
+ 118:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 11f:	00 
+ 120:	83 c0 01             	add    $0x1,%eax
+ 123:	83 c2 48             	add    $0x48,%edx
+ 126:	3d 80 00 00 00       	cmp    $0x80,%eax
+ 12b:	74 d8                	je     105 <fs_mkdir+0x45>
+ 12d:	80 3a 00             	cmpb   $0x0,(%edx)
+ 130:	75 ee                	jne    120 <fs_mkdir+0x60>
+ 132:	8d 34 c0             	lea    (%eax,%eax,8),%esi
+ 135:	83 ec 04             	sub    $0x4,%esp
+ 138:	8d 1c f5 20 00 08 00 	lea    0x80020(,%esi,8),%ebx
+ 13f:	6a 3b                	push   $0x3b
+ 141:	57                   	push   %edi
+ 142:	53                   	push   %ebx
+ 143:	e8 fc ff ff ff       	call   144 <fs_mkdir+0x84>
+ 148:	83 c4 10             	add    $0x10,%esp
+ 14b:	b8 01 01 00 00       	mov    $0x101,%eax
+ 150:	c7 43 3c 00 00 00 00 	movl   $0x0,0x3c(%ebx)
+ 157:	c7 43 40 00 00 00 00 	movl   $0x0,0x40(%ebx)
+ 15e:	66 89 04 f5 64 00 08 	mov    %ax,0x80064(,%esi,8)
+ 165:	00 
+ 166:	31 c0                	xor    %eax,%eax
+ 168:	5b                   	pop    %ebx
+ 169:	5e                   	pop    %esi
+ 16a:	5f                   	pop    %edi
+ 16b:	c3                   	ret
+ 16c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+00000170 <fs_write>:
+ 170:	55                   	push   %ebp
+ 171:	31 ed                	xor    %ebp,%ebp
+ 173:	57                   	push   %edi
+ 174:	56                   	push   %esi
+ 175:	53                   	push   %ebx
+ 176:	bb 20 00 08 00       	mov    $0x80020,%ebx
+ 17b:	83 ec 1c             	sub    $0x1c,%esp
+ 17e:	8b 44 24 34          	mov    0x34(%esp),%eax
+ 182:	8b 74 24 30          	mov    0x30(%esp),%esi
+ 186:	8b 7c 24 38          	mov    0x38(%esp),%edi
+ 18a:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 18e:	eb 22                	jmp    1b2 <fs_write+0x42>
+ 190:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 197:	00 
+ 198:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 19f:	00 
+ 1a0:	83 c5 01             	add    $0x1,%ebp
+ 1a3:	83 c3 48             	add    $0x48,%ebx
+ 1a6:	81 fd 80 00 00 00    	cmp    $0x80,%ebp
+ 1ac:	0f 84 88 00 00 00    	je     23a <fs_write+0xca>
+ 1b2:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+ 1b6:	74 e8                	je     1a0 <fs_write+0x30>
+ 1b8:	83 ec 08             	sub    $0x8,%esp
+ 1bb:	56                   	push   %esi
+ 1bc:	53                   	push   %ebx
+ 1bd:	e8 fc ff ff ff       	call   1be <fs_write+0x4e>
+ 1c2:	83 c4 10             	add    $0x10,%esp
+ 1c5:	89 c1                	mov    %eax,%ecx
+ 1c7:	85 c0                	test   %eax,%eax
+ 1c9:	75 d5                	jne    1a0 <fs_write+0x30>
+ 1cb:	8d 44 ed 00          	lea    0x0(%ebp,%ebp,8),%eax
+ 1cf:	80 3c c5 64 00 08 00 	cmpb   $0x0,0x80064(,%eax,8)
+ 1d6:	00 
+ 1d7:	75 7a                	jne    253 <fs_write+0xe3>
+ 1d9:	8b 15 00 00 00 00    	mov    0x0,%edx
+ 1df:	8d 1c 3a             	lea    (%edx,%edi,1),%ebx
+ 1e2:	81 fb 00 00 08 00    	cmp    $0x80000,%ebx
+ 1e8:	77 69                	ja     253 <fs_write+0xe3>
+ 1ea:	89 14 c5 5c 00 08 00 	mov    %edx,0x8005c(,%eax,8)
+ 1f1:	89 3c c5 60 00 08 00 	mov    %edi,0x80060(,%eax,8)
+ 1f8:	8b 44 24 0c          	mov    0xc(%esp),%eax
+ 1fc:	85 c0                	test   %eax,%eax
+ 1fe:	74 04                	je     204 <fs_write+0x94>
+ 200:	85 ff                	test   %edi,%edi
+ 202:	75 10                	jne    214 <fs_write+0xa4>
+ 204:	89 1d 00 00 00 00    	mov    %ebx,0x0
+ 20a:	83 c4 1c             	add    $0x1c,%esp
+ 20d:	89 c8                	mov    %ecx,%eax
+ 20f:	5b                   	pop    %ebx
+ 210:	5e                   	pop    %esi
+ 211:	5f                   	pop    %edi
+ 212:	5d                   	pop    %ebp
+ 213:	c3                   	ret
+ 214:	89 4c 24 0c          	mov    %ecx,0xc(%esp)
+ 218:	81 c2 20 00 00 00    	add    $0x20,%edx
+ 21e:	83 ec 04             	sub    $0x4,%esp
+ 221:	57                   	push   %edi
+ 222:	50                   	push   %eax
+ 223:	52                   	push   %edx
+ 224:	e8 fc ff ff ff       	call   225 <fs_write+0xb5>
+ 229:	03 3d 00 00 00 00    	add    0x0,%edi
+ 22f:	83 c4 10             	add    $0x10,%esp
+ 232:	8b 4c 24 0c          	mov    0xc(%esp),%ecx
+ 236:	89 fb                	mov    %edi,%ebx
+ 238:	eb ca                	jmp    204 <fs_write+0x94>
+ 23a:	8b 44 24 0c          	mov    0xc(%esp),%eax
+ 23e:	89 7c 24 38          	mov    %edi,0x38(%esp)
+ 242:	89 74 24 30          	mov    %esi,0x30(%esp)
+ 246:	89 44 24 34          	mov    %eax,0x34(%esp)
+ 24a:	83 c4 1c             	add    $0x1c,%esp
+ 24d:	5b                   	pop    %ebx
+ 24e:	5e                   	pop    %esi
+ 24f:	5f                   	pop    %edi
+ 250:	5d                   	pop    %ebp
+ 251:	eb 0d                	jmp    260 <fs_create>
+ 253:	b9 ff ff ff ff       	mov    $0xffffffff,%ecx
+ 258:	eb b0                	jmp    20a <fs_write+0x9a>
+ 25a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+00000260 <fs_create>:
+ 260:	55                   	push   %ebp
+ 261:	31 ed                	xor    %ebp,%ebp
+ 263:	57                   	push   %edi
+ 264:	56                   	push   %esi
+ 265:	53                   	push   %ebx
+ 266:	bb 20 00 08 00       	mov    $0x80020,%ebx
+ 26b:	83 ec 1c             	sub    $0x1c,%esp
+ 26e:	8b 44 24 34          	mov    0x34(%esp),%eax
+ 272:	8b 74 24 30          	mov    0x30(%esp),%esi
+ 276:	8b 7c 24 38          	mov    0x38(%esp),%edi
+ 27a:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 27e:	eb 0e                	jmp    28e <fs_create+0x2e>
+ 280:	83 c5 01             	add    $0x1,%ebp
+ 283:	83 c3 48             	add    $0x48,%ebx
+ 286:	81 fd 80 00 00 00    	cmp    $0x80,%ebp
+ 28c:	74 33                	je     2c1 <fs_create+0x61>
+ 28e:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+ 292:	74 ec                	je     280 <fs_create+0x20>
+ 294:	83 ec 08             	sub    $0x8,%esp
+ 297:	56                   	push   %esi
+ 298:	53                   	push   %ebx
+ 299:	e8 fc ff ff ff       	call   29a <fs_create+0x3a>
+ 29e:	83 c4 10             	add    $0x10,%esp
+ 2a1:	85 c0                	test   %eax,%eax
+ 2a3:	75 db                	jne    280 <fs_create+0x20>
+ 2a5:	8b 44 24 0c          	mov    0xc(%esp),%eax
+ 2a9:	89 7c 24 38          	mov    %edi,0x38(%esp)
+ 2ad:	89 74 24 30          	mov    %esi,0x30(%esp)
+ 2b1:	89 44 24 34          	mov    %eax,0x34(%esp)
+ 2b5:	83 c4 1c             	add    $0x1c,%esp
+ 2b8:	5b                   	pop    %ebx
+ 2b9:	5e                   	pop    %esi
+ 2ba:	5f                   	pop    %edi
+ 2bb:	5d                   	pop    %ebp
+ 2bc:	e9 af fe ff ff       	jmp    170 <fs_write>
+ 2c1:	a1 00 00 00 00       	mov    0x0,%eax
+ 2c6:	01 f8                	add    %edi,%eax
+ 2c8:	3d 00 00 08 00       	cmp    $0x80000,%eax
+ 2cd:	0f 87 87 00 00 00    	ja     35a <fs_create+0xfa>
+ 2d3:	ba 65 00 08 00       	mov    $0x80065,%edx
+ 2d8:	31 c0                	xor    %eax,%eax
+ 2da:	eb 11                	jmp    2ed <fs_create+0x8d>
+ 2dc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 2e0:	83 c0 01             	add    $0x1,%eax
+ 2e3:	83 c2 48             	add    $0x48,%edx
+ 2e6:	3d 80 00 00 00       	cmp    $0x80,%eax
+ 2eb:	74 6d                	je     35a <fs_create+0xfa>
+ 2ed:	80 3a 00             	cmpb   $0x0,(%edx)
+ 2f0:	75 ee                	jne    2e0 <fs_create+0x80>
+ 2f2:	83 ec 04             	sub    $0x4,%esp
+ 2f5:	6a 3b                	push   $0x3b
+ 2f7:	56                   	push   %esi
+ 2f8:	8d 34 c0             	lea    (%eax,%eax,8),%esi
+ 2fb:	8d 1c f5 20 00 08 00 	lea    0x80020(,%esi,8),%ebx
+ 302:	53                   	push   %ebx
+ 303:	e8 fc ff ff ff       	call   304 <fs_create+0xa4>
+ 308:	8b 4c 24 1c          	mov    0x1c(%esp),%ecx
+ 30c:	89 7b 40             	mov    %edi,0x40(%ebx)
+ 30f:	83 c4 10             	add    $0x10,%esp
+ 312:	a1 00 00 00 00       	mov    0x0,%eax
+ 317:	ba 00 01 00 00       	mov    $0x100,%edx
+ 31c:	89 43 3c             	mov    %eax,0x3c(%ebx)
+ 31f:	66 89 14 f5 64 00 08 	mov    %dx,0x80064(,%esi,8)
+ 326:	00 
+ 327:	85 c9                	test   %ecx,%ecx
+ 329:	74 04                	je     32f <fs_create+0xcf>
+ 32b:	85 ff                	test   %edi,%edi
+ 32d:	75 11                	jne    340 <fs_create+0xe0>
+ 32f:	01 f8                	add    %edi,%eax
+ 331:	a3 00 00 00 00       	mov    %eax,0x0
+ 336:	83 c4 1c             	add    $0x1c,%esp
+ 339:	31 c0                	xor    %eax,%eax
+ 33b:	5b                   	pop    %ebx
+ 33c:	5e                   	pop    %esi
+ 33d:	5f                   	pop    %edi
+ 33e:	5d                   	pop    %ebp
+ 33f:	c3                   	ret
+ 340:	83 ec 04             	sub    $0x4,%esp
+ 343:	05 20 00 00 00       	add    $0x20,%eax
+ 348:	57                   	push   %edi
+ 349:	51                   	push   %ecx
+ 34a:	50                   	push   %eax
+ 34b:	e8 fc ff ff ff       	call   34c <fs_create+0xec>
+ 350:	a1 00 00 00 00       	mov    0x0,%eax
+ 355:	83 c4 10             	add    $0x10,%esp
+ 358:	eb d5                	jmp    32f <fs_create+0xcf>
+ 35a:	83 c4 1c             	add    $0x1c,%esp
+ 35d:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 362:	5b                   	pop    %ebx
+ 363:	5e                   	pop    %esi
+ 364:	5f                   	pop    %edi
+ 365:	5d                   	pop    %ebp
+ 366:	c3                   	ret
+ 367:	90                   	nop
+ 368:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 36f:	00 
+
+00000370 <fs_init>:
+ 370:	83 ec 10             	sub    $0x10,%esp
+ 373:	68 00 24 00 00       	push   $0x2400
+ 378:	6a 00                	push   $0x0
+ 37a:	68 20 00 08 00       	push   $0x80020
+ 37f:	e8 fc ff ff ff       	call   380 <fs_init+0x10>
+ 384:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+ 38b:	c7 05 00 00 00 00 00 	movl   $0x0,0x0
+ 392:	00 00 00 
+ 395:	e8 fc ff ff ff       	call   396 <fs_init+0x26>
+ 39a:	c7 04 24 06 00 00 00 	movl   $0x6,(%esp)
+ 3a1:	e8 fc ff ff ff       	call   3a2 <fs_init+0x32>
+ 3a6:	c7 04 24 11 00 00 00 	movl   $0x11,(%esp)
+ 3ad:	e8 fc ff ff ff       	call   3ae <fs_init+0x3e>
+ 3b2:	c7 04 24 16 00 00 00 	movl   $0x16,(%esp)
+ 3b9:	e8 fc ff ff ff       	call   3ba <fs_init+0x4a>
+ 3be:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+ 3c5:	e8 fc ff ff ff       	call   3c6 <fs_init+0x56>
+ 3ca:	83 c4 0c             	add    $0xc,%esp
+ 3cd:	50                   	push   %eax
+ 3ce:	68 00 00 00 00       	push   $0x0
+ 3d3:	68 1b 00 00 00       	push   $0x1b
+ 3d8:	e8 fc ff ff ff       	call   3d9 <fs_init+0x69>
+ 3dd:	c7 04 24 25 00 00 00 	movl   $0x25,(%esp)
+ 3e4:	e8 fc ff ff ff       	call   3e5 <fs_init+0x75>
+ 3e9:	83 c4 0c             	add    $0xc,%esp
+ 3ec:	50                   	push   %eax
+ 3ed:	68 25 00 00 00       	push   $0x25
+ 3f2:	68 2c 00 00 00       	push   $0x2c
+ 3f7:	e8 fc ff ff ff       	call   3f8 <fs_init+0x88>
+ 3fc:	c7 04 24 38 00 00 00 	movl   $0x38,(%esp)
+ 403:	e8 fc ff ff ff       	call   404 <fs_init+0x94>
+ 408:	83 c4 0c             	add    $0xc,%esp
+ 40b:	50                   	push   %eax
+ 40c:	68 38 00 00 00       	push   $0x38
+ 411:	68 3a 00 00 00       	push   $0x3a
+ 416:	e8 fc ff ff ff       	call   417 <fs_init+0xa7>
+ 41b:	c7 04 24 78 00 00 00 	movl   $0x78,(%esp)
+ 422:	e8 fc ff ff ff       	call   423 <fs_init+0xb3>
+ 427:	83 c4 0c             	add    $0xc,%esp
+ 42a:	50                   	push   %eax
+ 42b:	68 78 00 00 00       	push   $0x78
+ 430:	68 4b 00 00 00       	push   $0x4b
+ 435:	e8 fc ff ff ff       	call   436 <fs_init+0xc6>
+ 43a:	c7 04 24 1c 01 00 00 	movl   $0x11c,(%esp)
+ 441:	e8 fc ff ff ff       	call   442 <fs_init+0xd2>
+ 446:	83 c4 0c             	add    $0xc,%esp
+ 449:	50                   	push   %eax
+ 44a:	68 1c 01 00 00       	push   $0x11c
+ 44f:	68 61 00 00 00       	push   $0x61
+ 454:	e8 fc ff ff ff       	call   455 <fs_init+0xe5>
+ 459:	83 c4 1c             	add    $0x1c,%esp
+ 45c:	c3                   	ret
+ 45d:	8d 76 00             	lea    0x0(%esi),%esi
+
+00000460 <fs_read>:
+ 460:	57                   	push   %edi
+ 461:	56                   	push   %esi
+ 462:	31 f6                	xor    %esi,%esi
+ 464:	53                   	push   %ebx
+ 465:	bb 20 00 08 00       	mov    $0x80020,%ebx
+ 46a:	8b 7c 24 10          	mov    0x10(%esp),%edi
+ 46e:	eb 1e                	jmp    48e <fs_read+0x2e>
+ 470:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 477:	00 
+ 478:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 47f:	00 
+ 480:	83 c6 01             	add    $0x1,%esi
+ 483:	83 c3 48             	add    $0x48,%ebx
+ 486:	81 fe 80 00 00 00    	cmp    $0x80,%esi
+ 48c:	74 52                	je     4e0 <fs_read+0x80>
+ 48e:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+ 492:	74 ec                	je     480 <fs_read+0x20>
+ 494:	83 ec 08             	sub    $0x8,%esp
+ 497:	57                   	push   %edi
+ 498:	53                   	push   %ebx
+ 499:	e8 fc ff ff ff       	call   49a <fs_read+0x3a>
+ 49e:	83 c4 10             	add    $0x10,%esp
+ 4a1:	85 c0                	test   %eax,%eax
+ 4a3:	75 db                	jne    480 <fs_read+0x20>
+ 4a5:	8d 04 f6             	lea    (%esi,%esi,8),%eax
+ 4a8:	8d 04 c5 20 00 08 00 	lea    0x80020(,%eax,8),%eax
+ 4af:	80 78 44 00          	cmpb   $0x0,0x44(%eax)
+ 4b3:	75 2b                	jne    4e0 <fs_read+0x80>
+ 4b5:	8b 58 40             	mov    0x40(%eax),%ebx
+ 4b8:	39 5c 24 18          	cmp    %ebx,0x18(%esp)
+ 4bc:	0f 46 5c 24 18       	cmovbe 0x18(%esp),%ebx
+ 4c1:	83 ec 04             	sub    $0x4,%esp
+ 4c4:	53                   	push   %ebx
+ 4c5:	8b 40 3c             	mov    0x3c(%eax),%eax
+ 4c8:	05 20 00 00 00       	add    $0x20,%eax
+ 4cd:	50                   	push   %eax
+ 4ce:	ff 74 24 20          	push   0x20(%esp)
+ 4d2:	e8 fc ff ff ff       	call   4d3 <fs_read+0x73>
+ 4d7:	89 d8                	mov    %ebx,%eax
+ 4d9:	83 c4 10             	add    $0x10,%esp
+ 4dc:	5b                   	pop    %ebx
+ 4dd:	5e                   	pop    %esi
+ 4de:	5f                   	pop    %edi
+ 4df:	c3                   	ret
+ 4e0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 4e5:	eb f5                	jmp    4dc <fs_read+0x7c>
+ 4e7:	90                   	nop
+ 4e8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 4ef:	00 
+
+000004f0 <fs_delete>:
+ 4f0:	57                   	push   %edi
+ 4f1:	56                   	push   %esi
+ 4f2:	31 f6                	xor    %esi,%esi
+ 4f4:	53                   	push   %ebx
+ 4f5:	bb 20 00 08 00       	mov    $0x80020,%ebx
+ 4fa:	8b 7c 24 10          	mov    0x10(%esp),%edi
+ 4fe:	eb 0e                	jmp    50e <fs_delete+0x1e>
+ 500:	83 c6 01             	add    $0x1,%esi
+ 503:	83 c3 48             	add    $0x48,%ebx
+ 506:	81 fe 80 00 00 00    	cmp    $0x80,%esi
+ 50c:	74 26                	je     534 <fs_delete+0x44>
+ 50e:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+ 512:	74 ec                	je     500 <fs_delete+0x10>
+ 514:	83 ec 08             	sub    $0x8,%esp
+ 517:	57                   	push   %edi
+ 518:	53                   	push   %ebx
+ 519:	e8 fc ff ff ff       	call   51a <fs_delete+0x2a>
+ 51e:	83 c4 10             	add    $0x10,%esp
+ 521:	85 c0                	test   %eax,%eax
+ 523:	75 db                	jne    500 <fs_delete+0x10>
+ 525:	8d 14 f6             	lea    (%esi,%esi,8),%edx
+ 528:	c6 04 d5 65 00 08 00 	movb   $0x0,0x80065(,%edx,8)
+ 52f:	00 
+ 530:	5b                   	pop    %ebx
+ 531:	5e                   	pop    %esi
+ 532:	5f                   	pop    %edi
+ 533:	c3                   	ret
+ 534:	5b                   	pop    %ebx
+ 535:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 53a:	5e                   	pop    %esi
+ 53b:	5f                   	pop    %edi
+ 53c:	c3                   	ret
+ 53d:	8d 76 00             	lea    0x0(%esi),%esi
+
+00000540 <fs_list>:
+ 540:	55                   	push   %ebp
+ 541:	57                   	push   %edi
+ 542:	56                   	push   %esi
+ 543:	53                   	push   %ebx
+ 544:	83 ec 28             	sub    $0x28,%esp
+ 547:	ff 74 24 3c          	push   0x3c(%esp)
+ 54b:	e8 fc ff ff ff       	call   54c <fs_list+0xc>
+ 550:	8b 54 24 48          	mov    0x48(%esp),%edx
+ 554:	83 c4 10             	add    $0x10,%esp
+ 557:	85 d2                	test   %edx,%edx
+ 559:	0f 8e cb 00 00 00    	jle    62a <fs_list+0xea>
+ 55f:	89 c6                	mov    %eax,%esi
+ 561:	bb 20 00 08 00       	mov    $0x80020,%ebx
+ 566:	31 ff                	xor    %edi,%edi
+ 568:	31 ed                	xor    %ebp,%ebp
+ 56a:	eb 20                	jmp    58c <fs_list+0x4c>
+ 56c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 570:	83 c5 01             	add    $0x1,%ebp
+ 573:	83 c3 48             	add    $0x48,%ebx
+ 576:	81 fd 80 00 00 00    	cmp    $0x80,%ebp
+ 57c:	0f 84 9c 00 00 00    	je     61e <fs_list+0xde>
+ 582:	3b 7c 24 38          	cmp    0x38(%esp),%edi
+ 586:	0f 8d 92 00 00 00    	jge    61e <fs_list+0xde>
+ 58c:	80 7b 45 00          	cmpb   $0x0,0x45(%ebx)
+ 590:	74 de                	je     570 <fs_list+0x30>
+ 592:	83 ec 04             	sub    $0x4,%esp
+ 595:	56                   	push   %esi
+ 596:	ff 74 24 38          	push   0x38(%esp)
+ 59a:	53                   	push   %ebx
+ 59b:	e8 fc ff ff ff       	call   59c <fs_list+0x5c>
+ 5a0:	83 c4 10             	add    $0x10,%esp
+ 5a3:	85 c0                	test   %eax,%eax
+ 5a5:	75 c9                	jne    570 <fs_list+0x30>
+ 5a7:	0f b6 0c 33          	movzbl (%ebx,%esi,1),%ecx
+ 5ab:	84 c9                	test   %cl,%cl
+ 5ad:	74 c1                	je     570 <fs_list+0x30>
+ 5af:	8d 44 1e 01          	lea    0x1(%esi,%ebx,1),%eax
+ 5b3:	eb 15                	jmp    5ca <fs_list+0x8a>
+ 5b5:	8d 76 00             	lea    0x0(%esi),%esi
+ 5b8:	2e 8d b4 26 00 00 00 	lea    %cs:0x0(%esi,%eiz,1),%esi
+ 5bf:	00 
+ 5c0:	0f b6 08             	movzbl (%eax),%ecx
+ 5c3:	83 c0 01             	add    $0x1,%eax
+ 5c6:	84 c9                	test   %cl,%cl
+ 5c8:	74 14                	je     5de <fs_list+0x9e>
+ 5ca:	80 f9 2f             	cmp    $0x2f,%cl
+ 5cd:	75 f1                	jne    5c0 <fs_list+0x80>
+ 5cf:	80 38 00             	cmpb   $0x0,(%eax)
+ 5d2:	75 9c                	jne    570 <fs_list+0x30>
+ 5d4:	0f b6 08             	movzbl (%eax),%ecx
+ 5d7:	83 c0 01             	add    $0x1,%eax
+ 5da:	84 c9                	test   %cl,%cl
+ 5dc:	75 ec                	jne    5ca <fs_list+0x8a>
+ 5de:	83 ec 04             	sub    $0x4,%esp
+ 5e1:	6b cf 44             	imul   $0x44,%edi,%ecx
+ 5e4:	03 4c 24 38          	add    0x38(%esp),%ecx
+ 5e8:	83 c5 01             	add    $0x1,%ebp
+ 5eb:	6a 3b                	push   $0x3b
+ 5ed:	83 c7 01             	add    $0x1,%edi
+ 5f0:	53                   	push   %ebx
+ 5f1:	83 c3 48             	add    $0x48,%ebx
+ 5f4:	51                   	push   %ecx
+ 5f5:	89 4c 24 1c          	mov    %ecx,0x1c(%esp)
+ 5f9:	e8 fc ff ff ff       	call   5fa <fs_list+0xba>
+ 5fe:	8b 43 f8             	mov    -0x8(%ebx),%eax
+ 601:	8b 4c 24 1c          	mov    0x1c(%esp),%ecx
+ 605:	83 c4 10             	add    $0x10,%esp
+ 608:	89 41 3c             	mov    %eax,0x3c(%ecx)
+ 60b:	0f b6 43 fc          	movzbl -0x4(%ebx),%eax
+ 60f:	88 41 40             	mov    %al,0x40(%ecx)
+ 612:	81 fd 80 00 00 00    	cmp    $0x80,%ebp
+ 618:	0f 85 64 ff ff ff    	jne    582 <fs_list+0x42>
+ 61e:	83 c4 1c             	add    $0x1c,%esp
+ 621:	89 fd                	mov    %edi,%ebp
+ 623:	5b                   	pop    %ebx
+ 624:	89 e8                	mov    %ebp,%eax
+ 626:	5e                   	pop    %esi
+ 627:	5f                   	pop    %edi
+ 628:	5d                   	pop    %ebp
+ 629:	c3                   	ret
+ 62a:	83 c4 1c             	add    $0x1c,%esp
+ 62d:	31 ed                	xor    %ebp,%ebp
+ 62f:	5b                   	pop    %ebx
+ 630:	89 e8                	mov    %ebp,%eax
+ 632:	5e                   	pop    %esi
+ 633:	5f                   	pop    %edi
+ 634:	5d                   	pop    %ebp
+ 635:	c3                   	ret

@@ -1,0 +1,108 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          3356 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         14
+  Section header string table index: 13
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 0007cd 00  AX  0   0 16
+  [ 2] .rel.text         REL             00000000 000be8 0000a0 08   I 11   1  4
+  [ 3] .data             PROGBITS        00000000 000801 000000 00  WA  0   0  1
+  [ 4] .bss              NOBITS          00000000 000804 0007c0 00  WA  0   0 32
+  [ 5] .rodata.str1.1    PROGBITS        00000000 000804 000043 01 AMS  0   0  1
+  [ 6] .comment          PROGBITS        00000000 000847 00001c 01  MS  0   0  1
+  [ 7] .note.GNU-stack   PROGBITS        00000000 000863 000000 00      0   0  1
+  [ 8] .note.gnu.pr[...] NOTE            00000000 000864 000028 00   A  0   0  4
+  [ 9] .eh_frame         PROGBITS        00000000 00088c 0001a8 00   A  0   0  4
+  [10] .rel.eh_frame     REL             00000000 000c88 000018 08   I 11   9  4
+  [11] .symtab           SYMTAB          00000000 000a34 000110 10     12   7  4
+  [12] .strtab           STRTAB          00000000 000b44 0000a4 00      0   0  1
+  [13] .shstrtab         STRTAB          00000000 000ca0 000079 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+There are no program headers in this file.
+
+There is no dynamic section in this file.
+
+Relocation section '.rel.text' at offset 0xbe8 contains 20 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+0000000a  00000301 R_386_32          00000000   .bss
+0000002c  00000301 R_386_32          00000000   .bss
+00000032  00000301 R_386_32          00000000   .bss
+00000038  00000802 R_386_PC32        00000000   memset
+0000005b  00000902 R_386_PC32        00000000   pit_get_ticks
+00000244  00000b02 R_386_PC32        00000000   fb_fill_rounded_rect
+000002c0  00000c02 R_386_PC32        00000000   fb_fill_circle
+000002dd  00000c02 R_386_PC32        00000000   fb_fill_circle
+000002fd  00000601 R_386_32          00000000   .rodata.str1.1
+0000030e  00000601 R_386_32          00000000   .rodata.str1.1
+0000031f  00000d02 R_386_PC32        00000000   fb_draw_string_nobg
+00000329  00000601 R_386_32          00000000   .rodata.str1.1
+00000339  00000d02 R_386_PC32        00000000   fb_draw_string_nobg
+0000037e  00000e02 R_386_PC32        00000000   itoa
+0000038b  00000f02 R_386_PC32        00000000   strcat
+00000392  00000601 R_386_32          00000000   .rodata.str1.1
+00000398  00000f02 R_386_PC32        00000000   strcat
+000003ae  00000d02 R_386_PC32        00000000   fb_draw_string_nobg
+000005a2  00000601 R_386_32          00000000   .rodata.str1.1
+00000647  00000902 R_386_PC32        00000000   pit_get_ticks
+
+Relocation section '.rel.eh_frame' at offset 0xc88 contains 3 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000020  00000202 R_386_PC32        00000000   .text
+00000070  00000202 R_386_PC32        00000000   .text
+00000144  00000202 R_386_PC32        00000000   .text
+No processor specific unwind information to decode
+
+Symbol table '.symtab' contains 17 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS physics.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    4 .bss
+     4: 00000000     4 OBJECT  LOCAL  DEFAULT    4 pstate_count
+     5: 00000020  1952 OBJECT  LOCAL  DEFAULT    4 pstates
+     6: 00000000     0 SECTION LOCAL  DEFAULT    5 .rodata.str1.1
+     7: 00000000   489 FUNC    GLOBAL DEFAULT    1 physics_create
+     8: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memset
+     9: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND pit_get_ticks
+    10: 000001f0   976 FUNC    GLOBAL DEFAULT    1 physics_draw
+    11: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_fill_rounded_rect
+    12: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_fill_circle
+    13: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fb_draw_string_nobg
+    14: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND itoa
+    15: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND strcat
+    16: 000005c0   525 FUNC    GLOBAL DEFAULT    1 physics_on_key
+
+No version information found in this file.
+
+There is no GOT section in this file.
+
+Displaying notes found in: .note.gnu.property
+  Owner                Data size 	Description
+  GNU                  0x00000018	NT_GNU_PROPERTY_TYPE_0
+      Properties: x86 ISA used: x86-64-baseline
+	x86 feature used: x86

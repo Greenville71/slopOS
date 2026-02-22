@@ -1,0 +1,20 @@
+GCC: (GNU) 15.2.1 20260209
+isr.c
+handlers
+isr_register_handler
+pic_init
+pic_send_eoi
+irq_clear_mask
+irq_set_mask
+isr_handler
+irq_handler
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

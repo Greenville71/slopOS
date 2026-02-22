@@ -1,0 +1,13 @@
+00000000 r brick_colors
+         U fb_draw_string_nobg
+         U fb_fill_circle
+         U fb_fill_rounded_rect
+00000070 T game_create
+000000c0 T game_draw
+00000650 T game_on_key
+00000000 t game_reset
+00000000 b gstate_count
+00000020 b gstates
+         U itoa
+         U memset
+         U strcat

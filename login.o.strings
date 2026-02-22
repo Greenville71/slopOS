@@ -1,0 +1,54 @@
+UWVS
+D$P1
+j8j8
+hD21
+j$h,
+D$dP
+j$h,
+D$hPh
+/hom
+[^_]
+D$lP
+Y^h<
+[^_]
+user
+Welcome back
+Username
+Log in
+Press Enter to continue
+user
+/welcome.txt
+Welcome to SlopOS!
+GCC: (GNU) 15.2.1 20260209
+login.c
+login_screen
+fb_get_width
+fb_get_height
+fb_draw_hline
+fb_fill_rounded_rect
+fb_draw_string_nobg
+pit_get_ticks
+fb_flip
+keyboard_has_char
+keyboard_get_char
+pit_sleep_ms
+current_user
+strncpy
+strcat
+fs_exists
+fb_fill_rect
+strcpy
+fs_mkdir
+strlen
+fs_create
+.symtab
+.strtab
+.shstrtab
+.rel.text
+.data
+.bss
+.rodata.str1.1
+.comment
+.note.GNU-stack
+.note.gnu.property
+.rel.eh_frame

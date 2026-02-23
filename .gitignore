@@ -1,0 +1,12 @@
+# Binaries
+*.bin
+*.iso
+*.o
+
+# Directories
+iso/
+dist/
+
+# Editor files
+.vscode/
+*.swp

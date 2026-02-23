@@ -5,7 +5,10 @@
 #define ATA_PRIMARY_DCR 0x3F6
 
 void ata_init(void) {
-    // Identify or reset
+    // Reset
+    outb(ATA_PRIMARY_DCR, 0x04);
+    // ... wait ...
+    outb(ATA_PRIMARY_DCR, 0x00);
 }
 
 static void ata_wait_bsy(void) {
@@ -18,13 +21,14 @@ static void ata_wait_drq(void) {
 
 void ata_read_sector(uint32_t lba, uint8_t* buffer) {
     ata_wait_bsy();
+
     outb(ATA_PRIMARY_IO + 6, 0xE0 | ((lba >> 24) & 0x0F));
-    outb(ATA_PRIMARY_IO + 1, 0x00);
-    outb(ATA_PRIMARY_IO + 2, 1);
+    outb(ATA_PRIMARY_IO + 1, 0x00); // Feature
+    outb(ATA_PRIMARY_IO + 2, 1);    // Count
     outb(ATA_PRIMARY_IO + 3, (uint8_t)lba);
     outb(ATA_PRIMARY_IO + 4, (uint8_t)(lba >> 8));
     outb(ATA_PRIMARY_IO + 5, (uint8_t)(lba >> 16));
-    outb(ATA_PRIMARY_IO + 7, 0x20); // Read
+    outb(ATA_PRIMARY_IO + 7, 0x20); // CMD_READ_PIO
 
     ata_wait_bsy();
     ata_wait_drq();
@@ -38,13 +42,14 @@ void ata_read_sector(uint32_t lba, uint8_t* buffer) {
 
 void ata_write_sector(uint32_t lba, uint8_t* buffer) {
     ata_wait_bsy();
+
     outb(ATA_PRIMARY_IO + 6, 0xE0 | ((lba >> 24) & 0x0F));
-    outb(ATA_PRIMARY_IO + 1, 0x00);
-    outb(ATA_PRIMARY_IO + 2, 1);
+    outb(ATA_PRIMARY_IO + 1, 0x00); // Feature
+    outb(ATA_PRIMARY_IO + 2, 1);    // Count
     outb(ATA_PRIMARY_IO + 3, (uint8_t)lba);
     outb(ATA_PRIMARY_IO + 4, (uint8_t)(lba >> 8));
     outb(ATA_PRIMARY_IO + 5, (uint8_t)(lba >> 16));
-    outb(ATA_PRIMARY_IO + 7, 0x30); // Write
+    outb(ATA_PRIMARY_IO + 7, 0x30); // CMD_WRITE_PIO
 
     ata_wait_bsy();
     ata_wait_drq();
@@ -53,4 +58,7 @@ void ata_write_sector(uint32_t lba, uint8_t* buffer) {
         uint16_t data = buffer[i * 2] | (buffer[i * 2 + 1] << 8);
         outw(ATA_PRIMARY_IO, data);
     }
+
+    outb(ATA_PRIMARY_IO + 7, 0xE7); // Cache Flush
+    ata_wait_bsy();
 }

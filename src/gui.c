@@ -5,6 +5,7 @@
 #include "memory.h"
 #include "string.h"
 #include "terminal.h"
+#include "shell.h"
 
 // App spawners
 void sp_terminal(void);
@@ -80,6 +81,11 @@ void gui_draw_window(window_t* w) {
     fb_fill_rect(w->x + w->w - 18, w->y - 18, 16, 16, 0xFFCC0000);
     fb_draw_char(w->x + w->w - 14, w->y - 18, 'X', 0xFFFFFFFF);
 
+    // Update window content if callback exists
+    if (w->draw) {
+        w->draw(w);
+    }
+
     // Draw content
     // For now, just copy buffer to framebuffer
     // Ideally we clip
@@ -88,10 +94,6 @@ void gui_draw_window(window_t* w) {
             uint32_t color = w->buffer[j * w->w + i];
             fb_put_pixel(w->x + i, w->y + j, color);
         }
-    }
-
-    if (w->draw) {
-        w->draw(w);
     }
 }
 
@@ -106,7 +108,6 @@ void gui_draw_taskbar(void) {
 }
 
 void gui_run(void) {
-    int prev_mx = 0, prev_my = 0;
     bool dragging = false;
     int drag_off_x = 0, drag_off_y = 0;
 
@@ -115,7 +116,15 @@ void gui_run(void) {
         int my = mouse_get_y();
         int buttons = mouse_get_buttons();
 
-        // Input handling
+        // Keyboard Input handling
+        if (keyboard_has_char()) {
+            char c = keyboard_get_char();
+            if (focused_window && focused_window->on_key) {
+                focused_window->on_key(focused_window, c);
+            }
+        }
+
+        // Mouse Input handling
         if (buttons & 1) { // Left click
             // Check windows (front to back for click detection, back to front for drawing? No, focused is top)
             // We need Z-order. List is front-to-back?
@@ -206,5 +215,5 @@ void gui_run(void) {
 
 // Spawners
 void sp_terminal(void) {
-    gui_create_window("Terminal", 50, 50, 300, 200);
+    shell_init();
 }

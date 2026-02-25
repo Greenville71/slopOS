@@ -5,6 +5,7 @@
 #include "memory.h"
 #include "string.h"
 #include "terminal.h"
+#include "shell.h"
 
 // App spawners
 void sp_terminal(void);
@@ -180,6 +181,14 @@ void gui_run(void) {
             dragging = false;
         }
 
+        // Keyboard handling
+        while (keyboard_has_char()) {
+            char c = keyboard_get_char();
+            if (focused_window && focused_window->on_key) {
+                focused_window->on_key(focused_window, c);
+            }
+        }
+
         // Drawing
         fb_clear(0xFF008080); // Desktop color
 
@@ -206,5 +215,6 @@ void gui_run(void) {
 
 // Spawners
 void sp_terminal(void) {
-    gui_create_window("Terminal", 50, 50, 300, 200);
+    window_t* win = gui_create_window("Terminal", 50, 50, 640, 400);
+    shell_init(win);
 }

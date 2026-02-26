@@ -2,12 +2,11 @@
 #define FILEMANAGER_H
 
 #include "types.h"
+#include "gui.h"
 
-void filemanager_init(void);
-void filemanager_draw(void);
-void filemgr_create(const char* name);
-void filemgr_draw(void);
-void filemgr_on_key(char c);
-void filemgr_on_mouse(int x, int y, int buttons);
+void filemgr_init(window_t* win);
+void filemgr_draw(window_t* win);
+void filemgr_on_key(window_t* win, char c);
+void filemgr_on_mouse(window_t* win, int x, int y, int buttons);
 
 #endif

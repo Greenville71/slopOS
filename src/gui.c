@@ -6,6 +6,7 @@
 #include "string.h"
 #include "terminal.h"
 #include "shell.h"
+#include "filemanager.h" // Added
 
 // App spawners
 void sp_terminal(void);
@@ -104,10 +105,13 @@ void gui_draw_taskbar(void) {
     // Start button
     fb_fill_rect(2, h - 28, 50, 26, 0xFF888888);
     fb_draw_string(5, h - 20, "Start", 0xFF000000);
+
+    // Files button
+    fb_fill_rect(60, h - 28, 50, 26, 0xFF888888);
+    fb_draw_string(63, h - 20, "Files", 0xFF000000);
 }
 
 void gui_run(void) {
-    int prev_mx = 0, prev_my = 0;
     bool dragging = false;
     int drag_off_x = 0, drag_off_y = 0;
 
@@ -167,6 +171,9 @@ void gui_run(void) {
                             // Start menu logic (spawn apps for demo)
                             // Cycle through apps?
                             sp_terminal();
+                        } else if (mx >= 60 && mx < 110) {
+                            // Files button
+                            sp_files();
                         }
                     }
                 }
@@ -217,4 +224,12 @@ void gui_run(void) {
 void sp_terminal(void) {
     window_t* win = gui_create_window("Terminal", 50, 50, 640, 400);
     shell_init(win);
+}
+
+void sp_files(void) {
+    window_t* win = gui_create_window("File Manager", 100, 100, 500, 400);
+    filemgr_init(win);
+    win->draw = filemgr_draw;
+    win->on_key = filemgr_on_key;
+    win->on_mouse = filemgr_on_mouse;
 }

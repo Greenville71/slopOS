@@ -6,6 +6,7 @@
 #include "string.h"
 #include "terminal.h"
 #include "shell.h"
+#include "sysmon.h"
 
 // App spawners
 void sp_terminal(void);
@@ -15,6 +16,7 @@ void sp_game(void);
 void sp_files(void);
 void sp_settings(void);
 void sp_physics(void);
+void sp_sysmon(void);
 
 // Global state
 window_t* windows = NULL;
@@ -104,6 +106,10 @@ void gui_draw_taskbar(void) {
     // Start button
     fb_fill_rect(2, h - 28, 50, 26, 0xFF888888);
     fb_draw_string(5, h - 20, "Start", 0xFF000000);
+
+    // SysMon button
+    fb_fill_rect(60, h - 28, 60, 26, 0xFF888888);
+    fb_draw_string(65, h - 20, "SysMon", 0xFF000000);
 }
 
 void gui_run(void) {
@@ -165,8 +171,9 @@ void gui_run(void) {
                     if (my >= (int)fb_get_height() - 30) {
                         if (mx < 55) {
                             // Start menu logic (spawn apps for demo)
-                            // Cycle through apps?
                             sp_terminal();
+                        } else if (mx >= 60 && mx < 120) {
+                             sp_sysmon();
                         }
                     }
                 }
@@ -217,4 +224,9 @@ void gui_run(void) {
 void sp_terminal(void) {
     window_t* win = gui_create_window("Terminal", 50, 50, 640, 400);
     shell_init(win);
+}
+
+void sp_sysmon(void) {
+    window_t* win = gui_create_window("System Monitor", 100, 100, 300, 200);
+    sysmon_init(win);
 }

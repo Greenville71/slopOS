@@ -2,7 +2,7 @@
 #include "string.h"
 #include "memory.h"
 
-#define FS_MAX_FILES 128
+
 #define FS_METADATA_ADDR 0x80020
 #define FS_DATA_START 0x100000 // 1MB, or wherever kernel isn't
 // Actually, let's use a static array for safety in this reconstruction
@@ -10,14 +10,6 @@
 // For now, I'll use a static array to avoid corrupting low memory if the kernel is there.
 // But wait, the kernel is at 1MB. 0x80020 is free.
 
-typedef struct {
-    char name[60];
-    uint32_t address;
-    uint32_t size;
-    uint8_t type;
-    uint8_t exists;
-    uint8_t padding[2];
-} __attribute__((packed)) fs_entry_t;
 
 fs_entry_t* fs_table = (fs_entry_t*)FS_METADATA_ADDR;
 
@@ -80,4 +72,8 @@ void fs_write(const char* name, uint8_t* buffer, uint32_t size) {
 
 void fs_list(void) {
     // Print to terminal?
+}
+
+fs_entry_t* fs_get_table(void) {
+    return fs_table;
 }
